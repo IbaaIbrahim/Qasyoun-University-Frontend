@@ -1,0 +1,54 @@
+{
+  "name": "acadia-next-js",
+  "version": "2.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "clean": "rm -rf node_modules package-lock.json yarn.lock",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@fullcalendar/core": "^6.1.19",
+    "@fullcalendar/daygrid": "^6.1.19",
+    "@fullcalendar/interaction": "^6.1.19",
+    "@fullcalendar/react": "^6.1.19",
+    "@fullcalendar/timegrid": "^6.1.19",
+    "@popperjs/core": "^2.11.8",
+    "apexcharts": "^5.3.6",
+    "bootstrap": "^5.3.8",
+    "next": "16.0.3",
+    "react": "19.2.0",
+    "react-apexcharts": "^1.8.0",
+    "react-bootstrap": "^2.10.10",
+    "react-dom": "19.2.0",
+    "react-flatpickr": "^4.0.11",
+    "react-hook-form": "^7.66.1",
+    "react-paginate": "^8.3.0",
+    "react-range": "^1.10.0",
+    "react-select": "^5.10.2",
+    "react-slick": "^0.31.0",
+    "react-timer-hook": "^4.0.5",
+    "react-use": "^17.6.0",
+    "sass": "^1.94.1",
+    "sharp": "^0.34.5",
+    "slick-carousel": "^1.8.1",
+    "swiper": "^12.0.3",
+    "wowjs": "^1.1.3"
+  },
+  "devDependencies": {
+    "@types/node": "^24",
+    "@types/react": "19.2.6",
+    "@types/react-dom": "19.2.3",
+    "@types/react-flatpickr": "^3.8.11",
+    "@types/react-slick": "^0.23.13",
+    "eslint": "^9",
+    "eslint-config-next": "16.0.3",
+    "typescript": "^5"
+  },
+  "resolutions": {
+    "@types/react": "19.2.6",
+    "@types/react-dom": "19.2.3"
+  }
+}
