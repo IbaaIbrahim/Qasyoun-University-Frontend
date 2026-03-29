@@ -1,9 +1,11 @@
 import { Metadata } from 'next';
+
+export const dynamic = 'force-dynamic';
 import HeroAreaOne from '@/components/hero-area/hero-area-one';
 import ServiceOne from '@/components/service/service-one';
 import AboutOne from '@/components/about/about-one';
 import CounterOne from '@/components/counter/counter-one';
-import ProgramArea from '@/components/program/program-area';
+import FacultyArea from '@/components/faculty/faculty-area';
 import EventArea from '@/components/event/event-area';
 import TestimonialOne from '@/components/testimonial/testimonial-one';
 import BlogOne from '@/components/blog/blog-one';
@@ -11,7 +13,7 @@ import InstagramArea from '@/components/instagram/instagram-area';
 import CtaOne from '@/components/cta/cta-one';
 
 export const metadata: Metadata = {
-  title: "Home University Classic - Acadia",
+  title: "Home - Qasyoun Private University",
 };
 
 export default function HomePage() {
@@ -33,9 +35,9 @@ export default function HomePage() {
       <CounterOne/>
       {/* counter area end */}
 
-      {/* program area start */}
-      <ProgramArea/>
-      {/* program area end */}
+      {/* faculties area start */}
+      <FacultyArea/>
+      {/* faculties area end */}
 
       {/* event area start */}
       <EventArea/>

@@ -32,8 +32,9 @@ const crismon_secondary = Crimson_Pro({
 
 
 export const metadata: Metadata = {
-  title: "Acadia - University & Online Course Next js Template",
-  description: "Acadia – template is perfect for a variety of educational needs, including e-Learning, Course Schools, Online Schools, Kindergartens, Classic LMS setups, University Status pages, Instructor Portfolios, Language Academies, Gym Coaching, Online Courses, Single Courses, marketplaces, University Classics, Elegant Homepages, Technology-focused Homepages, and more",
+  title: "Qasyoun Private University",
+  description:
+    "Qasyoun Private University (QPU) — official site migration in progress from qpu.edu.sy.",
 };
 
 export default function RootLayout({

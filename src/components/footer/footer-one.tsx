@@ -79,18 +79,31 @@ export default function FooterOne({ style_2 = false }: IProps) {
             <div className="col-xl-4 col-lg-4 col-sm-8">
               <div className={`p-footer-widget ${style_2 ? 'tp-footer-5-col-4' : 'tp-footer-col-4'} mb-30`}>
                 <h4 className="tp-footer-widget-title mb-20">Our Newsletter</h4>
-                <div className="tp-footer-newsletter-wrap">
+                <div
+                  className="tp-footer-newsletter-wrap"
+                  suppressHydrationWarning
+                >
                   <p>
                     Enter your email and we will send you <br /> more
                     information
                   </p>
-                  <form action="#">
+                  <form action="#" suppressHydrationWarning>
                     <div className="tp-footer-newsletter-wrapper mb-30">
                       <div className={`tp-footer-newsletter-input ${style_2 ? 'tp-footer-5-newsletter-input' : ''}`}>
-                        <input type="email" placeholder="Your email" />
+                        <input
+                          type="email"
+                          placeholder="Your email"
+                          suppressHydrationWarning
+                        />
                       </div>
                       <div className={`${style_2 ? 'tp-footer-5-newsletter-submit' : 'tp-footer-newsletter-submit'}`}>
-                        <button className={`${style_2 ? 'tp-btn-4' : 'tp-btn'}`}>Subscribe</button>
+                        <button
+                          type="submit"
+                          className={`${style_2 ? 'tp-btn-4' : 'tp-btn'}`}
+                          suppressHydrationWarning
+                        >
+                          Subscribe
+                        </button>
                       </div>
                     </div>
                   </form>
@@ -110,7 +123,7 @@ export default function FooterOne({ style_2 = false }: IProps) {
           <div className="row">
             <div className="col-lg-12">
               <div className="tp-footer-copyright text-center">
-                <span>
+                <span suppressHydrationWarning>
                   © {new Date().getFullYear()} <a href="#">Acadia</a>. All
                   rights reserved.
                 </span>

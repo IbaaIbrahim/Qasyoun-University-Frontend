@@ -30,7 +30,7 @@ export default function AboutTwo({ spacing = 'pt-115 pb-90' }: IProps) {
                   <div className="tp-about-4-wrapper mb-75 wow fadeInUp" data-wow-delay=".3s">
                      <h2 className="tp-about-4-head">Our goal is to develop and meet the needs of each child so that he or she becomes a well-rounded tomorrow individual.</h2>
                      <div className="tp-about-4-btn wow fadeInUp" data-wow-delay=".5s">
-                        <Link className="tp-btn-3" href="/university-about">Why Choose Acadia</Link>
+                        <Link className="tp-btn-3" href="/">Why Choose QPU</Link>
                         <div className="tp-about-4-video">
                            <button className="popup-video" onClick={() => playVideo("LlCwHnp3kL4")}>
                               <span>

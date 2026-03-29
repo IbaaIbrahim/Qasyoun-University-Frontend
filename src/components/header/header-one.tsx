@@ -48,7 +48,7 @@ export default function HeaderOne() {
                     <SearchButton icon={<SearchSvg />} />
                   </div>
                   <div className="tp-header-btn d-none d-md-block ml-30">
-                    <Link href="/university-application-form">Apply Now</Link>
+                    <Link href="/faculties">Faculties</Link>
                   </div>
                   <div className="tp-header-bar d-xl-none ml-30">
                     <OffcanvasButton/>

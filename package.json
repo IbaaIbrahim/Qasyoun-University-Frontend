@@ -17,6 +17,7 @@
     "@fullcalendar/timegrid": "^6.1.19",
     "@popperjs/core": "^2.11.8",
     "apexcharts": "^5.3.6",
+    "axios": "^1.14.0",
     "bootstrap": "^5.3.8",
     "next": "16.0.3",
     "react": "19.2.0",
