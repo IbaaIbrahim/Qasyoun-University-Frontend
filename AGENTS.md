@@ -4,8 +4,28 @@ This app implements [Qasyoun Private University](https://qpu.edu.sy/) against th
 
 ## Scope and documentation (read this first)
 
-- **Document what you change** in this file when you materially extend behavior, routes, or cross-cutting setup (API, i18n, env), so the next session matches reality.
+- **Document what you change** in this file when you materially extend **global** behavior: shipped routes table, cross-cutting setup (API, i18n, env), or this structure overview.
+- **Feature-specific “why/how”** belongs **next to the code** (e.g. `src/components/hero-area/README.md`). Use **`docs/adr/`** only for repo-wide architectural decisions (see `docs/adr/README.md`).
 - **Stay in the current working area** unless the user explicitly asks to broaden scope. For this repo that means: the **shipped pages and routes listed below** (home, faculties on home, faculties index, faculty detail), plus shared shell pieces they depend on (header/footer/i18n). Do **not** migrate or “finish” template demo routes, mega-menu targets, or unused screens by default.
+
+## Project structure (global)
+
+High-level map of this repository:
+
+| Area | Path | Purpose |
+| --- | --- | --- |
+| App Router | `src/app/` | Next.js layouts, `globals.scss`, root wiring; **all user routes under** `src/app/[locale]/`. |
+| Pages (shipped) | `src/app/[locale]/(home)/…` | Home, faculties list, faculty detail; use `dynamic = 'force-dynamic'` where the API is required at request time. |
+| UI components | `src/components/` | Acadia-derived blocks; **shipped shell** in `header/` (includes API **news strip** in `header-top/` + language switcher), `footer/`; feature folders (`faculty/`, `hero-area/`, …). Hero: colocated README in `hero-area/`. |
+| Data & menus | `src/data/` | `menu-data.ts`, `footer-links.ts` (many links still point at template-only paths). |
+| Integration layers | `src/lib/dto/`, `src/lib/api/`, `src/lib/classes/`, `src/lib/services/` | OpenAPI-shaped types, axios resources, domain helpers, page-facing orchestration (**dto → api → class → service**). |
+| i18n | `src/i18n/`, `messages/` | next-intl routing, navigation helpers, locale messages (`en` / `ar`). |
+| Hooks | `src/hooks/` | Shared client hooks (e.g. locale switch). |
+| Static assets | `public/` | Theme images, compiled CSS from template SCSS where applicable. |
+| Contract | `v1.json` (repo root) | OpenAPI reference for the QPU API. |
+| ADRs | `docs/adr/` | Cross-cutting architecture decisions—not every feature. |
+
+**Server → client:** pass only **plain JSON-serializable** props into `"use client"` trees (e.g. `FacultyPlain` via `toPlain()`).
 
 ## Shipped pages and routes (current)
 
@@ -18,6 +38,8 @@ All user-facing app routes live under the **`[locale]`** segment (`src/app/[loca
 | `/faculties/[slug]` | `/ar/faculties/[slug]` | **Faculty detail** — breadcrumb + hero strip with API `name`; remaining sections are still template placeholders. |
 
 Default locale uses **`localePrefix: 'as-needed'`** (no `/en` in the path). Template-only links in `menu-data` and elsewhere may still point at demo paths that are **not** implemented here.
+
+**Home hero** (API wiring, image-only decision, file map): `src/components/hero-area/README.md`.
 
 ## Localization (how it is configured)
 
@@ -61,8 +83,6 @@ The **Acadia template** lives in a **separate repository** next to this one (e.g
 | Classes | `src/lib/classes/` | Domain helpers (e.g. `Faculty.fromDto()`, `toPlain()` for Server → Client). |
 | Services | `src/lib/services/` | Page-facing orchestration: filters, public-only rules, error handling. |
 
-**Server → Client props:** only plain serializable objects into `"use client"` trees (e.g. `FacultyPlain` via `faculty.toPlain()`).
-
 ## Environment
 
 - `NEXT_PUBLIC_API_BASE_URL` — optional; see `.env.example`. Default can match `servers[0].url` in `v1.json`.
@@ -75,9 +95,26 @@ Menus: `src/data/menu-data.ts`. Footer: `src/data/footer-links.ts`. Top-level na
 
 Dynamic routes that call the API may use `export const dynamic = 'force-dynamic'` and tolerant service methods (e.g. empty lists on failure) so builds and offline runs do not depend on the API.
 
-## Read endpoints
+## Read endpoints (Telerik pattern)
 
-`GET /api/{Resource}/Read` uses a `request` query parameter with JSON for `DataSourceRequest` (see `src/lib/dto/data-source.dto.ts`), e.g. `{ "skip": 0, "take": 100 }`.
+The backend uses the same Telerik/Kendo DataSource-style query pattern across `GET /api/{Resource}/Read` endpoints.
+
+Use query params (not request body), typically:
+
+- `page`, `pageSize` for paging
+- `skip`, `take` for offset paging
+- `filter` or `filters` for expressions such as `field~eq~'value'`
+- optional sort/group params as supported by each endpoint
+
+Important integration rule:
+
+- Some resources accept **`filter`** (singular), others **`filters`** (plural). Keep the param name exactly as that endpoint expects.
+- Example working shape for `ContentMeta`: `?filter=contentId~eq~'2'&page=1&pageSize=100`
+
+Recommended service behavior:
+
+- Always send the expected Telerik query param name for that specific endpoint.
+- Keep tolerant client-side guards in services (`isActive`, expected `type`, id matching) in case backend filtering is loose in some environments.
 
 ## Next steps (suggested)
 

@@ -41,7 +41,7 @@ export default function ServiceOne() {
   return (
     <section
       className="service-area tp-service-bg"
-      style={{ backgroundImage: `url(/assets/img/bg/services-bg.jpg)` }}
+      style={{ backgroundColor: "var(--tp-theme-primary)" }}
     >
       <div className="container">
         <div className="row">

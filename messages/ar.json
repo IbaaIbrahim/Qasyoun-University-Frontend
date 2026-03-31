@@ -15,6 +15,11 @@
     "pages": "صفحات",
     "blog": "المدونة"
   },
+  "NewsBanner": {
+    "label": "الأخبار",
+    "empty": "لا توجد إعلانات حالياً.",
+    "readMore": "المزيد"
+  },
   "Header": {
     "faculties": "الكليات",
     "followers": "7500 ألف متابع",

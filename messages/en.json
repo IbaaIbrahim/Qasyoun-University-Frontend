@@ -15,6 +15,11 @@
     "pages": "Pages",
     "blog": "Blog"
   },
+  "NewsBanner": {
+    "label": "News",
+    "empty": "No announcements right now.",
+    "readMore": "Read more"
+  },
   "Header": {
     "faculties": "Faculties",
     "followers": "7500k Followers",

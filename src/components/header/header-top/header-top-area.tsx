@@ -1,53 +1,36 @@
 import React from "react";
-import Image from "next/image";
-import { getTranslations } from "next-intl/server";
-import calling from "@/assets/img/icon/calling.svg";
+import { getLocale, getTranslations } from "next-intl/server";
+import { listNewsBannerItems } from "@/lib/services/news-banner.service";
 import HeaderLanguage from "./header-language";
+import HeaderNewsBannerSlider from "./header-news-banner-slider";
 
+/**
+ * Replaces the template “top bar” (social / phone / links) with a news strip driven by the API
+ * plus the language switcher on the logical **start** side (`dir` handles LTR vs RTL).
+ */
 export default async function HeaderTopArea() {
-  const t = await getTranslations("Header");
+  const locale = await getLocale();
+  const [items, t] = await Promise.all([
+    listNewsBannerItems(locale),
+    getTranslations("NewsBanner"),
+  ]);
 
   return (
-    <div className="tp-header-top theme-bg">
+    <div className="tp-header-top theme-bg tp-news-banner">
       <div className="container">
-        <div className="row">
-          <div className="col-lg-6">
-            <div className="tp-heder-info d-flex justify-content-center justify-content-lg-start align-items-center">
-              <div className="tp-header-info-item d-none d-md-block">
-                <span>
-                  <a href="https://www.facebook.com">
-                    <i className="fa-brands fa-facebook-f"></i>
-                  </a>
-                  {t("followers")}
-                </span>
-              </div>
-              <div className="tp-header-info-item">
-                <span>
-                  <a href="tel:0123456789">
-                    <i>
-                      <Image src={calling} alt="" />
-                    </i>{" "}
-                    +(402) 763 282 46
-                  </a>
-                </span>
-              </div>
-              <div className="tp-header-info-item">
-                <div className="header-bottom__lang">
-                  <ul>
-                    <HeaderLanguage />
-                  </ul>
-                </div>
-              </div>
-            </div>
+        <div className="tp-news-banner__inner d-flex align-items-center gap-3 gap-md-4">
+          <div className="header-bottom__lang tp-news-banner__lang flex-shrink-0">
+            <ul className="list-unstyled mb-0">
+              <HeaderLanguage />
+            </ul>
           </div>
-          <div className="col-lg-6 col-md-6 d-none d-lg-block">
-            <div className="tp-header-right-list d-flex justify-content-md-end">
-              <a href="#">{t("campus")}</a>
-              <a href="#">{t("students")}</a>
-              <a href="#">{t("staffs")}</a>
-              <a href="#">{t("alumni")}</a>
-              <a href="#">{t("helpDesk")}</a>
-            </div>
+
+          <div className="tp-news-banner__track flex-grow-1 min-w-0">
+            {items.length > 0 ? (
+              <HeaderNewsBannerSlider items={items} label={t("label")} />
+            ) : (
+              <div className="tp-news-banner-empty small">{t("empty")}</div>
+            )}
           </div>
         </div>
       </div>
