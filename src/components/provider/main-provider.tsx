@@ -1,6 +1,6 @@
 'use client';
 import { wowAnimation } from "@/utils";
-import { usePathname } from "next/navigation";
+import { usePathname } from "@/i18n/navigation";
 import { useEffect } from "react";
 import GlobalContextProvider from "./global-context-provider";
 

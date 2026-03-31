@@ -1,5 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import shape_line from "@/assets/img/unlerline/program-1-svg-1.svg";
 import { RightSmArrowThree } from "@/components/svg";
 import { listFacultiesForPublic } from "@/lib/services/faculty.service";
@@ -7,6 +8,7 @@ import FacultySlider from "./faculty-slider";
 
 export default async function FacultyArea() {
   const faculties = await listFacultiesForPublic();
+  const t = await getTranslations("FacultyArea");
 
   return (
     <section className="program-area mb-75">
@@ -18,7 +20,7 @@ export default async function FacultyArea() {
                 <h3 className="tp-section-title">
                   <span>
                     {" "}
-                    University{" "}
+                    {t("titleLead")}{" "}
                     <Image
                       className="tp-underline-shape-2 wow bounceIn"
                       data-wow-duration="1.5s"
@@ -27,12 +29,9 @@ export default async function FacultyArea() {
                       alt=""
                     />
                   </span>{" "}
-                  Faculties
+                  {t("titleAccent")}
                 </h3>
-                <p>
-                  Explore our faculties and academic units at Qasyoun Private
-                  University.
-                </p>
+                <p>{t("description")}</p>
               </div>
             </div>
           </div>
@@ -49,7 +48,7 @@ export default async function FacultyArea() {
           <div className="col-12">
             <div className="tp-program-all text-center">
               <p>
-                More content and programs will be linked here as we migrate from{" "}
+                {t("moreIntro")}{" "}
                 <a
                   href="https://qpu.edu.sy/"
                   target="_blank"
@@ -59,7 +58,7 @@ export default async function FacultyArea() {
                 </a>
                 .
                 <Link href="/faculties">
-                  View all faculties{" "}
+                  {t("viewAll")}{" "}
                   <span>
                     <RightSmArrowThree />
                   </span>

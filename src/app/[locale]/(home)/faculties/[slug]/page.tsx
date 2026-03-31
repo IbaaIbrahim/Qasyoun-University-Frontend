@@ -1,6 +1,5 @@
-import { Metadata } from "next";
-
-export const dynamic = "force-dynamic";
+import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import BreadcrumbTwo from "@/components/breadcrumb/breadcrumb-two";
 import AboutTwo from "@/components/about/about-two";
@@ -11,29 +10,34 @@ import AboutCampus from "@/components/about/about-campus";
 import TeamAreaThree from "@/components/team/team-area-three";
 import { getFacultyBySlug } from "@/lib/services/faculty.service";
 
+export const dynamic = "force-dynamic";
+
 type Props = {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params;
+  const { locale, slug } = await params;
+  const tMeta = await getTranslations({ locale, namespace: "Metadata" });
   const faculty = await getFacultyBySlug(slug);
   if (!faculty) {
-    return { title: "Faculty not found" };
+    return { title: tMeta("facultyNotFoundTitle") };
   }
   return {
-    title: `${faculty.name} - Qasyoun Private University`,
+    title: tMeta("facultyDetailTitle", { name: faculty.name }),
   };
 }
 
 export default async function FacultyDetailPage({ params }: Props) {
-  const { slug } = await params;
+  const { slug, locale } = await params;
   const faculty = await getFacultyBySlug(slug);
   if (!faculty) notFound();
 
+  const t = await getTranslations({ locale, namespace: "FacultyDetail" });
+
   return (
     <main>
-      <BreadcrumbTwo title={faculty.name} subtitle="Faculties" />
+      <BreadcrumbTwo title={faculty.name} subtitle={t("breadcrumbSubtitle")} />
       <section className="pt-40 pb-40 grey-bg">
         <div className="container">
           <p className="mb-0 text-center lead">{faculty.name}</p>

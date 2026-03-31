@@ -10,6 +10,342 @@
     }
   ],
   "paths": {
+    "/api/Content/Read": {
+      "get": {
+        "tags": [
+          "Content"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/DataSourceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Content/{id}": {
+      "get": {
+        "tags": [
+          "Content"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "pattern": "^-?(?:0|[1-9]\\d*)$",
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Content/Create": {
+      "post": {
+        "tags": [
+          "Content"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/DataSourceRequest"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateContentRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateContentRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateContentRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Content/Update": {
+      "put": {
+        "tags": [
+          "Content"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/DataSourceRequest"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContentDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContentDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContentDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Content/Delete": {
+      "delete": {
+        "tags": [
+          "Content"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/DataSourceRequest"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContentDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContentDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContentDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ContentMeta/Read": {
+      "get": {
+        "tags": [
+          "ContentMeta"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/DataSourceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ContentMeta/{id}": {
+      "get": {
+        "tags": [
+          "ContentMeta"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "pattern": "^-?(?:0|[1-9]\\d*)$",
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ContentMeta/Create": {
+      "post": {
+        "tags": [
+          "ContentMeta"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/DataSourceRequest"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateContentMetaRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateContentMetaRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateContentMetaRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ContentMeta/Update": {
+      "put": {
+        "tags": [
+          "ContentMeta"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/DataSourceRequest"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContentMetaDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContentMetaDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContentMetaDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ContentMeta/Delete": {
+      "delete": {
+        "tags": [
+          "ContentMeta"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/DataSourceRequest"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContentMetaDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContentMetaDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContentMetaDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Course/Read": {
       "get": {
         "tags": [
@@ -764,6 +1100,9 @@
                     "format": "uuid"
                   },
                   "Name": {
+                    "type": "string"
+                  },
+                  "Name_AR": {
                     "type": "string"
                   },
                   "IsFile": {
@@ -2145,6 +2484,113 @@
           }
         }
       },
+      "ContentDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "referenceId": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "referenceType": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "displayOrder": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "isActive": {
+            "type": "boolean"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "ContentMetaDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "contentId": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "type": {
+            "type": "string"
+          },
+          "keyName": {
+            "type": "string"
+          },
+          "value": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "value_AR": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "displayOrder": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "isActive": {
+            "type": "boolean"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
       "CourseDto": {
         "type": "object",
         "properties": {
@@ -2175,7 +2621,19 @@
           "name": {
             "type": "string"
           },
+          "name_AR": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "description": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "description_AR": {
             "type": [
               "null",
               "string"
@@ -2253,6 +2711,91 @@
           }
         }
       },
+      "CreateContentMetaRequest": {
+        "required": [
+          "contentId",
+          "type",
+          "keyName"
+        ],
+        "type": "object",
+        "properties": {
+          "contentId": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "type": {
+            "maxLength": 50,
+            "type": "string"
+          },
+          "keyName": {
+            "maxLength": 200,
+            "type": "string"
+          },
+          "value": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "value_AR": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "displayOrder": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          }
+        }
+      },
+      "CreateContentRequest": {
+        "required": [
+          "referenceId",
+          "referenceType",
+          "type",
+          "title"
+        ],
+        "type": "object",
+        "properties": {
+          "referenceId": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "referenceType": {
+            "maxLength": 100,
+            "type": "string"
+          },
+          "type": {
+            "maxLength": 100,
+            "type": "string"
+          },
+          "title": {
+            "maxLength": 300,
+            "type": "string"
+          },
+          "displayOrder": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          }
+        }
+      },
       "CreateCourseRequest": {
         "required": [
           "facultyId",
@@ -2281,7 +2824,20 @@
             "maxLength": 300,
             "type": "string"
           },
+          "name_AR": {
+            "maxLength": 300,
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "description": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "description_AR": {
             "type": [
               "null",
               "string"
@@ -2347,6 +2903,13 @@
           "name": {
             "maxLength": 200,
             "type": "string"
+          },
+          "name_AR": {
+            "maxLength": 200,
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "pictureId": {
             "type": [
@@ -2451,6 +3014,13 @@
             "maxLength": 200,
             "type": "string"
           },
+          "fullName_AR": {
+            "maxLength": 200,
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "average": {
             "pattern": "^-?(?:0|[1-9]\\d*)(?:\\.\\d+)?$",
             "type": [
@@ -2498,6 +3068,13 @@
             "maxLength": 200,
             "type": "string"
           },
+          "name_AR": {
+            "maxLength": 200,
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "pictureId": {
             "type": [
               "null",
@@ -2506,6 +3083,12 @@
             "format": "uuid"
           },
           "content": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "content_AR": {
             "type": [
               "null",
               "string"
@@ -2552,7 +3135,20 @@
             "maxLength": 300,
             "type": "string"
           },
+          "title_AR": {
+            "maxLength": 300,
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "content": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "content_AR": {
             "type": [
               "null",
               "string"
@@ -2623,7 +3219,20 @@
             "maxLength": 300,
             "type": "string"
           },
+          "title_AR": {
+            "maxLength": 300,
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "details": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "details_AR": {
             "type": [
               "null",
               "string"
@@ -2675,6 +3284,13 @@
             "maxLength": 300,
             "type": "string"
           },
+          "name_AR": {
+            "maxLength": 300,
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "fileId": {
             "type": [
               "null",
@@ -2704,6 +3320,13 @@
           "name": {
             "maxLength": 20,
             "type": "string"
+          },
+          "name_AR": {
+            "maxLength": 20,
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "startDate": {
             "type": "string",
@@ -2736,6 +3359,13 @@
             "maxLength": 200,
             "type": "string"
           },
+          "name_AR": {
+            "maxLength": 200,
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "pictureId": {
             "type": [
               "null",
@@ -2750,7 +3380,21 @@
               "string"
             ]
           },
+          "position_AR": {
+            "maxLength": 200,
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "specialist": {
+            "maxLength": 300,
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "specialist_AR": {
             "maxLength": 300,
             "type": [
               "null",
@@ -2764,7 +3408,21 @@
               "string"
             ]
           },
+          "scientificDegree_AR": {
+            "maxLength": 300,
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "academicDegree": {
+            "maxLength": 300,
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "academicDegree_AR": {
             "maxLength": 300,
             "type": [
               "null",
@@ -2777,7 +3435,19 @@
               "string"
             ]
           },
+          "certificates_AR": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "experiences": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "experiences_AR": {
             "type": [
               "null",
               "string"
@@ -2912,6 +3582,12 @@
           "name": {
             "type": "string"
           },
+          "name_AR": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "pictureId": {
             "type": [
               "null",
@@ -3044,6 +3720,12 @@
           "fullName": {
             "type": "string"
           },
+          "fullName_AR": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "average": {
             "pattern": "^-?(?:0|[1-9]\\d*)(?:\\.\\d+)?$",
             "type": [
@@ -3146,6 +3828,12 @@
           "name": {
             "type": "string"
           },
+          "name_AR": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "pictureId": {
             "type": [
               "null",
@@ -3154,6 +3842,12 @@
             "format": "uuid"
           },
           "content": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "content_AR": {
             "type": [
               "null",
               "string"
@@ -3213,7 +3907,19 @@
           "title": {
             "type": "string"
           },
+          "title_AR": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "content": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "content_AR": {
             "type": [
               "null",
               "string"
@@ -3300,7 +4006,19 @@
           "title": {
             "type": "string"
           },
+          "title_AR": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "details": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "details_AR": {
             "type": [
               "null",
               "string"
@@ -3383,6 +4101,12 @@
           "name": {
             "type": "string"
           },
+          "name_AR": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "fileId": {
             "type": [
               "null",
@@ -3427,6 +4151,12 @@
           },
           "name": {
             "type": "string"
+          },
+          "name_AR": {
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "startDate": {
             "type": "string",
@@ -3474,6 +4204,12 @@
           "name": {
             "type": "string"
           },
+          "name_AR": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "pictureId": {
             "type": [
               "null",
@@ -3487,7 +4223,19 @@
               "string"
             ]
           },
+          "position_AR": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "specialist": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "specialist_AR": {
             "type": [
               "null",
               "string"
@@ -3499,7 +4247,19 @@
               "string"
             ]
           },
+          "scientificDegree_AR": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "academicDegree": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "academicDegree_AR": {
             "type": [
               "null",
               "string"
@@ -3511,7 +4271,19 @@
               "string"
             ]
           },
+          "certificates_AR": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "experiences": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "experiences_AR": {
             "type": [
               "null",
               "string"
@@ -3572,6 +4344,12 @@
               "string"
             ]
           },
+          "name_AR": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "parentId": {
             "type": [
               "null",
@@ -3615,6 +4393,12 @@
     }
   },
   "tags": [
+    {
+      "name": "Content"
+    },
+    {
+      "name": "ContentMeta"
+    },
     {
       "name": "Course"
     },

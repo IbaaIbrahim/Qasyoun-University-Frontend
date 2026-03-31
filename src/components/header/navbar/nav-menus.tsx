@@ -1,16 +1,35 @@
 import React from "react";
-import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 import menu_data from "@/data/menu-data";
 import NavPagesDropdown from "./dropdown/nav-pages-dropdown";
 import NavHomeDropdown from "./dropdown/nav-home-dropdown";
 import NavSmMegaMenus from "./dropdown/nav-sm-mega-menus";
+import NavLink from "@/components/i18n/nav-link";
 
-// prop type 
 type IProps = {
   sm_mega_title?: string;
-}
+};
 
-export default function NavMenus({sm_mega_title}: IProps) {
+export default async function NavMenus({ sm_mega_title }: IProps) {
+  const t = await getTranslations("Nav");
+
+  function menuTitle(id: number, fallback: string): string {
+    switch (id) {
+      case 1:
+        return t("home");
+      case 2:
+        return t("academics");
+      case 3:
+        return t("admissions");
+      case 4:
+        return t("pages");
+      case 5:
+        return t("blog");
+      default:
+        return fallback;
+    }
+  }
+
   return (
     <nav className="tp-main-menu-content">
       <ul>
@@ -21,9 +40,11 @@ export default function NavMenus({sm_mega_title}: IProps) {
               menu.home_dropdown || menu.pages_dropdown ? "tp-static" : ""
             }`}
           >
-            <Link href={menu.link}>
-              {menu.sm_mega_menus && sm_mega_title ? sm_mega_title : menu.title}
-            </Link>
+            <NavLink href={menu.link}>
+              {menu.sm_mega_menus && sm_mega_title
+                ? sm_mega_title
+                : menuTitle(menu.id, menu.title)}
+            </NavLink>
 
             {menu.home_dropdown && (
               <div className="tp-megamenu-main tp-megamenu-container">
@@ -47,7 +68,7 @@ export default function NavMenus({sm_mega_title}: IProps) {
               <ul className="tp-submenu">
                 {menu.dropdown_menus.map((dm) => (
                   <li key={dm.id}>
-                    <Link href={dm.link}>{dm.title}</Link>
+                    <NavLink href={dm.link}>{dm.title}</NavLink>
                   </li>
                 ))}
               </ul>

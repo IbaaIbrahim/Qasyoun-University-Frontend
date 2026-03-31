@@ -1,12 +1,15 @@
 import Image from "next/image";
-import Link from "next/link";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import type { Faculty } from "@/lib/classes/faculty";
 
 type Props = {
   faculty: Faculty;
 };
 
-export default function FacultyCard({ faculty }: Props) {
+export default async function FacultyCard({ faculty }: Props) {
+  const t = await getTranslations("FacultyCard");
+
   return (
     <div className="tp-program-item grey-bg mb-30 h-100 d-flex flex-column">
       <div className="tp-program-thumb fix">
@@ -26,7 +29,7 @@ export default function FacultyCard({ faculty }: Props) {
         </h3>
       </div>
       <div className="tp-program-btn">
-        <Link href={faculty.detailPath}>Learn more</Link>
+        <Link href={faculty.detailPath}>{t("learnMore")}</Link>
       </div>
     </div>
   );

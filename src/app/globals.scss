@@ -1,6 +1,7 @@
 @forward '../../public/assets/css/bootstrap.css'; 
 @forward "slick-carousel/slick/slick.css";
 @forward '../../public/assets/scss/main.scss';
+@use 'sass:meta';
 
 // Video modal style 
 .video-modal-overlay {
@@ -95,3 +96,6 @@
             color: #6D7081;
         }
       }
+
+
+@include meta.load-css('rtl');

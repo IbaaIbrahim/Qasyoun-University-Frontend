@@ -6,7 +6,7 @@ import ab_img_2 from "@/assets/img/about/4/about-thumb-2.jpg";
 import ab_img_3 from "@/assets/img/about/4/about-thumb-3.jpg";
 import ab_img_4 from "@/assets/img/about/4/about-thumb-4.jpg";
 import { useVideoModal } from "@/provider/VideoProvider";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 const thumbs = [
    { id: 1, col_lg: 3, img: ab_img_1, delay: .5 },
