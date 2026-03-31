@@ -268,5 +268,24 @@
   }
 }
 
+// Counter strip: theme-driven vector backdrop (replaces maroon JPG)
+.counter-area .tp-counter-bg.tp-counter-bg--themed {
+  background-image: none !important;
+
+  .tp-counter-bg__art {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    display: block;
+  }
+
+  .tp-counter-bg__content {
+    z-index: 1;
+  }
+}
+
 
 @include meta.load-css('rtl');
