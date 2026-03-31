@@ -58,7 +58,7 @@ function NewsBannerSlideRow({
         />
       ) : null}
       <div className="tp-news-banner-copy min-w-0 flex-grow-1">
-        <div className="tp-news-banner-title text-truncate">{item.title}</div>
+        {/* <div className="tp-news-banner-title text-truncate">{item.title}</div> */}
         {item.excerpt ? (
           <div className="tp-news-banner-excerpt text-truncate">{item.excerpt}</div>
         ) : null}
@@ -81,21 +81,27 @@ export default function HeaderNewsBannerSlider({ items, label }: Props) {
   const locale = useLocale();
   const readMoreLabel = t("readMore");
   const dir = locale === "ar" ? "rtl" : "ltr";
+  const isRtl = locale === "ar";
 
   if (!items.length) return null;
 
   if (items.length === 1) {
     const item = items[0];
     return (
-      <div className="tp-news-banner-ticker" dir={dir}>
-        <div className="tp-news-banner-ticker__track">
-          <NewsBannerSlideRow item={item} label={label} readMoreLabel={readMoreLabel} />
-          <NewsBannerSlideRow
-            item={item}
-            label={label}
-            readMoreLabel={readMoreLabel}
-            ariaHidden
-          />
+      <div
+        className={`tp-news-banner-ticker${isRtl ? " tp-news-banner-ticker--motion-rtl" : ""}`}
+        dir={dir}
+      >
+        <div className="tp-news-banner-ticker__mirror">
+          <div className="tp-news-banner-ticker__track">
+            <NewsBannerSlideRow item={item} label={label} readMoreLabel={readMoreLabel} />
+            <NewsBannerSlideRow
+              item={item}
+              label={label}
+              readMoreLabel={readMoreLabel}
+              ariaHidden
+            />
+          </div>
         </div>
       </div>
     );
@@ -121,18 +127,22 @@ export default function HeaderNewsBannerSlider({ items, label }: Props) {
   };
 
   return (
-    <Swiper
-      {...swiperOpts}
-      key={items.map((i) => i.id).join("-")}
-      className="tp-news-banner-swiper swiper"
-      aria-label={label}
-      dir={dir}
+    <div
+      className={`tp-news-banner-swiper-outer${isRtl ? " tp-news-banner-swiper-outer--motion-rtl" : ""}`}
     >
-      {items.map((item) => (
-        <SwiperSlide key={item.id} className="tp-news-banner-slide">
-          <NewsBannerSlideRow item={item} label={label} readMoreLabel={readMoreLabel} />
-        </SwiperSlide>
-      ))}
-    </Swiper>
+      <Swiper
+        {...swiperOpts}
+        key={items.map((i) => i.id).join("-")}
+        className="tp-news-banner-swiper swiper"
+        aria-label={label}
+        dir="ltr"
+      >
+        {items.map((item) => (
+          <SwiperSlide key={item.id} className="tp-news-banner-slide">
+            <NewsBannerSlideRow item={item} label={label} readMoreLabel={readMoreLabel} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
   );
 }
