@@ -4,7 +4,8 @@ import { EffectFade, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { SwiperOptions } from "swiper/types";
 import type { HomeHeroSlide } from "@/lib/services/home-hero.service";
-import { NextArrow, PrevArrow } from "../svg";
+import { NextArrow, PrevArrow, RightArrow } from "../svg";
+import Link from "next/link";
 
 const sliderOptions: SwiperOptions = {
   slidesPerView: 1,
@@ -32,8 +33,6 @@ export default function HeroAreaOneSlider({ slides }: Props) {
     loop: slides.length > 1,
   };
 
-  console.log("slides", slides);
-
   return (
     <section className="tp-hero-area p-relative">
       <Swiper
@@ -47,7 +46,22 @@ export default function HeroAreaOneSlider({ slides }: Props) {
               <div className="container">
                 <div className="row">
                   <div className="col-xxl-9 col-lg-11">
-                    <div className="tp-hero-wrapper" />
+                    <div className="tp-hero-wrapper">
+                      <span className="tp-hero-subtitle">
+                        Be apart of our history
+                      </span>
+                      <h2 className="tp-hero-title">
+                        Landmark to Create the Future.
+                      </h2>
+                      <div className="tp-hero-btn">
+                        <Link className="tp-btn" href="/university-program">
+                          Enroll Now
+                          <span>
+                            <RightArrow />
+                          </span>
+                        </Link>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

@@ -1,0 +1,31 @@
+---
+description: Pattern for fetching dynamic section data using Content and ContentMeta APIs
+alwaysApply: true
+---
+
+# Content and ContentMeta API Usage Pattern
+
+When fetching generic section dynamic data (like slider images, texts, features, etc.) from the QPU backend, you must follow the two-step `Content` and `ContentMeta` pattern.
+
+## 1. Fetching the Content Structure
+Use `/api/Content/Read` to get the list of generic items for a specific section on a page (e.g. all slides in a faculty slider).
+Query by filtering these fields:
+- `referenceId`: The ID of the parent entity (e.g. the specific Faculty ID).
+- `referenceType`: The generic type of the parent (e.g. `'faculty'`).
+- `type`: The specific section within the page (e.g. `'slider'`, because a page might have multiple sliders/sections).
+
+This query returns multiple `Content` records (one for each slider item, step, etc). Extract the **ID** from each of these records to form a list of `contentId`s.
+
+## 2. Fetching Metadata (ContentMeta)
+Once you have the `contentId`s, trigger request(s) to `/api/ContentMeta/Read` to fetch all metadata matching those `contentId`s.
+This returns a flat array of meta records. You must group these records by their `contentId`.
+
+## 3. Assembling the Data
+For each `contentId`, you will use its associated `ContentMeta` records to populate your domain classes/components.
+
+**Example Structure (Slider item with image and text):**
+For a given `contentId`, you may receive multiple records in `ContentMeta`:
+- **Image:** A record with `type: 'image'` and `keyName: 'src'` (an external image link) OR `keyName: 'fileManagerId'` (the backend ID of an uploaded image file).
+- **Text:** A record with `type: 'text'` and `keyName: 'value'` (containing string text corresponding to a specific place in the slider item).
+
+Combine these key-values into meaningful props or class fields.

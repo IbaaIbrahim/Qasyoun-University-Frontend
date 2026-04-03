@@ -4,6 +4,7 @@ This app implements [Qasyoun Private University](https://qpu.edu.sy/) against th
 
 ## Scope and documentation (read this first)
 
+- **REQUIRED:** You MUST fetch and read all `.mdc` files under `.cursor/rules/` (like `documentation-adr-and-readme.mdc`) at the start of every task in each request. Always adhere to the rules in these files.
 - **Document what you change** in this file when you materially extend **global** behavior: shipped routes table, cross-cutting setup (API, i18n, env), or this structure overview.
 - **Feature-specific “why/how”** belongs **next to the code** (e.g. `src/components/hero-area/README.md`). Use **`docs/adr/`** only for repo-wide architectural decisions (see `docs/adr/README.md`).
 - **Stay in the current working area** unless the user explicitly asks to broaden scope. For this repo that means: the **shipped pages and routes listed below** (home, faculties on home, faculties index, faculty detail), plus shared shell pieces they depend on (header/footer/i18n). Do **not** migrate or “finish” template demo routes, mega-menu targets, or unused screens by default.

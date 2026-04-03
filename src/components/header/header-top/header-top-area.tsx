@@ -16,11 +16,11 @@ export default async function HeaderTopArea() {
   ]);
 
   return (
-    <div className="tp-header-top theme-bg tp-news-banner">
+    <div className="tp-header-top theme-bg tp-news-banner d-flex align-items-center">
       <div className="container">
-        <div className="tp-news-banner__inner d-flex align-items-center gap-3 gap-md-4">
+        <div className="tp-news-banner__inner d-flex align-items-center">
           <div className="header-bottom__lang tp-news-banner__lang flex-shrink-0">
-            <ul className="list-unstyled mb-0">
+            <ul className="list-unstyled mb-0 d-flex align-items-center">
               <HeaderLanguage />
             </ul>
           </div>
@@ -29,7 +29,7 @@ export default async function HeaderTopArea() {
             {items.length > 0 ? (
               <HeaderNewsBannerSlider items={items} label={t("label")} />
             ) : (
-              <div className="tp-news-banner-empty small">{t("empty")}</div>
+              <div className="tp-news-banner-empty small text-center">{t("empty")}</div>
             )}
           </div>
         </div>
@@ -37,3 +37,4 @@ export default async function HeaderTopArea() {
     </div>
   );
 }
+
