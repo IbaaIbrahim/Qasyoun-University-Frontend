@@ -16,7 +16,14 @@ export default async function HeaderTopArea() {
   ]);
 
   return (
-    <div className="tp-header-top theme-bg tp-news-banner d-flex align-items-center">
+    <div 
+      className="tp-header-top tp-news-banner d-flex align-items-center"
+      style={{
+        background: `linear-gradient(135deg, #42023e 0%, #65055f 50%, #42023e 100%)`,
+        boxShadow: "0 2px 10px rgba(66, 2, 62, 0.2)",
+        position: "relative"
+      }}
+    >
       <div className="container">
         <div className="tp-news-banner__inner d-flex align-items-center">
           <div className="header-bottom__lang tp-news-banner__lang flex-shrink-0">

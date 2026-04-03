@@ -96,6 +96,9 @@ Menus: `src/data/menu-data.ts`. Footer: `src/data/footer-links.ts`. Top-level na
 
 Dynamic routes that call the API may use `export const dynamic = 'force-dynamic'` and tolerant service methods (e.g. empty lists on failure) so builds and offline runs do not depend on the API.
 
+## Theme
+The primary color of the website is #42023e
+
 ## Read endpoints (Telerik pattern)
 
 The backend uses the same Telerik/Kendo DataSource-style query pattern across `GET /api/{Resource}/Read` endpoints.
