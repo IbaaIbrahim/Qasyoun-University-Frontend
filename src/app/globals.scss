@@ -176,11 +176,10 @@
 
   .tp-news-banner__inner {
     min-height: 48px;
-    // overflow-x: hidden;
-
     .tp-news-banner__track {
-      width: 0;
+      width: 100%;
     }
+
   }
 
   .tp-news-banner__lang {
