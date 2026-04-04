@@ -37,11 +37,13 @@ export default async function FacultyDetailPage({ params }: Props) {
 
   const t = await getTranslations({ locale, namespace: "FacultyDetail" });
   const meta = await readContentAsJsonByFilter({ referenceType: "home", type: "hero-slider" }, locale);
-  const slides = meta.map((item) => item.toSlider()).flat();
+  const slides = meta.map((item) => item.toSlider());
+
+  console.log('slides', slides);
 
   return (
     <main>
-      <HeroAreaOne slides={slides} />
+      <HeroAreaOne slides={slides.filter((slide) => slide.bgImg)} />
       <AboutTwo spacing="pt-90 pb-90" />
       <CounterFour />
       <MissionArea />

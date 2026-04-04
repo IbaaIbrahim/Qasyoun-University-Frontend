@@ -1,4 +1,4 @@
-import { ContentMetaJson } from "./content";
+import { Content, ContentJson, ContentMetaJson } from "./content";
 
 export default class Slider {
   id?: string;
@@ -8,14 +8,14 @@ export default class Slider {
   btnText?: string;
   btnLink?: string;
 
-  static fromContentMetaJson(contentMetaJson: ContentMetaJson): Slider {
+  static fromContentMetaJson(contentJson: ContentJson): Slider {
     return {
-      id: `${contentMetaJson?.id ?? ""}`,
-      bgImg: contentMetaJson?.src ?? "",
-      title: contentMetaJson?.title ?? "",
-      subTitle: contentMetaJson?.subTitle ?? "",
-      btnText: contentMetaJson?.btnText ?? "",
-      btnLink: contentMetaJson?.btnLink ?? "",
+      id: `${contentJson.contentMetasJson?.id ?? ""}`,
+      bgImg: contentJson.contentMetasJson?.src ?? "",
+      title: contentJson.contentMetasJson?.title ?? "",
+      subTitle: contentJson.contentMetasJson?.subTitle ?? "",
+      btnText: contentJson.contentMetasJson?.btnText ?? "",
+      btnLink: contentJson.contentMetasJson?.btnLink ?? "",
     } as Slider;
   }
 }

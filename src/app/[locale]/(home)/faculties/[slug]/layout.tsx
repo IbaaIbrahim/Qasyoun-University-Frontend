@@ -15,7 +15,7 @@ export default async function Layout({ children }: { children: React.ReactNode }
   return (
     <>
       {/* header area start */}
-      <HeaderOne menu_data={menu_data} newsItems={items} />
+      <HeaderOne newsItems={items.filter((item) => item.title)} menu_data={menu_data} />
       {/* header area end */}
 
       {/* main content */}

@@ -73,19 +73,20 @@ export class ContentJson extends Content {
     super(content.id, content.referenceId, content.referenceType, content.type, content.title, content.displayOrder, content.isActive, content.contentMetas, content.createdAt, content.updatedAt)
     this.contentMetasJson = content.contentMetas?.reduce((acc, meta) => {
       acc[meta.keyName] = locale === "ar" ? meta.valueAr ?? meta.value : meta.value;
+      acc[`${meta.keyName}--id`] = String(meta.id);
       return acc;
     }, {} as ContentMetaJson);
   }
 
   toSlider(): Slider {
     if (!this.contentMetasJson) return {};
-    const slider = Slider.fromContentMetaJson(this.contentMetasJson);
+    const slider = Slider.fromContentMetaJson(this);
     return slider ? slider : {};
   }
 
   toNews(): News {
     if (!this.contentMetasJson) return {};
-    const item = News.fromContentJson(this.id, this.title, this.contentMetasJson);
+    const item = News.fromContentJson(this);
     return item ? item : {};
   }
 }
