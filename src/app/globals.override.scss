@@ -1,0 +1,12 @@
+:root {
+  --tp-red-1: var(--tp-theme-primary);
+  --tp-red-2: var(--tp-theme-primary);
+  --tp-red-3: var(--tp-theme-primary);
+  --tp-theme-4: var(--tp-theme-primary);
+}
+
+.tp-btn:hover,
+.tp-header-btn a:hover {
+  background-color: #894f10 !important;
+  border-color: #894f10 !important;
+}

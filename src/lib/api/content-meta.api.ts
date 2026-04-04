@@ -1,6 +1,6 @@
 import { apiClient } from "@/lib/api/client";
-import type { DataSourceResult } from "@/lib/dto/data-source.dto";
-import type { ContentMetaDto } from "@/lib/dto/content-meta.dto";
+import type { DataSourceResult } from "@/lib/api/types";
+import type { ContentMetaDto } from "@/lib/classes/content-meta";
 
 export const contentMetaApi = {
   /** Backend expects singular `filter`, e.g. `filter=contentId~eq~'2'`. */

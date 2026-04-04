@@ -16,7 +16,7 @@ export default async function HeaderTopArea() {
   ]);
 
   return (
-    <div 
+    <div
       className="tp-header-top tp-news-banner d-flex align-items-center"
       style={{
         background: `linear-gradient(135deg, #42023e 0%, #65055f 50%, #42023e 100%)`,

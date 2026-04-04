@@ -1,6 +1,6 @@
 import { contentApi } from "@/lib/api/content.api";
 import { contentMetaApi } from "@/lib/api/content-meta.api";
-import type { ContentMetaDto } from "@/lib/dto/content-meta.dto";
+import type { ContentMetaDto } from "@/lib/classes/content-meta";
 
 export type NewsBannerItem = {
   id: string;

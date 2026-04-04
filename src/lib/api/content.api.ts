@@ -1,6 +1,6 @@
 import { apiClient } from "@/lib/api/client";
-import type { DataSourceResult } from "@/lib/dto/data-source.dto";
-import type { ContentDto } from "@/lib/dto/content.dto";
+import type { DataSourceResult } from "@/lib/api/types";
+import type { ContentDto } from "@/lib/classes/content";
 
 export const contentApi = {
   async readByFilters(filters: string, options?: { page?: number; pageSize?: number }) {

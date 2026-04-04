@@ -1,12 +1,26 @@
-import type { FacultyDto } from "@/lib/dto/faculty.dto";
-import type { FacultyPlain } from "@/lib/dto/faculty-plain.dto";
+export type FacultyDto = {
+  id: number | string;
+  slug: string;
+  name: string;
+  name_AR: string | null;
+  pictureId: string | null;
+  logoId: string | null;
+  slider: boolean;
+  isPublished: boolean;
+  primaryColor: string | null;
+  secondaryColor: string | null;
+  displayOrder: number | string;
+  isActive: boolean;
+  createdAt: string;
+  updatedAt: string;
+};
 
 export class Faculty {
   constructor(
     public readonly id: number,
     public readonly slug: string,
     public readonly name: string,
-    public readonly name_AR: string | null,
+    public readonly nameAr: string | null,
     public readonly pictureId: string | null,
     public readonly logoId: string | null,
     public readonly slider: boolean,
@@ -24,7 +38,7 @@ export class Faculty {
       Number(dto.id),
       dto.slug ?? "",
       dto.name ?? "",
-      dto.name_AR ?? null,
+      dto.name_AR ?? null, // Map from DTO name_AR
       dto.pictureId ?? null,
       dto.logoId ?? null,
       Boolean(dto.slider),
@@ -42,13 +56,28 @@ export class Faculty {
     return facultyDetailPath(this.slug);
   }
 
-  toPlain(): FacultyPlain {
-    return { id: this.id, slug: this.slug, name: this.name };
+  toPlain(): FacultyDto {
+    return {
+      id: this.id,
+      slug: this.slug,
+      name: this.name,
+      name_AR: this.nameAr, // Map to DTO name_AR
+      pictureId: this.pictureId,
+      logoId: this.logoId,
+      slider: this.slider,
+      isPublished: this.isPublished,
+      primaryColor: this.primaryColor,
+      secondaryColor: this.secondaryColor,
+      displayOrder: this.displayOrder,
+      isActive: this.isActive,
+      createdAt: this.createdAt,
+      updatedAt: this.updatedAt,
+    };
   }
 
   /** Gets the name based on the specified locale. */
   getName(locale: string): string {
-    return locale === "ar" && this.name_AR ? this.name_AR : this.name;
+    return locale === "ar" && this.nameAr ? this.nameAr : this.name;
   }
 }
 

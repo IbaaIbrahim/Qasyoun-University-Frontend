@@ -19,14 +19,14 @@ High-level map of this repository:
 | Pages (shipped) | `src/app/[locale]/(home)/…` | Home, faculties list, faculty detail; use `dynamic = 'force-dynamic'` where the API is required at request time. |
 | UI components | `src/components/` | Acadia-derived blocks; **shipped shell** in `header/` (includes API **news strip** in `header-top/` + language switcher), `footer/`; feature folders (`faculty/`, `hero-area/`, …). Hero: colocated README in `hero-area/`. |
 | Data & menus | `src/data/` | `menu-data.ts`, `footer-links.ts` (many links still point at template-only paths). |
-| Integration layers | `src/lib/dto/`, `src/lib/api/`, `src/lib/classes/`, `src/lib/services/` | OpenAPI-shaped types, axios resources, domain helpers, page-facing orchestration (**dto → api → class → service**). |
+| Integration layers | `src/lib/api/`, `src/lib/classes/`, `src/lib/services/` | OpenAPI-shaped types (within classes), axios resources, domain helpers, page-facing orchestration (**api → class → service**). |
 | i18n | `src/i18n/`, `messages/` | next-intl routing, navigation helpers, locale messages (`en` / `ar`). |
 | Hooks | `src/hooks/` | Shared client hooks (e.g. locale switch). |
 | Static assets | `public/` | Theme images, compiled CSS from template SCSS where applicable. |
 | Contract | `v1.json` (repo root) | OpenAPI reference for the QPU API. |
 | ADRs | `docs/adr/` | Cross-cutting architecture decisions—not every feature. |
 
-**Server → client:** pass only **plain JSON-serializable** props into `"use client"` trees (e.g. `FacultyPlain` via `toPlain()`).
+**Server → client:** pass only **plain JSON-serializable** props into `"use client"` trees (e.g. `FacultyDto` via `toPlain()`).
 
 ## Shipped pages and routes (current)
 
@@ -75,13 +75,10 @@ The **Acadia template** lives in a **separate repository** next to this one (e.g
 
 **This repository (`Qasyoun-University-Frontend`)** stays **lean**: there is no obligation to preserve an in-repo “archive” of every demo page—the template is always available beside the project.
 
-## Layering convention
-
 | Layer | Path | Role |
 | --- | --- | --- |
-| DTO | `src/lib/dto/` | TypeScript types aligned with OpenAPI (`v1.json`). |
 | API | `src/lib/api/` | HTTP via shared **axios** `apiClient` (`client.ts`). One module per resource (e.g. `faculty.api.ts`). |
-| Classes | `src/lib/classes/` | Domain helpers (e.g. `Faculty.fromDto()`, `toPlain()` for Server → Client). |
+| Classes | `src/lib/classes/` | OpenAPI types (DTOs) and domain helpers (e.g. `Faculty.fromDto()`, `toPlain()` for Server → Client). |
 | Services | `src/lib/services/` | Page-facing orchestration: filters, public-only rules, error handling. |
 
 ## Environment
@@ -123,5 +120,5 @@ Recommended service behavior:
 ## Next steps (suggested)
 
 - Map media URLs when the API documents file delivery for `pictureId` / `logoId`.
-- Add resources using the same dto → api → class → service pattern.
+- Add resources using the same api → class → service pattern.
 - When adding a **new** user-facing route, extend `messages/*.json`, wire `Link` from `@/i18n/navigation`, and update the **Shipped pages and routes** table above.

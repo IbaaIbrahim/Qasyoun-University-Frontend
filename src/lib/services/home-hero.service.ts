@@ -1,6 +1,6 @@
 import { contentApi } from "@/lib/api/content.api";
 import { contentMetaApi } from "@/lib/api/content-meta.api";
-import type { ContentMetaDto } from "@/lib/dto/content-meta.dto";
+import type { ContentMetaDto } from "@/lib/classes/content-meta";
 
 /** Stable key for React; combines content row id + ContentMeta id so multiple meta rows become multiple slides. */
 export type HomeHeroSlide = {

@@ -1,10 +1,8 @@
-// Arabic (RTL) body font when `dir="rtl"` is set on `<html>`
-[dir="rtl"] body {
-  font-family: var(--tp-ff-arabic), var(--tp-ff-body), sans-serif;
-}
-
 /* RTL UI Fixes */
 [dir="rtl"] {
+  body {
+    font-family: var(--tp-ff-arabic), var(--tp-ff-body), sans-serif;
+  }
 
   // Mobile menu dropdown toggle button position fix (move to left)
   .tp-main-menu-mobile ul li.has-dropdown>a .dropdown-toggle-btn {
@@ -57,13 +55,13 @@
   }
 
   // Language switcher: chevron gap next to label (LTR uses margin-left on svg)
-  .header-bottom__lang > ul > li > a > span svg,
-  .header-bottom__lang-2 > ul > li > a > span svg {
+  .header-bottom__lang>ul>li>a>span svg,
+  .header-bottom__lang-2>ul>li>a>span svg {
     margin-left: 0 !important;
     margin-right: 2px !important;
   }
 
-  .header-bottom__lang > ul > li > a img {
+  .header-bottom__lang>ul>li>a img {
     margin-right: 0 !important;
     margin-left: 7px !important;
   }
@@ -185,5 +183,16 @@
       left: auto !important;
       right: 0 !important;
     }
+  }
+
+  .header-bottom__lang-submenu {
+    position: absolute;
+    top: 100%;
+    /* Replace left: 0 with inset-inline-start: 0 */
+    inset-inline-start: 0;
+  }
+
+  .tp-hero-nav-btn-inner svg {
+    transform: scaleX(-1);
   }
 }

@@ -1,6 +1,6 @@
 import { apiClient } from "@/lib/api/client";
-import type { DataSourceRequest, DataSourceResult } from "@/lib/dto/data-source.dto";
-import type { FacultyDto } from "@/lib/dto/faculty.dto";
+import type { DataSourceRequest, DataSourceResult } from "@/lib/api/types";
+import type { FacultyDto } from "@/lib/classes/faculty";
 
 function encodeDataSourceRequest(request: DataSourceRequest): string {
   return JSON.stringify(request);
