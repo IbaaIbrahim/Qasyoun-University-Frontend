@@ -8,7 +8,7 @@ export default class Slider {
   btnText?: string;
   btnLink?: string;
 
-  static fromContentMetaJson(contentJson: ContentJson): Slider {
+  static fromContentJson(contentJson: ContentJson): Slider {
     return {
       id: `${contentJson.id}`,
       bgImg: contentJson.contentMetasJson?.src ?? "",

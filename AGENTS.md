@@ -1,6 +1,6 @@
 # Agent notes: QPU frontend integration
 
-This app implements [Qasyoun Private University](https://qpu.edu.sy/) against the REST API in `v1.json` at the repo root.
+This app implements [Qasyoun Private University](https://qpu.edu.sy/).
 
 ## Scope and documentation (read this first)
 
@@ -23,7 +23,6 @@ High-level map of this repository:
 | i18n | `src/i18n/`, `messages/` | next-intl routing, navigation helpers, locale messages (`en` / `ar`). |
 | Hooks | `src/hooks/` | Shared client hooks (e.g. locale switch). |
 | Static assets | `public/` | Theme images, compiled CSS from template SCSS where applicable. |
-| Contract | `v1.json` (repo root) | OpenAPI reference for the QPU API. |
 | ADRs | `docs/adr/` | Cross-cutting architecture decisions—not every feature. |
 
 **Server → client:** pass only **plain JSON-serializable** props into `"use client"` trees (e.g. `FacultyDto` via `toPlain()`).
@@ -80,10 +79,6 @@ The **Acadia template** lives in a **separate repository** next to this one (e.g
 | API | `src/lib/api/` | HTTP via shared **axios** `apiClient` (`client.ts`). One module per resource (e.g. `faculty.api.ts`). |
 | Classes | `src/lib/classes/` | OpenAPI types (DTOs) and domain helpers (e.g. `Faculty.fromDto()`, `toPlain()` for Server → Client). |
 | Services | `src/lib/services/` | Page-facing orchestration: filters, public-only rules, error handling. |
-
-## Environment
-
-- `NEXT_PUBLIC_API_BASE_URL` — optional; see `.env.example`. Default can match `servers[0].url` in `v1.json`.
 
 ## Navigation
 

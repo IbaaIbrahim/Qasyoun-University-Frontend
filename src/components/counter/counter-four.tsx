@@ -14,7 +14,7 @@ export default function CounterFour() {
         <div
           className="tp-counter-bg wow fadeInUp"
           data-wow-delay=".3s"
-          style={{ backgroundImage: "url(/assets/img/bg/counter-bg-2.jpg)" }}
+          style={{ backgroundImage: "url(/assets/img/bg/counter-bg.png)" }}
         >
           <div className="row">
             {counterData.map((counter, index) => (

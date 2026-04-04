@@ -1,6 +1,7 @@
 import { ContentMeta, ContentMetaDto } from "./content-meta";
 import Slider from "./slider";
 import News from "./news";
+import MainText from "./faculty/main-text";
 
 export type ContentDto = {
   id: number | string;
@@ -80,7 +81,7 @@ export class ContentJson extends Content {
 
   toSlider(): Slider {
     if (!this.contentMetasJson) return {};
-    const slider = Slider.fromContentMetaJson(this);
+    const slider = Slider.fromContentJson(this);
     return slider ? slider : {};
   }
 
@@ -88,5 +89,11 @@ export class ContentJson extends Content {
     if (!this.contentMetasJson) return {};
     const item = News.fromContentJson(this);
     return item ? item : {};
+  }
+
+  toMainText(): MainText {
+    if (!this.contentMetasJson) return {};
+    const mainText = MainText.fromContentJson(this);
+    return mainText ? mainText : {};
   }
 }

@@ -34,13 +34,19 @@ export default async function FacultyDetailPage({ params }: Props) {
   const faculty = await getFacultyBySlug(slug);
   if (!faculty) notFound();
 
-  const meta = await readContentAsJsonByFilter({ referenceId: slug, referenceType: "faculty", section: "hero-slider" }, locale);
-  const slides = meta.map((item) => item.toSlider());
+  const sliderContents = await readContentAsJsonByFilter({ referenceId: slug, referenceType: "faculty", section: "hero-slider" }, locale);
+  const slides = sliderContents.map((item) => item.toSlider());
+
+  const mainTextContents = await readContentAsJsonByFilter({ referenceId: slug, referenceType: "faculty", section: "main-text" }, locale);
+  const mainText = mainTextContents.map((item) => item.toMainText())?.[0]?.text ?? "";
+
+  console.log("mainTextContents", mainTextContents);
+  console.log("mainText", mainText);
 
   return (
     <main>
       <HeroAreaOne slides={slides.filter((slide) => slide.bgImg)} />
-      <AboutTwo spacing="pt-90 pb-90" />
+      <AboutTwo mainText={mainText} spacing="pt-90 pb-90" />
       <CounterFour />
       <MissionArea />
       <AboutThree />
@@ -49,3 +55,4 @@ export default async function FacultyDetailPage({ params }: Props) {
     </main>
   );
 }
+
