@@ -51,6 +51,7 @@ export async function readContentAsJsonByFilter(filter: { [key: string]: string 
 
     return jsonContent;
   } catch (error) {
+    console.error("Error reading content:", error);
     return [];
   }
 }
