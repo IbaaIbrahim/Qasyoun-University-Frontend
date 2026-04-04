@@ -64,6 +64,16 @@
   "FacultyDetail": {
     "breadcrumbSubtitle": "Faculties"
   },
+  "Laboratories": {
+    "title": "Laboratories",
+    "description": "Our faculty is equipped with modern laboratories featuring the latest technologies and equipment to support practical learning and scientific research.",
+    "learnMore": "Learn More"
+  },
+  "MissionArea": {
+    "title": "Mission and values",
+    "description": "We prepare you to launch your career by providing a supportive, creative, and professional. Our mission is to prepare students to understand, contribute to, and succeed in a rapidly changing society,",
+    "learnMore": "Learn More"
+  },
   "FacultyCard": {
     "learnMore": "Learn more"
   },

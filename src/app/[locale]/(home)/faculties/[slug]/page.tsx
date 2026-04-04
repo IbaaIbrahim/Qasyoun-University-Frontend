@@ -10,6 +10,7 @@ import TeamAreaThree from "@/components/team/team-area-three";
 import { getFacultyBySlug } from "@/lib/services/faculty.service";
 import HeroAreaOne from "@/components/hero-area/hero-area-one";
 import { readContentAsJsonByFilter } from "@/lib/services/content.service";
+import { listLabsByFacultyId } from "@/lib/services/lab.service";
 
 export const dynamic = "force-dynamic";
 
@@ -40,15 +41,28 @@ export default async function FacultyDetailPage({ params }: Props) {
   const mainTextContents = await readContentAsJsonByFilter({ referenceId: slug, referenceType: "faculty", section: "main-text" }, locale);
   const mainText = mainTextContents.map((item) => item.toMainText())?.[0]?.text ?? "";
 
-  console.log("mainTextContents", mainTextContents);
-  console.log("mainText", mainText);
+  const labs = await listLabsByFacultyId(faculty.id);
+
+  const tLabs = await getTranslations({ locale, namespace: "Laboratories" });
+  const tMission = await getTranslations({ locale, namespace: "MissionArea" });
 
   return (
     <main>
       <HeroAreaOne slides={slides.filter((slide) => slide.bgImg)} />
       <AboutTwo mainText={mainText} spacing="pt-90 pb-90" />
       <CounterFour />
-      <MissionArea />
+      <MissionArea
+        labs={labs.map(lab => lab.toPlain())}
+        locale={locale}
+        translations={{
+          labsTitle: tLabs("title"),
+          labsDescription: tLabs("description"),
+          labsLearnMore: tLabs("learnMore"),
+          missionTitle: tMission("title"),
+          missionDescription: tMission("description"),
+          missionLearnMore: tMission("learnMore"),
+        }}
+      />
       <AboutThree />
       <TeamAreaThree />
       <AboutCampus />

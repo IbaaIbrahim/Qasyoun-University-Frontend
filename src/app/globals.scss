@@ -377,6 +377,13 @@
   }
 }
 
+.tp-our-mission-item-content p {
+  margin-bottom: 5px;
+}
+
+.tp-about-year-bg {
+  background: linear-gradient(#42023e, #65055f);
+}
 
 @include meta.load-css('globals.override');
 @include meta.load-css('rtl');
