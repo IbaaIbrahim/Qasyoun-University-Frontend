@@ -31,8 +31,7 @@ export async function generateMetadata({
 export default async function HomePage() {
   const locale = await getLocale();
   const meta = await readContentAsJsonByFilter({ referenceType: "home", type: "hero-slider" }, locale);
-  const slides = meta.map((item) => item.toSlider()).flat();
-
+  const slides = meta.flatMap((item) => item.toSlider());
   return (
     <main>
       <HeroAreaOne slides={slides} />

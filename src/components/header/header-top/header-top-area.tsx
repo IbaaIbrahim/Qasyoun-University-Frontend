@@ -15,7 +15,7 @@ export default async function HeaderTopArea() {
     getTranslations("NewsBanner"),
   ]);
 
-  const items = newsContent.map((r) => r.toNews()).flat().filter(Boolean);
+  const items = newsContent.map((r) => r.toNews());
 
   return (
     <div

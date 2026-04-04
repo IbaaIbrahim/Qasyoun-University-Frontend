@@ -24,7 +24,7 @@ export async function readContentAsJsonByFilter(filter: { [key: string]: string 
 
     if (missingMetasItems.length > 0) {
       const ids = missingMetasItems.map(item => item.id);
-      
+
       let metaFilter = "";
       if (ids.length === 1) {
         metaFilter = `contentId~eq~'${ids[0]}'`;
@@ -35,7 +35,7 @@ export async function readContentAsJsonByFilter(filter: { [key: string]: string 
       if (metaFilter) {
         const metaResult = await contentMetaApi.readByFilter(metaFilter, { page: 1, pageSize: 500 });
         const allFetchedMetas = metaResult.data ?? [];
-        
+
         // Attach fetched metas back to the respective content items
         missingMetasItems.forEach(item => {
           item.contentMetas = allFetchedMetas.filter(
@@ -50,7 +50,7 @@ export async function readContentAsJsonByFilter(filter: { [key: string]: string 
     const jsonContent = content.map((item) => new ContentJson(item, locale));
 
     return jsonContent;
-  } catch {
+  } catch (error) {
     return [];
   }
 }

@@ -11,7 +11,7 @@ export default class Slider {
   static fromContentMetaJson(contentMetaJson: ContentMetaJson): Slider {
     return {
       id: `${contentMetaJson?.id ?? ""}`,
-      bgImg: contentMetaJson?.bgImg ?? "",
+      bgImg: contentMetaJson?.src ?? "",
       title: contentMetaJson?.title ?? "",
       subTitle: contentMetaJson?.subTitle ?? "",
       btnText: contentMetaJson?.btnText ?? "",

@@ -77,13 +77,15 @@ export class ContentJson extends Content {
     }, {} as ContentMetaJson);
   }
 
-  toSlider(): Slider[] {
-    return this.contentMetasJson ? [Slider.fromContentMetaJson(this.contentMetasJson)] : [];
+  toSlider(): Slider {
+    if (!this.contentMetasJson) return {};
+    const slider = Slider.fromContentMetaJson(this.contentMetasJson);
+    return slider ? slider : {};
   }
 
-  toNews(): NewsBanner[] {
-    if (!this.contentMetasJson) return [];
+  toNews(): NewsBanner {
+    if (!this.contentMetasJson) return {};
     const item = NewsBanner.fromContentJson(this.id, this.title, this.contentMetasJson);
-    return item ? [item] : [];
+    return item ? item : {};
   }
 }
