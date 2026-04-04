@@ -35,7 +35,7 @@ All user-facing app routes live under the **`[locale]`** segment (`src/app/[loca
 | --- | --- | --- |
 | `/` | `/ar` | **Home** — main landing; includes the **faculties teaser** block (`FacultyArea`) backed by `listFacultiesForPublic()`. |
 | `/faculties` | `/ar/faculties` | **Faculties list** — grid of faculty cards from the API. |
-| `/faculties/[slug]` | `/ar/faculties/[slug]` | **Faculty detail** — breadcrumb + hero strip with API `name`; remaining sections are still template placeholders. |
+| `/faculties/[slug]` | `/ar/faculties/[slug]` | **Faculty detail** — hero, content, labs/mission, and **faculty team** (`FacultyTeacher` + `Teacher` via `listTeachersByFacultyId()`); other blocks may still be template placeholders. |
 
 Default locale uses **`localePrefix: 'as-needed'`** (no `/en` in the path). Template-only links in `menu-data` and elsewhere may still point at demo paths that are **not** implemented here.
 
@@ -76,7 +76,7 @@ The **Acadia template** lives in a **separate repository** next to this one (e.g
 
 | Layer | Path | Role |
 | --- | --- | --- |
-| API | `src/lib/api/` | HTTP via shared **axios** `apiClient` (`client.ts`). One module per resource (e.g. `faculty.api.ts`). |
+| API | `src/lib/api/` | HTTP via shared **axios** `apiClient` (`client.ts`, exports `API_BASE_URL` / `resolveUploadSrc`). One module per resource (e.g. `faculty.api.ts`, `faculty-teacher.api.ts`, `teacher.api.ts`). |
 | Classes | `src/lib/classes/` | OpenAPI types (DTOs) and domain helpers (e.g. `Faculty.fromDto()`, `toPlain()` for Server → Client). |
 | Services | `src/lib/services/` | Page-facing orchestration: filters, public-only rules, error handling. |
 

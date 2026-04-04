@@ -43,8 +43,8 @@ export default async function HomePage() {
       <EventArea />
       <TestimonialOne />
       <BlogOne />
-      <InstagramArea />
-      <CtaOne />
+      {/* <InstagramArea /> */}
+      {/* <CtaOne /> */}
     </main>
   );
 }

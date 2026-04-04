@@ -11,6 +11,7 @@ import { getFacultyBySlug } from "@/lib/services/faculty.service";
 import HeroAreaOne from "@/components/hero-area/hero-area-one";
 import { readContentAsJsonByFilter } from "@/lib/services/content.service";
 import { listLabsByFacultyId } from "@/lib/services/lab.service";
+import { listTeachersByFacultyId } from "@/lib/services/teacher.service";
 
 export const dynamic = "force-dynamic";
 
@@ -42,6 +43,8 @@ export default async function FacultyDetailPage({ params }: Props) {
   const mainText = mainTextContents.map((item) => item.toMainText())?.[0]?.text ?? "";
 
   const labs = await listLabsByFacultyId(faculty.id);
+  const teachers = await listTeachersByFacultyId(faculty.id);
+  const teamMembers = teachers.map((t) => t.toMemberCard(locale));
 
   const tLabs = await getTranslations({ locale, namespace: "Laboratories" });
   const tMission = await getTranslations({ locale, namespace: "MissionArea" });
@@ -64,8 +67,8 @@ export default async function FacultyDetailPage({ params }: Props) {
         }}
       />
       <AboutThree />
-      <TeamAreaThree />
-      <AboutCampus />
+      <TeamAreaThree members={teamMembers} />
+      {/* <AboutCampus /> */}
     </main>
   );
 }

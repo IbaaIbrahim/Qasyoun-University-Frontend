@@ -204,7 +204,7 @@ export default function MissionArea({
                     i !== missionData.length - 1 ? "mb-20" : ""
                   }`}
                 >
-                  <div className="tp-our-mission-item-content">
+                  <div className="tp-our-mission-item-content" style={{ paddingTop: 10, paddingBottom: 10 }}>
                     <h4 className="tp-our-mission-item-title">{item.title}</h4>
                     <p
                       dangerouslySetInnerHTML={{
