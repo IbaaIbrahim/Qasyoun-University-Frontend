@@ -11,18 +11,24 @@ import HeaderStickyWrapper from "./header-sticky-provider/header-sticky-wrapper"
 import SearchButton from "./button/search-button";
 import OffcanvasButton from "./button/offcanvas-btn";
 import { IMenu } from "@/types/menu-d-t";
+import News from "@/lib/classes/news";
 
 type IProps = {
   menu_data?: IMenu[];
+  newsItems: News[];
 };
 
-export default async function HeaderOne({ menu_data }: IProps) {
+export default async function HeaderOne({ menu_data, newsItems }: IProps) {
   const t = await getTranslations("Header");
 
   return (
     <>
       <header className="header-area tp-header-transparent p-relative">
-        <HeaderTopArea />
+        {
+          newsItems.length > 0 && (
+            <HeaderTopArea newsItems={newsItems} />
+          )
+        }
 
         <HeaderStickyWrapper>
           <div className="container">

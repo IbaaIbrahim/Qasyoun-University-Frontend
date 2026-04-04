@@ -3,19 +3,17 @@ import { getLocale, getTranslations } from "next-intl/server";
 import { readContentAsJsonByFilter } from "@/lib/services/content.service";
 import HeaderLanguage from "./header-language";
 import HeaderNewsBannerSlider from "./header-news-banner-slider";
+import News from "@/lib/classes/news";
 
 /**
  * Replaces the template “top bar” (social / phone / links) with a news strip driven by the API
  * plus the language switcher on the logical **start** side (`dir` handles LTR vs RTL).
  */
-export default async function HeaderTopArea() {
-  const locale = await getLocale();
-  const [newsContent, t] = await Promise.all([
-    readContentAsJsonByFilter({ referenceId: "0", referenceType: "news", type: "home" }, locale),
+export default async function HeaderTopArea({ newsItems }: { newsItems: News[] }) {
+  const [t] = await Promise.all([
     getTranslations("NewsBanner"),
   ]);
 
-  const items = newsContent.map((r) => r.toNews());
 
   return (
     <div
@@ -35,8 +33,8 @@ export default async function HeaderTopArea() {
           </div>
 
           <div className="tp-news-banner__track flex-grow-1 min-w-0">
-            {items.length > 0 ? (
-              <HeaderNewsBannerSlider items={items} label={t("label")} />
+            {newsItems.length > 0 ? (
+              <HeaderNewsBannerSlider items={newsItems} label={t("label")} />
             ) : (
               <div className="tp-news-banner-empty small text-center">{t("empty")}</div>
             )}

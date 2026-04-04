@@ -1,6 +1,6 @@
 import { ContentMeta, ContentMetaDto } from "./content-meta";
 import Slider from "./slider";
-import NewsBanner from "./news";
+import News from "./news";
 
 export type ContentDto = {
   id: number | string;
@@ -83,9 +83,9 @@ export class ContentJson extends Content {
     return slider ? slider : {};
   }
 
-  toNews(): NewsBanner {
+  toNews(): News {
     if (!this.contentMetasJson) return {};
-    const item = NewsBanner.fromContentJson(this.id, this.title, this.contentMetasJson);
+    const item = News.fromContentJson(this.id, this.title, this.contentMetasJson);
     return item ? item : {};
   }
 }
