@@ -74,10 +74,10 @@ export default function FacultySlider({ faculties }: Props) {
               </h3>
               <div className="tp-program-tag">
                 <p>
-                  <span>
+                  {/* <span>
                     <Image src={tag_svg} alt="" />
                   </span>
-                  Faculty
+                  Faculty */}
                 </p>
               </div>
             </div>
