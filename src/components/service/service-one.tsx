@@ -78,7 +78,7 @@ export default function ServiceOne() {
             </div>
           ))}
         </div>
-        <div className="row">
+        {/* <div className="row">
           <div className="col-lg-12">
             <div className="tp-service-all text-center">
               <span>
@@ -89,7 +89,7 @@ export default function ServiceOne() {
               </span>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
       {/* <div className="tp-service-shape">
         <div
