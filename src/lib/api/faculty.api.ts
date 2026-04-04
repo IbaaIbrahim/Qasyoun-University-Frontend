@@ -21,4 +21,19 @@ export const facultyApi = {
     const { data } = await apiClient.get<FacultyDto>(`/api/Faculty/${id}`);
     return data;
   },
+
+  /** Backend expects singular `filter`, e.g. `filter=slug~eq~'pharmacy'`. */
+  async readByFilter(filter: string, options?: { page?: number; pageSize?: number }) {
+    const { data } = await apiClient.get<DataSourceResult<FacultyDto>>(
+      "/api/Faculty/Read",
+      {
+        params: {
+          filter,
+          page: options?.page ?? 1,
+          pageSize: options?.pageSize ?? 100,
+        },
+      },
+    );
+    return data;
+  },
 };

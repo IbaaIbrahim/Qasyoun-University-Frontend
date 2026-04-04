@@ -6,6 +6,7 @@ export class Faculty {
     public readonly id: number,
     public readonly slug: string,
     public readonly name: string,
+    public readonly name_AR: string | null,
     public readonly pictureId: string | null,
     public readonly logoId: string | null,
     public readonly slider: boolean,
@@ -23,6 +24,7 @@ export class Faculty {
       Number(dto.id),
       dto.slug ?? "",
       dto.name ?? "",
+      dto.name_AR ?? null,
       dto.pictureId ?? null,
       dto.logoId ?? null,
       Boolean(dto.slider),
@@ -42,6 +44,11 @@ export class Faculty {
 
   toPlain(): FacultyPlain {
     return { id: this.id, slug: this.slug, name: this.name };
+  }
+
+  /** Gets the name based on the specified locale. */
+  getName(locale: string): string {
+    return locale === "ar" && this.name_AR ? this.name_AR : this.name;
   }
 }
 

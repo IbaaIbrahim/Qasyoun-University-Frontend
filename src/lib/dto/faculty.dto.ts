@@ -3,6 +3,7 @@ export type FacultyDto = {
   id: number | string;
   slug: string;
   name: string;
+  name_AR: string | null;
   pictureId: string | null;
   logoId: string | null;
   slider: boolean;

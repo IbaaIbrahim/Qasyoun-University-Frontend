@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return { title: tMeta("facultyNotFoundTitle") };
   }
   return {
-    title: tMeta("facultyDetailTitle", { name: faculty.name }),
+    title: tMeta("facultyDetailTitle", { name: faculty.getName(locale) }),
   };
 }
 
@@ -37,10 +37,13 @@ export default async function FacultyDetailPage({ params }: Props) {
 
   return (
     <main>
-      <BreadcrumbTwo title={faculty.name} subtitle={t("breadcrumbSubtitle")} />
+      <BreadcrumbTwo
+        title={faculty.getName(locale)}
+        subtitle={t("breadcrumbSubtitle")}
+      />
       <section className="pt-40 pb-40 grey-bg">
         <div className="container">
-          <p className="mb-0 text-center lead">{faculty.name}</p>
+          <p className="mb-0 text-center lead">{faculty.getName(locale)}</p>
         </div>
       </section>
       <AboutTwo spacing="pt-90 pb-90" />

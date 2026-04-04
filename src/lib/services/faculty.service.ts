@@ -17,8 +17,19 @@ export async function listFacultiesForPublic(options?: { take?: number }) {
 
 export async function getFacultyBySlug(slug: string) {
   const decoded = decodeURIComponent(slug);
-  const faculties = await listFacultiesForPublic({ take: 500 });
-  return faculties.find((f) => f.slug === decoded) ?? null;
+  try {
+    // Telerik filter pattern: field~eq~'value'
+    const filter = `slug~eq~'${decoded}'`;
+    const result = await facultyApi.readByFilter(filter, { pageSize: 1 });
+    const dto = result.data?.[0];
+    if (!dto) return null;
+
+    const faculty = Faculty.fromDto(dto);
+    if (!faculty.isActive || !faculty.isPublished) return null;
+    return faculty;
+  } catch {
+    return null;
+  }
 }
 
 export async function getFacultyById(id: number) {
