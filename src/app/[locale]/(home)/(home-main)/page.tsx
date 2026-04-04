@@ -30,7 +30,7 @@ export async function generateMetadata({
 
 export default async function HomePage() {
   const locale = await getLocale();
-  const meta = await readContentAsJsonByFilter({ referenceType: "home", type: "hero-slider" }, locale);
+  const meta = await readContentAsJsonByFilter({ referenceType: "home", section: "hero-slider" }, locale);
   const slides = meta.flatMap((item) => item.toSlider());
 
   return (

@@ -6,7 +6,7 @@ export const contentApi = {
   async readByFilters(filters: string, options?: { page?: number; pageSize?: number }) {
     const { data } = await apiClient.get<DataSourceResult<ContentDto>>("/api/Content/Read", {
       params: {
-        filters,
+        filter: filters,
         page: options?.page ?? 1,
         pageSize: options?.pageSize ?? 100,
       },

@@ -10,7 +10,7 @@ import { readContentAsJsonByFilter } from "@/lib/services/content.service";
 export default async function Layout({ children }: { children: React.ReactNode }) {
   const locale = await getLocale();
   const [newsContent] = await Promise.all([
-    readContentAsJsonByFilter({ referenceId: "0", referenceType: "home", type: "news" }, locale),
+    readContentAsJsonByFilter({ referenceId: "0", referenceType: "home", section: "news" }, locale),
   ]);
 
   const items = newsContent.map((r) => r.toNews());

@@ -6,7 +6,7 @@ export type ContentDto = {
   id: number | string;
   referenceId: number | string;
   referenceType: string;
-  type: string;
+  section: string;
   /** Present on many CMS rows; optional in UI when copy comes only from `ContentMeta`. */
   title?: string | null;
   displayOrder: number | string;
@@ -21,7 +21,7 @@ export class Content {
     public readonly id: number,
     public readonly referenceId: number,
     public readonly referenceType: string,
-    public readonly type: string,
+    public readonly section: string,
     public readonly title: string | null,
     public readonly displayOrder: number,
     public readonly isActive: boolean,
@@ -35,7 +35,7 @@ export class Content {
       Number(dto.id),
       Number(dto.referenceId),
       dto.referenceType ?? "",
-      dto.type ?? "",
+      dto.section ?? "",
       dto.title ?? null,
       Number(dto.displayOrder),
       Boolean(dto.isActive),
@@ -50,7 +50,7 @@ export class Content {
       id: this.id,
       referenceId: this.referenceId,
       referenceType: this.referenceType,
-      type: this.type,
+      section: this.section,
       title: this.title,
       displayOrder: this.displayOrder,
       isActive: this.isActive,
@@ -70,7 +70,7 @@ export type ContentMetaJson = {
 export class ContentJson extends Content {
   contentMetasJson?: ContentMetaJson
   constructor(content: Content, locale: string) {
-    super(content.id, content.referenceId, content.referenceType, content.type, content.title, content.displayOrder, content.isActive, content.contentMetas, content.createdAt, content.updatedAt)
+    super(content.id, content.referenceId, content.referenceType, content.section, content.title, content.displayOrder, content.isActive, content.contentMetas, content.createdAt, content.updatedAt)
     this.contentMetasJson = content.contentMetas?.reduce((acc, meta) => {
       acc[meta.keyName] = locale === "ar" ? meta.valueAr ?? meta.value : meta.value;
       acc[`${meta.keyName}--id`] = String(meta.id);

@@ -34,7 +34,7 @@ export default async function FacultyDetailPage({ params }: Props) {
   const faculty = await getFacultyBySlug(slug);
   if (!faculty) notFound();
 
-  const meta = await readContentAsJsonByFilter({ referenceType: "home", type: "hero-slider" }, locale);
+  const meta = await readContentAsJsonByFilter({ referenceId: slug, referenceType: "faculty", section: "hero-slider" }, locale);
   const slides = meta.map((item) => item.toSlider());
 
   return (
