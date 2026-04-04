@@ -41,7 +41,7 @@ export default function ServiceOne() {
   return (
     <section
       className="service-area tp-service-bg"
-      style={{ backgroundImage: `url(/assets/img/bg/services-bg.jpg)` }}
+      style={{ backgroundImage: `url(/assets/img/bg/services-bg-2.png)` }}
     >
       <div className="container">
         <div className="row">
@@ -78,7 +78,7 @@ export default function ServiceOne() {
             </div>
           ))}
         </div>
-        <div className="row">
+        {/* <div className="row">
           <div className="col-lg-12">
             <div className="tp-service-all text-center">
               <span>
@@ -89,9 +89,9 @@ export default function ServiceOne() {
               </span>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
-      <div className="tp-service-shape">
+      {/* <div className="tp-service-shape">
         <div
           className="tp-service-shape-1 wow bounceIn"
           data-wow-duration="1.5s"
@@ -102,7 +102,7 @@ export default function ServiceOne() {
             alt="service-shape"
           />
         </div>
-      </div>
+      </div> */}
     </section>
   );
 }

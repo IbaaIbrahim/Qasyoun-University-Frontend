@@ -1,10 +1,10 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { RightSmArrow } from "@/components/svg";
 import { IPagesDropdown } from "@/types/menu-d-t";
 import menu_shape_1 from "@/assets/img/shape/menu-shape-1.png";
 import menu_shape_2 from "@/assets/img/shape/menu-shape-2.png";
+import NavLink from "@/components/i18n/nav-link";
 
 type IProps = {
   pages_dropdown: IPagesDropdown[];
@@ -27,7 +27,7 @@ export default function NavPagesDropdown({ pages_dropdown }: IProps) {
                       <ul>
                         {pd.dropdown_menus.map((sm) => (
                           <li key={sm.id}>
-                            <Link href={sm.link}>{sm.title}</Link>
+                            <NavLink href={sm.link}>{sm.title}</NavLink>
                           </li>
                         ))}
                       </ul>
@@ -44,7 +44,7 @@ export default function NavPagesDropdown({ pages_dropdown }: IProps) {
                             <ul>
                               {pd.dropdown_menus.slice(0, 6).map((sm) => (
                                 <li key={sm.id}>
-                                  <Link href={sm.link}>{sm.title}</Link>
+                                  <NavLink href={sm.link}>{sm.title}</NavLink>
                                 </li>
                               ))}
                             </ul>
@@ -53,7 +53,7 @@ export default function NavPagesDropdown({ pages_dropdown }: IProps) {
                             <ul>
                               {pd.dropdown_menus.slice(6).map((sm) => (
                                 <li key={sm.id}>
-                                  <Link href={sm.link}>{sm.title}</Link>
+                                  <NavLink href={sm.link}>{sm.title}</NavLink>
                                 </li>
                               ))}
                             </ul>
@@ -76,15 +76,15 @@ export default function NavPagesDropdown({ pages_dropdown }: IProps) {
                     <h4 className="tp-megamenu-fullwidth-content-title">
                       Online <br /> Learning Platforms
                     </h4>
-                    <Link className="tp-btn" href="/course-with-filter">
+                    <NavLink className="tp-btn" href="/course-with-filter">
                       All Course{" "}
                       <span>
                         <RightSmArrow />
                       </span>
-                    </Link>
+                    </NavLink>
                   </div>
                   <div className="tp-megamenu-fullwidth-content-thumb">
-                    <Image src={menu_shape_1} alt="menu-shape" />
+                    <Image src={menu_shape_1} alt="" />
                   </div>
                 </div>
               </div>
@@ -94,15 +94,15 @@ export default function NavPagesDropdown({ pages_dropdown }: IProps) {
                     <h4 className="tp-megamenu-fullwidth-content-title">
                       Accelerated <br /> Degree Programs
                     </h4>
-                    <Link className="tp-btn" href="/university-program">
+                    <NavLink className="tp-btn" href="/university-program">
                       All Programs{" "}
                       <span>
                         <RightSmArrow />
                       </span>
-                    </Link>
+                    </NavLink>
                   </div>
                   <div className="tp-megamenu-fullwidth-content-thumb">
-                    <Image src={menu_shape_2} alt="menu-shape" />
+                    <Image src={menu_shape_2} alt="" />
                   </div>
                 </div>
               </div>

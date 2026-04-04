@@ -1,0 +1,80 @@
+{
+  "Metadata": {
+    "siteTitle": "جامعة قاسيون الخاصة",
+    "siteDescription": "جامعة قاسيون الخاصة (QPU) — الموقع الرسمي قيد التحديث من qpu.edu.sy.",
+    "homeTitle": "الرئيسية - جامعة قاسيون الخاصة",
+    "facultiesTitle": "الكليات - جامعة قاسيون الخاصة",
+    "facultyNotFoundTitle": "الكلية غير موجودة",
+    "facultyDetailTitle": "{name} - جامعة قاسيون الخاصة",
+    "notFoundTitle": "غير موجود - جامعة قاسيون الخاصة"
+  },
+  "Nav": {
+    "home": "الرئيسية",
+    "academics": "الأكاديميون",
+    "admissions": "القبول",
+    "pages": "صفحات",
+    "blog": "المدونة",
+    "about": "عن الجامعة",
+    "vision": "الرؤية",
+    "purposes": "الأهداف",
+    "foundation": "التأسيس",
+    "boardOfTrustees": "مجلس الأمناء",
+    "universityCouncil": "مجلس الجامعة",
+    "organizationalStructure": "الهيكل التنظيمي",
+    "locationAndInfrastructure": "الموقع والبنية التحتية",
+    "faculties": "الكليات"
+  },
+  "NewsBanner": {
+    "label": "الأخبار",
+    "empty": "لا توجد إعلانات حالياً.",
+    "readMore": "المزيد"
+  },
+  "Header": {
+    "faculties": "الكليات",
+    "followers": "7500 ألف متابع",
+    "campus": "الحرم الجامعي",
+    "students": "الطلاب",
+    "staffs": "الموظفون",
+    "alumni": "الخريجون",
+    "helpDesk": "مكتب المساعدة",
+    "languageEnglish": "الإنجليزية",
+    "languageArabic": "العربية"
+  },
+  "Footer": {
+    "gotQuestions": "لديك أسئلة؟ اتصل بنا",
+    "about": "عن الجامعة",
+    "quickLinks": "روابط سريعة",
+    "newsletter": "النشرة البريدية",
+    "newsletterLead": "أدخل بريدك الإلكتروني وسنرسل لك المزيد من المعلومات.",
+    "emailPlaceholder": "بريدك الإلكتروني",
+    "subscribe": "اشترك",
+    "copyright": "© {year} جامعة قاسيون الخاصة. جميع الحقوق محفوظة."
+  },
+  "Faculties": {
+    "breadcrumbTitle": "الكليات",
+    "empty": "لا توجد كليات للعرض حالياً."
+  },
+  "FacultyArea": {
+    "titleLead": "كليات",
+    "titleAccent": "الجامعة",
+    "description": "استكشف كلياتنا والوحدات الأكاديمية في جامعة قاسيون الخاصة.",
+    "moreIntro": "سيتم ربط المزيد من المحتوى والبرامج هنا أثناء التحديث من",
+    "viewAll": "عرض جميع الكليات"
+  },
+  "FacultyDetail": {
+    "breadcrumbSubtitle": "الكليات"
+  },
+  "FacultyCard": {
+    "learnMore": "اعرف المزيد"
+  },
+  "Error": {
+    "title": "حدث خطأ ما",
+    "tryAgain": "إعادة المحاولة"
+  },
+  "NotFound": {
+    "title": "عذراً!",
+    "heading": "حدث خطأ ما…",
+    "description": "عذراً، لم نتمكن من العثور على الصفحة.",
+    "backHome": "العودة للرئيسية"
+  }
+}

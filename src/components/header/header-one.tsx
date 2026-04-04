@@ -1,6 +1,7 @@
 import React from "react";
-import Link from "next/link";
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import { SearchSvg } from "../svg";
 import NavMenus from "./navbar/nav-menus";
 import logo from "@/assets/img/logo/logo.png";
@@ -9,15 +10,25 @@ import logo_black from "@/assets/img/logo/logo-black-1.png";
 import HeaderStickyWrapper from "./header-sticky-provider/header-sticky-wrapper";
 import SearchButton from "./button/search-button";
 import OffcanvasButton from "./button/offcanvas-btn";
+import { IMenu } from "@/types/menu-d-t";
+import News from "@/lib/classes/news";
 
-export default function HeaderOne() {
+type IProps = {
+  menu_data?: IMenu[];
+  newsItems: News[];
+};
+
+export default async function HeaderOne({ menu_data, newsItems }: IProps) {
+  const t = await getTranslations("Header");
+
   return (
     <>
       <header className="header-area tp-header-transparent p-relative">
-         
-        {/* header top start*/}
-         <HeaderTopArea />
-        {/* header top end */}
+        {
+          newsItems.length > 0 && (
+            <HeaderTopArea newsItems={newsItems} />
+          )
+        }
 
         <HeaderStickyWrapper>
           <div className="container">
@@ -37,9 +48,7 @@ export default function HeaderOne() {
               </div>
               <div className="col-xxl-8 col-xl-7 d-none d-xl-block">
                 <div className="main-menu text-end">
-                  {/* nav menus start */}
-                  <NavMenus />
-                  {/* nav menus end */}
+                  <NavMenus menu_data={menu_data} />
                 </div>
               </div>
               <div className="col-xxl-2 col-xl-3 col-lg-6 col-md-6 col-6">
@@ -48,10 +57,10 @@ export default function HeaderOne() {
                     <SearchButton icon={<SearchSvg />} />
                   </div>
                   <div className="tp-header-btn d-none d-md-block ml-30">
-                    <Link href="/university-application-form">Apply Now</Link>
+                    <Link href="/faculties">{t("faculties")}</Link>
                   </div>
                   <div className="tp-header-bar d-xl-none ml-30">
-                    <OffcanvasButton/>
+                    <OffcanvasButton />
                   </div>
                 </div>
               </div>
@@ -60,9 +69,7 @@ export default function HeaderOne() {
         </HeaderStickyWrapper>
       </header>
 
-      {/* mobile offcanvas */}
-      <div id="offcanvas-sidebar"/>
-      {/* mobile offcanvas */}
+      <div id="offcanvas-sidebar" />
     </>
   );
 }

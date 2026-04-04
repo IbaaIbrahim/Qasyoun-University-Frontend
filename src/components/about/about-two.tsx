@@ -6,7 +6,7 @@ import ab_img_2 from "@/assets/img/about/4/about-thumb-2.jpg";
 import ab_img_3 from "@/assets/img/about/4/about-thumb-3.jpg";
 import ab_img_4 from "@/assets/img/about/4/about-thumb-4.jpg";
 import { useVideoModal } from "@/provider/VideoProvider";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 const thumbs = [
    { id: 1, col_lg: 3, img: ab_img_1, delay: .5 },
@@ -30,7 +30,7 @@ export default function AboutTwo({ spacing = 'pt-115 pb-90' }: IProps) {
                   <div className="tp-about-4-wrapper mb-75 wow fadeInUp" data-wow-delay=".3s">
                      <h2 className="tp-about-4-head">Our goal is to develop and meet the needs of each child so that he or she becomes a well-rounded tomorrow individual.</h2>
                      <div className="tp-about-4-btn wow fadeInUp" data-wow-delay=".5s">
-                        <Link className="tp-btn-3" href="/university-about">Why Choose Acadia</Link>
+                        <Link className="tp-btn-3" href="/">Why Choose QPU</Link>
                         <div className="tp-about-4-video">
                            <button className="popup-video" onClick={() => playVideo("LlCwHnp3kL4")}>
                               <span>

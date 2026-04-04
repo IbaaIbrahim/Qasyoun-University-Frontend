@@ -1,0 +1,80 @@
+{
+  "Metadata": {
+    "siteTitle": "Qasyoun Private University",
+    "siteDescription": "Qasyoun Private University (QPU) — official site migration in progress from qpu.edu.sy.",
+    "homeTitle": "Home - Qasyoun Private University",
+    "facultiesTitle": "Faculties - Qasyoun Private University",
+    "facultyNotFoundTitle": "Faculty not found",
+    "facultyDetailTitle": "{name} - Qasyoun Private University",
+    "notFoundTitle": "Not Found - Qasyoun Private University"
+  },
+  "Nav": {
+    "home": "Home",
+    "academics": "Academics",
+    "admissions": "Admissions",
+    "pages": "Pages",
+    "blog": "Blog",
+    "about": "About",
+    "vision": "Vision",
+    "purposes": "Purposes",
+    "foundation": "Foundation",
+    "boardOfTrustees": "Board of Trustees",
+    "universityCouncil": "University Council",
+    "organizationalStructure": "Organizational Structure",
+    "locationAndInfrastructure": "Location & Infrastructure",
+    "faculties": "Faculties"
+  },
+  "NewsBanner": {
+    "label": "News",
+    "empty": "No announcements right now.",
+    "readMore": "Read more"
+  },
+  "Header": {
+    "faculties": "Faculties",
+    "followers": "7500k Followers",
+    "campus": "Campus",
+    "students": "Students",
+    "staffs": "Staffs",
+    "alumni": "Alumni",
+    "helpDesk": "Help Desk",
+    "languageEnglish": "English",
+    "languageArabic": "Arabic"
+  },
+  "Footer": {
+    "gotQuestions": "Got Questions? Call us",
+    "about": "About",
+    "quickLinks": "Quick links",
+    "newsletter": "Our Newsletter",
+    "newsletterLead": "Enter your email and we will send you more information.",
+    "emailPlaceholder": "Your email",
+    "subscribe": "Subscribe",
+    "copyright": "© {year} Qasyoun Private University. All rights reserved."
+  },
+  "Faculties": {
+    "breadcrumbTitle": "Faculties",
+    "empty": "No faculties to show yet."
+  },
+  "FacultyArea": {
+    "titleLead": "University",
+    "titleAccent": "Faculties",
+    "description": "Explore our faculties and academic units at Qasyoun Private University.",
+    "moreIntro": "More content and programs will be linked here as we migrate from",
+    "viewAll": "View all faculties"
+  },
+  "FacultyDetail": {
+    "breadcrumbSubtitle": "Faculties"
+  },
+  "FacultyCard": {
+    "learnMore": "Learn more"
+  },
+  "Error": {
+    "title": "Something went wrong",
+    "tryAgain": "Try again"
+  },
+  "NotFound": {
+    "title": "Oops!",
+    "heading": "Something went wrong…",
+    "description": "Sorry, we couldn't find your page.",
+    "backHome": "Back to home"
+  }
+}
