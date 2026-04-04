@@ -10,7 +10,7 @@ export default class Slider {
 
   static fromContentMetaJson(contentJson: ContentJson): Slider {
     return {
-      id: `${contentJson.contentMetasJson?.id ?? ""}`,
+      id: `${contentJson.id}`,
       bgImg: contentJson.contentMetasJson?.src ?? "",
       title: contentJson.contentMetasJson?.title ?? "",
       subTitle: contentJson.contentMetasJson?.subTitle ?? "",

@@ -71,14 +71,9 @@ function NewsBannerSlideRow({
 
       <div className="tp-news-banner-copy min-w-0 flex-grow-1">
         <div className="tp-news-banner-text-group d-flex align-items-center gap-4">
-          {/* {item.title ? (
-            <span className="tp-news-banner-title text-truncate fw-bold">
-              {item.title}
-            </span>
-          ) : null} */}
-          {item.excerpt ? (
+          {item.title ? (
             <span className="tp-news-banner-excerpt text-truncate opacity-75">
-              {item.excerpt}
+              {item.title}
             </span>
           ) : null}
         </div>

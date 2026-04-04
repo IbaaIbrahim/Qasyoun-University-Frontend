@@ -39,8 +39,6 @@ export default async function FacultyDetailPage({ params }: Props) {
   const meta = await readContentAsJsonByFilter({ referenceType: "home", type: "hero-slider" }, locale);
   const slides = meta.map((item) => item.toSlider());
 
-  console.log('slides', slides);
-
   return (
     <main>
       <HeroAreaOne slides={slides.filter((slide) => slide.bgImg)} />
