@@ -45,6 +45,7 @@
     "@types/react-dom": "19.2.3",
     "@types/react-flatpickr": "^3.8.11",
     "@types/react-slick": "^0.23.13",
+    "baseline-browser-mapping": "^2.10.14",
     "eslint": "^9",
     "eslint-config-next": "16.0.3",
     "typescript": "^5"
