@@ -168,7 +168,7 @@ export default function MissionArea({
         id: lab.id,
         title: locale === "ar" && lab.name_AR ? lab.name_AR : lab.name,
         description: locale === "ar" && lab.content_AR ? lab.content_AR : lab.content ?? "",
-        imgSrc: lab.picture?.url && lab.picture.url.toLowerCase().startsWith("http") ? lab.picture.url : mission_thumb_1,
+        imgSrc: lab.picture?.url ? (lab.picture.url.toLowerCase().startsWith("http") ? lab.picture.url : `https://api.v2202503187605326384.powersrv.de${lab.picture.url}`) : mission_thumb_1,
       }))
     : fallbackMissionData;
 
