@@ -1,9 +1,6 @@
-import { getLocale } from "next-intl/server";
-import { listHomeHeroSlides } from "@/lib/services/home-hero.service";
 import HeroAreaOneSlider from "./hero-area-one-slider";
+import Slider from "@/lib/classes/slider";
 
-export default async function HeroAreaOne() {
-  const locale = await getLocale();
-  const slides = await listHomeHeroSlides(locale);
+export default async function HeroAreaOne({ slides }: { slides: Slider[] }) {
   return <HeroAreaOneSlider slides={slides} />;
 }

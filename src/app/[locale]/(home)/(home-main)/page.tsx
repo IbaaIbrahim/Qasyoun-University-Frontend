@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import HeroAreaOne from "@/components/hero-area/hero-area-one";
 import ServiceOne from "@/components/service/service-one";
 import AboutOne from "@/components/about/about-one";
@@ -10,6 +10,7 @@ import TestimonialOne from "@/components/testimonial/testimonial-one";
 import BlogOne from "@/components/blog/blog-one";
 import InstagramArea from "@/components/instagram/instagram-area";
 import CtaOne from "@/components/cta/cta-one";
+import { readContentAsJsonByFilter } from "@/lib/services/content.service";
 
 export const dynamic = "force-dynamic";
 
@@ -27,10 +28,14 @@ export async function generateMetadata({
   };
 }
 
-export default function HomePage() {
+export default async function HomePage() {
+  const locale = await getLocale();
+  const meta = await readContentAsJsonByFilter({ referenceType: "home", type: "hero-slider" }, locale);
+  const slides = meta.map((item) => item.toSlider()).flat();
+
   return (
     <main>
-      <HeroAreaOne />
+      <HeroAreaOne slides={slides} />
       <ServiceOne />
       <AboutOne />
       <CounterOne />

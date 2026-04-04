@@ -9,6 +9,8 @@ import AboutThree from "@/components/about/about-three";
 import AboutCampus from "@/components/about/about-campus";
 import TeamAreaThree from "@/components/team/team-area-three";
 import { getFacultyBySlug } from "@/lib/services/faculty.service";
+import HeroAreaOne from "@/components/hero-area/hero-area-one";
+import { readContentAsJsonByFilter } from "@/lib/services/content.service";
 
 export const dynamic = "force-dynamic";
 
@@ -34,18 +36,12 @@ export default async function FacultyDetailPage({ params }: Props) {
   if (!faculty) notFound();
 
   const t = await getTranslations({ locale, namespace: "FacultyDetail" });
+  const meta = await readContentAsJsonByFilter({ referenceType: "home", type: "hero-slider" }, locale);
+  const slides = meta.map((item) => item.toSlider()).flat();
 
   return (
     <main>
-      <BreadcrumbTwo
-        title={faculty.getName(locale)}
-        subtitle={t("breadcrumbSubtitle")}
-      />
-      <section className="pt-40 pb-40 grey-bg">
-        <div className="container">
-          <p className="mb-0 text-center lead">{faculty.getName(locale)}</p>
-        </div>
-      </section>
+      <HeroAreaOne slides={slides} />
       <AboutTwo spacing="pt-90 pb-90" />
       <CounterFour />
       <MissionArea />

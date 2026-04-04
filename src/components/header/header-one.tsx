@@ -10,8 +10,13 @@ import logo_black from "@/assets/img/logo/logo-black-1.png";
 import HeaderStickyWrapper from "./header-sticky-provider/header-sticky-wrapper";
 import SearchButton from "./button/search-button";
 import OffcanvasButton from "./button/offcanvas-btn";
+import { IMenu } from "@/types/menu-d-t";
 
-export default async function HeaderOne() {
+type IProps = {
+  menu_data?: IMenu[];
+};
+
+export default async function HeaderOne({ menu_data }: IProps) {
   const t = await getTranslations("Header");
 
   return (
@@ -37,7 +42,7 @@ export default async function HeaderOne() {
               </div>
               <div className="col-xxl-8 col-xl-7 d-none d-xl-block">
                 <div className="main-menu text-end">
-                  <NavMenus />
+                  <NavMenus menu_data={menu_data} />
                 </div>
               </div>
               <div className="col-xxl-2 col-xl-3 col-lg-6 col-md-6 col-6">

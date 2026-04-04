@@ -195,4 +195,42 @@
   .tp-hero-nav-btn-inner svg {
     transform: scaleX(-1);
   }
+
+  // Navbar Main Menu Direction and Submenus
+  .tp-main-menu-content ul li {
+    text-align: right;
+  }
+
+  .tp-main-menu-content ul li.has-dropdown > a::after {
+    margin-left: 0 !important;
+    margin-right: 6px !important;
+  }
+
+  .tp-submenu {
+    left: auto !important;
+    right: 0 !important;
+  }
+
+  .tp-submenu li a {
+    text-align: right !important;
+    padding-left: 0 !important;
+    padding-right: 30px !important;
+    
+    &::before {
+      left: auto !important;
+      right: 15px !important;
+    }
+  }
+
+  .tp-submenu li:hover > a,
+  .tp-submenu li.active > a {
+    padding-left: 0 !important;
+    padding-right: 35px !important;
+  }
+
+  .tp-submenu li.has-dropdown > a::after {
+    right: auto !important;
+    left: 25px !important;
+    transform: translateY(-50%) rotate(90deg) !important;
+  }
 }

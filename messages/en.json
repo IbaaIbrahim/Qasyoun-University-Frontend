@@ -13,7 +13,16 @@
     "academics": "Academics",
     "admissions": "Admissions",
     "pages": "Pages",
-    "blog": "Blog"
+    "blog": "Blog",
+    "about": "About",
+    "vision": "Vision",
+    "purposes": "Purposes",
+    "foundation": "Foundation",
+    "boardOfTrustees": "Board of Trustees",
+    "universityCouncil": "University Council",
+    "organizationalStructure": "Organizational Structure",
+    "locationAndInfrastructure": "Location & Infrastructure",
+    "faculties": "Faculties"
   },
   "NewsBanner": {
     "label": "News",

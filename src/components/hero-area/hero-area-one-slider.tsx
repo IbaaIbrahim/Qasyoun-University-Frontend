@@ -3,9 +3,9 @@
 import { EffectFade, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { SwiperOptions } from "swiper/types";
-import type { HomeHeroSlide } from "@/lib/services/home-hero.service";
 import { NextArrow, PrevArrow, RightArrow } from "../svg";
 import Link from "next/link";
+import Slider from "@/lib/classes/slider";
 
 const sliderOptions: SwiperOptions = {
   slidesPerView: 1,
@@ -24,7 +24,7 @@ const sliderOptions: SwiperOptions = {
 };
 
 type Props = {
-  slides: HomeHeroSlide[];
+  slides: Slider[];
 };
 
 export default function HeroAreaOneSlider({ slides }: Props) {
@@ -48,18 +48,28 @@ export default function HeroAreaOneSlider({ slides }: Props) {
                   <div className="col-xxl-9 col-lg-11">
                     <div className="tp-hero-wrapper">
                       <span className="tp-hero-subtitle">
-                        Be apart of our history
+                        {
+                          item.subTitle ? item.subTitle : <span style={{ height: "15vh", display: "block" }}>&nbsp;</span>
+                        }
                       </span>
                       <h2 className="tp-hero-title">
-                        Landmark to Create the Future.
+                        {
+                          item.title ? item.title : <span style={{ height: "15vh", display: "block" }}>&nbsp;</span>
+                        }
                       </h2>
                       <div className="tp-hero-btn">
-                        <Link className="tp-btn" href="/university-program">
-                          Enroll Now
-                          <span>
-                            <RightArrow />
-                          </span>
-                        </Link>
+                        {
+                          item.btnText ? (
+                            <Link className="tp-btn" href={item.btnLink || "/"}>
+                              {item.btnText}
+                              <span>
+                                <RightArrow />
+                              </span>
+                            </Link>
+                          ) : (
+                            <span style={{ height: 50, display: "block" }}>&nbsp;</span>
+                          )
+                        }
                       </div>
                     </div>
                   </div>

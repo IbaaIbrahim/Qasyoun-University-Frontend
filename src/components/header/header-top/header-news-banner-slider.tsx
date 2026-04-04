@@ -4,13 +4,13 @@ import { Autoplay, FreeMode } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import type { NewsBannerItem } from "@/lib/services/news-banner.service";
+import type NewsBanner from "@/lib/classes/news";
 
 // Import Swiper styles if needed, but they should be in globals.scss or layout.tsx
 // import "swiper/css/free-mode"; 
 
 type Props = {
-  items: NewsBannerItem[];
+  items: NewsBanner[];
   label: string;
 };
 
@@ -39,7 +39,7 @@ function NewsBannerSlideRow({
   readMoreLabel,
   ariaHidden,
 }: {
-  item: NewsBannerItem;
+  item: NewsBanner;
   label: string;
   readMoreLabel: string;
   ariaHidden?: boolean;

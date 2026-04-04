@@ -1,6 +1,6 @@
 import React from "react";
 import { getLocale, getTranslations } from "next-intl/server";
-import { listNewsBannerItems } from "@/lib/services/news-banner.service";
+import { readContentAsJsonByFilter } from "@/lib/services/content.service";
 import HeaderLanguage from "./header-language";
 import HeaderNewsBannerSlider from "./header-news-banner-slider";
 
@@ -10,10 +10,12 @@ import HeaderNewsBannerSlider from "./header-news-banner-slider";
  */
 export default async function HeaderTopArea() {
   const locale = await getLocale();
-  const [items, t] = await Promise.all([
-    listNewsBannerItems(locale),
+  const [newsContent, t] = await Promise.all([
+    readContentAsJsonByFilter({ referenceId: "0", referenceType: "news", type: "home" }, locale),
     getTranslations("NewsBanner"),
   ]);
+
+  const items = newsContent.map((r) => r.toNews()).flat().filter(Boolean);
 
   return (
     <div

@@ -13,7 +13,16 @@
     "academics": "الأكاديميون",
     "admissions": "القبول",
     "pages": "صفحات",
-    "blog": "المدونة"
+    "blog": "المدونة",
+    "about": "عن الجامعة",
+    "vision": "الرؤية",
+    "purposes": "الأهداف",
+    "foundation": "التأسيس",
+    "boardOfTrustees": "مجلس الأمناء",
+    "universityCouncil": "مجلس الجامعة",
+    "organizationalStructure": "الهيكل التنظيمي",
+    "locationAndInfrastructure": "الموقع والبنية التحتية",
+    "faculties": "الكليات"
   },
   "NewsBanner": {
     "label": "الأخبار",
