@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
-import BreadcrumbTwo from "@/components/breadcrumb/breadcrumb-two";
 import AboutTwo from "@/components/about/about-two";
 import CounterFour from "@/components/counter/counter-four";
 import MissionArea from "@/components/mission/mission-area";
@@ -35,7 +34,6 @@ export default async function FacultyDetailPage({ params }: Props) {
   const faculty = await getFacultyBySlug(slug);
   if (!faculty) notFound();
 
-  const t = await getTranslations({ locale, namespace: "FacultyDetail" });
   const meta = await readContentAsJsonByFilter({ referenceType: "home", type: "hero-slider" }, locale);
   const slides = meta.map((item) => item.toSlider());
 
