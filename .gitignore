@@ -37,6 +37,5 @@ yarn-error.log*
 next-env.d.ts
 
 
-.firebase/qpu-university/*
-.firebase/qpu-university-2026/*
+.firebase/*
 deploy_output.log
