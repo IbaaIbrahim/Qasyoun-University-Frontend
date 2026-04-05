@@ -1,6 +1,6 @@
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
-import logo from '@/assets/img/logo/logo-black.png';
+import logo from '@/assets/img/logo/logo-wide.png';
 import { BehanceSvg, CloseThreeSvg, DribbleSvg, InstagramSvg, YoutubeTwoSvg } from "@/components/svg";
 import OffcanvasMenu from "./offcanvas-menu";
 import OffcanvasMenuTwo from "./offcanvas-menu-2";
@@ -19,7 +19,7 @@ type IProps = {
    offcanvas_cls?: string;
    offcanvas_menu_2?: boolean;
 }
-export default function OffcanvasArea({openOffCanvas,onHandleOffCanvas,offcanvas_cls,offcanvas_menu_2}:IProps) {
+export default function OffcanvasArea({ openOffCanvas, onHandleOffCanvas, offcanvas_cls, offcanvas_menu_2 }: IProps) {
    return (
       <>
          <div className={`offcanvas__area ${offcanvas_cls} ${openOffCanvas ? 'offcanvas-opened' : ''}`}>
@@ -42,7 +42,7 @@ export default function OffcanvasArea({openOffCanvas,onHandleOffCanvas,offcanvas
                         <h3 className="offcanvas-title">Hello There!</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur <br /> adipiscing elit, </p>
                      </div>
-                     
+
                      {/* mobile menu */}
                      {offcanvas_menu_2 ? <OffcanvasMenuTwo /> : <OffcanvasMenu />}
                      {/* mobile menu */}
@@ -63,9 +63,9 @@ export default function OffcanvasArea({openOffCanvas,onHandleOffCanvas,offcanvas
                      <div className="offcanvas-contact">
                         <h3 className="offcanvas-title sm">Information</h3>
                         <ul>
-                           <li><a href="tel:1245654">+ 4 20 7700 1007</a></li>
-                           <li><a href="mailto:hello@acadia.com">hello@acadia.com</a></li>
-                           <li><a href="#">Avenue de Roma 158b, Lisboa</a></li>
+                           <li><a href="tel:1245654">+963 999 999 999</a></li>
+                           <li><a href="mailto:hello@acadia.com">hello@qpu.edu.sy</a></li>
+                           <li><a href="#">Damascus 17, Mazzeh</a></li>
                         </ul>
                      </div>
                      <div className="offcanvas-social">
@@ -99,7 +99,7 @@ export default function OffcanvasArea({openOffCanvas,onHandleOffCanvas,offcanvas
          </div>
 
          {/* Body Overlay */}
-         <div onClick={onHandleOffCanvas} className={`body-overlay ${openOffCanvas ? 'opened' : ''}`}/>
+         <div onClick={onHandleOffCanvas} className={`body-overlay ${openOffCanvas ? 'opened' : ''}`} />
          {/* Body Overlay */}
       </>
    )

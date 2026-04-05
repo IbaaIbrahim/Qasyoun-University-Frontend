@@ -32,7 +32,7 @@ export default function SearchPopup({ isSearchOpen, onHide }: IProps) {
                                     <SearchSvg />
                                  </button>
                               </div>
-                              <div className="tp-search-course-wrap">
+                              {/* <div className="tp-search-course-wrap">
                                  <h3 className="tp-search-course-title">OUR TOP Program</h3>
                                  <div className="row">
                                     {top_programs.map((item) => (
@@ -64,7 +64,7 @@ export default function SearchPopup({ isSearchOpen, onHide }: IProps) {
                                        </div>
                                     ))}
                                  </div>
-                              </div>
+                              </div> */}
                            </div>
                         </div>
                      </div>
@@ -73,7 +73,7 @@ export default function SearchPopup({ isSearchOpen, onHide }: IProps) {
             </div>
          </div>
 
-         <div onClick={onHide} className={`body-overlay ${isSearchOpen?'opened':''}`}></div>
+         <div onClick={onHide} className={`body-overlay ${isSearchOpen ? 'opened' : ''}`}></div>
       </>
    )
 }

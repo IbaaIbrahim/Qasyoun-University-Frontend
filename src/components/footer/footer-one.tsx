@@ -3,8 +3,8 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { Email } from "../svg";
 import FooterSocial from "./footer-social";
-import logo from "@/assets/img/logo/logo.png";
-import logo_black from "@/assets/img/logo/logo-black-2.png";
+import logo from "@/assets/img/logo/logo-wide.png";
+import logo_black from "@/assets/img/logo/logo-wide.png";
 import { footerLinks } from "@/data/footer-links";
 
 type IProps = {
@@ -44,14 +44,14 @@ export default async function FooterOne({ style_2 = false }: IProps) {
                 </div>
                 <div className="tp-footer-contact">
                   <span>{t("gotQuestions")}</span>
-                  <a href="tel:012345678">+670 413 90 762</a>
+                  <a href="tel:012345678">+963 999 999 999</a>
                 </div>
                 <div className="tp-footer-contact-mail">
                   <a href="mailto:acadia@gmail.com">
                     <span>
                       <Email />
                     </span>
-                    acadia@gmail.com
+                    qpu@qpu.edu.sy
                   </a>
                 </div>
               </div>
