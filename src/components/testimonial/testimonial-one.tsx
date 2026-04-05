@@ -26,7 +26,7 @@ export default function TestimonialOne() {
             <div className="tp-video-wrap d-flex">
               <div className="tp-video-icon text-center">
                 {/* Video area */}
-                <button onClick={() => playVideo("go7QYaQR494")} className="video-border-animation popup-video">
+                <button onClick={() => playVideo("Su0l_RWcV-Y")} className="video-border-animation popup-video">
                   <span>
                     <svg
                       width="16"

@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { RightArrow, RightArrowThree } from "../svg";
 import shape_line from "@/assets/img/unlerline/event-1-svg-1.svg";
-import {university_classic_event_data} from "@/data/event-data";
+import { university_classic_event_data } from "@/data/event-data";
 import HoverImgItem from "./hover-img-item";
 
 export default function EventArea() {
@@ -34,7 +34,7 @@ export default function EventArea() {
           </div>
           <div className="col-xl-7 col-md-4">
             <div className="tp-event-btn text-md-end mb-70">
-              <Link className="tp-btn" href="/event">
+              <Link className="tp-btn" href="#">
                 See More Events
                 <span>
                   <RightArrow />
@@ -74,7 +74,7 @@ export default function EventArea() {
                 </div>
                 <div className="col-md-1">
                   <div className="tp-event-arrow text-lg-end">
-                    <Link href={`/event-details/${item.id}`}>
+                    <Link href={`#`}>
                       <span>
                         <RightArrowThree />
                       </span>

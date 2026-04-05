@@ -15,7 +15,7 @@ export default function BlogItem({ blog }: IProps) {
       data-wow-delay=".4s"
     >
       <div className="tp-blog-thumb fix">
-        <Link href={`/blog-details/${blog.id}`}>
+        <Link href={`#`}>
           <Image
             src={blog.img}
             alt="blog-thumb"
@@ -28,7 +28,7 @@ export default function BlogItem({ blog }: IProps) {
       <div className="tp-blog-content">
         <span className="tp-blog-tag">{blog.tag}</span>
         <h4 className="tp-blog-title">
-          <Link href={`/blog-details/${blog.id}`}>{blog.title}</Link>
+          <Link href={`#`}>{blog.title}</Link>
         </h4>
         <div className="tp-blog-meta">
           <span>
