@@ -13,17 +13,17 @@ This app implements [Qasyoun Private University](https://qpu.edu.sy/).
 
 High-level map of this repository:
 
-| Area | Path | Purpose |
-| --- | --- | --- |
-| App Router | `src/app/` | Next.js layouts, `globals.scss`, root wiring; **all user routes under** `src/app/[locale]/`. |
-| Pages (shipped) | `src/app/[locale]/(home)/…` | Home, faculties list, faculty detail; use `dynamic = 'force-dynamic'` where the API is required at request time. |
-| UI components | `src/components/` | Acadia-derived blocks; **shipped shell** in `header/` (includes API **news strip** in `header-top/` + language switcher), `footer/`; feature folders (`faculty/`, `hero-area/`, …). Hero: colocated README in `hero-area/`. |
-| Data & menus | `src/data/` | `menu-data.ts`, `footer-links.ts` (many links still point at template-only paths). |
-| Integration layers | `src/lib/api/`, `src/lib/classes/`, `src/lib/services/` | OpenAPI-shaped types (within classes), axios resources, domain helpers, page-facing orchestration (**api → class → service**). |
-| i18n | `src/i18n/`, `messages/` | next-intl routing, navigation helpers, locale messages (`en` / `ar`). |
-| Hooks | `src/hooks/` | Shared client hooks (e.g. locale switch). |
-| Static assets | `public/` | Theme images, compiled CSS from template SCSS where applicable. |
-| ADRs | `docs/adr/` | Cross-cutting architecture decisions—not every feature. |
+| Area               | Path                                                          | Purpose                                                                                                                                                                                                                                             |
+| ------------------ | ------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| App Router         | `src/app/`                                                  | Next.js layouts,`globals.scss`, root wiring; **all user routes under** `src/app/[locale]/`.                                                                                                                                               |
+| Pages (shipped)    | `src/app/[locale]/(home)/…`                                | Home, faculties list, faculty detail; use `dynamic = 'force-dynamic'` where the API is required at request time.                                                                                                                                  |
+| UI components      | `src/components/`                                           | Acadia-derived blocks;**shipped shell** in `header/` (includes API **news strip** in `header-top/` + language switcher), `footer/`; feature folders (`faculty/`, `hero-area/`, …). Hero: colocated README in `hero-area/`. |
+| Data & menus       | `src/data/`                                                 | `menu-data.ts`, `footer-links.ts` (many links still point at template-only paths).                                                                                                                                                              |
+| Integration layers | `src/lib/api/`, `src/lib/classes/`, `src/lib/services/` | OpenAPI-shaped types (within classes), axios resources, domain helpers, page-facing orchestration (**api → class → service**).                                                                                                              |
+| i18n               | `src/i18n/`, `messages/`                                  | next-intl routing, navigation helpers, locale messages (`en` / `ar`).                                                                                                                                                                           |
+| Hooks              | `src/hooks/`                                                | Shared client hooks (e.g. locale switch).                                                                                                                                                                                                           |
+| Static assets      | `public/`                                                   | Theme images, compiled CSS from template SCSS where applicable.                                                                                                                                                                                     |
+| ADRs               | `docs/adr/`                                                 | Cross-cutting architecture decisions—not every feature.                                                                                                                                                                                            |
 
 **Server → client:** pass only **plain JSON-serializable** props into `"use client"` trees (e.g. `FacultyDto` via `toPlain()`).
 
@@ -31,11 +31,11 @@ High-level map of this repository:
 
 All user-facing app routes live under the **`[locale]`** segment (`src/app/[locale]/`). Locales: **`en`** (default) and **`ar`**.
 
-| User-facing URL (EN default) | Arabic prefix | What it is |
-| --- | --- | --- |
-| `/` | `/ar` | **Home** — main landing; includes the **faculties teaser** block (`FacultyArea`) backed by `listFacultiesForPublic()`. |
-| `/faculties` | `/ar/faculties` | **Faculties list** — grid of faculty cards from the API. |
-| `/faculties/[slug]` | `/ar/faculties/[slug]` | **Faculty detail** — hero, content, labs/mission, and **faculty team** (`FacultyTeacher` + `Teacher` via `listTeachersByFacultyId()`); other blocks may still be template placeholders. |
+| User-facing URL (EN default) | Arabic prefix            | What it is                                                                                                                                                                                                 |
+| ---------------------------- | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `/`                        | `/ar`                  | **Home** — main landing; includes the **faculties teaser** block (`FacultyArea`) backed by `listFacultiesForPublic()`.                                                                    |
+| `/faculties`               | `/ar/faculties`        | **Faculties list** — grid of faculty cards from the API.                                                                                                                                            |
+| `/faculties/[slug]`        | `/ar/faculties/[slug]` | **Faculty detail** — hero, content, labs/mission, and **faculty team** (`FacultyTeacher` + `Teacher` via `listTeachersByFacultyId()`); other blocks may still be template placeholders. |
 
 Default locale uses **`localePrefix: 'as-needed'`** (no `/en` in the path). Template-only links in `menu-data` and elsewhere may still point at demo paths that are **not** implemented here.
 
@@ -45,16 +45,16 @@ Default locale uses **`localePrefix: 'as-needed'`** (no `/en` in the path). Temp
 
 We use **[next-intl](https://next-intl.dev)** with the App Router pattern:
 
-| Piece | Role |
-| --- | --- |
-| `src/i18n/routing.ts` | `defineRouting`: locales `en` / `ar`, `defaultLocale: 'en'`, `localePrefix: 'as-needed'`. |
-| `src/i18n/navigation.ts` | `createNavigation(routing)` → **`Link`**, **`redirect`**, **`useRouter`**, **`usePathname`**, **`getPathname`** (use these for in-app URLs so the active locale is preserved). |
-| `src/i18n/request.ts` | `getRequestConfig`: resolves locale and loads `messages/{locale}.json`. |
-| `src/middleware.ts` | `createMiddleware(routing)` — locale detection and prefix handling. |
-| `next.config.mjs` | `createNextIntlPlugin('./src/i18n/request.ts')`. |
-| `messages/en.json`, `messages/ar.json` | Copy and namespaces (e.g. `Metadata`, `Nav`, `Header`, `Footer`, `Faculties`, `FacultyArea`, …). |
-| `src/app/[locale]/layout.tsx` | Sets `<html lang>` and **`dir="rtl"`** for Arabic; wraps with `NextIntlClientProvider`; loads fonts (including **Noto Sans Arabic**). |
-| `src/app/globals.scss` | `[dir="rtl"] body` uses the Arabic font stack. |
+| Piece                                      | Role                                                                                                                                                                                                                      |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `src/i18n/routing.ts`                    | `defineRouting`: locales `en` / `ar`, `defaultLocale: 'en'`, `localePrefix: 'as-needed'`.                                                                                                                       |
+| `src/i18n/navigation.ts`                 | `createNavigation(routing)` → **`Link`**, **`redirect`**, **`useRouter`**, **`usePathname`**, **`getPathname`** (use these for in-app URLs so the active locale is preserved). |
+| `src/i18n/request.ts`                    | `getRequestConfig`: resolves locale and loads `messages/{locale}.json`.                                                                                                                                               |
+| `src/middleware.ts`                      | `createMiddleware(routing)` — locale detection and prefix handling.                                                                                                                                                    |
+| `next.config.mjs`                        | `createNextIntlPlugin('./src/i18n/request.ts')`.                                                                                                                                                                        |
+| `messages/en.json`, `messages/ar.json` | Copy and namespaces (e.g.`Metadata`, `Nav`, `Header`, `Footer`, `Faculties`, `FacultyArea`, …).                                                                                                              |
+| `src/app/[locale]/layout.tsx`            | Sets `<html lang>` and **`dir="rtl"`** for Arabic; wraps with `NextIntlClientProvider`; loads fonts (including **Noto Sans Arabic**).                                                                   |
+| `src/app/globals.scss`                   | `[dir="rtl"] body` uses the Arabic font stack.                                                                                                                                                                          |
 
 **Hooks and helpers:**
 
@@ -74,11 +74,11 @@ The **Acadia template** lives in a **separate repository** next to this one (e.g
 
 **This repository (`Qasyoun-University-Frontend`)** stays **lean**: there is no obligation to preserve an in-repo “archive” of every demo page—the template is always available beside the project.
 
-| Layer | Path | Role |
-| --- | --- | --- |
-| API | `src/lib/api/` | HTTP via shared **axios** `apiClient` (`client.ts`, exports `API_BASE_URL` / `resolveUploadSrc`). One module per resource (e.g. `faculty.api.ts`, `faculty-teacher.api.ts`, `teacher.api.ts`). |
-| Classes | `src/lib/classes/` | OpenAPI types (DTOs) and domain helpers (e.g. `Faculty.fromDto()`, `toPlain()` for Server → Client). |
-| Services | `src/lib/services/` | Page-facing orchestration: filters, public-only rules, error handling. |
+| Layer    | Path                  | Role                                                                                                                                                                                                              |
+| -------- | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| API      | `src/lib/api/`      | HTTP via shared**axios** `apiClient` (`client.ts`, exports `API_BASE_URL` / `resolveUploadSrc`). One module per resource (e.g. `faculty.api.ts`, `faculty-teacher.api.ts`, `teacher.api.ts`). |
+| Classes  | `src/lib/classes/`  | OpenAPI types (DTOs) and domain helpers (e.g.`Faculty.fromDto()`, `toPlain()` for Server → Client).                                                                                                          |
+| Services | `src/lib/services/` | Page-facing orchestration: filters, public-only rules, error handling.                                                                                                                                            |
 
 ## Navigation
 
@@ -89,6 +89,7 @@ Menus: `src/data/menu-data.ts`. Footer: `src/data/footer-links.ts`. Top-level na
 Dynamic routes that call the API may use `export const dynamic = 'force-dynamic'` and tolerant service methods (e.g. empty lists on failure) so builds and offline runs do not depend on the API.
 
 ## Theme
+
 The primary color of the website is #42023e
 
 ## Read endpoints (Telerik pattern)
