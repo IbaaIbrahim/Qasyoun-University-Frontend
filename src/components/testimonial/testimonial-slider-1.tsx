@@ -5,7 +5,8 @@ import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { SwiperOptions } from "swiper/types";
 import { NextArrow, PrevArrow } from "../svg";
-import { testimonial_one_data } from "@/data/testimonial-data";
+
+import Review from "@/lib/classes/home/review";
 
 const swiper_options: SwiperOptions = {
   slidesPerView: 1,
@@ -20,8 +21,11 @@ const swiper_options: SwiperOptions = {
   },
 };
 
+interface Props {
+  reviews: Review[];
+}
 
-export default function TestimonialSliderOne() {
+export default function TestimonialSliderOne({ reviews }: Props) {
   return (
     <>
       <Swiper
@@ -29,25 +33,24 @@ export default function TestimonialSliderOne() {
         modules={[Navigation]}
         className="swiper tp-testimonial-active"
       >
-        {testimonial_one_data.map((item) => (
+        {reviews.map((item) => (
           <SwiperSlide
             key={item.id}
             className="tp-testimonial-item"
           >
             <div className="tp-testimonial-avatar">
               <Image
-                src={item.img}
+                src={item.image || "/assets/img/testimonial/testimonial-avatar.png"}
                 alt="testimonial-avatar"
                 width={60}
                 height={60}
               />
             </div>
             <div className="tp-testimonial-content">
-              <p>{item.content}</p>
+              <div dangerouslySetInnerHTML={{ __html: item.text || "" }} />
             </div>
             <div className="tp-testimonial-avatar-info">
-              <h4 className="tp-testimonial-avatar-title">{item.name}</h4>
-              <span>{item.position}</span>
+              <h4 className="tp-testimonial-avatar-title">{item.author}</h4>
             </div>
           </SwiperSlide>
         ))}

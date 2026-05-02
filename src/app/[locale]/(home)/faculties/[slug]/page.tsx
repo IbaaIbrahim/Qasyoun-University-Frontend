@@ -36,10 +36,12 @@ export default async function FacultyDetailPage({ params }: Props) {
   const faculty = await getFacultyBySlug(slug);
   if (!faculty) notFound();
 
-  const sliderContents = await readContentAsJsonByFilter({ referenceId: slug, referenceType: "faculty", section: "hero-slider" }, locale);
+  const meta = await readContentAsJsonByFilter({ referenceId: slug, referenceType: "faculty" }, locale)
+
+  const sliderContents = meta.filter((item) => item.section === "hero_slider");
   const slides = sliderContents.map((item) => item.toSlider());
 
-  const mainTextContents = await readContentAsJsonByFilter({ referenceId: slug, referenceType: "faculty", section: "main-text" }, locale);
+  const mainTextContents = meta.filter((item) => item.section === "main_text");
   const mainText = mainTextContents.map((item) => item.toMainText())?.[0]?.text ?? "";
 
   const labs = await listLabsByFacultyId(faculty.id);

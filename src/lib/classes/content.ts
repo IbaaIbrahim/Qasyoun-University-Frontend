@@ -1,6 +1,10 @@
 import { ContentMeta, ContentMetaDto } from "./content-meta";
 import Slider from "./slider";
 import News from "./news";
+import About from "./home/about";
+import Statistics from "./home/statistics";
+import IEvent from "./home/event";
+import Review from "./home/review";
 import MainText from "./faculty/main-text";
 
 export type ContentDto = {
@@ -64,7 +68,8 @@ export class Content {
 
 
 export type ContentMetaJson = {
-  [key: string]: string | null;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  [key: string]: any;
 }
 
 
@@ -73,7 +78,11 @@ export class ContentJson extends Content {
   constructor(content: Content, locale: string) {
     super(content.id, content.referenceId, content.referenceType, content.section, content.title, content.displayOrder, content.isActive, content.contentMetas, content.createdAt, content.updatedAt)
     this.contentMetasJson = content.contentMetas?.reduce((acc, meta) => {
-      acc[meta.keyName] = locale === "ar" ? meta.valueAr ?? meta.value : meta.value;
+      if (meta.type === "image" || meta.type === "file" || meta.type === "video") {
+        acc[meta.keyName] = meta.filemanager.url;
+      } else {
+        acc[meta.keyName] = locale === "ar" ? meta.valueAr ?? meta.value : meta.value;
+      }
       acc[`${meta.keyName}--id`] = String(meta.id);
       return acc;
     }, {} as ContentMetaJson);
@@ -95,5 +104,29 @@ export class ContentJson extends Content {
     if (!this.contentMetasJson) return {};
     const mainText = MainText.fromContentJson(this);
     return mainText ? mainText : {};
+  }
+
+  toAbout(): About {
+    if (!this.contentMetasJson) return {};
+    const about = About.fromContentJson(this);
+    return about ? about : {};
+  }
+
+  toStatistics(): Statistics {
+    if (!this.contentMetasJson) return {};
+    const statistics = Statistics.fromContentJson(this);
+    return statistics ? statistics : {};
+  }
+
+  toEvent(): IEvent {
+    if (!this.contentMetasJson) return {};
+    const event = IEvent.fromContentJson(this);
+    return event ? event : {};
+  }
+
+  toReview(): Review {
+    if (!this.contentMetasJson) return {};
+    const review = Review.fromContentJson(this);
+    return review ? review : {};
   }
 }

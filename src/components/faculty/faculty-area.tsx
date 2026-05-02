@@ -9,7 +9,6 @@ import FacultySlider from "./faculty-slider";
 export default async function FacultyArea() {
   const faculties = await listFacultiesForPublic();
   const t = await getTranslations("FacultyArea");
-  console.log(faculties);
 
   return (
     <section className="program-area mb-75">

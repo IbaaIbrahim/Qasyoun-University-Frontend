@@ -6,11 +6,12 @@ import MainProvider from "@/components/provider/main-provider";
 import menu_data from "@/data/menu-data";
 import { getLocale } from "next-intl/server";
 import { readContentAsJsonByFilter } from "@/lib/services/content.service";
+import { ReferenceTypes } from "@/lib/constants";
 
 export default async function Layout({ children }: { children: React.ReactNode }) {
   const locale = await getLocale();
   const [newsContent] = await Promise.all([
-    readContentAsJsonByFilter({ referenceId: "0", referenceType: "home", section: "news" }, locale),
+    readContentAsJsonByFilter({ referenceId: "0", referenceType: ReferenceTypes.home.value, section: ReferenceTypes.home.sections.news.value }, locale),
   ]);
 
   const items = newsContent.map((r) => r.toNews());

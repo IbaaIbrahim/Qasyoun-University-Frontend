@@ -19,31 +19,31 @@ export async function readContentAsJsonByFilter(filter: { [key: string]: string 
 
     const contentResult = await contentApi.readByFilters(filterString);
 
-    // Identify rows that are completely missing the `contentMetas` key
-    const missingMetasItems = contentResult.data.filter(item => item.contentMetas === undefined);
+    // Identify rows that need metas (either missing the key, or key is null/empty)
+    const missingMetasItems = contentResult.data.filter(item => !item.contentMetas || item.contentMetas.length === 0);
 
-    if (missingMetasItems.length > 0) {
-      const ids = missingMetasItems.map(item => item.id);
+    // if (missingMetasItems.length > 0) {
+    //   const ids = missingMetasItems.map(item => item.id).filter(Boolean);
 
-      let metaFilter = "";
-      if (ids.length === 1) {
-        metaFilter = `contentId~eq~'${ids[0]}'`;
-      } else if (ids.length > 1) {
-        metaFilter = `(${ids.map((id) => `contentId~eq~'${id}'`).join("~or~")})`;
-      }
+    //   if (ids.length > 0) {
+    //     let metaFilter = "";
+    //     if (ids.length === 1) {
+    //       metaFilter = `contentId~eq~'${ids[0]}'`;
+    //     } else {
+    //       metaFilter = `(${ids.map((id) => `contentId~eq~'${id}'`).join("~or~")})`;
+    //     }
 
-      if (metaFilter) {
-        const metaResult = await contentMetaApi.readByFilter(metaFilter, { page: 1, pageSize: 500 });
-        const allFetchedMetas = metaResult.data ?? [];
+    //     const metaResult = await contentMetaApi.readByFilter(metaFilter, { page: 1, pageSize: 500 });
+    //     const allFetchedMetas = metaResult.data ?? [];
 
-        // Attach fetched metas back to the respective content items
-        missingMetasItems.forEach(item => {
-          item.contentMetas = allFetchedMetas.filter(
-            m => String(m.contentId) === String(item.id)
-          );
-        });
-      }
-    }
+    //     // Attach fetched metas back to the respective content items
+    //     missingMetasItems.forEach(item => {
+    //       item.contentMetas = allFetchedMetas.filter(
+    //         m => String(m.contentId) === String(item.id)
+    //       );
+    //     });
+    //   }
+    // }
 
     const content = contentResult.data.map((item) => Content.fromDto(item));
 

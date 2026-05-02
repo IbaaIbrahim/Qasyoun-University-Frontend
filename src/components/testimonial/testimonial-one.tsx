@@ -6,9 +6,17 @@ import shape_1 from "@/assets/img/testimonial/testimonial-shape-1.png";
 import shape_2 from "@/assets/img/testimonial/testimonial-shape-2.png";
 import shape_3 from "@/assets/img/testimonial/testimonial-shape-3.svg";
 import { useVideoModal } from "@/provider/VideoProvider";
+import { useTranslations } from "next-intl";
+import Review from "@/lib/classes/home/review";
 
-export default function TestimonialOne() {
+interface TestimonialOneProps {
+  reviews: Review[];
+}
+
+export default function TestimonialOne({ reviews }: TestimonialOneProps) {
   const { playVideo } = useVideoModal();
+  const t = useTranslations("Testimonial");
+
   return (
     <section
       className="testimonial-area tp-testimonial-bg fix p-relative"
@@ -43,7 +51,7 @@ export default function TestimonialOne() {
                   </span>
                 </button>
                 {/* Video area */}
-                <p>Video Tour in logo</p>
+                <p>{t("videoTour")}</p>
               </div>
             </div>
           </div>
@@ -53,8 +61,8 @@ export default function TestimonialOne() {
               data-wow-delay=".3s"
             >
               <div className="tp-section mb-40">
-                <h5 className="tp-section-subtitle">Testimonial</h5>
-                <h3 className="tp-section-title">What Students Says</h3>
+                <h5 className="tp-section-subtitle">{t("title")}</h5>
+                <h3 className="tp-section-title">{t("subtitle")}</h3>
               </div>
               <div className="tp-testimonial-shape">
                 <div className="tp-testimonial-shape-1">
@@ -72,7 +80,7 @@ export default function TestimonialOne() {
                 </div>
               </div>
               {/* Testimonial Slider */}
-              <TestimonialSliderOne />
+              <TestimonialSliderOne reviews={reviews} />
               {/* Testimonial Slider */}
             </div>
           </div>

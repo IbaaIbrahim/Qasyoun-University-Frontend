@@ -19,12 +19,6 @@ const menu_data: IMenu[] = [
 			{ id: 6, title: "organizationalStructure", link: "#" },
 			{ id: 7, title: "locationAndInfrastructure", link: "#" },
 		]
-	},
-	{
-		id: 3,
-		title: 'faculties',
-		link: '#',
-		dropdown_menus: []
 	}
 ];
 

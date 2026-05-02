@@ -86,5 +86,34 @@
     "heading": "حدث خطأ ما…",
     "description": "عذراً، لم نتمكن من العثور على الصفحة.",
     "backHome": "العودة للرئيسية"
+  },
+  "AboutOne": {
+    "titleLead": "عن جامعتنا",
+    "titleMain": "بضع كلمات",
+    "titleMain2": "حول",
+    "titleAccent": "الجامعة",
+    "yearsExperience": "سنوات من <br /> الخبرة",
+    "seeMore": "شاهد المزيد",
+    "defaultConcept1Title": "بناء الثقة",
+    "defaultConcept1Text": "نحن ملتزمون <br/> ببناء الثقة",
+    "defaultConcept2Title": "موثوقة من الطلاب",
+    "defaultConcept2Text": "الأكثر ثقة وتوصية <br/> من قبل الطلاب",
+    "defaultText": "مجتمعنا مدعو لإعادة تصور المستقبل. بصفتنا الجامعة الوحيدة التي تجتمع فيها مدرسة تصميم مشهورة مع كليات متميزة، نحن نجعل التعلم أكثر صلة وتحولاً."
+  },
+  "Counter": {
+    "students": "الطلاب",
+    "professors": "الأساتذة",
+    "programs": "البرامج",
+    "research": "الأبحاث"
+  },
+  "Events": {
+    "title": "أبرز الأحداث",
+    "accent": "القادمة",
+    "seeMore": "مشاهدة المزيد من الأحداث"
+  },
+  "Testimonial": {
+    "title": "آراء الطلاب",
+    "subtitle": "ماذا يقول طلابنا",
+    "videoTour": "جولة فيديو"
   }
 }

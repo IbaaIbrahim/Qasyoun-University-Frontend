@@ -86,5 +86,34 @@
     "heading": "Something went wrong…",
     "description": "Sorry, we couldn't find your page.",
     "backHome": "Back to home"
+  },
+  "AboutOne": {
+    "titleLead": "About Our University",
+    "titleMain": "A few words",
+    "titleMain2": "about the",
+    "titleAccent": "University",
+    "yearsExperience": "Years of <br /> Experience",
+    "seeMore": "See more",
+    "defaultConcept1Title": "Building Trust",
+    "defaultConcept1Text": "We are committed to <br/> building trust",
+    "defaultConcept2Title": "Trusted by Students",
+    "defaultConcept2Text": "Most trusted & recommended <br/> by students",
+    "defaultText": "Our community is being called to reimagine the future. As the <br /> only university where a renowned design school comes together <br /> with premier colleges, we are making learning more relevant <br /> and transformational."
+  },
+  "Counter": {
+    "students": "Students",
+    "professors": "Professors",
+    "programs": "Programs",
+    "research": "Research"
+  },
+  "Events": {
+    "title": "Recent & Upcoming",
+    "accent": "Events",
+    "seeMore": "See More Events"
+  },
+  "Testimonial": {
+    "title": "Testimonial",
+    "subtitle": "What Students Say",
+    "videoTour": "Video Tour in logo"
   }
 }

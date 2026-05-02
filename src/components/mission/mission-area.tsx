@@ -165,11 +165,11 @@ export default function MissionArea({
   const hasLabs = labs.length > 0;
   const missionData = hasLabs
     ? labs.map((lab) => ({
-        id: lab.id,
-        title: locale === "ar" && lab.name_AR ? lab.name_AR : lab.name,
-        description: locale === "ar" && lab.content_AR ? lab.content_AR : lab.content ?? "",
-        imgSrc: lab.picture?.url ? (lab.picture.url.toLowerCase().startsWith("http") ? lab.picture.url : `https://api.v2202503187605326384.powersrv.de${lab.picture.url}`) : mission_thumb_1,
-      }))
+      id: lab.id,
+      title: locale === "ar" && lab.name_AR ? lab.name_AR : lab.name,
+      description: locale === "ar" && lab.content_AR ? lab.content_AR : lab.content ?? "",
+      imgSrc: lab.picture?.url ? (lab.picture.url.toLowerCase().startsWith("http") ? lab.picture.url : `https://api.v2202503187605326384.powersrv.de${lab.picture.url}`) : mission_thumb_1,
+    }))
     : fallbackMissionData;
 
   const title = hasLabs ? translations.labsTitle : translations.missionTitle;
@@ -184,7 +184,7 @@ export default function MissionArea({
               className="tp-our-mission-thumb wow fadeInUp"
               data-wow-delay=".3s"
             >
-              <Image src={mission_main_img} alt="mission-img" style={{height:'auto'}} />
+              <Image src={mission_main_img} alt="mission-img" style={{ height: 'auto' }} />
             </div>
           </div>
           <div className="col-lg-8">
@@ -200,15 +200,15 @@ export default function MissionArea({
               {missionData.map((item, i) => (
                 <div
                   key={item.id}
-                  className={`tp-our-mission-item d-flex align-items-center justify-content-center justify-content-md-between ${
-                    i !== missionData.length - 1 ? "mb-20" : ""
-                  }`}
+                  className={`tp-our-mission-item d-flex align-items-center justify-content-center justify-content-md-between ${i !== missionData.length - 1 ? "mb-20" : ""
+                    }`}
                 >
                   <div className="tp-our-mission-item-content" style={{ paddingTop: 10, paddingBottom: 10 }}>
                     <h4 className="tp-our-mission-item-title">{item.title}</h4>
                     <p
                       dangerouslySetInnerHTML={{
-                        __html: truncateHtmlPreserveTags(item.description, 150),
+                        // __html: truncateHtmlPreserveTags(item.description, 150),
+                        __html: item.description,
                       }}
                     ></p>
                     <div className="tp-our-mission-item-btn">

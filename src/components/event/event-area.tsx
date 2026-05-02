@@ -2,10 +2,14 @@ import Link from "next/link";
 import Image from "next/image";
 import { RightArrow, RightArrowThree } from "../svg";
 import shape_line from "@/assets/img/unlerline/event-1-svg-1.svg";
-import { university_classic_event_data } from "@/data/event-data";
 import HoverImgItem from "./hover-img-item";
+import IEvent from "@/lib/classes/home/event";
+import { useTranslations, useLocale } from "next-intl";
 
-export default function EventArea() {
+export default function EventArea({ events }: { events: IEvent[] }) {
+  const t = useTranslations("Events");
+  const locale = useLocale();
+
   return (
     <section className="event-area grey-bg pt-85 pb-110">
       <div className="container">
@@ -17,9 +21,9 @@ export default function EventArea() {
             >
               <div className="tp-section">
                 <h3 className="tp-section-2-title">
-                  Recent & Upcoming {" "}
+                  {t("title")}{" "}
                   <span>
-                    Events{" "}
+                    {t("accent")}{" "}
                     <Image
                       className="tp-underline-shape-3 wow bounceIn"
                       data-wow-duration="1.5s"
@@ -34,8 +38,8 @@ export default function EventArea() {
           </div>
           <div className="col-xl-7 col-md-4">
             <div className="tp-event-btn text-md-end mb-70">
-              <Link className="tp-btn" href="#">
-                See More Events
+              <Link className="tp-btn" href={`/${locale}/events`}>
+                {t("seeMore")}
                 <span>
                   <RightArrow />
                 </span>
@@ -44,46 +48,57 @@ export default function EventArea() {
           </div>
         </div>
         <div className="tp-event-wrap wow fadeInUp" data-wow-delay=".3s">
-          {university_classic_event_data.map((item) => (
-            <div key={item.id} className="tp-event-item">
-              <div className="row align-items-center">
-                <div className="col-md-2">
-                  <div className="tp-event-list">
-                    <h4 className="tp-event-list-count">{item.date.day}</h4>
-                    <span>
-                      {item.date.month}, {item.date.year}
-                    </span>
-                  </div>
-                </div>
-                <div className="col-md-9">
-                  <div className="tp-event-content">
-                    <h3 className="tp-event-title">
-                      <HoverImgItem img={item.image} title={item.title} />
-                    </h3>
-                    <div className="tp-event-info">
+          {events.map((item) => {
+            // Safely parse date from IEvent (string)
+            const dateObj = item.date ? new Date(item.date) : new Date();
+            const day = dateObj.getDate().toString().padStart(2, "0");
+            const month = dateObj.toLocaleString(locale, { month: "short" });
+            const year = dateObj.getFullYear();
+
+            return (
+              <div key={item.id} className="tp-event-item">
+                <div className="row align-items-center">
+                  <div className="col-md-2">
+                    <div className="tp-event-list">
+                      <h4 className="tp-event-list-count">{day}</h4>
                       <span>
-                        <i className="fa-sharp fa-light fa-clock"></i>
-                        {item.time}
-                      </span>
-                      <span>
-                        <i className="fa-sharp fa-light fa-location-dot"></i>
-                        {item.location}
+                        {month}, {year}
                       </span>
                     </div>
                   </div>
-                </div>
-                <div className="col-md-1">
-                  <div className="tp-event-arrow text-lg-end">
-                    <Link href={`#`}>
-                      <span>
-                        <RightArrowThree />
-                      </span>
-                    </Link>
+                  <div className="col-md-9">
+                    <div className="tp-event-content">
+                      <h3 className="tp-event-title">
+                        <HoverImgItem
+                          img={item.mainImage || ""}
+                          title={item.title || ""}
+                        />
+                      </h3>
+                      <div className="tp-event-info">
+                        <span>
+                          <i className="fa-sharp fa-light fa-clock"></i>
+                          {item.startTime} - {item.endTime}
+                        </span>
+                        <span>
+                          <i className="fa-sharp fa-light fa-location-dot"></i>
+                          {item.location}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md-1">
+                    <div className="tp-event-arrow text-lg-end">
+                      <Link href={`/${locale}/events/${item.slug}`}>
+                        <span>
+                          <RightArrowThree />
+                        </span>
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
