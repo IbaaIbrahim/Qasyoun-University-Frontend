@@ -1,7 +1,6 @@
 import Image from "next/image";
 import shape from "@/assets/img/team/about-team/team-shape.png";
 import type { TeacherMemberCard } from "@/lib/classes/teacher";
-import { team_university as teamUniversity } from "@/data/team-data";
 
 type Props = {
   members: TeacherMemberCard[];
@@ -19,7 +18,6 @@ export default function TeamAreaThree({ members }: Props) {
         <div className="row">
           {[
             ...members,
-            // ...teamUniversity.map(x => ({ ...x, imageSrc: x.image }))
           ].map((item, i) => {
             return (
               <div key={item.id} className="col-lg-3 col-sm-6">

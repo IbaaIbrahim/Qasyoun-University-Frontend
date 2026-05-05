@@ -45,13 +45,33 @@ export default async function HomePage() {
 
   return (
     <main>
-      <HeroAreaOne slides={sliderImages} />
+      {
+        sliderImages.length > 0 && (
+          <HeroAreaOne slides={sliderImages} />
+        )
+      }
       <ServiceOne />
-      <AboutOne data={aboutData} />
-      <CounterOne data={statistics} />
+      {
+        aboutData && (
+          <AboutOne data={aboutData} />
+        )
+      }
+      {
+        statistics && (
+          <CounterOne data={statistics} />
+        )
+      }
       <FacultyArea />
-      <EventArea events={events} />
-      <TestimonialOne reviews={reviews} />
+      {
+        events.length > 0 && (
+          <EventArea events={events} />
+        )
+      }
+      {
+        reviews.length > 0 && (
+          <TestimonialOne reviews={reviews} />
+        )
+      }
       {/* <BlogOne /> */}
       {/* <InstagramArea /> */}
       {/* <CtaOne /> */}

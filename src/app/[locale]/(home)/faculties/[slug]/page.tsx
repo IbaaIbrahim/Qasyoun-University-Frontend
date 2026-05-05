@@ -64,23 +64,47 @@ export default async function FacultyDetailPage({ params }: Props) {
 
   return (
     <main>
-      <HeroAreaOne slides={slides.filter((slide) => slide.bgImg)} />
-      <AboutTwo gallery={gallery} mainText={mainText} spacing="pt-90 pb-90" />
-      <CounterFour facultyStatistics={facultyStatistics} />
-      <MissionArea
-        labs={labs.map(lab => lab.toPlain())}
-        locale={locale}
-        translations={{
-          labsTitle: tLabs("title"),
-          labsDescription: tLabs("description"),
-          labsLearnMore: tLabs("learnMore"),
-          missionTitle: tMission("title"),
-          missionDescription: tMission("description"),
-          missionLearnMore: tMission("learnMore"),
-        }}
-      />
-      <AboutThree timelines={timelines} />
-      <TeamAreaThree members={teamMembers} />
+      {
+        slides.length > 0 && (
+          <HeroAreaOne slides={slides.filter((slide) => slide.bgImg)} />
+        )
+      }
+      {
+        mainText && (
+          <AboutTwo gallery={gallery} mainText={mainText} spacing="pt-90 pb-90" />
+        )
+      }
+      {
+        Object.keys(facultyStatistics).length > 0 && (
+          <CounterFour facultyStatistics={facultyStatistics} />
+        )
+      }
+      {
+        labs.length > 0 && (
+          <MissionArea
+            labs={labs.map(lab => lab.toPlain())}
+            locale={locale}
+            translations={{
+              labsTitle: tLabs("title"),
+              labsDescription: tLabs("description"),
+              labsLearnMore: tLabs("learnMore"),
+              missionTitle: tMission("title"),
+              missionDescription: tMission("description"),
+              missionLearnMore: tMission("learnMore"),
+            }}
+          />
+        )
+      }
+      {
+        timelines.length > 0 && (
+          <AboutThree timelines={timelines} />
+        )
+      }
+      {
+        teamMembers.length > 0 && (
+          <TeamAreaThree members={teamMembers} />
+        )
+      }
       {/* <AboutCampus /> */}
     </main>
   );
