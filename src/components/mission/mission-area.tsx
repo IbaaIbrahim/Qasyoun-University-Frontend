@@ -205,12 +205,11 @@ export default function MissionArea({
                 >
                   <div className="tp-our-mission-item-content" style={{ paddingTop: 10, paddingBottom: 10 }}>
                     <h4 className="tp-our-mission-item-title">{item.title}</h4>
-                    <p
+                    <div
                       dangerouslySetInnerHTML={{
-                        // __html: truncateHtmlPreserveTags(item.description, 150),
-                        __html: item.description,
+                        __html: truncateHtmlPreserveTags(item.description, 150),
                       }}
-                    ></p>
+                    />
                     <div className="tp-our-mission-item-btn">
                       <a className="tp-btn-3" href="#">
                         {hasLabs ? translations.labsLearnMore : translations.missionLearnMore}{" "}

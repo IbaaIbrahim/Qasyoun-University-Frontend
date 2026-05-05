@@ -43,10 +43,10 @@ export default function AboutOne({ data }: { data?: AboutHome }) {
                         <div className="tp-about-wrap mb-60 wow fadeInLeft" data-wow-delay=".3s">
                             <div className="tp-about-thumb-wrapper">
                                 <div className="tp-about-thumb-1">
-                                    <Image src={data?.image1 || thumb_1} alt="about-thumb" style={imgStyle} width={400} height={500} />
+                                    <Image src={data?.image1 || thumb_1} alt="about-thumb" style={imgStyle} width={400} height={500} unoptimized />
                                 </div>
                                 <div className="tp-about-thumb-2">
-                                    <Image src={data?.image2 || thumb_2} alt="about-thumb" style={imgStyle} width={400} height={500} />
+                                    <Image src={data?.image2 || thumb_2} alt="about-thumb" style={imgStyle} width={400} height={500} unoptimized />
                                 </div>
                             </div>
                             <div className="tp-about-shape">

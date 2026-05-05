@@ -28,6 +28,7 @@ export default async function FacultyCard({ faculty }: Props) {
             width={350}
             height={198}
             style={{ height: "auto" }}
+            unoptimized
           />
         </Link>
       </div>

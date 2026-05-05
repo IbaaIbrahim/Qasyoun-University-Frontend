@@ -7,6 +7,7 @@ import IEvent from "./home/event";
 import Review from "./home/review";
 import MainText from "./faculty/main-text";
 import Gallery from "./faculty/gallery";
+import Timeline from "./faculty/timeline";
 
 export type ContentDto = {
   id: number | string;
@@ -135,5 +136,11 @@ export class ContentJson extends Content {
     if (!this.contentMetasJson) return {};
     const gallery = Gallery.fromContentJson(this);
     return gallery ? gallery : {};
+  }
+
+  toTimeline(): Timeline {
+    if (!this.contentMetasJson) return {};
+    const timeline = Timeline.fromContentJson(this);
+    return timeline ? timeline : {};
   }
 }

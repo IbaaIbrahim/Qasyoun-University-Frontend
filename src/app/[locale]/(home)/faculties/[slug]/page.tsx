@@ -52,6 +52,9 @@ export default async function FacultyDetailPage({ params }: Props) {
   const facultyStatisticsContent = meta.find((item) => item.section === ReferenceTypes.faculty.sections.faculty_statistics.value);
   const facultyStatistics = facultyStatisticsContent ? FacultyStatistics.fromContentJson(facultyStatisticsContent) : {}
 
+  const timelineContents = meta.filter((item) => item.section === ReferenceTypes.faculty.sections.timeline.value);
+  const timelines = timelineContents.map((item) => item.toTimeline());
+
   const labs = await listLabsByFacultyId(faculty.id);
   const teachers = await listTeachersByFacultyId(faculty.id);
   const teamMembers = teachers.map((t) => t.toMemberCard(locale));
@@ -76,7 +79,7 @@ export default async function FacultyDetailPage({ params }: Props) {
           missionLearnMore: tMission("learnMore"),
         }}
       />
-      <AboutThree />
+      <AboutThree timelines={timelines} />
       <TeamAreaThree members={teamMembers} />
       {/* <AboutCampus /> */}
     </main>
