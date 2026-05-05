@@ -13,6 +13,7 @@ import { readContentAsJsonByFilter } from "@/lib/services/content.service";
 import { listLabsByFacultyId } from "@/lib/services/lab.service";
 import { listTeachersByFacultyId } from "@/lib/services/teacher.service";
 import { ReferenceTypes } from "@/lib/constants";
+import FacultyStatistics from "@/lib/classes/faculty/faculty-statistics";
 
 export const dynamic = "force-dynamic";
 
@@ -48,6 +49,9 @@ export default async function FacultyDetailPage({ params }: Props) {
   const galleryContents = meta.filter((item) => item.section === ReferenceTypes.faculty.sections.gallery.value);
   const gallery = galleryContents.map((item) => item.toGallery());
 
+  const facultyStatisticsContent = meta.find((item) => item.section === ReferenceTypes.faculty.sections.faculty_statistics.value);
+  const facultyStatistics = facultyStatisticsContent ? FacultyStatistics.fromContentJson(facultyStatisticsContent) : {}
+
   const labs = await listLabsByFacultyId(faculty.id);
   const teachers = await listTeachersByFacultyId(faculty.id);
   const teamMembers = teachers.map((t) => t.toMemberCard(locale));
@@ -59,7 +63,7 @@ export default async function FacultyDetailPage({ params }: Props) {
     <main>
       <HeroAreaOne slides={slides.filter((slide) => slide.bgImg)} />
       <AboutTwo gallery={gallery} mainText={mainText} spacing="pt-90 pb-90" />
-      <CounterFour />
+      <CounterFour facultyStatistics={facultyStatistics} />
       <MissionArea
         labs={labs.map(lab => lab.toPlain())}
         locale={locale}

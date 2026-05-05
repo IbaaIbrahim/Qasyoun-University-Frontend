@@ -1,3 +1,4 @@
+'use client';
 import { useTranslations } from "next-intl";
 import CounterItem from "./counter-item";
 import HomeStatistics from "@/lib/classes/home/statistics";
