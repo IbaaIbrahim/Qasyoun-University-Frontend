@@ -1,29 +1,4 @@
-const FacultyType = {
-  name: "qpu.dynamicContent.faculty",
-  value: "faculty",
-  sections: {
-    hero_slider: {
-      name: "qpu.dynamicContent.heroSlider",
-      value: "hero_slider",
-      keys: {
-        src: {
-          name: "qpu.dynamicContent.src",
-          type: "image"
-        }
-      }
-    },
-    main_text: {
-      name: "qpu.dynamicContent.mainText",
-      value: "main_text",
-      keys: {
-        text: {
-          name: "qpu.dynamicContent.text",
-          type: "text"
-        }
-      }
-    }
-  }
-}
+// import { _readAllFaculties, _readAllLabs } from "../../redux/actions"
 
 const HomeType = {
   name: "qpu.dynamicContent.home",
@@ -32,6 +7,7 @@ const HomeType = {
     news: {
       name: "qpu.dynamicContent.news",
       value: "news",
+      maxContentItems: undefined,
       keys: {
         text: {
           name: "qpu.dynamicContent.text",
@@ -42,6 +18,7 @@ const HomeType = {
     hero_slider: {
       name: "qpu.dynamicContent.heroSlider",
       value: "hero_slider",
+      maxContentItems: undefined,
       keys: {
         src: {
           name: "qpu.dynamicContent.src",
@@ -52,13 +29,14 @@ const HomeType = {
     few_words_about: {
       name: "qpu.dynamicContent.fewWordsAboutTheUniversity",
       value: "few_words_about",
+      maxContentItems: 1,
       keys: {
         image1: {
-          name: "qpu.dynamicContent.image",
+          name: "qpu.dynamicContent.imageBelow",
           type: "image"
         },
         image2: {
-          name: "qpu.dynamicContent.image",
+          name: "qpu.dynamicContent.imageAbove",
           type: "image"
         },
         years_of_experience: {
@@ -90,6 +68,7 @@ const HomeType = {
     home_screen_statistics: {
       name: "qpu.dynamicContent.homeScreenStatistics",
       value: "home_screen_statistics",
+      maxContentItems: 1,
       keys: {
         students_count: {
           name: "qpu.dynamicContent.studentsCount",
@@ -112,6 +91,7 @@ const HomeType = {
     upcoming_events: {
       name: "qpu.dynamicContent.upcomingEvents",
       value: "upcoming_events",
+      maxContentItems: undefined,
       keys: {
         date: {
           name: "qpu.dynamicContent.date",
@@ -146,6 +126,7 @@ const HomeType = {
     reviews: {
       name: "qpu.dynamicContent.reviews",
       value: "reviews",
+      maxContentItems: undefined,
       keys: {
         image: {
           name: "qpu.dynamicContent.image",
@@ -164,13 +145,102 @@ const HomeType = {
   }
 }
 
+const FacultyType = {
+  name: "qpu.dynamicContent.faculty",
+  value: "faculty",
+  // referenceIdsAPI: _readAllFaculties,
+  sections: {
+    hero_slider: {
+      name: "qpu.dynamicContent.heroSlider",
+      value: "hero_slider",
+      maxContentItems: undefined,
+      keys: {
+        src: {
+          name: "qpu.dynamicContent.src",
+          type: "image"
+        }
+      }
+    },
+    main_text: {
+      name: "qpu.dynamicContent.mainText",
+      value: "main_text",
+      maxContentItems: 1,
+      keys: {
+        text: {
+          name: "qpu.dynamicContent.text",
+          type: "text"
+        }
+      }
+    },
+    gallery: {
+      name: "qpu.dynamicContent.gallery",
+      value: "gallery",
+      maxContentItems: 4,
+      keys: {
+        image: {
+          name: "qpu.dynamicContent.image",
+          type: "image"
+        }
+      }
+    },
+    faculty_statistics: {
+      name: "qpu.dynamicContent.facultyStatistics",
+      value: "faculty_statistics",
+      maxContentItems: 1,
+      keys: {
+        students_count: {
+          name: "qpu.dynamicContent.studentsCount",
+          type: "text"
+        },
+        professors_count: {
+          name: "qpu.dynamicContent.professorsCount",
+          type: "text"
+        },
+        programs_count: {
+          name: "qpu.dynamicContent.programsCount",
+          type: "text"
+        },
+        researchs_count: {
+          name: "qpu.dynamicContent.researchsCount",
+          type: "text"
+        }
+      }
+    },
+    timeline: {
+      name: "qpu.dynamicContent.timeline",
+      value: "timeline",
+      maxContentItems: undefined,
+      keys: {
+        date: {
+          name: "qpu.dynamicContent.date",
+          type: "date"
+        },
+        title: {
+          name: "qpu.dynamicContent.title",
+          type: "text"
+        },
+        description: {
+          name: "qpu.dynamicContent.description",
+          type: "richtext"
+        },
+        image: {
+          name: "qpu.dynamicContent.image",
+          type: "image"
+        }
+      }
+    }
+  }
+}
+
 const LabType = {
   name: "qpu.dynamicContent.lab",
   value: "lab",
+  // referenceIdsAPI: _readAllLabs,
   sections: {
     text: {
       name: "qpu.dynamicContent.text",
       value: "text",
+      maxContentItems: 1,
       keys: {
         text: {
           name: "qpu.dynamicContent.text",

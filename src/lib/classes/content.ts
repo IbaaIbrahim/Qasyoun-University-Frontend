@@ -6,6 +6,7 @@ import Statistics from "./home/statistics";
 import IEvent from "./home/event";
 import Review from "./home/review";
 import MainText from "./faculty/main-text";
+import Gallery from "./faculty/gallery";
 
 export type ContentDto = {
   id: number | string;
@@ -128,5 +129,11 @@ export class ContentJson extends Content {
     if (!this.contentMetasJson) return {};
     const review = Review.fromContentJson(this);
     return review ? review : {};
+  }
+
+  toGallery(): Gallery {
+    if (!this.contentMetasJson) return {};
+    const gallery = Gallery.fromContentJson(this);
+    return gallery ? gallery : {};
   }
 }

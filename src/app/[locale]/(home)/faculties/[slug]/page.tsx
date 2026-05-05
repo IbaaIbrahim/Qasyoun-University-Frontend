@@ -12,6 +12,7 @@ import HeroAreaOne from "@/components/hero-area/hero-area-one";
 import { readContentAsJsonByFilter } from "@/lib/services/content.service";
 import { listLabsByFacultyId } from "@/lib/services/lab.service";
 import { listTeachersByFacultyId } from "@/lib/services/teacher.service";
+import { ReferenceTypes } from "@/lib/constants";
 
 export const dynamic = "force-dynamic";
 
@@ -36,13 +37,16 @@ export default async function FacultyDetailPage({ params }: Props) {
   const faculty = await getFacultyBySlug(slug);
   if (!faculty) notFound();
 
-  const meta = await readContentAsJsonByFilter({ referenceId: slug, referenceType: "faculty" }, locale)
+  const meta = await readContentAsJsonByFilter({ referenceId: slug, referenceType: ReferenceTypes.faculty.value }, locale)
 
-  const sliderContents = meta.filter((item) => item.section === "hero_slider");
+  const sliderContents = meta.filter((item) => item.section === ReferenceTypes.faculty.sections.hero_slider.value);
   const slides = sliderContents.map((item) => item.toSlider());
 
-  const mainTextContents = meta.filter((item) => item.section === "main_text");
+  const mainTextContents = meta.filter((item) => item.section === ReferenceTypes.faculty.sections.main_text.value);
   const mainText = mainTextContents.map((item) => item.toMainText())?.[0]?.text ?? "";
+
+  const galleryContents = meta.filter((item) => item.section === ReferenceTypes.faculty.sections.gallery.value);
+  const gallery = galleryContents.map((item) => item.toGallery());
 
   const labs = await listLabsByFacultyId(faculty.id);
   const teachers = await listTeachersByFacultyId(faculty.id);
@@ -54,7 +58,7 @@ export default async function FacultyDetailPage({ params }: Props) {
   return (
     <main>
       <HeroAreaOne slides={slides.filter((slide) => slide.bgImg)} />
-      <AboutTwo mainText={mainText} spacing="pt-90 pb-90" />
+      <AboutTwo gallery={gallery} mainText={mainText} spacing="pt-90 pb-90" />
       <CounterFour />
       <MissionArea
         labs={labs.map(lab => lab.toPlain())}
