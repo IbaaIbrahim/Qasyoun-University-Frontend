@@ -5,7 +5,6 @@ import AboutTwo from "@/components/about/about-two";
 import CounterFour from "@/components/counter/counter-four";
 import MissionArea from "@/components/mission/mission-area";
 import AboutThree from "@/components/about/about-three";
-import AboutCampus from "@/components/about/about-campus";
 import TeamAreaThree from "@/components/team/team-area-three";
 import { getFacultyBySlug } from "@/lib/services/faculty.service";
 import HeroAreaOne from "@/components/hero-area/hero-area-one";
@@ -14,6 +13,8 @@ import { listLabsByFacultyId } from "@/lib/services/lab.service";
 import { listTeachersByFacultyId } from "@/lib/services/teacher.service";
 import { ReferenceTypes } from "@/lib/constants";
 import FacultyStatistics from "@/lib/classes/faculty/faculty-statistics";
+import FacultyLectures from "@/components/faculty/faculty-lectures";
+import { listStudyYears } from "@/lib/services/study-year.service";
 
 export const dynamic = "force-dynamic";
 
@@ -58,6 +59,8 @@ export default async function FacultyDetailPage({ params }: Props) {
   const labs = await listLabsByFacultyId(faculty.id);
   const teachers = await listTeachersByFacultyId(faculty.id);
   const teamMembers = teachers.map((t) => t.toMemberCard(locale));
+
+  const studyYears = await listStudyYears();
 
   const tLabs = await getTranslations({ locale, namespace: "Laboratories" });
   const tMission = await getTranslations({ locale, namespace: "MissionArea" });
@@ -106,6 +109,11 @@ export default async function FacultyDetailPage({ params }: Props) {
           <TeamAreaThree members={teamMembers} />
         )
       }
+      <FacultyLectures 
+        facultyId={Number(faculty.id)} 
+        initialStudyYears={studyYears.map(y => y.toPlain())} 
+        locale={locale} 
+      />
       {/* <AboutCampus /> */}
     </main>
   );

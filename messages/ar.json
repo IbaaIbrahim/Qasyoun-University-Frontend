@@ -119,5 +119,17 @@
     "title": "آراء الطلاب",
     "subtitle": "ماذا يقول طلابنا",
     "videoTour": "جولة فيديو"
+  },
+  "Lectures": {
+    "title": "محاضرات الكلية",
+    "selectYear": "اختر السنة الدراسية",
+    "current": "الحالية",
+    "courses": "المقررات",
+    "noCourses": "لا يوجد مقررات لهذه السنة.",
+    "lectureCount": "محاضرة",
+    "preview": "عرض",
+    "download": "تحميل",
+    "noLectures": "لا يوجد محاضرات لهذا المقرر.",
+    "selectCoursePrompt": "يرجى اختيار مقرر لعرض المحاضرات"
   }
 }

@@ -119,5 +119,17 @@
     "title": "Testimonial",
     "subtitle": "What Students Say",
     "videoTour": "Video Tour in logo"
+  },
+  "Lectures": {
+    "title": "Faculty Lectures",
+    "selectYear": "Select Study Year",
+    "current": "Current",
+    "courses": "Courses",
+    "noCourses": "No courses found for this year.",
+    "lectureCount": "Lectures",
+    "preview": "Preview",
+    "download": "Download",
+    "noLectures": "No lectures found for this course.",
+    "selectCoursePrompt": "Please select a course to view lectures"
   }
 }
