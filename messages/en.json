@@ -66,6 +66,10 @@
   },
   "Laboratories": {
     "title": "Laboratories",
+    "faculties": "Faculties",
+    "gallery": "Gallery",
+    "printReport": "Print Report",
+    "share": "Share:",
     "description": "Our faculty is equipped with modern laboratories featuring the latest technologies and equipment to support practical learning and scientific research.",
     "learnMore": "Learn More"
   },

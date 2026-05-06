@@ -387,3 +387,41 @@
 
 @include meta.load-css('globals.override');
 @include meta.load-css('rtl');
+
+// Custom Breadcrumb List Styling for Laboratory Details
+.tp-breadcrumb__list--custom {
+  gap: 0 !important; // Controlled by padding/margin on spans
+  
+  span {
+    display: inline-flex !important;
+    align-items: center !important;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+    
+    // Hide existing template separators
+    &::after {
+      display: none !important;
+    }
+
+    // Add white vertical separator
+    &:not(:last-child) {
+      margin-inline-end: 12px;
+      padding-inline-end: 12px;
+      border-inline-end: 1px solid rgba(255, 255, 255, 0.4) !important;
+      line-height: 1;
+      height: 14px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      color: inherit;
+      
+      svg {
+        transform: translateY(-1px); // Fine-tune icon position
+      }
+    }
+  }
+}

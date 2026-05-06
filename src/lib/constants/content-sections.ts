@@ -237,14 +237,14 @@ const LabType = {
   value: "lab",
   // referenceIdsAPI: _readAllLabs,
   sections: {
-    text: {
-      name: "qpu.dynamicContent.text",
-      value: "text",
-      maxContentItems: 1,
+    slider: {
+      name: "qpu.dynamicContent.slider",
+      value: "slider",
+      maxContentItems: undefined,
       keys: {
-        text: {
-          name: "qpu.dynamicContent.text",
-          type: "text"
+        image: {
+          name: "qpu.dynamicContent.image",
+          type: "image"
         }
       }
     }

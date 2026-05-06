@@ -92,6 +92,7 @@ export default async function FacultyDetailPage({ params }: Props) {
               missionDescription: tMission("description"),
               missionLearnMore: tMission("learnMore"),
             }}
+            facultySlug={slug}
           />
         )
       }

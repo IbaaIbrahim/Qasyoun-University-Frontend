@@ -5,6 +5,7 @@ import mission_thumb_2 from "@/assets/img/our-mission/mission-item-2.jpg";
 import mission_thumb_3 from "@/assets/img/our-mission/mission-item-3.jpg";
 import { RightArrowTwo } from "../svg";
 import type { LabDto } from "@/lib/classes/lab";
+import { Link } from "@/i18n/navigation";
 
 /** HTML void / self-closing elements (no closing tag on stack). */
 const VOID_HTML_TAGS = new Set([
@@ -145,6 +146,7 @@ type IProps = {
   labs?: LabDto[];
   locale?: string;
   translations?: Translations;
+  facultySlug?: string;
 }
 
 const defaultTranslations: Translations = {
@@ -160,7 +162,8 @@ export default function MissionArea({
   top_cls = 'grey-bg pt-30',
   labs = [],
   locale = 'en',
-  translations = defaultTranslations
+  translations = defaultTranslations,
+  facultySlug
 }: IProps) {
   const hasLabs = labs.length > 0;
   const missionData = hasLabs
@@ -211,12 +214,12 @@ export default function MissionArea({
                       }}
                     />
                     <div className="tp-our-mission-item-btn">
-                      <a className="tp-btn-3" href="#">
+                      <Link className="tp-btn-3" href={`/faculties/${facultySlug}/laboratory/${item.id}`}>
                         {hasLabs ? translations.labsLearnMore : translations.missionLearnMore}{" "}
                         <i>
                           <RightArrowTwo clr="white" />
                         </i>
-                      </a>
+                      </Link>
                     </div>
                   </div>
                   <div className="tp-our-mission-item-thumb">
