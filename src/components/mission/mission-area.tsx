@@ -179,7 +179,7 @@ export default function MissionArea({
   const description = hasLabs ? translations.labsDescription : translations.missionDescription;
 
   return (
-    <section className={`tp-our-mission-area ${top_cls}`}>
+    <section id="labs" className={`tp-our-mission-area ${top_cls}`}>
       <div className="container">
         <div className="row">
           <div className="col-lg-4">

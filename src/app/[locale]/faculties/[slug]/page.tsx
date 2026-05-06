@@ -13,8 +13,6 @@ import { listLabsByFacultyId } from "@/lib/services/lab.service";
 import { listTeachersByFacultyId } from "@/lib/services/teacher.service";
 import { ReferenceTypes } from "@/lib/constants";
 import FacultyStatistics from "@/lib/classes/faculty/faculty-statistics";
-import FacultyLectures from "@/components/faculty/faculty-lectures";
-import { listStudyYears } from "@/lib/services/study-year.service";
 
 export const dynamic = "force-dynamic";
 
@@ -60,8 +58,6 @@ export default async function FacultyDetailPage({ params }: Props) {
   const teachers = await listTeachersByFacultyId(faculty.id);
   const teamMembers = teachers.map((t) => t.toMemberCard(locale));
 
-  const studyYears = await listStudyYears();
-
   const tLabs = await getTranslations({ locale, namespace: "Laboratories" });
   const tMission = await getTranslations({ locale, namespace: "MissionArea" });
 
@@ -106,14 +102,9 @@ export default async function FacultyDetailPage({ params }: Props) {
       }
       {
         teamMembers.length > 0 && (
-          <TeamAreaThree members={teamMembers} />
+          <TeamAreaThree members={teamMembers} facultySlug={slug} />
         )
       }
-      <FacultyLectures 
-        facultyId={Number(faculty.id)} 
-        initialStudyYears={studyYears.map(y => y.toPlain())} 
-        locale={locale} 
-      />
       {/* <AboutCampus /> */}
     </main>
   );

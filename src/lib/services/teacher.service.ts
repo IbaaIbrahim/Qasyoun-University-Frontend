@@ -35,8 +35,22 @@ export async function listTeachersByFacultyId(facultyId: number): Promise<Teache
       const t = byId.get(id);
       if (t) ordered.push(t);
     }
+    // for (let i = 0; i < 500; i++) {
+    //   ordered.push(ordered[0]);
+    // }
     return ordered;
   } catch {
     return [];
+  }
+}
+
+export async function getTeacherById(id: number): Promise<Teacher | null> {
+  try {
+    const result = await teacherApi.readByFilter(`id~eq~'${id}'`, { pageSize: 1 });
+    const row = result.data?.[0];
+    if (!row || !row.isActive || !row.isPublished) return null;
+    return Teacher.fromDto(row);
+  } catch {
+    return null;
   }
 }

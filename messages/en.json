@@ -22,7 +22,15 @@
     "universityCouncil": "University Council",
     "organizationalStructure": "Organizational Structure",
     "locationAndInfrastructure": "Location & Infrastructure",
-    "faculties": "Faculties"
+    "faculties": "Faculties",
+    "faculty_home": "Home",
+    "faculty_overview": "Overview",
+    "faculty_staff": "Staff",
+    "faculty_lectures": "Lectures",
+    "faculty_labs": "Laboratories",
+    "faculty_plan": "Study Plan",
+    "faculty_research": "Research",
+    "faculty_contact": "Contact Us"
   },
   "NewsBanner": {
     "label": "News",
@@ -131,5 +139,24 @@
     "download": "Download",
     "noLectures": "No lectures found for this course.",
     "selectCoursePrompt": "Please select a course to view lectures"
+  },
+  "FacultyNav": {
+    "home": "Home",
+    "lectures": "Lectures",
+    "labs": "Laboratories",
+    "overview": "Overview",
+    "staff": "Staff",
+    "plan": "Study Plan",
+    "research": "Research",
+    "contact": "Contact Us"
+  },
+  "TeacherDetails": {
+    "scientificDegree": "Scientific Degree",
+    "academicDegree": "Academic Degree",
+    "certificates": "Certificates",
+    "experiences": "Experiences",
+    "cvEnglish": "Download CV (English)",
+    "cvArabic": "Download CV (Arabic)",
+    "noDetails": "No detailed profile information available."
   }
 }

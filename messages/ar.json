@@ -22,7 +22,15 @@
     "universityCouncil": "مجلس الجامعة",
     "organizationalStructure": "الهيكل التنظيمي",
     "locationAndInfrastructure": "الموقع والبنية التحتية",
-    "faculties": "الكليات"
+    "faculties": "الكليات",
+    "faculty_home": "الرئيسية",
+    "faculty_overview": "لمحة عن الكلية",
+    "faculty_staff": "أعضاء الهيئة التدريسية",
+    "faculty_lectures": "المحاضرات",
+    "faculty_labs": "المخابر",
+    "faculty_plan": "الخطة الدراسية",
+    "faculty_research": "الأبحاث العلمية",
+    "faculty_contact": "اتصل بنا"
   },
   "NewsBanner": {
     "label": "الأخبار",
@@ -131,5 +139,24 @@
     "download": "تحميل",
     "noLectures": "لا يوجد محاضرات لهذا المقرر.",
     "selectCoursePrompt": "يرجى اختيار مقرر لعرض المحاضرات"
+  },
+  "FacultyNav": {
+    "home": "الرئيسية",
+    "lectures": "المحاضرات",
+    "labs": "المخابر",
+    "overview": "لمحة عن الكلية",
+    "staff": "أعضاء الهيئة التدريسية",
+    "plan": "الخطة الدراسية",
+    "research": "الأبحاث العلمية",
+    "contact": "اتصل بنا"
+  },
+  "TeacherDetails": {
+    "scientificDegree": "الدرجة العلمية",
+    "academicDegree": "المرتبة الأكاديمية",
+    "certificates": "الشهادات",
+    "experiences": "الخبرات",
+    "cvEnglish": "تحميل السيرة الذاتية (إنكليزي)",
+    "cvArabic": "تحميل السيرة الذاتية (عربي)",
+    "noDetails": "لا توجد معلومات مفصلة للملف الشخصي."
   }
 }

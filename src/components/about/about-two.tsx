@@ -19,7 +19,7 @@ export default function AboutTwo({ spacing = 'pt-115 pb-90', mainText, gallery }
    ]
 
    return (
-      <section className={`about-area ${spacing} grey-bg`}>
+      <section id="overview" className={`about-area ${spacing} grey-bg`}>
          <div className="container">
             <div className="row">
                <div className="col-12">

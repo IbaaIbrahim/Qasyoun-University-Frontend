@@ -70,7 +70,7 @@ export default function FacultyLectures({ facultyId, initialStudyYears, locale }
   const isRtl = locale === "ar";
 
   return (
-    <section className="faculty-lectures-area pt-90 pb-90 bg-light-soft">
+    <section id="lectures" className="faculty-lectures-area pt-90 pb-90 bg-light-soft">
       <div className="container">
         <div className="row">
           <div className="col-12">
@@ -116,13 +116,13 @@ export default function FacultyLectures({ facultyId, initialStudyYears, locale }
           <div className="col-lg-4 col-md-5">
             <div className="course-sidebar p-0 bg-white shadow-sm overflow-hidden" style={{ borderRadius: "20px" }}>
               <div className="p-4" style={{ backgroundColor: "#42023e", color: "#fff" }}>
-                <h5 className="mb-0 fw-bold d-flex align-items-center">
+                <h5 className="mb-0 fw-bold d-flex align-items-center text-white">
                   <i className="fa-solid fa-book-open me-2"></i> {t("courses")}
                 </h5>
               </div>
               <div className="course-list-container" style={{ maxHeight: "600px", overflowY: "auto" }}>
                 {loadingCourses ? (
-                   <div className="p-5 text-center"><div className="spinner-border text-primary" role="status"></div></div>
+                  <div className="p-5 text-center"><div className="spinner-border text-primary" role="status"></div></div>
                 ) : courses.length > 0 ? (
                   <ul className="list-unstyled mb-0">
                     {courses.map((course) => (
@@ -170,23 +170,23 @@ export default function FacultyLectures({ facultyId, initialStudyYears, locale }
                   </div>
 
                   {loadingLectures ? (
-                     <div className="p-5 text-center"><div className="spinner-border text-primary" role="status"></div></div>
+                    <div className="p-5 text-center"><div className="spinner-border text-primary" role="status"></div></div>
                   ) : lectures.length > 0 ? (
                     <div className="lecture-items">
                       {lectures.map((lecture, index) => (
-                        <div key={lecture.id} className="lecture-card mb-3 p-3 d-flex align-items-center justify-content-between transition-all" 
-                          style={{ 
-                            borderRadius: "12px", 
+                        <div key={lecture.id} className="lecture-card mb-3 p-3 d-flex align-items-center justify-content-between transition-all"
+                          style={{
+                            borderRadius: "12px",
                             border: "1px solid #f0f0f0",
                             backgroundColor: "#fff"
                           }}>
                           <div className="d-flex align-items-center">
-                            <div className="lecture-num me-3 d-flex align-items-center justify-content-center" 
-                              style={{ 
-                                width: "40px", 
-                                height: "40px", 
-                                borderRadius: "10px", 
-                                backgroundColor: "rgba(66, 2, 62, 0.1)", 
+                            <div className="lecture-num me-3 d-flex align-items-center justify-content-center"
+                              style={{
+                                width: "40px",
+                                height: "40px",
+                                borderRadius: "10px",
+                                backgroundColor: "rgba(66, 2, 62, 0.1)",
                                 color: "#42023e",
                                 fontWeight: 700
                               }}>
@@ -202,42 +202,42 @@ export default function FacultyLectures({ facultyId, initialStudyYears, locale }
                             </div>
                           </div>
                           <div className="d-flex gap-2">
-                             {lecture.file?.url && (
-                               <>
-                                 <a 
-                                  href={resolveUploadSrc(lecture.file.url, "")} 
-                                  target="_blank" 
+                            {lecture.file?.url && (
+                              <>
+                                <a
+                                  href={resolveUploadSrc(lecture.file.url, "")}
+                                  target="_blank"
                                   rel="noopener noreferrer"
                                   className="btn btn-sm btn-outline-primary rounded-pill px-3"
                                   style={{ borderColor: "#42023e", color: "#42023e" }}
-                                 >
-                                   <i className="fa-solid fa-eye me-1"></i> {t("preview")}
-                                 </a>
-                                 <a 
-                                  href={resolveUploadSrc(lecture.file.url, "")} 
+                                >
+                                  <i className="fa-solid fa-eye me-1"></i> {t("preview")}
+                                </a>
+                                <a
+                                  href={resolveUploadSrc(lecture.file.url, "")}
                                   download={lecture.file.name || "lecture"}
                                   className="btn btn-sm btn-primary rounded-pill px-3"
                                   style={{ backgroundColor: "#42023e", borderColor: "#42023e" }}
-                                 >
-                                   <i className="fa-solid fa-download me-1"></i> {t("download")}
-                                 </a>
-                               </>
-                             )}
+                                >
+                                  <i className="fa-solid fa-download me-1"></i> {t("download")}
+                                </a>
+                              </>
+                            )}
                           </div>
                         </div>
                       ))}
                     </div>
                   ) : (
                     <div className="p-5 text-center text-muted">
-                       <i className="fa-solid fa-file-circle-exclamation mb-3 d-block" style={{ fontSize: "2rem" }}></i>
-                       {t("noLectures")}
+                      <i className="fa-solid fa-file-circle-exclamation mb-3 d-block" style={{ fontSize: "2rem" }}></i>
+                      {t("noLectures")}
                     </div>
                   )}
                 </>
               ) : (
                 <div className="d-flex flex-column align-items-center justify-content-center h-100 text-muted opacity-50 p-5">
-                   <i className="fa-solid fa-arrow-pointer mb-4" style={{ fontSize: "4rem" }}></i>
-                   <h4>{t("selectCoursePrompt")}</h4>
+                  <i className="fa-solid fa-arrow-pointer mb-4" style={{ fontSize: "4rem" }}></i>
+                  <h4>{t("selectCoursePrompt")}</h4>
                 </div>
               )}
             </div>
