@@ -158,5 +158,15 @@
     "cvEnglish": "Download CV (English)",
     "cvArabic": "Download CV (Arabic)",
     "noDetails": "No detailed profile information available."
+  },
+  "Research": {
+    "facultyResearches": "Scientific Researches",
+    "searchPlaceholder": "Search by research title or teacher name...",
+    "researchTitle": "Research Title",
+    "teacherName": "Teacher Name",
+    "actions": "Actions",
+    "download": "Download",
+    "viewDetails": "View Details",
+    "noResearches": "No scientific researches found for this faculty."
   }
 }

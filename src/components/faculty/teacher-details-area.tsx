@@ -2,12 +2,12 @@
 
 import React from "react";
 import Image from "next/image";
-import { Teacher } from "@/lib/classes/teacher";
+import { Teacher, TeacherDto } from "@/lib/classes/teacher";
 import { resolveUploadSrc } from "@/lib/api/client";
 import { useTranslations } from "next-intl";
 
 type Props = {
-  teacher: Teacher;
+  teacher: TeacherDto;
   locale: string;
 };
 
@@ -19,10 +19,10 @@ export default function TeacherDetailsArea({ teacher, locale }: Props) {
   const avatarSrc = resolveUploadSrc(teacher.picture?.url, fallbackImage);
 
   const sections = [
-    { id: "scientific", title: t("scientificDegree"), content: isRtl ? teacher.scientificDegreeAr : teacher.scientificDegree },
-    { id: "academic", title: t("academicDegree"), content: isRtl ? teacher.academicDegreeAr : teacher.academicDegree },
-    { id: "certificates", title: t("certificates"), content: isRtl ? teacher.certificatesAr : teacher.certificates },
-    { id: "experiences", title: t("experiences"), content: isRtl ? teacher.experiencesAr : teacher.experiences },
+    { id: "scientific", title: t("scientificDegree"), content: isRtl ? teacher.scientificDegree_AR : teacher.scientificDegree },
+    { id: "academic", title: t("academicDegree"), content: isRtl ? teacher.academicDegree_AR : teacher.academicDegree },
+    { id: "certificates", title: t("certificates"), content: isRtl ? teacher.certificates_AR : teacher.certificates },
+    { id: "experiences", title: t("experiences"), content: isRtl ? teacher.experiences_AR : teacher.experiences },
   ].filter(s => !!s.content);
 
   return (
@@ -35,15 +35,15 @@ export default function TeacherDetailsArea({ teacher, locale }: Props) {
                 <div className="teacher-avatar mb-4 overflow-hidden mx-auto" style={{ width: "200px", height: "200px", borderRadius: "50%" }}>
                   <Image 
                     src={avatarSrc} 
-                    alt={teacher.getName(locale)} 
+                    alt={Teacher.getName(teacher, locale)} 
                     width={200} 
                     height={200} 
                     style={{ objectFit: "cover", width: "100%", height: "100%" }}
                     unoptimized
                   />
                 </div>
-                <h3 className="fw-bold mb-2" style={{ color: "#42023e" }}>{teacher.getName(locale)}</h3>
-                <p className="text-muted mb-4">{teacher.getPosition(locale)}</p>
+                <h3 className="fw-bold mb-2" style={{ color: "#42023e" }}>{Teacher.getName(teacher, locale)}</h3>
+                <p className="text-muted mb-4">{Teacher.getPosition(teacher, locale)}</p>
                 
                 <div className="teacher-cv-links d-flex flex-column gap-2">
                   {teacher.cvArabic && (

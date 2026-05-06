@@ -106,19 +106,30 @@ export class Teacher {
     );
   }
 
+  static getName(dto: TeacherDto, locale: string): string {
+    return locale === "ar" && dto.name_AR ? dto.name_AR : dto.name;
+  }
+
+  static getPosition(dto: TeacherDto, locale: string): string {
+    const v = locale === "ar" && dto.position_AR ? dto.position_AR : dto.position;
+    return v?.trim() ?? "";
+  }
+
+  static getSpecialist(dto: TeacherDto, locale: string): string {
+    const v = locale === "ar" && dto.specialist_AR ? dto.specialist_AR : dto.specialist;
+    return v?.trim() ?? "";
+  }
+
   getName(locale: string): string {
-    return locale === "ar" && this.nameAr ? this.nameAr : this.name;
+    return Teacher.getName(this.toPlain(), locale);
   }
 
   getPosition(locale: string): string {
-    const v = locale === "ar" && this.positionAr ? this.positionAr : this.position;
-    return v?.trim() ?? "";
+    return Teacher.getPosition(this.toPlain(), locale);
   }
 
   getSpecialist(locale: string): string {
-    const v =
-      locale === "ar" && this.specialistAr ? this.specialistAr : this.specialist;
-    return v?.trim() ?? "";
+    return Teacher.getSpecialist(this.toPlain(), locale);
   }
 
   /** Card row for the faculty team grid (locale-specific copy + resolved image). */
@@ -131,6 +142,37 @@ export class Teacher {
       name: this.getName(locale),
       title,
       imageSrc: resolveUploadSrc(thumb, TEAM_FALLBACK_IMAGE),
+    };
+  }
+
+  toPlain(): TeacherDto {
+    return {
+      id: this.id,
+      name: this.name,
+      name_AR: this.nameAr,
+      pictureId: this.pictureId,
+      picture: this.picture,
+      position: this.position,
+      position_AR: this.positionAr,
+      specialist: this.specialist,
+      specialist_AR: this.specialistAr,
+      scientificDegree: this.scientificDegree,
+      scientificDegree_AR: this.scientificDegreeAr,
+      academicDegree: this.academicDegree,
+      academicDegree_AR: this.academicDegreeAr,
+      certificates: this.certificates,
+      certificates_AR: this.certificatesAr,
+      experiences: this.experiences,
+      experiences_AR: this.experiencesAr,
+      cvEnglishId: null,
+      cvEnglish: this.cvEnglish,
+      cvArabicId: null,
+      cvArabic: this.cvArabic,
+      isPublished: this.isPublished,
+      displayOrder: this.displayOrder,
+      isActive: this.isActive,
+      createdAt: this.createdAt,
+      updatedAt: this.updatedAt,
     };
   }
 }

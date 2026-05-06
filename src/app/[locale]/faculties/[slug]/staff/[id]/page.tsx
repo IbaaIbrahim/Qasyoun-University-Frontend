@@ -31,7 +31,7 @@ export default async function TeacherDetailPage({ params }: Props) {
         <HeroAreaOne slides={slides.filter((slide) => slide.bgImg)} />
       )}
       
-      <TeacherDetailsArea teacher={teacher} locale={locale} />
+      <TeacherDetailsArea teacher={teacher.toPlain()} locale={locale} />
     </main>
   );
 }

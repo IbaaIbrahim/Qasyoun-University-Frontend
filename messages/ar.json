@@ -158,5 +158,15 @@
     "cvEnglish": "تحميل السيرة الذاتية (إنكليزي)",
     "cvArabic": "تحميل السيرة الذاتية (عربي)",
     "noDetails": "لا توجد معلومات مفصلة للملف الشخصي."
+  },
+  "Research": {
+    "facultyResearches": "الأبحاث العلمية",
+    "searchPlaceholder": "بحث عن طريق عنوان البحث أو اسم الأستاذ...",
+    "researchTitle": "عنوان البحث",
+    "teacherName": "اسم الأستاذ",
+    "actions": "الإجراءات",
+    "download": "تحميل",
+    "viewDetails": "عرض التفاصيل",
+    "noResearches": "لا توجد أبحاث علمية لهذه الكلية."
   }
 }
