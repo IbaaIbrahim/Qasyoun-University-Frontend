@@ -1,7 +1,9 @@
+import { getTranslations } from "next-intl/server";
 import ContactForm from "../form/contact-form";
 
+export default async function ContactArea() {
+  const t = await getTranslations("Contact");
 
-export default function ContactArea() {
   return (
     <section className="tp-contact-area tp-contact-p fix p-relative pt-150 pb-125">
       <div className="tp-contact-bg" style={{ backgroundImage: "url(/assets/img/live/contact-bg.png)" }}></div>
@@ -24,11 +26,11 @@ export default function ContactArea() {
           <div className="col-lg-10">
             <div className="tp-contact-wrap p-relative">
               <div className="tp-contact-heading text-center">
-                <h3 className="tp-contact-title">Get in Touch</h3>
-                <p>We are here to answer any question you may have.</p>
+                <h3 className="tp-contact-title">{t("heading")}</h3>
+                <p>{t("lead")}</p>
               </div>
               <div className="tp-contact-from-box">
-                <h3 className="tp-contact-from-title">Send a Message 👍🏻</h3>
+                <h3 className="tp-contact-from-title">{t("formTitle")}</h3>
 
                 {/* form start */}
                 <ContactForm />

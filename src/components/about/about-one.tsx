@@ -10,7 +10,7 @@ import icon_1 from '@/assets/img/icon/about/about-icon-1.svg';
 import icon_2 from '@/assets/img/icon/about/about-icon-2.svg';
 import { CSSProperties } from 'react';
 import CounterItem from '../counter/counter-item';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import AboutHome from '@/lib/classes/home/about';
 import { useTranslations } from 'next-intl';
 
@@ -91,7 +91,7 @@ export default function AboutOne({ data }: { data?: AboutHome }) {
                                     </div>
                                 ))}
                                 <div className="tp-about-btn pt-10">
-                                    <Link className="tp-btn tp-btn-sm" href="#">{t('seeMore')}
+                                    <Link className="tp-btn tp-btn-sm" href="/about/vision-mission">{t('seeMore')}
                                         <span>
                                             <RightArrow />
                                         </span>

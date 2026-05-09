@@ -16,10 +16,25 @@ import News from "@/lib/classes/news";
 type IProps = {
   menu_data?: IMenu[];
   newsItems: News[];
+  /** Absolute or API path for header logo (e.g. faculty `logo` from API). Omits to use default QPU marks. */
+  brandLogoSrc?: string;
+  brandLogoAlt?: string;
+  /** Where the logo links (default `/`) */
+  logoHref?: string;
 };
 
-export default async function HeaderOne({ menu_data, newsItems }: IProps) {
+export default async function HeaderOne({
+  menu_data,
+  newsItems,
+  brandLogoSrc,
+  brandLogoAlt,
+  logoHref = "/",
+}: IProps) {
   const t = await getTranslations("Header");
+  const tMeta = await getTranslations("Metadata");
+  const logoAlt = brandLogoAlt ?? tMeta("siteTitle");
+  const primarySrc = brandLogoSrc ?? logo;
+  const secondarySrc = brandLogoSrc ?? logo_black;
 
   return (
     <>
@@ -35,13 +50,26 @@ export default async function HeaderOne({ menu_data, newsItems }: IProps) {
             <div className="row align-items-center">
               <div className="col-xxl-2 col-xl-2 col-lg-6 col-md-6 col-6">
                 <div className="tp-header-logo-1 tp-header-logo">
-                  <Link href="/">
-                    <Image className="logo-1" src={logo} alt="logo" priority />
+                  <Link href={logoHref}>
+                    <Image
+                      className="logo-1"
+                      src={primarySrc}
+                      alt={logoAlt}
+                      width={125}
+                      height={48}
+                      priority
+                      style={{ objectFit: "contain", height: "auto", maxHeight: 48 }}
+                      unoptimized
+                    />
                     <Image
                       className="logo-2"
-                      src={logo_black}
-                      alt="logo"
+                      src={secondarySrc}
+                      alt={logoAlt}
+                      width={125}
+                      height={48}
                       priority
+                      style={{ objectFit: "contain", height: "auto", maxHeight: 48 }}
+                      unoptimized
                     />
                   </Link>
                 </div>

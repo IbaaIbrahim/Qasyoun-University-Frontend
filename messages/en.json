@@ -6,7 +6,13 @@
     "facultiesTitle": "Faculties - Qasyoun Private University",
     "facultyNotFoundTitle": "Faculty not found",
     "facultyDetailTitle": "{name} - Qasyoun Private University",
-    "notFoundTitle": "Not Found - Qasyoun Private University"
+    "notFoundTitle": "Not Found - Qasyoun Private University",
+    "staticPageTitle": "{page} — Qasyoun Private University",
+    "contactTitle": "Contact Us - Qasyoun Private University"
+  },
+  "StaticPage": {
+    "empty": "No published content yet. Add the body in the dashboard under Dynamic content (reference ID 0 for site-wide pages).",
+    "untitled": "Page"
   },
   "Nav": {
     "home": "Home",
@@ -14,14 +20,26 @@
     "admissions": "Admissions",
     "pages": "Pages",
     "blog": "Blog",
-    "about": "About",
-    "vision": "Vision",
-    "purposes": "Purposes",
-    "foundation": "Foundation",
+    "about": "About the university",
+    "admissionNav": "Admission",
+    "studentLifeNav": "Student life",
+    "visionMission": "Vision and mission",
+    "universityGoals": "University goals",
+    "foundation": "Establishment",
     "boardOfTrustees": "Board of Trustees",
     "universityCouncil": "University Council",
-    "organizationalStructure": "Organizational Structure",
-    "locationAndInfrastructure": "Location & Infrastructure",
+    "organizationalStructure": "Organizational structure",
+    "locationInfrastructure": "Location and infrastructure",
+    "admissionRequirements": "Admission requirements",
+    "whyQpu": "Why QPU?",
+    "studySystem": "Study system",
+    "tuitionFees2022": "Tuition and fees (2022–2023)",
+    "discountsScholarships": "Discounts and scholarships",
+    "registrationDocuments": "Registration documents",
+    "academicGuidance": "Academic guidance",
+    "exams": "Exams",
+    "academicCalendar": "Academic calendar",
+    "studentGuide": "Student guide",
     "faculties": "Faculties",
     "faculty_home": "Home",
     "faculty_overview": "Overview",
@@ -30,7 +48,8 @@
     "faculty_labs": "Laboratories",
     "faculty_plan": "Study Plan",
     "faculty_research": "Research",
-    "faculty_contact": "Contact Us"
+    "faculty_contact": "Contact Us",
+    "contact": "Contact Us"
   },
   "NewsBanner": {
     "label": "News",
@@ -49,6 +68,7 @@
     "languageArabic": "Arabic"
   },
   "Footer": {
+    "description": "Qasyoun Private University welcomes your questions about admission, academic programs, and student services.",
     "gotQuestions": "Got Questions? Call us",
     "about": "About",
     "quickLinks": "Quick links",
@@ -60,14 +80,30 @@
   },
   "Faculties": {
     "breadcrumbTitle": "Faculties",
-    "empty": "No faculties to show yet."
+    "empty": "No faculties to show yet.",
+    "bestEmployeeTitle": "Best Employee",
+    "bestEmployeeSubtitle": "Faculty Recognition",
+    "graduatedStudentsTitle": "Graduated Students",
+    "graduatedStudentsSubtitle": "Hall of Fame",
+    "studentNumber": "Student Number",
+    "average": "Average",
+    "honorList": "Honor List"
   },
   "FacultyArea": {
     "titleLead": "University",
     "titleAccent": "Faculties",
     "description": "Explore our faculties and academic units at Qasyoun Private University.",
-    "moreIntro": "More content and programs will be linked here as we migrate from",
-    "viewAll": "View all faculties"
+    "viewAll": "See all faculties"
+  },
+  "ServiceShortcuts": {
+    "card1Title": "Why QPU?",
+    "card1Text": "What sets QPU apart and how we approach quality higher education.",
+    "card2Title": "Vision & mission",
+    "card2Text": "Our direction, values, and commitment to students and society.",
+    "card3Title": "Admission requirements",
+    "card3Text": "Entry criteria, how to apply, and what to prepare before you enroll.",
+    "card4Title": "Tuition & fees",
+    "card4Text": "Current fee information. Scholarships and discounts are linked from the admission menu."
   },
   "FacultyDetail": {
     "breadcrumbSubtitle": "Faculties"
@@ -168,5 +204,35 @@
     "download": "Download",
     "viewDetails": "View Details",
     "noResearches": "No scientific researches found for this faculty."
+  },
+  "Contact": {
+    "breadcrumbSubtitle": "Contact",
+    "breadcrumbTitle": "Contact Us",
+    "infoTitle": "Let us know how we can help",
+    "emailTitle": "Email us",
+    "emailDescription": "Send questions about admissions, programs, or services.",
+    "phoneTitle": "Call us",
+    "phoneDescription": "Our team will direct you to the right office.",
+    "locationTitle": "Visit us",
+    "locationDescription": "Main office in Damascus and university campus on Damascus-Daraa highway.",
+    "locationText": "Damascus - Mezzeh, Eastern Villas",
+    "heading": "Get in touch",
+    "lead": "Have a question about QPU? Send us a message and the relevant team will follow up.",
+    "formTitle": "Send a message"
+  },
+  "ContactForm": {
+    "name": "Your name",
+    "email": "Email address",
+    "phone": "Phone number",
+    "subject": "Subject",
+    "message": "Your message",
+    "consent": "You may contact me using the details provided above.",
+    "submit": "Send message",
+    "success": "Thanks, your message has been prepared in your email app.",
+    "nameRequired": "Name is required",
+    "emailRequired": "Email is required",
+    "emailInvalid": "Enter a valid email address",
+    "subjectRequired": "Subject is required",
+    "messageRequired": "Message is required"
   }
 }

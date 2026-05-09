@@ -6,7 +6,13 @@
     "facultiesTitle": "الكليات - جامعة قاسيون الخاصة",
     "facultyNotFoundTitle": "الكلية غير موجودة",
     "facultyDetailTitle": "{name} - جامعة قاسيون الخاصة",
-    "notFoundTitle": "غير موجود - جامعة قاسيون الخاصة"
+    "notFoundTitle": "غير موجود - جامعة قاسيون الخاصة",
+    "staticPageTitle": "{page} — جامعة قاسيون الخاصة",
+    "contactTitle": "اتصل بنا - جامعة قاسيون الخاصة"
+  },
+  "StaticPage": {
+    "empty": "لا يوجد محتوى منشور بعد. أضف النص من لوحة التحكم ضمن المحتوى الديناميكي (معرّف المرجع 0 للصفحات العامة).",
+    "untitled": "صفحة"
   },
   "Nav": {
     "home": "الرئيسية",
@@ -14,14 +20,26 @@
     "admissions": "القبول",
     "pages": "صفحات",
     "blog": "المدونة",
-    "about": "عن الجامعة",
-    "vision": "الرؤية",
-    "purposes": "الأهداف",
+    "about": "حول الجامعة",
+    "admissionNav": "الالتحاق بالجامعة",
+    "studentLifeNav": "الحياة الجامعية",
+    "visionMission": "الرؤيا والرسالة",
+    "universityGoals": "أهداف الجامعة",
     "foundation": "التأسيس",
     "boardOfTrustees": "مجلس الأمناء",
     "universityCouncil": "مجلس الجامعة",
-    "organizationalStructure": "الهيكل التنظيمي",
-    "locationAndInfrastructure": "الموقع والبنية التحتية",
+    "organizationalStructure": "الهيكلية التنظيمية",
+    "locationInfrastructure": "الموقع والبنية التحتية",
+    "admissionRequirements": "شروط الالتحاق بالجامعة",
+    "whyQpu": "لماذا QPU؟",
+    "studySystem": "نظام الدراسة",
+    "tuitionFees2022": "الأقساط والرسوم 2022–2023",
+    "discountsScholarships": "الحسميات والمنح",
+    "registrationDocuments": "الوثائق المطلوبة للتسجيل",
+    "academicGuidance": "الإرشاد الأكاديمي",
+    "exams": "الامتحانات",
+    "academicCalendar": "التقويم الجامعي",
+    "studentGuide": "دليل الطالب",
     "faculties": "الكليات",
     "faculty_home": "الرئيسية",
     "faculty_overview": "لمحة عن الكلية",
@@ -30,7 +48,8 @@
     "faculty_labs": "المخابر",
     "faculty_plan": "الخطة الدراسية",
     "faculty_research": "الأبحاث العلمية",
-    "faculty_contact": "اتصل بنا"
+    "faculty_contact": "اتصل بنا",
+    "contact": "اتصل بنا"
   },
   "NewsBanner": {
     "label": "الأخبار",
@@ -49,6 +68,7 @@
     "languageArabic": "العربية"
   },
   "Footer": {
+    "description": "ترحب جامعة قاسيون الخاصة باستفساراتكم حول القبول والبرامج الأكاديمية وخدمات الطلاب.",
     "gotQuestions": "لديك أسئلة؟ اتصل بنا",
     "about": "عن الجامعة",
     "quickLinks": "روابط سريعة",
@@ -60,14 +80,30 @@
   },
   "Faculties": {
     "breadcrumbTitle": "الكليات",
-    "empty": "لا توجد كليات للعرض حالياً."
+    "empty": "لا توجد كليات للعرض حالياً.",
+    "bestEmployeeTitle": "أفضل موظف",
+    "bestEmployeeSubtitle": "تميز الكلية",
+    "graduatedStudentsTitle": "الطلاب الخريجون",
+    "graduatedStudentsSubtitle": "لوحة الشرف",
+    "studentNumber": "الرقم الجامعي",
+    "average": "المعدل",
+    "honorList": "قائمة الشرف"
   },
   "FacultyArea": {
     "titleLead": "كليات",
     "titleAccent": "الجامعة",
     "description": "استكشف كلياتنا والوحدات الأكاديمية في جامعة قاسيون الخاصة.",
-    "moreIntro": "سيتم ربط المزيد من المحتوى والبرامج هنا أثناء التحديث من",
     "viewAll": "عرض جميع الكليات"
+  },
+  "ServiceShortcuts": {
+    "card1Title": "لماذا QPU؟",
+    "card1Text": "ما الذي يميّز جامعة قاسيون وكيف ننظر إلى جودة التعليم العالي.",
+    "card2Title": "الرؤيا والرسالة",
+    "card2Text": "توجّهنا وقيمنا والتزامنا بالطلاب والمجتمع.",
+    "card3Title": "شروط الالتحاق",
+    "card3Text": "معايير القبول، خطوات التسجيل، وما يلزم تجهيزه قبل الالتحاق.",
+    "card4Title": "الأقساط والرسوم",
+    "card4Text": "معلومات الرسوم الحالية؛ الحسميات والمنح متاحة من قائمة الالتحاق."
   },
   "FacultyDetail": {
     "breadcrumbSubtitle": "الكليات"
@@ -168,5 +204,35 @@
     "download": "تحميل",
     "viewDetails": "عرض التفاصيل",
     "noResearches": "لا توجد أبحاث علمية لهذه الكلية."
+  },
+  "Contact": {
+    "breadcrumbSubtitle": "التواصل",
+    "breadcrumbTitle": "اتصل بنا",
+    "infoTitle": "أخبرنا كيف يمكننا مساعدتك",
+    "emailTitle": "راسلنا",
+    "emailDescription": "أرسل استفساراتك حول القبول أو البرامج أو الخدمات.",
+    "phoneTitle": "اتصل بنا",
+    "phoneDescription": "سيساعدك فريقنا في الوصول إلى المكتب المناسب.",
+    "locationTitle": "زورونا",
+    "locationDescription": "المكتب الرئيسي في دمشق والحرم الجامعي على طريق دمشق - درعا.",
+    "locationText": "دمشق - مزة فيلات شرقية",
+    "heading": "تواصل معنا",
+    "lead": "هل لديك سؤال حول جامعة قاسيون؟ أرسل لنا رسالة وسيتابع معك الفريق المختص.",
+    "formTitle": "أرسل رسالة"
+  },
+  "ContactForm": {
+    "name": "الاسم الكامل",
+    "email": "البريد الإلكتروني",
+    "phone": "رقم الهاتف",
+    "subject": "الموضوع",
+    "message": "رسالتك",
+    "consent": "يمكنكم التواصل معي باستخدام البيانات المذكورة أعلاه.",
+    "submit": "إرسال الرسالة",
+    "success": "شكراً لك، تم تجهيز رسالتك في تطبيق البريد لديك.",
+    "nameRequired": "الاسم مطلوب",
+    "emailRequired": "البريد الإلكتروني مطلوب",
+    "emailInvalid": "أدخل بريداً إلكترونياً صالحاً",
+    "subjectRequired": "الموضوع مطلوب",
+    "messageRequired": "الرسالة مطلوبة"
   }
 }

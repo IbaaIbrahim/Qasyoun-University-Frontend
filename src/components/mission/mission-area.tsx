@@ -203,10 +203,10 @@ export default function MissionArea({
               {missionData.map((item, i) => (
                 <div
                   key={item.id}
-                  className={`tp-our-mission-item d-flex align-items-center justify-content-center justify-content-md-between ${i !== missionData.length - 1 ? "mb-20" : ""
+                  className={`tp-our-mission-item d-flex align-items-center justify-content-center justify-content-md-between gap-3 ${i !== missionData.length - 1 ? "mb-20" : ""
                     }`}
                 >
-                  <div className="tp-our-mission-item-content" style={{ paddingTop: 10, paddingBottom: 10 }}>
+                  <div className="tp-our-mission-item-content" style={{ paddingBlock: 10 }}>
                     <h4 className="tp-our-mission-item-title">{item.title}</h4>
                     <div
                       dangerouslySetInnerHTML={{

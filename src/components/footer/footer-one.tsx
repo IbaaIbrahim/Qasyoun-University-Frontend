@@ -37,17 +37,14 @@ export default async function FooterOne({ style_2 = false }: IProps) {
                   </Link>
                 </div>
                 <div className="tp-footer-widget-content">
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur <br /> adipisc ing
-                    elit.
-                  </p>
+                  <p>{t("description")}</p>
                 </div>
                 <div className="tp-footer-contact">
                   <span>{t("gotQuestions")}</span>
-                  <a href="tel:012345678">+963 999 999 999</a>
+                  <a href="tel:+963999999999">+963 999 999 999</a>
                 </div>
                 <div className="tp-footer-contact-mail">
-                  <a href="mailto:acadia@gmail.com">
+                  <a href="mailto:qpu@qpu.edu.sy">
                     <span>
                       <Email />
                     </span>

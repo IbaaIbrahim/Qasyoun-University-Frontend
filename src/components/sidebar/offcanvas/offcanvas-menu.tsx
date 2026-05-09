@@ -7,6 +7,10 @@ import NavPagesDropdown from "@/components/header/navbar/dropdown/nav-pages-drop
 import NavHomeDropdown from "@/components/header/navbar/dropdown/nav-home-dropdown";
 import NavLink from "@/components/i18n/nav-link";
 import { Link } from "@/i18n/navigation";
+import {
+  menuHasSubmenu,
+  menuIsSingleSimpleDropdown,
+} from "@/lib/menu/nav-submenu";
 
 export default function OffcanvasMenu() {
   const t = useTranslations("Nav");
@@ -43,22 +47,40 @@ export default function OffcanvasMenu() {
         <ul className="dropdown-opened">
           {menu_data.map((menu) => {
             const label = menuTitle(menu.id, menu.title);
+            const hasSub = menuHasSubmenu(menu);
+            const singleListOnly = menuIsSingleSimpleDropdown(menu);
+            const needsMobileToggle =
+              Boolean(menu.home_dropdown?.length) ||
+              Boolean(menu.pages_dropdown?.length) ||
+              (menu.sm_mega_menus?.length ?? 0) > 0 ||
+              (menu.dropdown_menus?.length ?? 0) > 1;
+
+            const liClass = [
+              hasSub && "has-dropdown",
+              (menu.home_dropdown || menu.pages_dropdown) && "tp-static",
+              navTitle === label ? "dropdown-opened expanded" : "",
+            ]
+              .filter(Boolean)
+              .join(" ");
+
             return (
-              <li
-                key={menu.id}
-                className={`has-dropdown ${menu.home_dropdown || menu.pages_dropdown ? "tp-static" : ""} ${navTitle === label ? "dropdown-opened expanded" : ""}`}
-              >
+              <li key={menu.id} className={liClass}>
                 <NavLink
                   href={menu.link}
                   className={`${menu.home_dropdown || menu.pages_dropdown ? "tp-static" : ""}`}
                 >
-                  {label}{" "}
-                  <button
-                    type="button"
-                    onClick={() => openMobileMenu(label)}
-                    className={`dropdown-toggle-btn ${navTitle === label ? "dropdown-opened" : ""}`}
-                    aria-label="Toggle submenu"
-                  />
+                  {label}
+                  {needsMobileToggle ? (
+                    <>
+                      {" "}
+                      <button
+                        type="button"
+                        onClick={() => openMobileMenu(label)}
+                        className={`dropdown-toggle-btn ${navTitle === label ? "dropdown-opened" : ""}`}
+                        aria-label="Toggle submenu"
+                      />
+                    </>
+                  ) : null}
                 </NavLink>
 
                 {menu.home_dropdown && (
@@ -114,11 +136,14 @@ export default function OffcanvasMenu() {
                 {menu.dropdown_menus && (
                   <ul
                     className="tp-submenu"
-                    style={{ display: navTitle === label ? "block" : "none" }}
+                    style={{
+                      display:
+                        singleListOnly || navTitle === label ? "block" : "none",
+                    }}
                   >
                     {menu.dropdown_menus.map((dm) => (
                       <li key={dm.id}>
-                        <Link href={dm.link}>{dm.title}</Link>
+                        <NavLink href={dm.link}>{t(dm.title)}</NavLink>
                       </li>
                     ))}
                   </ul>

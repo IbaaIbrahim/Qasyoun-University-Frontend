@@ -4,6 +4,10 @@ import NavPagesDropdown from "./dropdown/nav-pages-dropdown";
 import NavHomeDropdown from "./dropdown/nav-home-dropdown";
 import NavSmMegaMenus from "./dropdown/nav-sm-mega-menus";
 import NavLink from "@/components/i18n/nav-link";
+import {
+  menuHasSubmenu,
+  menuShowsDropdownChevron,
+} from "@/lib/menu/nav-submenu";
 import { IMenu } from "@/types/menu-d-t";
 
 type IProps = {
@@ -17,45 +21,51 @@ export default async function NavMenus({ sm_mega_title, menu_data }: IProps) {
   return (
     <nav className="tp-main-menu-content">
       <ul>
-        {menu_data?.map((menu) => (
-          <li
-            key={menu.id}
-            className={`has-dropdown ${menu.home_dropdown || menu.pages_dropdown ? "tp-static" : ""
-              }`}
-          >
-            <NavLink href={menu.link}>
-              {t(menu.title)}
-            </NavLink>
+        {menu_data?.map((menu) => {
+          const hasSub = menuHasSubmenu(menu);
+          const showChevron = menuShowsDropdownChevron(menu);
+          const liClass = [
+            hasSub && "has-dropdown",
+            hasSub && !showChevron && "menu-no-dropdown-chevron",
+            (menu.home_dropdown || menu.pages_dropdown) && "tp-static",
+          ]
+            .filter(Boolean)
+            .join(" ");
 
-            {menu.home_dropdown && (
-              <div className="tp-megamenu-main tp-megamenu-container">
-                <NavHomeDropdown home_dropdown={menu.home_dropdown} />
-              </div>
-            )}
+          return (
+            <li key={menu.id} className={liClass}>
+              <NavLink href={menu.link}>{t(menu.title)}</NavLink>
 
-            {menu.sm_mega_menus && (
-              <div className="tp-megamenu-main tp-megamenu-small">
-                <NavSmMegaMenus dropdown_menus={menu.sm_mega_menus} />
-              </div>
-            )}
+              {menu.home_dropdown && (
+                <div className="tp-megamenu-main tp-megamenu-container">
+                  <NavHomeDropdown home_dropdown={menu.home_dropdown} />
+                </div>
+              )}
 
-            {menu.pages_dropdown && (
-              <div className="tp-megamenu-main tp-megamenu-fullwidth">
-                <NavPagesDropdown pages_dropdown={menu.pages_dropdown} />
-              </div>
-            )}
+              {menu.sm_mega_menus && (
+                <div className="tp-megamenu-main tp-megamenu-small">
+                  <NavSmMegaMenus dropdown_menus={menu.sm_mega_menus} />
+                </div>
+              )}
 
-            {menu.dropdown_menus && (
-              <ul className="tp-submenu">
-                {menu.dropdown_menus.map((dm) => (
-                  <li key={dm.id}>
-                    <NavLink href={dm.link}>{t(dm.title)}</NavLink>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </li>
-        ))}
+              {menu.pages_dropdown && (
+                <div className="tp-megamenu-main tp-megamenu-fullwidth">
+                  <NavPagesDropdown pages_dropdown={menu.pages_dropdown} />
+                </div>
+              )}
+
+              {menu.dropdown_menus && (
+                <ul className="tp-submenu">
+                  {menu.dropdown_menus.map((dm) => (
+                    <li key={dm.id}>
+                      <NavLink href={dm.link}>{t(dm.title)}</NavLink>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          );
+        })}
       </ul>
     </nav>
   );

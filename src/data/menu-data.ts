@@ -11,15 +11,44 @@ const menu_data: IMenu[] = [
 		title: 'about',
 		link: '#',
 		dropdown_menus: [
-			{ id: 1, title: "vision", link: "#" },
-			{ id: 2, title: "purposes", link: "#" },
-			{ id: 3, title: "foundation", link: "#" },
-			{ id: 4, title: "boardOfTrustees", link: "#" },
-			{ id: 5, title: "universityCouncil", link: "#" },
-			{ id: 6, title: "organizationalStructure", link: "#" },
-			{ id: 7, title: "locationAndInfrastructure", link: "#" },
+			{ id: 1, title: "visionMission", link: "/about/vision-mission" },
+			{ id: 2, title: "universityGoals", link: "/about/university-goals" },
+			{ id: 3, title: "foundation", link: "/about/establishment" },
+			{ id: 4, title: "boardOfTrustees", link: "/about/board-of-trustees" },
+			{ id: 5, title: "universityCouncil", link: "/about/university-council" },
+			{ id: 6, title: "organizationalStructure", link: "/about/organizational-structure" },
+			{ id: 7, title: "locationInfrastructure", link: "/about/location-infrastructure" },
 		]
-	}
+	},
+	{
+		id: 3,
+		title: 'admissionNav',
+		link: '#',
+		dropdown_menus: [
+			{ id: 1, title: "admissionRequirements", link: "/admission/admission-requirements" },
+			{ id: 2, title: "whyQpu", link: "/admission/why-qpu" },
+			{ id: 3, title: "studySystem", link: "/admission/study-system" },
+			{ id: 4, title: "tuitionFees2022", link: "/admission/tuition-fees-2022-2023" },
+			{ id: 5, title: "discountsScholarships", link: "/admission/discounts-scholarships" },
+			{ id: 6, title: "registrationDocuments", link: "/admission/registration-documents" },
+		]
+	},
+	{
+		id: 4,
+		title: 'studentLifeNav',
+		link: '#',
+		dropdown_menus: [
+			{ id: 1, title: "academicGuidance", link: "/student-life/academic-guidance" },
+			{ id: 2, title: "exams", link: "/student-life/exams" },
+			{ id: 3, title: "academicCalendar", link: "/student-life/academic-calendar" },
+			{ id: 4, title: "studentGuide", link: "/student-life/student-guide" },
+		]
+	},
+	{
+		id: 5,
+		title: 'contact',
+		link: '/contact'
+	},
 ];
 
 export default menu_data;
@@ -204,4 +233,4 @@ export const menu_data_2: IMenuDT2[] = [
 			{ id: 6, title: "Blog Details Full Width", link: "/blog-details-full-width/1" },
 		]
 	}
-]
+];

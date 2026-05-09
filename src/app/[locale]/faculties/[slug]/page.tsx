@@ -13,6 +13,12 @@ import { listLabsByFacultyId } from "@/lib/services/lab.service";
 import { listTeachersByFacultyId } from "@/lib/services/teacher.service";
 import { ReferenceTypes } from "@/lib/constants";
 import FacultyStatistics from "@/lib/classes/faculty/faculty-statistics";
+import { listBestEmployeesByFacultyId } from "@/lib/services/best-employee.service";
+import { listGraduatedStudentsByFacultyId } from "@/lib/services/graduated-student.service";
+import BestEmployeeArea from "@/components/faculty/best-employee-area";
+import GraduatedStudentArea from "@/components/faculty/graduated-student-area";
+import { BestEmployee } from "@/lib/classes/best-employee";
+import { GraduatedStudent } from "@/lib/classes/graduated-student";
 
 export const dynamic = "force-dynamic";
 
@@ -57,6 +63,9 @@ export default async function FacultyDetailPage({ params }: Props) {
   const labs = await listLabsByFacultyId(faculty.id);
   const teachers = await listTeachersByFacultyId(faculty.id);
   const teamMembers = teachers.map((t) => t.toMemberCard(locale));
+
+  const bestEmployees = await listBestEmployeesByFacultyId(faculty.id, teachers);
+  const graduatedStudents = await listGraduatedStudentsByFacultyId(faculty.id);
 
   const tLabs = await getTranslations({ locale, namespace: "Laboratories" });
   const tMission = await getTranslations({ locale, namespace: "MissionArea" });
@@ -105,8 +114,23 @@ export default async function FacultyDetailPage({ params }: Props) {
           <TeamAreaThree members={teamMembers} facultySlug={slug} />
         )
       }
+      {
+        bestEmployees.length > 0 && (
+          <BestEmployeeArea 
+            employees={bestEmployees.map((e: BestEmployee) => e.toPlain())} 
+            locale={locale} 
+          />
+        )
+      }
+      {
+        graduatedStudents.length > 0 && (
+          <GraduatedStudentArea 
+            students={graduatedStudents.map((s: GraduatedStudent) => s.toPlain())} 
+            locale={locale} 
+          />
+        )
+      }
       {/* <AboutCampus /> */}
     </main>
   );
 }
-

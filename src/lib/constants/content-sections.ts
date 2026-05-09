@@ -251,8 +251,145 @@ const LabType = {
   }
 }
 
+const staticPageKeys = {
+  body: {
+    name: "qpu.dynamicContent.body",
+    type: "richtext"
+  },
+  hero_image: {
+    name: "qpu.dynamicContent.heroImage",
+    type: "image"
+  }
+}
+
+const AboutType = {
+  name: "qpu.dynamicContent.about",
+  value: "about",
+  sections: {
+    vision_mission: {
+      name: "qpu.dynamicContent.aboutVisionMission",
+      value: "vision_mission",
+      maxContentItems: 1,
+      keys: staticPageKeys
+    },
+    university_goals: {
+      name: "qpu.dynamicContent.aboutUniversityGoals",
+      value: "university_goals",
+      maxContentItems: 1,
+      keys: staticPageKeys
+    },
+    establishment: {
+      name: "qpu.dynamicContent.aboutEstablishment",
+      value: "establishment",
+      maxContentItems: 1,
+      keys: staticPageKeys
+    },
+    board_of_trustees: {
+      name: "qpu.dynamicContent.aboutBoardOfTrustees",
+      value: "board_of_trustees",
+      maxContentItems: 1,
+      keys: staticPageKeys
+    },
+    university_council: {
+      name: "qpu.dynamicContent.aboutUniversityCouncil",
+      value: "university_council",
+      maxContentItems: 1,
+      keys: staticPageKeys
+    },
+    organizational_structure: {
+      name: "qpu.dynamicContent.aboutOrganizationalStructure",
+      value: "organizational_structure",
+      maxContentItems: 1,
+      keys: staticPageKeys
+    },
+    location_infrastructure: {
+      name: "qpu.dynamicContent.aboutLocationInfrastructure",
+      value: "location_infrastructure",
+      maxContentItems: 1,
+      keys: staticPageKeys
+    }
+  }
+}
+
+const AdmissionType = {
+  name: "qpu.dynamicContent.admission",
+  value: "admission",
+  sections: {
+    admission_requirements: {
+      name: "qpu.dynamicContent.admissionRequirements",
+      value: "admission_requirements",
+      maxContentItems: 1,
+      keys: staticPageKeys
+    },
+    why_qpu: {
+      name: "qpu.dynamicContent.whyQpu",
+      value: "why_qpu",
+      maxContentItems: 1,
+      keys: staticPageKeys
+    },
+    study_system: {
+      name: "qpu.dynamicContent.studySystem",
+      value: "study_system",
+      maxContentItems: 1,
+      keys: staticPageKeys
+    },
+    tuition_fees_2022_2023: {
+      name: "qpu.dynamicContent.tuitionFees2022",
+      value: "tuition_fees_2022_2023",
+      maxContentItems: 1,
+      keys: staticPageKeys
+    },
+    discounts_scholarships: {
+      name: "qpu.dynamicContent.discountsScholarships",
+      value: "discounts_scholarships",
+      maxContentItems: 1,
+      keys: staticPageKeys
+    },
+    registration_documents: {
+      name: "qpu.dynamicContent.registrationDocuments",
+      value: "registration_documents",
+      maxContentItems: 1,
+      keys: staticPageKeys
+    }
+  }
+}
+
+const StudentLifeType = {
+  name: "qpu.dynamicContent.studentLife",
+  value: "student_life",
+  sections: {
+    academic_guidance: {
+      name: "qpu.dynamicContent.academicGuidance",
+      value: "academic_guidance",
+      maxContentItems: 1,
+      keys: staticPageKeys
+    },
+    exams: {
+      name: "qpu.dynamicContent.exams",
+      value: "exams",
+      maxContentItems: 1,
+      keys: staticPageKeys
+    },
+    academic_calendar: {
+      name: "qpu.dynamicContent.academicCalendar",
+      value: "academic_calendar",
+      maxContentItems: 1,
+      keys: staticPageKeys
+    },
+    student_guide: {
+      name: "qpu.dynamicContent.studentGuide",
+      value: "student_guide",
+      maxContentItems: 1,
+      keys: staticPageKeys
+    }
+  }
+}
+
 export const ReferenceTypes = {
   faculty: FacultyType,
   home: HomeType,
-  lab: LabType
+  lab: LabType,
+  about: AboutType,
+  admission: AdmissionType,
+  student_life: StudentLifeType
 }

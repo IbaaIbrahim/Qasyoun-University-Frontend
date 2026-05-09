@@ -90,12 +90,12 @@ export default function FacultyLectures({ facultyId, initialStudyYears, locale }
           {/* Year Selection */}
           <div className="col-12 mb-30">
             <div className="year-selector-wrap d-flex align-items-center justify-content-center flex-wrap gap-3 p-4 bg-white shadow-sm" style={{ borderRadius: "15px" }}>
-              <span className="fw-bold text-muted me-2">{t("selectYear")}:</span>
+              <span className="fw-bold text-muted">{t("selectYear")}:</span>
               {initialStudyYears.map((year) => (
                 <button
                   key={year.id}
                   onClick={() => setSelectedYearId(year.id)}
-                  className={`btn px-4 py-2 transition-all ${selectedYearId === year.id ? "active-year" : "inactive-year"}`}
+                  className={`btn px-4 py-2 transition-all d-inline-flex align-items-center gap-2 flex-wrap justify-content-center ${selectedYearId === year.id ? "active-year" : "inactive-year"}`}
                   style={{
                     borderRadius: "50px",
                     fontWeight: 600,
@@ -106,7 +106,11 @@ export default function FacultyLectures({ facultyId, initialStudyYears, locale }
                   }}
                 >
                   {isRtl ? year.name_AR || year.name : year.name}
-                  {year.isCurrent && <span className="ms-2 badge bg-white text-primary" style={{ fontSize: "0.7rem", color: "#42023e !important" }}>{t("current")}</span>}
+                  {year.isCurrent && (
+                    <span className="badge bg-white text-primary" style={{ fontSize: "0.7rem", color: "#42023e !important" }}>
+                      {t("current")}
+                    </span>
+                  )}
                 </button>
               ))}
             </div>
@@ -116,8 +120,9 @@ export default function FacultyLectures({ facultyId, initialStudyYears, locale }
           <div className="col-lg-4 col-md-5">
             <div className="course-sidebar p-0 bg-white shadow-sm overflow-hidden" style={{ borderRadius: "20px" }}>
               <div className="p-4" style={{ backgroundColor: "#42023e", color: "#fff" }}>
-                <h5 className="mb-0 fw-bold d-flex align-items-center text-white">
-                  <i className="fa-solid fa-book-open me-2"></i> {t("courses")}
+                <h5 className="mb-0 fw-bold d-flex align-items-center gap-2 text-white">
+                  <i className="fa-solid fa-book-open" aria-hidden />
+                  {t("courses")}
                 </h5>
               </div>
               <div className="course-list-container" style={{ maxHeight: "600px", overflowY: "auto" }}>
@@ -129,7 +134,7 @@ export default function FacultyLectures({ facultyId, initialStudyYears, locale }
                       <li key={course.id} className="border-bottom last-child-0">
                         <button
                           onClick={() => setSelectedCourseId(course.id)}
-                          className={`w-100 text-start px-4 py-3 transition-all d-flex align-items-center justify-content-between ${selectedCourseId === course.id ? "active-course" : "inactive-course"}`}
+                          className={`w-100 text-start px-4 py-3 transition-all d-flex align-items-center justify-content-between gap-2 ${selectedCourseId === course.id ? "active-course" : "inactive-course"}`}
                           style={{
                             border: "none",
                             backgroundColor: selectedCourseId === course.id ? "rgba(66, 2, 62, 0.05)" : "transparent",
@@ -174,52 +179,59 @@ export default function FacultyLectures({ facultyId, initialStudyYears, locale }
                   ) : lectures.length > 0 ? (
                     <div className="lecture-items">
                       {lectures.map((lecture, index) => (
-                        <div key={lecture.id} className="lecture-card mb-3 p-3 d-flex align-items-center justify-content-between transition-all"
+                        <div
+                          key={lecture.id}
+                          className="lecture-card mb-3 p-3 d-flex align-items-center justify-content-between flex-wrap gap-3 transition-all"
                           style={{
                             borderRadius: "12px",
                             border: "1px solid #f0f0f0",
-                            backgroundColor: "#fff"
-                          }}>
-                          <div className="d-flex align-items-center">
-                            <div className="lecture-num me-3 d-flex align-items-center justify-content-center"
+                            backgroundColor: "#fff",
+                          }}
+                        >
+                          <div className="d-flex align-items-center gap-3 flex-grow-1" style={{ minWidth: 0 }}>
+                            <div
+                              className="lecture-num d-flex flex-shrink-0 align-items-center justify-content-center"
                               style={{
                                 width: "40px",
                                 height: "40px",
                                 borderRadius: "10px",
                                 backgroundColor: "rgba(66, 2, 62, 0.1)",
                                 color: "#42023e",
-                                fontWeight: 700
-                              }}>
+                                fontWeight: 700,
+                              }}
+                            >
                               {lecture.lectureNumber || index + 1}
                             </div>
-                            <div>
+                            <div className="flex-grow-1" style={{ minWidth: 0 }}>
                               <h6 className="mb-1 fw-bold">{isRtl ? lecture.title_AR || lecture.title : lecture.title}</h6>
                               {lecture.content && (
-                                <p className="mb-0 small text-muted text-truncate" style={{ maxWidth: "300px" }}>
+                                <p className="mb-0 small text-muted text-truncate" style={{ maxWidth: "min(300px, 100%)" }}>
                                   {isRtl ? lecture.content_AR || lecture.content : lecture.content}
                                 </p>
                               )}
                             </div>
                           </div>
-                          <div className="d-flex gap-2">
+                          <div className="d-flex flex-shrink-0 gap-2 flex-wrap justify-content-end">
                             {lecture.file?.url && (
                               <>
                                 <a
                                   href={resolveUploadSrc(lecture.file.url, "")}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="btn btn-sm btn-outline-primary rounded-pill px-3"
+                                  className="btn btn-sm btn-outline-primary rounded-pill px-3 d-inline-flex align-items-center gap-1"
                                   style={{ borderColor: "#42023e", color: "#42023e" }}
                                 >
-                                  <i className="fa-solid fa-eye me-1"></i> {t("preview")}
+                                  <i className="fa-solid fa-eye" aria-hidden />
+                                  {t("preview")}
                                 </a>
                                 <a
                                   href={resolveUploadSrc(lecture.file.url, "")}
                                   download={lecture.file.name || "lecture"}
-                                  className="btn btn-sm btn-primary rounded-pill px-3"
+                                  className="btn btn-sm btn-primary rounded-pill px-3 d-inline-flex align-items-center gap-1"
                                   style={{ backgroundColor: "#42023e", borderColor: "#42023e" }}
                                 >
-                                  <i className="fa-solid fa-download me-1"></i> {t("download")}
+                                  <i className="fa-solid fa-download" aria-hidden />
+                                  {t("download")}
                                 </a>
                               </>
                             )}
@@ -258,7 +270,7 @@ export default function FacultyLectures({ facultyId, initialStudyYears, locale }
         }
         .inactive-course:hover {
           background-color: rgba(66, 2, 62, 0.02) !important;
-          padding-left: 2rem !important;
+          padding-inline-start: 2rem !important;
         }
         .lecture-card:hover {
           box-shadow: 0 8px 15px rgba(0,0,0,0.05);
