@@ -12,7 +12,11 @@
   },
   "StaticPage": {
     "empty": "لا يوجد محتوى منشور بعد. أضف النص من لوحة التحكم ضمن المحتوى الديناميكي (معرّف المرجع 0 للصفحات العامة).",
-    "untitled": "صفحة"
+    "untitled": "صفحة",
+    "openPdf": "فتح ملف PDF",
+    "decisionsColumnList": "قائمة القرارات",
+    "decisionsColumnDetails": "التفاصيل",
+    "decisionsNoPdf": "—"
   },
   "Nav": {
     "home": "الرئيسية",
@@ -40,6 +44,8 @@
     "exams": "الامتحانات",
     "academicCalendar": "التقويم الجامعي",
     "studentGuide": "دليل الطالب",
+    "universityDirectorates": "مديريات الجامعة",
+    "higherEducationDecisions": "قرارات مجلس التعليم العالي",
     "faculties": "الكليات",
     "faculty_home": "الرئيسية",
     "faculty_overview": "لمحة عن الكلية",

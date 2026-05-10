@@ -5,7 +5,7 @@ import { Email } from "../svg";
 import FooterSocial from "./footer-social";
 import logo from "@/assets/img/logo/logo-wide.png";
 import logo_black from "@/assets/img/logo/logo-wide.png";
-import { footerLinks } from "@/data/footer-links";
+import { footerAboutLinks, footerQuickLinks } from "@/data/footer-links";
 
 type IProps = {
   style_2?: boolean;
@@ -13,6 +13,7 @@ type IProps = {
 
 export default async function FooterOne({ style_2 = false }: IProps) {
   const t = await getTranslations("Footer");
+  const tNav = await getTranslations("Nav");
   const year = new Date().getFullYear();
 
   return (
@@ -60,9 +61,11 @@ export default async function FooterOne({ style_2 = false }: IProps) {
                 <h4 className="tp-footer-widget-title mb-20">{t("about")}</h4>
                 <div className="tp-footer-widget-link">
                   <ul>
-                    {footerLinks.link_one.map((link) => (
+                    {footerAboutLinks.map((link) => (
                       <li key={link.id}>
-                        <Link href={link.link}>{link.title}</Link>
+                        <Link href={link.link}>
+                          {tNav(link.titleKey as never)}
+                        </Link>
                       </li>
                     ))}
                   </ul>
@@ -78,9 +81,11 @@ export default async function FooterOne({ style_2 = false }: IProps) {
                 </h4>
                 <div className="tp-footer-widget-link">
                   <ul>
-                    {footerLinks.link_two.map((link) => (
+                    {footerQuickLinks.map((link) => (
                       <li key={link.id}>
-                        <Link href={link.link}>{link.title}</Link>
+                        <Link href={link.link}>
+                          {tNav(link.titleKey as never)}
+                        </Link>
                       </li>
                     ))}
                   </ul>

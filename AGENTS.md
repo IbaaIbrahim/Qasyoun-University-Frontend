@@ -18,7 +18,7 @@ High-level map of this repository:
 | App Router         | `src/app/`                                                  | Next.js layouts,`globals.scss`, root wiring; **all user routes under** `src/app/[locale]/`.                                                                                                                                               |
 | Pages (shipped)    | `src/app/[locale]/(home)/…`, `src/app/[locale]/faculties/…` | Home; CMS **static pages** (`/about`, `/admission`, `/student-life` slugs); faculties list & detail; use `dynamic = 'force-dynamic'` where the API is required at request time.                                                                                                                                  |
 | UI components      | `src/components/`                                           | Acadia-derived blocks;**shipped shell** in `header/` (includes API **news strip** in `header-top/` + language switcher), `footer/`; feature folders (`faculty/`, `hero-area/`, …). Hero: colocated README in `hero-area/`. |
-| Data & menus       | `src/data/`                                                 | `menu-data.ts`, `footer-links.ts` (many links still point at template-only paths).                                                                                                                                                              |
+| Data & menus       | `src/data/`                                                 | `menu-data.ts`; `footer-links.ts` (`footerQuickLinks` / `footerAboutLinks`, Nav `titleKey`s).                                                                                                                                                              |
 | Integration layers | `src/lib/api/`, `src/lib/classes/`, `src/lib/services/` | OpenAPI-shaped types (within classes), axios resources, domain helpers, page-facing orchestration (**api → class → service**).                                                                                                              |
 | i18n               | `src/i18n/`, `messages/`                                  | next-intl routing, navigation helpers, locale messages (`en` / `ar`).                                                                                                                                                                           |
 | Hooks              | `src/hooks/`                                                | Shared client hooks (e.g. locale switch).                                                                                                                                                                                                           |
@@ -39,6 +39,8 @@ All user-facing app routes live under the **`[locale]`** segment (`src/app/[loca
 | `/about/[slug]` | `/ar/about/[slug]` | **About (CMS)** — `Content` + `ContentMeta` with `referenceType: about`, `referenceId: 0`, section per page (e.g. `vision_mission`). |
 | `/admission/[slug]` | `/ar/admission/[slug]` | **Admission (CMS)** — `referenceType: admission`, `referenceId: 0`. |
 | `/student-life/[slug]` | `/ar/student-life/[slug]` | **Student life (CMS)** — `referenceType: student_life`, `referenceId: 0`. |
+| `/directorates` | `/ar/directorates` | **University directorates (CMS)** — `referenceType: site_pages`, section `directorates`, `referenceId: 0`. |
+| `/decisions` | `/ar/decisions` | **Higher Education Council decisions (CMS)** — `referenceType: site_pages`, section `higher_education_decisions`, `referenceId: 0`; **multiple** Content rows (one per decision), ordered by `displayOrder`. |
 | `/contact` | `/ar/contact` | **Contact** — localized contact information plus reusable `ContactForm` component. |
 
 Default locale uses **`localePrefix: 'as-needed'`** (no `/en` in the path). Template-only links in `menu_data_2` and some footer paths may still point at demo routes that are **not** implemented here.
@@ -86,7 +88,7 @@ The **Acadia template** lives in a **separate repository** next to this one (e.g
 
 ## Navigation
 
-Menus: `src/data/menu-data.ts`. Footer: `src/data/footer-links.ts`. Top-level nav labels for the shipped header use next-intl; many dropdown links still reference template-only paths.
+Menus: `src/data/menu-data.ts`. Footer quick links: `footerQuickLinks` in `src/data/footer-links.ts` (labels from `Nav`). Alternate template footers still use `footerLinks` with English fallbacks.
 
 ## Rendering
 

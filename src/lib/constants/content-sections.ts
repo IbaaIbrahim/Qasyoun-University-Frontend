@@ -262,6 +262,17 @@ const staticPageKeys = {
   }
 }
 
+const councilDecisionKeys = {
+  body: {
+    name: "qpu.dynamicContent.body",
+    type: "richtext"
+  },
+  pdf_file: {
+    name: "qpu.dynamicContent.pdfDocument",
+    type: "file"
+  }
+}
+
 const AboutType = {
   name: "qpu.dynamicContent.about",
   value: "about",
@@ -354,6 +365,25 @@ const AdmissionType = {
   }
 }
 
+const SitePagesType = {
+  name: "qpu.dynamicContent.sitePages",
+  value: "site_pages",
+  sections: {
+    directorates: {
+      name: "qpu.dynamicContent.universityDirectorates",
+      value: "directorates",
+      maxContentItems: 1,
+      keys: staticPageKeys
+    },
+    higher_education_decisions: {
+      name: "qpu.dynamicContent.higherEducationDecisions",
+      value: "higher_education_decisions",
+      maxContentItems: undefined,
+      keys: councilDecisionKeys
+    }
+  }
+}
+
 const StudentLifeType = {
   name: "qpu.dynamicContent.studentLife",
   value: "student_life",
@@ -391,5 +421,6 @@ export const ReferenceTypes = {
   lab: LabType,
   about: AboutType,
   admission: AdmissionType,
-  student_life: StudentLifeType
+  student_life: StudentLifeType,
+  site_pages: SitePagesType
 }

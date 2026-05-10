@@ -12,7 +12,11 @@
   },
   "StaticPage": {
     "empty": "No published content yet. Add the body in the dashboard under Dynamic content (reference ID 0 for site-wide pages).",
-    "untitled": "Page"
+    "untitled": "Page",
+    "openPdf": "Open PDF",
+    "decisionsColumnList": "List of decisions",
+    "decisionsColumnDetails": "Details",
+    "decisionsNoPdf": "—"
   },
   "Nav": {
     "home": "Home",
@@ -40,6 +44,8 @@
     "exams": "Exams",
     "academicCalendar": "Academic calendar",
     "studentGuide": "Student guide",
+    "universityDirectorates": "University directorates",
+    "higherEducationDecisions": "Higher Education Council decisions",
     "faculties": "Faculties",
     "faculty_home": "Home",
     "faculty_overview": "Overview",
