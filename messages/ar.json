@@ -55,7 +55,8 @@
     "faculty_plan": "الخطة الدراسية",
     "faculty_research": "الأبحاث العلمية",
     "faculty_contact": "اتصل بنا",
-    "contact": "اتصل بنا"
+    "contact": "اتصل بنا",
+    "vacancies": "التوظيف"
   },
   "NewsBanner": {
     "label": "الأخبار",
@@ -240,5 +241,35 @@
     "emailInvalid": "أدخل بريداً إلكترونياً صالحاً",
     "subjectRequired": "الموضوع مطلوب",
     "messageRequired": "الرسالة مطلوبة"
+  },
+  "Vacancies": {
+    "breadcrumbTitle": "التوظيف",
+    "breadcrumbSubtitle": "الشواغر",
+    "title": "الشواغر المتاحة",
+    "applyNow": "قدم الآن",
+    "noVacancies": "لا يوجد شواغر متاحة حالياً."
+  },
+  "EmploymentForm": {
+    "title": "نموذج طلب توظيف",
+    "vacancy": "الوظيفة المطلوبة",
+    "firstName": "الاسم",
+    "lastName": "الكنية",
+    "dob": "تاريخ الميلاد",
+    "pob": "محل الولادة",
+    "gender": "الجنس",
+    "male": "ذكر",
+    "female": "أنثى",
+    "nationality": "الجنسية",
+    "phone": "رقم الهاتف",
+    "email": "البريد الإلكتروني",
+    "maritalStatus": "الحالة الاجتماعية",
+    "single": "عازب",
+    "married": "متزوج",
+    "divorced": "مطلق",
+    "widowed": "أرمل",
+    "cv": "أرفق سيرتك الذاتية (ملف PDF فقط، لا يتجاوز حجمه 8 ميغا)",
+    "submit": "إرسال الطلب",
+    "success": "تم إرسال طلبك بنجاح.",
+    "error": "فشل إرسال الطلب. يرجى المحاولة مرة أخرى."
   }
 }

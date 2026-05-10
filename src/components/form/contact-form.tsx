@@ -3,6 +3,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 import ErrMsg from "../err-msg";
+import { siteRequestService } from "@/lib/services/site-request.service";
 
 export type ContactFormValues = {
   name: string;
@@ -29,7 +30,6 @@ export default function ContactForm({
   submitButtonClassName = "tp-btn-inner",
   showPhone = true,
   showConsent = true,
-  recipientEmail = "qpu@qpu.edu.sy",
   onSubmitted,
 }: ContactFormProps) {
   const t = useTranslations("ContactForm");
@@ -50,26 +50,32 @@ export default function ContactForm({
     },
   });
 
-  const onSubmit: SubmitHandler<ContactFormValues> = (data) => {
-    onSubmitted?.(data);
-    if (!onSubmitted) {
-      const body = [
-        `${t("name")}: ${data.name}`,
-        `${t("email")}: ${data.email}`,
-        data.phone ? `${t("phone")}: ${data.phone}` : "",
-        "",
-        data.message,
-      ]
-        .filter(Boolean)
-        .join("\n");
+  const [error, setError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
-      const mailtoUrl = `mailto:${recipientEmail}?subject=${encodeURIComponent(data.subject)}&body=${encodeURIComponent(body)}`;
-      const link = document.createElement("a");
-      link.href = mailtoUrl;
-      link.click();
+  const onSubmit: SubmitHandler<ContactFormValues> = async (data) => {
+    setIsLoading(true);
+    setError(null);
+    try {
+      if (onSubmitted) {
+        onSubmitted(data);
+      } else {
+        await siteRequestService.submitContactRequest({
+          name: data.name,
+          email: data.email,
+          phone: data.phone,
+          subject: data.subject,
+          message: data.message,
+        });
+      }
+      setSubmitted(true);
+      reset();
+    } catch (err) {
+      console.error(err);
+      setError(t("error") || "Failed to send message. Please try again later.");
+    } finally {
+      setIsLoading(false);
     }
-    setSubmitted(true);
-    reset();
   };
 
   return (
@@ -159,15 +165,23 @@ export default function ContactForm({
             </div>
           ) : null}
 
-          {submitted ? (
-            <div className="col-xl-12">
-              <p className="tp-contact-form-status">{t("success")}</p>
+          {error && (
+            <div className="col-xl-12 mb-20">
+              <p className="text-danger">{error}</p>
             </div>
-          ) : null}
+          )}
+
+          {submitted && (
+            <div className="col-xl-12 mb-20">
+              <p className="tp-contact-form-status success-message" style={{ color: '#42023e', fontWeight: 'bold' }}>
+                {t("success")}
+              </p>
+            </div>
+          )}
 
           <div className="tp-contact-btn">
-            <button type="submit" className={submitButtonClassName}>
-              {t("submit")}
+            <button type="submit" className={submitButtonClassName} disabled={isLoading}>
+              {isLoading ? "..." : t("submit")}
             </button>
           </div>
         </div>

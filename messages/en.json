@@ -55,7 +55,8 @@
     "faculty_plan": "Study Plan",
     "faculty_research": "Research",
     "faculty_contact": "Contact Us",
-    "contact": "Contact Us"
+    "contact": "Contact Us",
+    "vacancies": "Careers"
   },
   "NewsBanner": {
     "label": "News",
@@ -240,5 +241,35 @@
     "emailInvalid": "Enter a valid email address",
     "subjectRequired": "Subject is required",
     "messageRequired": "Message is required"
+  },
+  "Vacancies": {
+    "breadcrumbTitle": "Careers",
+    "breadcrumbSubtitle": "Vacancies",
+    "title": "Open Positions",
+    "applyNow": "Apply Now",
+    "noVacancies": "No open positions at the moment."
+  },
+  "EmploymentForm": {
+    "title": "Job Application Form",
+    "vacancy": "Position",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "dob": "Date of Birth",
+    "pob": "Place of Birth",
+    "gender": "Gender",
+    "male": "Male",
+    "female": "Female",
+    "nationality": "Nationality",
+    "phone": "Phone number",
+    "email": "Email address",
+    "maritalStatus": "Marital Status",
+    "single": "Single",
+    "married": "Married",
+    "divorced": "Divorced",
+    "widowed": "Widowed",
+    "cv": "Attach CV (PDF only, max 8MB)",
+    "submit": "Submit Application",
+    "success": "Your application has been submitted successfully.",
+    "error": "Failed to submit application. Please try again."
   }
 }

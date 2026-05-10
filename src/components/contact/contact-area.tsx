@@ -1,5 +1,5 @@
 import { getTranslations } from "next-intl/server";
-import ContactForm from "../form/contact-form";
+import ContactCareersTabs from "./contact-careers-tabs";
 
 export default async function ContactArea() {
   const t = await getTranslations("Contact");
@@ -30,11 +30,7 @@ export default async function ContactArea() {
                 <p>{t("lead")}</p>
               </div>
               <div className="tp-contact-from-box">
-                <h3 className="tp-contact-from-title">{t("formTitle")}</h3>
-
-                {/* form start */}
-                <ContactForm />
-                {/* form end */}
+                <ContactCareersTabs />
               </div>
             </div>
           </div>
