@@ -314,19 +314,74 @@ const AboutType = {
       name: "qpu.dynamicContent.aboutBoardOfTrustees",
       value: "board_of_trustees",
       maxContentItems: 1,
-      keys: staticPageKeys
+      keys: {
+        body: {
+          name: "qpu.dynamicContent.body",
+          type: "richtext"
+        },
+        file: {
+          name: "qpu.dynamicContent.pdfFile",
+          type: "file"
+        },
+        table: {
+          name: "qpu.dynamicContent.table",
+          type: "table",
+          columns: {
+            name: {
+              name: "qpu.dynamicContent.name",
+              type: "text"
+            },
+            position: {
+              name: "qpu.dynamicContent.position",
+              type: "text"
+            }
+          }
+        }
+      }
     },
     university_council: {
       name: "qpu.dynamicContent.aboutUniversityCouncil",
       value: "university_council",
       maxContentItems: 1,
-      keys: staticPageKeys
+      keys: {
+        body: {
+          name: "qpu.dynamicContent.body",
+          type: "richtext"
+        },
+        file: {
+          name: "qpu.dynamicContent.pdfFile",
+          type: "file"
+        },
+        table: {
+          name: "qpu.dynamicContent.table",
+          type: "table",
+          columns: {
+            name: {
+              name: "qpu.dynamicContent.name",
+              type: "text"
+            },
+            position: {
+              name: "qpu.dynamicContent.position",
+              type: "text"
+            }
+          }
+        }
+      }
     },
     organizational_structure: {
       name: "qpu.dynamicContent.aboutOrganizationalStructure",
       value: "organizational_structure",
       maxContentItems: 1,
-      keys: staticPageKeys
+      keys: {
+        body: {
+          name: "qpu.dynamicContent.body",
+          type: "richtext"
+        },
+        file: {
+          name: "qpu.dynamicContent.pdfFile",
+          type: "file"
+        }
+      }
     },
     location_infrastructure: {
       name: "qpu.dynamicContent.aboutLocationInfrastructure",

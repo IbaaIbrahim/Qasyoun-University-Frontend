@@ -20,7 +20,7 @@ export async function readContentAsJsonByFilter(filter: { [key: string]: string 
     const contentResult = await contentApi.readByFilters(filterString);
 
     // Identify rows that need metas (either missing the key, or key is null/empty)
-    const missingMetasItems = contentResult.data.filter(item => !item.contentMetas || item.contentMetas.length === 0);
+    // const missingMetasItems = contentResult.data.filter(item => !item.contentMetas || item.contentMetas.length === 0);
 
     // if (missingMetasItems.length > 0) {
     //   const ids = missingMetasItems.map(item => item.id).filter(Boolean);

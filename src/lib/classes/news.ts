@@ -5,6 +5,7 @@ export default class News {
   title?: string;
   slug?: string;
   description?: string;
+  date?: string;
   href?: string | null;
   imageUrl?: string | null;
 
@@ -13,6 +14,7 @@ export default class News {
     const slug = contentJson.contentMetasJson?.["slug"] || "";
     const description = contentJson.contentMetasJson?.["description"] || "";
     const imageUrl = contentJson.contentMetasJson?.["image"] || contentJson.contentMetasJson?.["src"] || null;
+    const date = contentJson.createdAt;
 
     if (!title && !slug) return null;
 
@@ -21,6 +23,7 @@ export default class News {
       title,
       slug,
       description,
+      date,
       href: slug ? `/news/${slug}` : (contentJson.contentMetasJson?.["href"] || null),
       imageUrl,
     } as News;

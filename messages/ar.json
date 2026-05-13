@@ -10,7 +10,8 @@
     "staticPageTitle": "{page} — جامعة قاسيون الخاصة",
     "contactTitle": "اتصل بنا - جامعة قاسيون الخاصة",
     "newsNotFoundTitle": "الخبر غير موجود",
-    "newsDetailTitle": "تفاصيل الخبر"
+    "newsDetailTitle": "تفاصيل الخبر",
+    "newsTitle": "الأخبار - جامعة قاسيون الخاصة"
   },
   "News": {
     "newsDetails": "تفاصيل الخبر"
@@ -21,7 +22,14 @@
     "openPdf": "فتح ملف PDF",
     "decisionsColumnList": "قائمة القرارات",
     "decisionsColumnDetails": "التفاصيل",
-    "decisionsNoPdf": "—"
+    "decisionsNoPdf": "—",
+    "downloadPdf": "تحميل التفاصيل بصيغة PDF"
+  },
+  "qpu": {
+    "dynamicContent": {
+      "name": "الاسم",
+      "position": "المنصب"
+    }
   },
   "Nav": {
     "home": "الرئيسية",
@@ -61,7 +69,8 @@
     "faculty_research": "الأبحاث العلمية",
     "faculty_contact": "اتصل بنا",
     "contact": "اتصل بنا",
-    "vacancies": "التوظيف"
+    "vacancies": "التوظيف",
+    "news": "الأخبار والأحداث"
   },
   "NewsBanner": {
     "label": "الأخبار",

@@ -2,20 +2,21 @@ import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import BreadcrumbTwo from "@/components/breadcrumb/breadcrumb-two";
 import { resolveUploadSrc } from "@/lib/api/client";
-import type { ContentMetaJson } from "@/lib/classes/content";
 import type { StaticPageFolder } from "@/lib/static-pages/config";
 import {
   getNavKeyForSection,
   getParentNavKey,
   getSectionConfig,
 } from "@/lib/static-pages/config";
+import { ReferenceTypes } from "@/lib/constants";
+import StaticPage from "@/lib/classes/static-page";
 
 type Props = {
   folder: StaticPageFolder;
   slug: string;
   locale: string;
   cmsTitle: string | null;
-  meta: ContentMetaJson | undefined;
+  pageData: StaticPage | undefined;
 };
 
 export default async function CmsStaticPage({
@@ -23,7 +24,7 @@ export default async function CmsStaticPage({
   slug,
   locale,
   cmsTitle,
-  meta,
+  pageData,
 }: Props) {
   const cfg = getSectionConfig(folder, slug);
   const sectionValue = cfg?.sectionValue ?? "";
@@ -32,6 +33,7 @@ export default async function CmsStaticPage({
     : undefined;
   const tNav = await getTranslations({ locale, namespace: "Nav" });
   const tStatic = await getTranslations({ locale, namespace: "StaticPage" });
+  const tQpu = await getTranslations({ locale, namespace: "qpu" });
 
   const pageLabel =
     cmsTitle?.trim() ||
@@ -41,15 +43,26 @@ export default async function CmsStaticPage({
   const parentKey = getParentNavKey(folder);
   const subtitle = tNav(parentKey);
 
-  const body =
-    typeof meta?.body === "string" && meta.body.trim().length > 0
-      ? meta.body
-      : "";
-  const heroRaw =
-    typeof meta?.hero_image === "string" && meta.hero_image.length > 0
-      ? meta.hero_image
-      : "";
+  const body = pageData?.body || "";
+  const heroRaw = pageData?.heroImage || "";
   const heroSrc = resolveUploadSrc(heroRaw, "");
+
+  // --- Dynamic Table Logic (Pre-processed) ---
+  const tableData = pageData?.table || [];
+
+  // Resolve column configuration from ReferenceTypes
+  const referenceKey = cfg?.referenceKey;
+  const sectionConfig =
+    referenceKey && sectionValue
+      ? (ReferenceTypes[referenceKey].sections as Record<string, unknown>)?.[
+          sectionValue
+        ] as { keys?: { table?: { columns?: Record<string, { name: string }> } } }
+      : null;
+  const tableColumns = sectionConfig?.keys?.table?.columns || {};
+  const columnKeys = Object.keys(tableColumns);
+
+  // --- PDF File Logic (Pre-processed) ---
+  const pdfHref = pageData?.file ? resolveUploadSrc(pageData.file, "") : "";
 
   return (
     <main>
@@ -59,7 +72,6 @@ export default async function CmsStaticPage({
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-lg-10">
-
               <div className="tp-blog-details-wrap mb-40 wow fadeInUp">
                 <h3
                   className="tp-blog-details-title"
@@ -84,7 +96,7 @@ export default async function CmsStaticPage({
                 />
               </div>
 
-              <div className="tp-postbox-wrapper mb-80 wow fadeInUp">
+              <div className="tp-postbox-wrapper mb-40 wow fadeInUp">
                 <div
                   className="tp-postbox-details-text shadow-sm bg-white p-4 p-md-5"
                   style={{
@@ -100,12 +112,119 @@ export default async function CmsStaticPage({
                       className="cms-static-page-body"
                       dangerouslySetInnerHTML={{ __html: body }}
                     />
-                  ) : (
+                  ) : !tableData.length && !pdfHref ? (
                     <p className="text-muted mb-0">{tStatic("empty")}</p>
+                  ) : null}
+
+                  {/* Render Table if exists */}
+                  {tableData.length > 0 && columnKeys.length > 0 && (
+                    <div className="mt-40">
+                      <div className="table-responsive">
+                        <table className="table table-hover align-middle mb-0">
+                          <thead
+                            style={{
+                              backgroundColor: "#42023e",
+                              color: "#fff",
+                            }}
+                          >
+                            <tr>
+                              <th
+                                scope="col"
+                                style={{
+                                  width: "60px",
+                                  backgroundColor: "inherit",
+                                  color: "inherit",
+                                }}
+                              >
+                                #
+                              </th>
+                              {columnKeys.map((key) => {
+                                const colCfg = tableColumns[key];
+                                // The colCfg.name is a full key like "qpu.dynamicContent.name"
+                                // next-intl handles nested keys if passed correctly.
+                                // If the key starts with "qpu.", we can try to translate it from the root or slice it.
+                                let label = key;
+                                try {
+                                  const translateKey = colCfg.name.replace(
+                                    "qpu.",
+                                    "",
+                                  );
+                                  label = tQpu(translateKey as never);
+                                } catch {
+                                  label = colCfg.name;
+                                }
+
+                                return (
+                                  <th
+                                    key={key}
+                                    scope="col"
+                                    style={{
+                                      backgroundColor: "inherit",
+                                      color: "inherit",
+                                    }}
+                                  >
+                                    {label}
+                                  </th>
+                                );
+                              })}
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {tableData.map((row, idx) => (
+                              <tr key={idx}>
+                                <td className="text-muted fw-bold">
+                                  {idx + 1}
+                                </td>
+                                {columnKeys.map((key) => (
+                                  <td key={key}>{row[key] || "—"}</td>
+                                ))}
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* PDF Download Button */}
+                  {pdfHref && (
+                    <div className="mt-40 text-center text-md-start">
+                      <a
+                        href={pdfHref}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="tp-btn"
+                        style={{
+                          backgroundColor: "#42023e",
+                          color: "#fff",
+                          padding: "12px 25px",
+                          borderRadius: "10px",
+                          display: "inline-flex",
+                          alignItems: "center",
+                          gap: "10px",
+                          fontSize: "1rem",
+                        }}
+                      >
+                        <svg
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4" />
+                          <polyline points="7 10 12 15 17 10" />
+                          <line x1="12" y1="15" x2="12" y2="3" />
+                        </svg>
+                        {tStatic("downloadPdf")}
+                      </a>
+                    </div>
                   )}
                 </div>
               </div>
-
 
               {heroSrc ? (
                 <div className="tp-blog-details-thumb mb-50 text-center wow fadeInUp">
@@ -126,7 +245,6 @@ export default async function CmsStaticPage({
                   />
                 </div>
               ) : null}
-
             </div>
           </div>
         </div>

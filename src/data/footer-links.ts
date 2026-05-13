@@ -15,6 +15,7 @@ export const footerQuickLinks: FooterNavLink[] = [
   { id: 3, titleKey: "higherEducationDecisions", link: "/decisions" },
   { id: 4, titleKey: "studentGuide", link: "/student-life/student-guide" },
   { id: 5, titleKey: "vacancies", link: "/vacancies" },
+  { id: 6, titleKey: "news", link: "/news" },
 ];
 
 /** English labels for legacy template footers (`footer-two`, …) that expect `{ title, link }`. */
@@ -25,6 +26,7 @@ const NAV_KEY_EN: Record<string, string> = {
   higherEducationDecisions: "Higher Education Council decisions",
   studentGuide: "Student guide",
   vacancies: "Careers",
+  news: "News and Events",
 };
 
 export const footerLinks = {

@@ -10,7 +10,8 @@
     "staticPageTitle": "{page} — Qasyoun Private University",
     "contactTitle": "Contact Us - Qasyoun Private University",
     "newsNotFoundTitle": "News not found",
-    "newsDetailTitle": "News Details"
+    "newsDetailTitle": "News Details",
+    "newsTitle": "News - Qasyoun Private University"
   },
   "News": {
     "newsDetails": "News Details"
@@ -21,7 +22,14 @@
     "openPdf": "Open PDF",
     "decisionsColumnList": "List of decisions",
     "decisionsColumnDetails": "Details",
-    "decisionsNoPdf": "—"
+    "decisionsNoPdf": "—",
+    "downloadPdf": "Download details in PDF"
+  },
+  "qpu": {
+    "dynamicContent": {
+      "name": "Name",
+      "position": "Position"
+    }
   },
   "Nav": {
     "home": "Home",
@@ -61,7 +69,8 @@
     "faculty_research": "Research",
     "faculty_contact": "Contact Us",
     "contact": "Contact Us",
-    "vacancies": "Careers"
+    "vacancies": "Careers",
+    "news": "News and Events"
   },
   "NewsBanner": {
     "label": "News",

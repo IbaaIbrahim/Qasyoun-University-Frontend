@@ -8,6 +8,7 @@ import Review from "./home/review";
 import MainText from "./faculty/main-text";
 import Gallery from "./faculty/gallery";
 import Timeline from "./faculty/timeline";
+import StaticPage from "./static-page";
 
 export type ContentDto = {
   id: number | string;
@@ -142,5 +143,11 @@ export class ContentJson extends Content {
     if (!this.contentMetasJson) return {};
     const timeline = Timeline.fromContentJson(this);
     return timeline ? timeline : {};
+  }
+  
+  toStaticPage(): StaticPage {
+    if (!this.contentMetasJson) return {};
+    const page = StaticPage.fromContentJson(this);
+    return page ? page : {};
   }
 }
