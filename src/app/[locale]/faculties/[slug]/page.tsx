@@ -41,6 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function FacultyDetailPage({ params }: Props) {
   const { slug, locale } = await params;
   const faculty = await getFacultyBySlug(slug);
+
   if (!faculty) notFound();
 
   const meta = await readContentAsJsonByFilter({ referenceId: slug, referenceType: ReferenceTypes.faculty.value }, locale)
@@ -116,17 +117,17 @@ export default async function FacultyDetailPage({ params }: Props) {
       }
       {
         bestEmployees.length > 0 && (
-          <BestEmployeeArea 
-            employees={bestEmployees.map((e: BestEmployee) => e.toPlain())} 
-            locale={locale} 
+          <BestEmployeeArea
+            employees={bestEmployees.map((e: BestEmployee) => e.toPlain())}
+            locale={locale}
           />
         )
       }
       {
         graduatedStudents.length > 0 && (
-          <GraduatedStudentArea 
-            students={graduatedStudents.map((s: GraduatedStudent) => s.toPlain())} 
-            locale={locale} 
+          <GraduatedStudentArea
+            students={graduatedStudents.map((s: GraduatedStudent) => s.toPlain())}
+            locale={locale}
           />
         )
       }

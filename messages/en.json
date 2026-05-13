@@ -8,7 +8,12 @@
     "facultyDetailTitle": "{name} - Qasyoun Private University",
     "notFoundTitle": "Not Found - Qasyoun Private University",
     "staticPageTitle": "{page} — Qasyoun Private University",
-    "contactTitle": "Contact Us - Qasyoun Private University"
+    "contactTitle": "Contact Us - Qasyoun Private University",
+    "newsNotFoundTitle": "News not found",
+    "newsDetailTitle": "News Details"
+  },
+  "News": {
+    "newsDetails": "News Details"
   },
   "StaticPage": {
     "empty": "No published content yet. Add the body in the dashboard under Dynamic content (reference ID 0 for site-wide pages).",

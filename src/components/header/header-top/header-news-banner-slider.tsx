@@ -4,6 +4,7 @@ import { Autoplay, FreeMode } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import Image from "next/image";
 import type News from "@/lib/classes/news";
 
 // Import Swiper styles if needed, but they should be in globals.scss or layout.tsx
@@ -58,13 +59,14 @@ function NewsBannerSlideRow({
 
       {item.imageUrl ? (
         <div className="tp-news-banner-thumb-wrapper flex-shrink-0">
-          <img
+          <Image
             className="tp-news-banner-thumb"
             src={item.imageUrl}
             alt=""
             width={40}
             height={40}
             loading="lazy"
+            unoptimized
           />
         </div>
       ) : null}
@@ -72,9 +74,17 @@ function NewsBannerSlideRow({
       <div className="tp-news-banner-copy min-w-0 flex-grow-1">
         <div className="tp-news-banner-text-group d-flex align-items-center gap-4">
           {item.title ? (
-            <span className="tp-news-banner-excerpt text-truncate opacity-75">
-              {item.title}
-            </span>
+            item.href ? (
+              <ReadMoreLink href={item.href}>
+                <span className="tp-news-banner-excerpt text-truncate opacity-75">
+                  {item.title}
+                </span>
+              </ReadMoreLink>
+            ) : (
+              <span className="tp-news-banner-excerpt text-truncate opacity-75">
+                {item.title}
+              </span>
+            )
           ) : null}
         </div>
       </div>

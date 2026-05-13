@@ -8,7 +8,12 @@
     "facultyDetailTitle": "{name} - جامعة قاسيون الخاصة",
     "notFoundTitle": "غير موجود - جامعة قاسيون الخاصة",
     "staticPageTitle": "{page} — جامعة قاسيون الخاصة",
-    "contactTitle": "اتصل بنا - جامعة قاسيون الخاصة"
+    "contactTitle": "اتصل بنا - جامعة قاسيون الخاصة",
+    "newsNotFoundTitle": "الخبر غير موجود",
+    "newsDetailTitle": "تفاصيل الخبر"
+  },
+  "News": {
+    "newsDetails": "تفاصيل الخبر"
   },
   "StaticPage": {
     "empty": "لا يوجد محتوى منشور بعد. أضف النص من لوحة التحكم ضمن المحتوى الديناميكي (معرّف المرجع 0 للصفحات العامة).",

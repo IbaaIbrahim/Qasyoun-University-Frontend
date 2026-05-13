@@ -9,9 +9,23 @@ const HomeType = {
       value: "news",
       maxContentItems: undefined,
       keys: {
+        slug: {
+          name: "qpu.dynamicContent.slug",
+          type: "text",
+          notTranslatable: true
+        },
+        image: {
+          name: "qpu.dynamicContent.image",
+          type: "image",
+          notTranslatable: true
+        },
         text: {
           name: "qpu.dynamicContent.text",
           type: "text"
+        },
+        description: {
+          name: "qpu.dynamicContent.description",
+          type: "richtext"
         }
       }
     },
@@ -262,6 +276,7 @@ const staticPageKeys = {
   }
 }
 
+/** Council decisions: text + PDF attachment (not hero images). */
 const councilDecisionKeys = {
   body: {
     name: "qpu.dynamicContent.body",

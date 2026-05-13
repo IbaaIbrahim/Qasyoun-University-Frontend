@@ -13,6 +13,7 @@ import CounterItem from '../counter/counter-item';
 import { Link } from '@/i18n/navigation';
 import AboutHome from '@/lib/classes/home/about';
 import { useTranslations } from 'next-intl';
+import { truncateHtmlPreserveTags } from '@/utils';
 
 const imgStyle: CSSProperties = {
     height: 'auto'
@@ -74,7 +75,7 @@ export default function AboutOne({ data }: { data?: AboutHome }) {
                                 <h3 className="tp-section-title mb-30">{t('titleMain')} <br /> {t('titleMain2')}
                                     <span> {t('titleAccent')} <ShapeLine /> </span>
                                 </h3>
-                                <p dangerouslySetInnerHTML={{ __html: data?.text || t('defaultText') }} />
+                                <p dangerouslySetInnerHTML={{ __html: truncateHtmlPreserveTags(data?.text || t('defaultText'), 200) }} />
                             </div>
                             <div className="tp-about-list">
                                 {about_lists.map((list) => (
@@ -86,7 +87,7 @@ export default function AboutOne({ data }: { data?: AboutHome }) {
                                         </div>
                                         <div className="tp-about-list-content">
                                             <h5 className="tp-about-list-title">{list.title}</h5>
-                                            <p dangerouslySetInnerHTML={{ __html: list.subtitle }}></p>
+                                            <p dangerouslySetInnerHTML={{ __html: truncateHtmlPreserveTags(list.subtitle, 100) }}></p>
                                         </div>
                                     </div>
                                 ))}

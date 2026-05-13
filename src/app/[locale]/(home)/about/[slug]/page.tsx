@@ -14,36 +14,42 @@ type Props = {
   params: Promise<{ locale: string; slug: string }>;
 };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale, slug } = await params;
+async function getPageTitle(locale: string, slug: string) {
   const cfg = getSectionConfig("about", slug);
   const tMeta = await getTranslations({ locale, namespace: "Metadata" });
-  if (!cfg) {
-    return { title: tMeta("notFoundTitle") };
-  }
+
+  if (!cfg) return { title: tMeta("notFoundTitle"), fullTitle: tMeta("notFoundTitle") };
   const navKey = getNavKeyForSection("about", cfg.sectionValue);
   const tNav = await getTranslations({ locale, namespace: "Nav" });
-  const label = navKey
-    ? tNav(navKey as never)
-    : slug.replace(/-/g, " ");
+
+  const label = navKey ? tNav(navKey as never) : slug.replace(/-/g, " ");
   return {
-    title: tMeta("staticPageTitle", { page: label }),
+    fullTitle: tMeta("staticPageTitle", { page: label }),
+    title: label
   };
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale, slug } = await params;
+  const { fullTitle } = await getPageTitle(locale, slug);
+  return { title: fullTitle };
 }
 
 export default async function AboutStaticPage({ params }: Props) {
   const { locale, slug } = await params;
+
   if (!getSectionConfig("about", slug)) {
     notFound();
   }
-  const data = await loadStaticPageContent("about", slug, locale);
 
+  const { title } = await getPageTitle(locale, slug);
+  const data = await loadStaticPageContent("about", slug, locale);
   return (
     <CmsStaticPage
       folder="about"
       slug={slug}
       locale={locale}
-      cmsTitle={data.cmsTitle}
+      cmsTitle={title} // or use it wherever you need
       meta={data.meta}
     />
   );

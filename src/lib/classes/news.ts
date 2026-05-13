@@ -1,25 +1,27 @@
-import { ContentJson, ContentMetaJson } from "./content";
+import { ContentJson } from "./content";
 
 export default class News {
   id?: string;
   title?: string;
-  excerpt?: string;
+  slug?: string;
+  description?: string;
   href?: string | null;
   imageUrl?: string | null;
 
   static fromContentJson(contentJson: ContentJson): News | null {
-    const headline = contentJson.contentMetasJson?.["news-title"] || contentJson.contentMetasJson?.["title"] || contentJson.contentMetasJson?.title || "";
-    const excerpt = contentJson.contentMetasJson?.["subtitle"] || contentJson.contentMetasJson?.["excerpt"] || contentJson.contentMetasJson?.["description"] || contentJson.contentMetasJson?.["summary"] || contentJson.contentMetasJson?.["body"] || contentJson.contentMetasJson?.["text"] || "";
-    const href = contentJson.contentMetasJson?.["link"] || contentJson.contentMetasJson?.["url"] || contentJson.contentMetasJson?.["href"] || null;
-    const imageUrl = contentJson.contentMetasJson?.["image"] || null;
+    const title = contentJson.contentMetasJson?.["text"] || contentJson.contentMetasJson?.["title"] || "";
+    const slug = contentJson.contentMetasJson?.["slug"] || "";
+    const description = contentJson.contentMetasJson?.["description"] || "";
+    const imageUrl = contentJson.contentMetasJson?.["image"] || contentJson.contentMetasJson?.["src"] || null;
 
-    if (!headline && !excerpt) return null;
+    if (!title && !slug) return null;
 
     return {
       id: `news-${contentJson.id}`,
-      title: headline || excerpt.slice(0, 100),
-      excerpt: headline ? excerpt : "",
-      href,
+      title,
+      slug,
+      description,
+      href: slug ? `/news/${slug}` : (contentJson.contentMetasJson?.["href"] || null),
       imageUrl,
     } as News;
   }
