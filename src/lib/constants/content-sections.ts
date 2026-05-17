@@ -159,6 +159,25 @@ const HomeType = {
   }
 }
 
+const FacultiesType = {
+  name: "qpu.dynamicContent.faculties",
+  value: "faculties",
+  maxContentItems: 1,
+  sections: {
+    faculties_page: {
+      name: "qpu.dynamicContent.facultiesPage",
+      value: "faculties_page",
+      maxContentItems: 1,
+      keys: {
+        breadcrumb_image: {
+          name: "qpu.dynamicContent.breadcrumbImage",
+          type: "image"
+        }
+      }
+    }
+  }
+}
+
 const FacultyType = {
   name: "qpu.dynamicContent.faculty",
   value: "faculty",
@@ -273,6 +292,11 @@ const staticPageKeys = {
   hero_image: {
     name: "qpu.dynamicContent.heroImage",
     type: "image"
+  },
+  breadcrumb_image: {
+    name: "qpu.dynamicContent.breadcrumbImage",
+    type: "image",
+    notTranslatable: true
   }
 }
 
@@ -315,6 +339,11 @@ const AboutType = {
       value: "board_of_trustees",
       maxContentItems: 1,
       keys: {
+        breadcrumb_image: {
+          name: "qpu.dynamicContent.breadcrumbImage",
+          type: "image",
+          notTranslatable: true
+        },
         body: {
           name: "qpu.dynamicContent.body",
           type: "richtext"
@@ -344,6 +373,11 @@ const AboutType = {
       value: "university_council",
       maxContentItems: 1,
       keys: {
+        breadcrumb_image: {
+          name: "qpu.dynamicContent.breadcrumbImage",
+          type: "image",
+          notTranslatable: true
+        },
         body: {
           name: "qpu.dynamicContent.body",
           type: "richtext"
@@ -373,6 +407,11 @@ const AboutType = {
       value: "organizational_structure",
       maxContentItems: 1,
       keys: {
+        breadcrumb_image: {
+          name: "qpu.dynamicContent.breadcrumbImage",
+          type: "image",
+          notTranslatable: true
+        },
         body: {
           name: "qpu.dynamicContent.body",
           type: "richtext"
@@ -486,6 +525,7 @@ const StudentLifeType = {
 }
 
 export const ReferenceTypes = {
+  faculties: FacultiesType,
   faculty: FacultyType,
   home: HomeType,
   lab: LabType,

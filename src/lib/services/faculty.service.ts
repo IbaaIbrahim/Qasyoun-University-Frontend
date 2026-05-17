@@ -1,5 +1,7 @@
 import { facultyApi } from "@/lib/api/faculty.api";
 import { Faculty } from "@/lib/classes/faculty";
+import { readContentAsJsonByFilter } from "@/lib/services/content.service";
+import { ReferenceTypes } from "@/lib/constants";
 
 export async function listFacultiesForPublic(options?: { take?: number }) {
   const take = options?.take ?? 100;
@@ -38,6 +40,30 @@ export async function getFacultyById(id: number) {
     const faculty = Faculty.fromDto(dto);
     if (!faculty.isActive || !faculty.isPublished) return null;
     return faculty;
+  } catch {
+    return null;
+  }
+}
+
+export async function getFacultiesPageContent(locale: string) {
+  try {
+    const ref = ReferenceTypes.faculties;
+    const section = ref.sections.faculties_page.value;
+
+    const rows = await readContentAsJsonByFilter(
+      {
+        referenceType: ref.value,
+        section: section,
+      },
+      locale
+    );
+
+    const activeRows = rows
+      .filter((row) => row.isActive)
+      .sort((a, b) => Number(a.displayOrder) - Number(b.displayOrder));
+
+    const content = activeRows[0];
+    return content ? content.contentMetasJson : null;
   } catch {
     return null;
   }
