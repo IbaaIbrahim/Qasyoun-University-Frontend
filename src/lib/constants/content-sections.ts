@@ -1,4 +1,4 @@
-// import { _readAllFaculties, _readAllLabs } from "../../redux/actions"
+// import { _readAllFaculties, _readAllLabs, _readAlbums } from "../../redux/actions"
 
 const HomeType = {
   name: "qpu.dynamicContent.home",
@@ -186,25 +186,6 @@ const HomeType = {
         text: {
           name: "qpu.dynamicContent.text",
           type: "richtext"
-        }
-      }
-    }
-  }
-}
-
-const FacultiesType = {
-  name: "qpu.dynamicContent.faculties",
-  value: "faculties",
-  maxContentItems: 1,
-  sections: {
-    faculties_page: {
-      name: "qpu.dynamicContent.facultiesPage",
-      value: "faculties_page",
-      maxContentItems: 1,
-      keys: {
-        breadcrumb_image: {
-          name: "qpu.dynamicContent.breadcrumbImage",
-          type: "image"
         }
       }
     }
@@ -595,14 +576,103 @@ const SocialMediaAndCommunicationType = {
   }
 }
 
+const AlbumsType = {
+  name: "qpu.dynamicContent.albums",
+  value: "albums",
+  sections: {
+    album: {
+      name: "qpu.dynamicContent.album",
+      value: "album",
+      maxContentItems: undefined,
+      keys: {
+        name: {
+          name: "qpu.dynamicContent.name",
+          type: "text"
+        }
+      }
+    }
+  }
+}
+
+export const PhotosGalleryType = {
+  name: "qpu.dynamicContent.photosGallery",
+  value: "photos_gallery",
+  // referenceIdsAPI: _readAlbums,
+  sections: {
+    images: {
+      name: "qpu.dynamicContent.images",
+      value: "images",
+      maxContentItems: undefined,
+      keys: {
+        image: {
+          name: "qpu.dynamicContent.image",
+          type: "image"
+        }
+      }
+    }
+  }
+}
+
+const BreadcrumbPageType = {
+  name: "qpu.dynamicContent.breadcrumbPage",
+  value: "breadcrumb_page",
+  maxContentItems: 1,
+  sections: {
+    breadcrumb_page: {
+      name: "qpu.dynamicContent.breadcrumbPage",
+      value: "breadcrumb_page",
+      maxContentItems: 1,
+      keys: {
+        faculties_breadcrumb_image: {
+          name: "qpu.dynamicContent.facultiesBreadcrumbImage",
+          type: "image",
+          notTranslatable: true
+        },
+        news_breadcrumb_image: {
+          name: "qpu.dynamicContent.newsBreadcrumbImage",
+          type: "image",
+          notTranslatable: true
+        },
+        events_breadcrumb_image: {
+          name: "qpu.dynamicContent.eventsBreadcrumbImage",
+          type: "image",
+          notTranslatable: true
+        },
+        research_breadcrumb_image: {
+          name: "qpu.dynamicContent.researchBreadcrumbImage",
+          type: "image",
+          notTranslatable: true
+        },
+        about_breadcrumb_image: {
+          name: "qpu.dynamicContent.aboutBreadcrumbImage",
+          type: "image",
+          notTranslatable: true
+        },
+        admission_breadcrumb_image: {
+          name: "qpu.dynamicContent.admissionBreadcrumbImage",
+          type: "image",
+          notTranslatable: true
+        },
+        contact_us_breadcrumb_image: {
+          name: "qpu.dynamicContent.contactUsBreadcrumbImage",
+          type: "image",
+          notTranslatable: true
+        }
+      }
+    }
+  }
+}
+
 export const ReferenceTypes = {
-  faculties: FacultiesType,
   faculty: FacultyType,
+  breadcrumb_page: BreadcrumbPageType,
   social_media_and_communication: SocialMediaAndCommunicationType,
   home: HomeType,
   lab: LabType,
   about: AboutType,
   admission: AdmissionType,
   student_life: StudentLifeType,
-  site_pages: SitePagesType
+  site_pages: SitePagesType,
+  albums: AlbumsType,
+  photos_gallery: PhotosGalleryType
 }

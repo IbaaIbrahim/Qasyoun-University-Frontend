@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import { readContentAsJsonByFilter } from "@/lib/services/content.service";
 import { ReferenceTypes } from "@/lib/constants/content-sections";
 import BreadcrumbTwo from "@/components/breadcrumb/breadcrumb-two";
 import { Link } from "@/i18n/navigation";
 import { RightArrowThree } from "@/components/svg";
 import HoverImgItem from "@/components/event/hover-img-item";
+import { getBreadcrumbPageContent } from "@/lib/services/breadcrumb-page.service";
 
 export const dynamic = "force-dynamic";
 
@@ -23,7 +24,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function EventsListPage({ params }: Props) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "Events" });
   const tNav = await getTranslations({ locale, namespace: "Nav" });
 
   const meta = await readContentAsJsonByFilter({ referenceType: ReferenceTypes.home.value }, locale);
@@ -32,11 +32,14 @@ export default async function EventsListPage({ params }: Props) {
     .map((content) => content.toEvent())
     .reverse();
 
+  const breadcrumbContent = await getBreadcrumbPageContent(locale);
+
   return (
     <main>
       <BreadcrumbTwo
         title={tNav("events")}
         subtitle={tNav("events")}
+        bgImg={breadcrumbContent?.eventsBreadcrumbImage || undefined}
       />
 
       <section className="event-area grey-bg pt-120 pb-120">

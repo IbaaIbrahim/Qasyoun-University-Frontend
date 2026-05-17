@@ -24,7 +24,7 @@ export default function AboutTwo({ spacing = 'pt-115 pb-90', mainText, gallery }
             <div className="row">
                <div className="col-12">
                   <div className="tp-about-4-wrapper mb-75 wow fadeInUp" data-wow-delay=".3s">
-                     <h2 className="tp-about-4-head">{mainText ?? ""}</h2>
+                     <div className="tp-about-4-head" dangerouslySetInnerHTML={{ __html: mainText ?? "" }}></div>
                      {/* <div className="tp-about-4-btn wow fadeInUp" data-wow-delay=".5s">
                         <Link className="tp-btn-3" href="/">Why Choose QPU</Link>
                         <div className="tp-about-4-video">

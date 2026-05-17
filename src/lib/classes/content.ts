@@ -2,6 +2,7 @@ import { ContentMeta, ContentMetaDto } from "./content-meta";
 import Slider from "./slider";
 import News from "./news";
 import Exhibition from "./exhibition";
+import SocialMedia from "./social-media";
 import About from "./home/about";
 import Statistics from "./home/statistics";
 import IEvent from "./home/event";
@@ -10,6 +11,9 @@ import MainText from "./faculty/main-text";
 import Gallery from "./faculty/gallery";
 import Timeline from "./faculty/timeline";
 import StaticPage from "./static-page";
+import Album from "./album";
+import Photo from "./photo";
+import BreadcrumbPage from "./breadcrumb-page";
 
 export type ContentDto = {
   id: number | string;
@@ -110,6 +114,12 @@ export class ContentJson extends Content {
     return item ? item : {};
   }
 
+  toSocialMedia(): SocialMedia {
+    if (!this.contentMetasJson) return {};
+    const item = SocialMedia.fromContentJson(this);
+    return item ? item : {};
+  }
+
   toMainText(): MainText {
     if (!this.contentMetasJson) return {};
     const mainText = MainText.fromContentJson(this);
@@ -156,5 +166,20 @@ export class ContentJson extends Content {
     if (!this.contentMetasJson) return {};
     const page = StaticPage.fromContentJson(this);
     return page ? page : {};
+  }
+
+  toAlbum(): Album | null {
+    if (!this.contentMetasJson) return null;
+    return Album.fromContentJson(this);
+  }
+
+  toPhoto(): Photo | null {
+    if (!this.contentMetasJson) return null;
+    return Photo.fromContentJson(this);
+  }
+
+  toBreadcrumbPage(): BreadcrumbPage | null {
+    if (!this.contentMetasJson) return null;
+    return BreadcrumbPage.fromContentJson(this);
   }
 }

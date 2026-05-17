@@ -45,6 +45,8 @@ All user-facing app routes live under the **`[locale]`** segment (`src/app/[loca
 | `/events` | `/ar/events` | **Events list** — list of all university events. |
 | `/exhibitions` | `/ar/exhibitions` | **Exhibitions list** — list of exhibitions, styled identically to news. |
 | `/exhibitions/[slug]` | `/ar/exhibitions/[slug]` | **Exhibition detail** — detail view for a specific exhibition. |
+| `/gallery` | `/ar/gallery` | **Photo gallery list** — list of photo albums. |
+| `/gallery/[id]` | `/ar/gallery/[id]` | **Album detail** — grid of photos for a specific album with filter tabs and dynamic lightbox. |
 
 Default locale uses **`localePrefix: 'as-needed'`** (no `/en` in the path). Template-only links in `menu_data_2` and some footer paths may still point at demo routes that are **not** implemented here.
 
@@ -122,8 +124,15 @@ Recommended service behavior:
 - Always send the expected Telerik query param name for that specific endpoint.
 - Keep tolerant client-side guards in services (`isActive`, expected `type`, id matching) in case backend filtering is loose in some environments.
 
+## Breadcrumbs & Global Page Settings
+
+To simplify management of breadcrumb background images across different pages, they are consolidated into a single general Content record under the `breadcrumb_page` reference type and section.
+- **Service:** `getBreadcrumbPageContent(locale)` in `src/lib/services/breadcrumb-page.service.ts`
+- **Domain Class:** `BreadcrumbPage` in `src/lib/classes/breadcrumb-page.ts` maps and resolves fields (`facultiesBreadcrumbImage`, `newsBreadcrumbImage`, `eventsBreadcrumbImage`, `aboutBreadcrumbImage`, `contactUsBreadcrumbImage`, etc.) automatically resolving upload URLs using `resolveUploadSrc`.
+
 ## Next steps (suggested)
 
 - Map media URLs when the API documents file delivery for `pictureId` / `logoId`.
 - Add resources using the same api → class → service pattern.
 - When adding a **new** user-facing route, extend `messages/*.json`, wire `Link` from `@/i18n/navigation`, and update the **Shipped pages and routes** table above.
+

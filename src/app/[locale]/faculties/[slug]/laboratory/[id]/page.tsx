@@ -6,6 +6,7 @@ import { ReferenceTypes } from "@/lib/constants";
 import LabDetailsArea from "../_components/lab-details-area";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
+import { getSocialMedia } from "@/lib/services/social-media.service";
 
 type Props = {
   params: Promise<{ id: string; locale: string; slug: string }>;
@@ -21,9 +22,10 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function LaboratoryDetailsPage({ params }: Props) {
   const { id, locale, slug } = await params;
-  const [lab, faculty] = await Promise.all([
+  const [lab, faculty, socials] = await Promise.all([
     getLabById(Number(id)),
-    getFacultyBySlug(slug)
+    getFacultyBySlug(slug),
+    getSocialMedia(locale)
   ]);
 
   if (!lab || !faculty) notFound();
@@ -55,6 +57,7 @@ export default async function LaboratoryDetailsPage({ params }: Props) {
         lab={lab.toPlain()} 
         locale={locale} 
         slides={slides} 
+        socials={socials}
       />
     </main>
   );

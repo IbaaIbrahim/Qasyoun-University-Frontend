@@ -10,6 +10,7 @@ import {
 } from "@/lib/static-pages/config";
 import { ReferenceTypes } from "@/lib/constants";
 import StaticPage from "@/lib/classes/static-page";
+import { getBreadcrumbPageContent } from "@/lib/services/breadcrumb-page.service";
 
 type Props = {
   folder: StaticPageFolder;
@@ -64,9 +65,17 @@ export default async function CmsStaticPage({
   // --- PDF File Logic (Pre-processed) ---
   const pdfHref = pageData?.file ? resolveUploadSrc(pageData.file, "") : "";
 
+  const breadcrumbContent = await getBreadcrumbPageContent(locale);
+  let bgImg: string | undefined = undefined;
+  if (folder === "about") {
+    bgImg = breadcrumbContent?.aboutBreadcrumbImage;
+  } else if (folder === "admission") {
+    bgImg = breadcrumbContent?.admissionBreadcrumbImage;
+  }
+
   return (
     <main>
-      <BreadcrumbTwo title={pageLabel} subtitle={subtitle} />
+      <BreadcrumbTwo title={pageLabel} subtitle={subtitle} bgImg={bgImg} />
 
       <section className="tp-blog-details-p p-relative pt-60 pb-120 bg-light-soft">
         <div className="container">

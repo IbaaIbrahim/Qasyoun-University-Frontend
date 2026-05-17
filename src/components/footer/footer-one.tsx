@@ -1,17 +1,20 @@
 import Image from "next/image";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { Email } from "../svg";
 import FooterSocial from "./footer-social";
 import logo from "@/assets/img/logo/logo-wide.png";
 import logo_black from "@/assets/img/logo/logo-wide.png";
 import { footerAboutLinks, footerQuickLinks } from "@/data/footer-links";
+import { getSocialMedia } from "@/lib/services/social-media.service";
 
 type IProps = {
   style_2?: boolean;
 };
 
 export default async function FooterOne({ style_2 = false }: IProps) {
+  const locale = await getLocale();
+  const socials = await getSocialMedia(locale);
   const t = await getTranslations("Footer");
   const tNav = await getTranslations("Nav");
   const year = new Date().getFullYear();
@@ -129,7 +132,7 @@ export default async function FooterOne({ style_2 = false }: IProps) {
                     </div>
                   </form>
                   <div className="tp-footer-newsletter-social">
-                    <FooterSocial />
+                    <FooterSocial socials={socials} />
                   </div>
                 </div>
               </div>

@@ -15,7 +15,8 @@
     "eventsTitle": "الأحداث - جامعة قاسيون الخاصة",
     "exhibitionsNotFoundTitle": "المعرض غير موجود",
     "exhibitionsDetailTitle": "تفاصيل المعرض",
-    "exhibitionsTitle": "المعارض - جامعة قاسيون الخاصة"
+    "exhibitionsTitle": "المعارض - جامعة قاسيون الخاصة",
+    "galleryTitle": "ألبوم الصور - جامعة قاسيون الخاصة"
   },
   "News": {
     "newsDetails": "تفاصيل الخبر"
@@ -79,7 +80,15 @@
     "vacancies": "التوظيف",
     "news": "الأخبار والأحداث",
     "events": "الأحداث",
-    "exhibitions": "المعارض"
+    "exhibitions": "المعارض",
+    "gallery": "معرض الصور"
+  },
+  "Gallery": {
+    "title": "ألبوم الصور",
+    "subtitle": "جامعة قاسيون الخاصة للعلوم والتكنولوجيا",
+    "all": "الكل",
+    "empty": "لا توجد صور في هذا الألبوم.",
+    "albumsEmpty": "لا توجد ألبومات صور حالياً."
   },
   "NewsBanner": {
     "label": "الأخبار",

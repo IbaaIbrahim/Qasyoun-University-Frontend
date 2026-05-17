@@ -7,18 +7,76 @@ import Slider from '@/lib/classes/slider';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import { useTranslations } from 'next-intl';
+import SocialMedia from '@/lib/classes/social-media';
 
 type IProps = {
     lab: LabDto;
     locale: string;
     slides: Slider[];
+    socials?: SocialMedia | null;
 }
 
-export default function LabDetailsArea({ lab, locale, slides }: IProps) {
+export default function LabDetailsArea({ lab, locale, slides, socials }: IProps) {
     const t = useTranslations("Laboratories");
     const name = locale === 'ar' ? lab.name_AR || lab.name : lab.name;
     const content = locale === 'ar' ? lab.content_AR || lab.content : lab.content;
     const mainImage = resolveUploadSrc(lab.picture?.url, '');
+
+    const handleCopyLink = (e: React.MouseEvent) => {
+        e.preventDefault();
+        if (typeof window !== 'undefined') {
+            navigator.clipboard.writeText(window.location.href);
+            alert(locale === 'ar' ? 'تم نسخ الرابط بنجاح!' : 'Link copied successfully!');
+        }
+    };
+
+    const facebook = socials?.facebook || (!socials ? "https://www.facebook.com" : "");
+    const twitter = socials?.twitter || (!socials ? "https://www.twitter.com" : "");
+    const linkedin = socials?.linkedin || "";
+    const youtube = socials?.youtube || "";
+    const instagram = socials?.instagram || "";
+
+    const socialData = [
+        {
+            id: 1,
+            href: facebook,
+            iconClass: "fa-brands fa-facebook-f",
+            color: "#1877f2",
+        },
+        {
+            id: 2,
+            href: twitter,
+            iconClass: "fa-brands fa-twitter",
+            color: "#1da1f2",
+        },
+        {
+            id: 3,
+            href: linkedin,
+            iconClass: "fa-brands fa-linkedin-in",
+            color: "#0a66c2",
+        },
+        {
+            id: 4,
+            href: youtube,
+            iconClass: "fa-brands fa-youtube",
+            color: "#ff0000",
+        },
+        {
+            id: 5,
+            href: instagram,
+            iconClass: "fa-brands fa-instagram",
+            color: "#c13584",
+        },
+    ];
+
+    const activeSocials = socialData.filter(
+        (item) =>
+            item.href &&
+            item.href.trim() !== "" &&
+            item.href.trim() !== "#" &&
+            item.href.trim() !== "null" &&
+            item.href.trim() !== "undefined"
+    );
 
     return (
         <section className="tp-blog-details-p p-relative pt-60 pb-120 bg-light-soft">
@@ -143,10 +201,44 @@ export default function LabDetailsArea({ lab, locale, slides }: IProps) {
                                 <span className="me-3 text-muted d-none d-sm-inline-block" style={{ fontSize: '0.9rem' }}>
                                     {t("share")}
                                 </span>
-                                <a href="#" style={{ width: '40px', height: '40px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', borderRadius: '50%', backgroundColor: '#f0f2f5', margin: '0 5px', color: '#1877f2' }}><i className="fa-brands fa-facebook-f"></i></a>
-                                <a href="#" style={{ width: '40px', height: '40px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', borderRadius: '50%', backgroundColor: '#f0f2f5', margin: '0 5px', color: '#1da1f2' }}><i className="fa-brands fa-twitter"></i></a>
-                                <a href="#" style={{ width: '40px', height: '40px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', borderRadius: '50%', backgroundColor: '#f0f2f5', margin: '0 5px', color: '#25d366' }}><i className="fa-brands fa-whatsapp"></i></a>
-                                <a href="#" style={{ width: '40px', height: '40px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', borderRadius: '50%', backgroundColor: '#f0f2f5', margin: '0 5px', color: '#666' }}><i className="fa-solid fa-link"></i></a>
+                                {activeSocials.map((item) => (
+                                    <a 
+                                        key={item.id} 
+                                        href={item.href} 
+                                        target="_blank" 
+                                        rel="noopener noreferrer"
+                                        style={{ 
+                                            width: '40px', 
+                                            height: '40px', 
+                                            display: 'inline-flex', 
+                                            alignItems: 'center', 
+                                            justifyContent: 'center', 
+                                            borderRadius: '50%', 
+                                            backgroundColor: '#f0f2f5', 
+                                            margin: '0 5px', 
+                                            color: item.color 
+                                        }}
+                                    >
+                                        <i className={item.iconClass}></i>
+                                    </a>
+                                ))}
+                                <a 
+                                    href="#" 
+                                    onClick={handleCopyLink}
+                                    style={{ 
+                                        width: '40px', 
+                                        height: '40px', 
+                                        display: 'inline-flex', 
+                                        alignItems: 'center', 
+                                        justifyContent: 'center', 
+                                        borderRadius: '50%', 
+                                        backgroundColor: '#f0f2f5', 
+                                        margin: '0 5px', 
+                                        color: '#666' 
+                                    }}
+                                >
+                                    <i className="fa-solid fa-link"></i>
+                                </a>
                             </div>
                         </div>
                     </div>

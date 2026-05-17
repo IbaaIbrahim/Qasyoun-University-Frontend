@@ -15,7 +15,8 @@
     "eventsTitle": "Events - Qasyoun Private University",
     "exhibitionsNotFoundTitle": "Exhibition not found",
     "exhibitionsDetailTitle": "Exhibition Details",
-    "exhibitionsTitle": "Exhibitions - Qasyoun Private University"
+    "exhibitionsTitle": "Exhibitions - Qasyoun Private University",
+    "galleryTitle": "Photo Gallery - Qasyoun Private University"
   },
   "News": {
     "newsDetails": "News Details"
@@ -79,7 +80,15 @@
     "vacancies": "Careers",
     "news": "News and Events",
     "events": "Events",
-    "exhibitions": "Exhibitions"
+    "exhibitions": "Exhibitions",
+    "gallery": "Photo Gallery"
+  },
+  "Gallery": {
+    "title": "Photo Gallery",
+    "subtitle": "Qasyoun Private University for Science & Technology",
+    "all": "All",
+    "empty": "No photos available in this album.",
+    "albumsEmpty": "No photo albums available."
   },
   "NewsBanner": {
     "label": "News",

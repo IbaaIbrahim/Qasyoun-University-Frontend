@@ -5,6 +5,7 @@ import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import News from "@/lib/classes/news";
 import BreadcrumbTwo from "@/components/breadcrumb/breadcrumb-two";
+import { getBreadcrumbPageContent } from "@/lib/services/breadcrumb-page.service";
 
 export const dynamic = "force-dynamic";
 
@@ -25,13 +26,14 @@ export default async function NewsListPage({ params }: Props) {
   const newsItems = await getAllNews(locale);
   const t = await getTranslations({ locale, namespace: "NewsBanner" });
   const tNav = await getTranslations({ locale, namespace: "Nav" });
+  const breadcrumbContent = await getBreadcrumbPageContent(locale);
 
   return (
     <main>
       <BreadcrumbTwo
         title={tNav("news")}
         subtitle={tNav("news")}
-      // bgImg={newsItems[0].breadcrumbImage}
+        bgImg={breadcrumbContent?.newsBreadcrumbImage || undefined}
       />
 
       <section className="tp-news-list-area pt-120 pb-120">
