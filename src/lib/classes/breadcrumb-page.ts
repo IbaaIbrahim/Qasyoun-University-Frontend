@@ -10,6 +10,7 @@ export default class BreadcrumbPage {
   aboutBreadcrumbImage?: string;
   admissionBreadcrumbImage?: string;
   contactUsBreadcrumbImage?: string;
+  studentLifeBreadcrumbImage?: string;
 
   static fromContentJson(contentJson: ContentJson): BreadcrumbPage | null {
     const metas = contentJson.contentMetasJson;
@@ -24,6 +25,7 @@ export default class BreadcrumbPage {
       aboutBreadcrumbImage: resolveUploadSrc(metas["about_breadcrumb_image"], ""),
       admissionBreadcrumbImage: resolveUploadSrc(metas["admission_breadcrumb_image"], ""),
       contactUsBreadcrumbImage: resolveUploadSrc(metas["contact_us_breadcrumb_image"], ""),
+      studentLifeBreadcrumbImage: resolveUploadSrc(metas["student_life_breadcrumb_image"], ""),
     } as BreadcrumbPage;
   }
 }

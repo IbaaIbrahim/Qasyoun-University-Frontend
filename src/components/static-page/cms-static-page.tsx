@@ -56,8 +56,8 @@ export default async function CmsStaticPage({
   const sectionConfig =
     referenceKey && sectionValue
       ? (ReferenceTypes[referenceKey].sections as Record<string, unknown>)?.[
-          sectionValue
-        ] as { keys?: { table?: { columns?: Record<string, { name: string }> } } }
+      sectionValue
+      ] as { keys?: { table?: { columns?: Record<string, { name: string }> } } }
       : null;
   const tableColumns = sectionConfig?.keys?.table?.columns || {};
   const columnKeys = Object.keys(tableColumns);
@@ -71,6 +71,8 @@ export default async function CmsStaticPage({
     bgImg = breadcrumbContent?.aboutBreadcrumbImage;
   } else if (folder === "admission") {
     bgImg = breadcrumbContent?.admissionBreadcrumbImage;
+  } else if (folder === "student-life") {
+    bgImg = breadcrumbContent?.studentLifeBreadcrumbImage;
   }
 
   return (

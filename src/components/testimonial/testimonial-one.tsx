@@ -8,12 +8,14 @@ import shape_3 from "@/assets/img/testimonial/testimonial-shape-3.svg";
 import { useVideoModal } from "@/provider/VideoProvider";
 import { useTranslations } from "next-intl";
 import Review from "@/lib/classes/home/review";
+import TourVideo from "@/lib/classes/home/tour";
 
 interface TestimonialOneProps {
   reviews: Review[];
+  tourVideo?: TourVideo;
 }
 
-export default function TestimonialOne({ reviews }: TestimonialOneProps) {
+export default function TestimonialOne({ reviews, tourVideo }: TestimonialOneProps) {
   const { playVideo } = useVideoModal();
   const t = useTranslations("Testimonial");
 
@@ -34,7 +36,7 @@ export default function TestimonialOne({ reviews }: TestimonialOneProps) {
             <div className="tp-video-wrap d-flex">
               <div className="tp-video-icon text-center">
                 {/* Video area */}
-                <button onClick={() => playVideo("Su0l_RWcV-Y")} className="video-border-animation popup-video">
+                <button onClick={() => playVideo(tourVideo?.video || "https://www.youtube.com/watch?v=Su0l_RWcV-Y&t=4s")} className="video-border-animation popup-video">
                   <span>
                     <svg
                       width="16"

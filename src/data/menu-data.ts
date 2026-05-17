@@ -28,7 +28,7 @@ const menu_data: IMenu[] = [
 			{ id: 1, title: "admissionRequirements", link: "/admission/admission-requirements" },
 			{ id: 2, title: "whyQpu", link: "/admission/why-qpu" },
 			{ id: 3, title: "studySystem", link: "/admission/study-system" },
-			{ id: 4, title: "tuitionFees2022", link: "/admission/tuition-fees-2022-2023" },
+			{ id: 4, title: "admissionNav", link: "/admission/admission" },
 			{ id: 5, title: "discountsScholarships", link: "/admission/discounts-scholarships" },
 			{ id: 6, title: "registrationDocuments", link: "/admission/registration-documents" },
 		]

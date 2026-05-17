@@ -188,6 +188,17 @@ const HomeType = {
           type: "richtext"
         }
       }
+    },
+    tour_video: {
+      name: "qpu.dynamicContent.tourVideo",
+      value: "tour_video",
+      maxContentItems: 1,
+      keys: {
+        video: {
+          name: "qpu.dynamicContent.video",
+          type: "text"
+        }
+      }
     }
   }
 }
@@ -215,7 +226,7 @@ const FacultyType = {
       keys: {
         text: {
           name: "qpu.dynamicContent.text",
-          type: "text"
+          type: "richtext"
         }
       }
     },
@@ -306,11 +317,6 @@ const staticPageKeys = {
   hero_image: {
     name: "qpu.dynamicContent.heroImage",
     type: "image"
-  },
-  breadcrumb_image: {
-    name: "qpu.dynamicContent.breadcrumbImage",
-    type: "image",
-    notTranslatable: true
   }
 }
 
@@ -353,11 +359,6 @@ const AboutType = {
       value: "board_of_trustees",
       maxContentItems: 1,
       keys: {
-        breadcrumb_image: {
-          name: "qpu.dynamicContent.breadcrumbImage",
-          type: "image",
-          notTranslatable: true
-        },
         body: {
           name: "qpu.dynamicContent.body",
           type: "richtext"
@@ -387,11 +388,6 @@ const AboutType = {
       value: "university_council",
       maxContentItems: 1,
       keys: {
-        breadcrumb_image: {
-          name: "qpu.dynamicContent.breadcrumbImage",
-          type: "image",
-          notTranslatable: true
-        },
         body: {
           name: "qpu.dynamicContent.body",
           type: "richtext"
@@ -421,11 +417,6 @@ const AboutType = {
       value: "organizational_structure",
       maxContentItems: 1,
       keys: {
-        breadcrumb_image: {
-          name: "qpu.dynamicContent.breadcrumbImage",
-          type: "image",
-          notTranslatable: true
-        },
         body: {
           name: "qpu.dynamicContent.body",
           type: "richtext"
@@ -453,7 +444,31 @@ const AdmissionType = {
       name: "qpu.dynamicContent.admissionRequirements",
       value: "admission_requirements",
       maxContentItems: 1,
-      keys: staticPageKeys
+      keys: {
+        ...staticPageKeys,
+        table: {
+          name: "qpu.dynamicContent.table",
+          type: "table",
+          columns: {
+            certificate_type: {
+              name: "qpu.dynamicContent.certificateType",
+              type: "text"
+            },
+            min_marks: {
+              name: "qpu.dynamicContent.minMarks",
+              type: "text"
+            },
+            max_marks: {
+              name: "qpu.dynamicContent.maxMarks",
+              type: "text"
+            }
+          }
+        },
+        file: {
+          name: "qpu.dynamicContent.pdfFile",
+          type: "file"
+        }
+      }
     },
     why_qpu: {
       name: "qpu.dynamicContent.whyQpu",
@@ -467,9 +482,9 @@ const AdmissionType = {
       maxContentItems: 1,
       keys: staticPageKeys
     },
-    tuition_fees_2022_2023: {
-      name: "qpu.dynamicContent.tuitionFees2022",
-      value: "tuition_fees_2022_2023",
+    admission: {
+      name: "qpu.dynamicContent.admission",
+      value: "admission",
       maxContentItems: 1,
       keys: staticPageKeys
     },
@@ -527,7 +542,31 @@ const StudentLifeType = {
       name: "qpu.dynamicContent.academicCalendar",
       value: "academic_calendar",
       maxContentItems: 1,
-      keys: staticPageKeys
+      keys: {
+        ...staticPageKeys,
+        file: {
+          name: "qpu.dynamicContent.pdfFile",
+          type: "file"
+        },
+        table: {
+          name: "qpu.dynamicContent.table",
+          type: "table",
+          columns: {
+            date_from: {
+              name: "qpu.dynamicContent.dateFrom",
+              type: "date"
+            },
+            date_to: {
+              name: "qpu.dynamicContent.dateTo",
+              type: "date"
+            },
+            description: {
+              name: "qpu.dynamicContent.description",
+              type: "text"
+            }
+          }
+        }
+      }
     },
     student_guide: {
       name: "qpu.dynamicContent.studentGuide",
@@ -655,6 +694,11 @@ const BreadcrumbPageType = {
         },
         contact_us_breadcrumb_image: {
           name: "qpu.dynamicContent.contactUsBreadcrumbImage",
+          type: "image",
+          notTranslatable: true
+        },
+        student_life_breadcrumb_image: {
+          name: "qpu.dynamicContent.studentLifeBreadcrumbImage",
           type: "image",
           notTranslatable: true
         }

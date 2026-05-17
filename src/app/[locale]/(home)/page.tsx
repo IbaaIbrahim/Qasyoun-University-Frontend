@@ -43,6 +43,8 @@ export default async function HomePage() {
 
   const reviews = meta.filter((content) => content.section === ReferenceTypes.home.sections.reviews.value).map(content => content.toReview());
 
+  const tourVideo = meta.find((content) => content.section === ReferenceTypes.home.sections.tour_video.value)?.toTourVideo();
+
   return (
     <main>
       {
@@ -69,7 +71,7 @@ export default async function HomePage() {
       }
       {
         reviews.length > 0 && (
-          <TestimonialOne reviews={reviews} />
+          <TestimonialOne tourVideo={tourVideo} reviews={reviews} />
         )
       }
       {/* <BlogOne /> */}

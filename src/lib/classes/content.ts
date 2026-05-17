@@ -14,6 +14,7 @@ import StaticPage from "./static-page";
 import Album from "./album";
 import Photo from "./photo";
 import BreadcrumbPage from "./breadcrumb-page";
+import TourVideo from "./home/tour";
 
 export type ContentDto = {
   id: number | string;
@@ -150,6 +151,12 @@ export class ContentJson extends Content {
     return review ? review : {};
   }
 
+  toTourVideo(): TourVideo {
+    if (!this.contentMetasJson) return {};
+    const tourVideo = TourVideo.fromContentJson(this);
+    return tourVideo ? tourVideo : {};
+  }
+
   toGallery(): Gallery {
     if (!this.contentMetasJson) return {};
     const gallery = Gallery.fromContentJson(this);
@@ -161,7 +168,7 @@ export class ContentJson extends Content {
     const timeline = Timeline.fromContentJson(this);
     return timeline ? timeline : {};
   }
-  
+
   toStaticPage(): StaticPage {
     if (!this.contentMetasJson) return {};
     const page = StaticPage.fromContentJson(this);
