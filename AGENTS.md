@@ -42,6 +42,9 @@ All user-facing app routes live under the **`[locale]`** segment (`src/app/[loca
 | `/directorates` | `/ar/directorates` | **University directorates (CMS)** — `referenceType: site_pages`, section `directorates`, `referenceId: 0`. |
 | `/decisions` | `/ar/decisions` | **Higher Education Council decisions (CMS)** — `referenceType: site_pages`, section `higher_education_decisions`, `referenceId: 0`; **multiple** Content rows (one per decision), ordered by `displayOrder`. |
 | `/contact` | `/ar/contact` | **Contact** — localized contact information plus reusable `ContactForm` component. |
+| `/events` | `/ar/events` | **Events list** — list of all university events. |
+| `/exhibitions` | `/ar/exhibitions` | **Exhibitions list** — list of exhibitions, styled identically to news. |
+| `/exhibitions/[slug]` | `/ar/exhibitions/[slug]` | **Exhibition detail** — detail view for a specific exhibition. |
 
 Default locale uses **`localePrefix: 'as-needed'`** (no `/en` in the path). Template-only links in `menu_data_2` and some footer paths may still point at demo routes that are **not** implemented here.
 

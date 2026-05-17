@@ -11,10 +11,17 @@
     "contactTitle": "Contact Us - Qasyoun Private University",
     "newsNotFoundTitle": "News not found",
     "newsDetailTitle": "News Details",
-    "newsTitle": "News - Qasyoun Private University"
+    "newsTitle": "News - Qasyoun Private University",
+    "eventsTitle": "Events - Qasyoun Private University",
+    "exhibitionsNotFoundTitle": "Exhibition not found",
+    "exhibitionsDetailTitle": "Exhibition Details",
+    "exhibitionsTitle": "Exhibitions - Qasyoun Private University"
   },
   "News": {
     "newsDetails": "News Details"
+  },
+  "Exhibitions": {
+    "exhibitionsDetails": "Exhibition Details"
   },
   "StaticPage": {
     "empty": "No published content yet. Add the body in the dashboard under Dynamic content (reference ID 0 for site-wide pages).",
@@ -70,11 +77,18 @@
     "faculty_contact": "Contact Us",
     "contact": "Contact Us",
     "vacancies": "Careers",
-    "news": "News and Events"
+    "news": "News and Events",
+    "events": "Events",
+    "exhibitions": "Exhibitions"
   },
   "NewsBanner": {
     "label": "News",
     "empty": "No announcements right now.",
+    "readMore": "Read more"
+  },
+  "ExhibitionsBanner": {
+    "label": "Exhibitions",
+    "empty": "No exhibitions at the moment.",
     "readMore": "Read more"
   },
   "Header": {
@@ -121,7 +135,7 @@
     "card1Text": "What sets QPU apart and how we approach quality higher education.",
     "card2Title": "Vision & mission",
     "card2Text": "Our direction, values, and commitment to students and society.",
-    "card3Title": "Admission requirements",
+    "card3Title": "Admissions",
     "card3Text": "Entry criteria, how to apply, and what to prepare before you enroll.",
     "card4Title": "Tuition & fees",
     "card4Text": "Current fee information. Scholarships and discounts are linked from the admission menu."

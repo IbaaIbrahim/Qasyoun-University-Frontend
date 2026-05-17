@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import { getNewsBySlug } from "@/lib/services/news.service";
 import BreadcrumbTwo from "@/components/breadcrumb/breadcrumb-two";
+import { getExhibitionBySlug } from "@/lib/services/exhibition.service";
 
 export const dynamic = "force-dynamic";
 
@@ -14,24 +14,24 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
   const tMeta = await getTranslations({ locale, namespace: "Metadata" });
-  const news = await getNewsBySlug(slug, locale);
-  if (!news) {
-    return { title: tMeta("newsNotFoundTitle") };
+  const exhibition = await getExhibitionBySlug(slug, locale);
+  if (!exhibition) {
+    return { title: tMeta("exhibitionsNotFoundTitle") };
   }
   return {
-    title: news.title || tMeta("newsDetailTitle"),
+    title: exhibition.title || tMeta("exhibitionsDetailTitle"),
   };
 }
 
-export default async function NewsDetailPage({ params }: Props) {
+export default async function ExhibitionDetailPage({ params }: Props) {
   const { slug, locale } = await params;
-  const news = await getNewsBySlug(slug, locale);
+  const exhibition = await getExhibitionBySlug(slug, locale);
 
-  if (!news) notFound();
+  if (!exhibition) notFound();
 
-  const t = await getTranslations({ locale, namespace: "News" });
+  const t = await getTranslations({ locale, namespace: "Exhibitions" });
 
-  const dateObj = news.date ? new Date(news.date) : null;
+  const dateObj = exhibition.date ? new Date(exhibition.date) : null;
   const formattedDate = dateObj
     ? dateObj.toLocaleDateString(locale === 'ar' ? 'ar-EG' : 'en-US', {
         year: 'numeric',
@@ -43,8 +43,8 @@ export default async function NewsDetailPage({ params }: Props) {
   return (
     <main>
       <BreadcrumbTwo
-        title={news.title || ""}
-        subtitle={t("newsDetails")}
+        title={exhibition.title || ""}
+        subtitle={t("exhibitionsDetails")}
       />
       <section className="tp-blog-details-area pt-120 pb-120">
         <div className="container">
@@ -60,12 +60,11 @@ export default async function NewsDetailPage({ params }: Props) {
                       </span>
                     </div>
                   )}
-                  {/* <h2 className="tp-blog-details-title mb-25">{news.title}</h2> */}
-                  {news.imageUrl && (
+                  {exhibition.imageUrl && (
                     <div className="tp-blog-details-thumb mb-50">
                       <Image
-                        src={news.imageUrl}
-                        alt={news.title || ""}
+                        src={exhibition.imageUrl}
+                        alt={exhibition.title || ""}
                         width={1200}
                         height={600}
                         className="w-100"
@@ -76,7 +75,7 @@ export default async function NewsDetailPage({ params }: Props) {
                   )}
                   <div
                     className="tp-blog-details-text"
-                    dangerouslySetInnerHTML={{ __html: news.description || "" }}
+                    dangerouslySetInnerHTML={{ __html: exhibition.description || "" }}
                   />
                 </div>
               </div>

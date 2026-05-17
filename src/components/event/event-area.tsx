@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { RightArrow, RightArrowThree } from "../svg";
 import shape_line from "@/assets/img/unlerline/event-1-svg-1.svg";
@@ -38,7 +38,7 @@ export default function EventArea({ events }: { events: IEvent[] }) {
           </div>
           <div className="col-xl-7 col-md-4">
             <div className="tp-event-btn text-md-end mb-70">
-              <Link className="tp-btn" href={`/${locale}/events`}>
+              <Link className="tp-btn" href="/events">
                 {t("seeMore")}
                 <span>
                   <RightArrow />
@@ -72,6 +72,7 @@ export default function EventArea({ events }: { events: IEvent[] }) {
                         <HoverImgItem
                           img={item.mainImage || ""}
                           title={item.title || ""}
+                          href={`/events/${item.slug}`}
                         />
                       </h3>
                       <div className="tp-event-info">
@@ -88,7 +89,7 @@ export default function EventArea({ events }: { events: IEvent[] }) {
                   </div>
                   <div className="col-md-1">
                     <div className="tp-event-arrow text-lg-end">
-                      <Link href={`/${locale}/events/${item.slug}`}>
+                      <Link href={`/events/${item.slug}`}>
                         <span>
                           <RightArrowThree />
                         </span>

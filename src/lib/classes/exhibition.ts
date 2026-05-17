@@ -1,6 +1,6 @@
 import { ContentJson } from "./content";
 
-export default class News {
+export default class Exhibition {
   id?: string;
   title?: string;
   slug?: string;
@@ -9,7 +9,7 @@ export default class News {
   href?: string | null;
   imageUrl?: string | null;
 
-  static fromContentJson(contentJson: ContentJson): News | null {
+  static fromContentJson(contentJson: ContentJson): Exhibition | null {
     const title = contentJson.contentMetasJson?.["text"] || contentJson.contentMetasJson?.["title"] || "";
     const slug = contentJson.contentMetasJson?.["slug"] || "";
     const description = contentJson.contentMetasJson?.["description"] || "";
@@ -19,13 +19,13 @@ export default class News {
     if (!title && !slug) return null;
 
     return {
-      id: `news-${contentJson.id}`,
+      id: `exhibition-${contentJson.id}`,
       title,
       slug,
       description,
       date,
-      href: slug ? `/news/${slug}` : (contentJson.contentMetasJson?.["href"] || null),
+      href: slug ? `/exhibitions/${slug}` : (contentJson.contentMetasJson?.["href"] || null),
       imageUrl,
-    } as News;
+    } as Exhibition;
   }
 }

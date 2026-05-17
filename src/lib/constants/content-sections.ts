@@ -26,6 +26,39 @@ const HomeType = {
         description: {
           name: "qpu.dynamicContent.description",
           type: "richtext"
+        },
+        date: {
+          name: "qpu.dynamicContent.date",
+          type: "date"
+        }
+      }
+    },
+    exhibitions: {
+      name: "qpu.dynamicContent.exhibitions",
+      value: "exhibitions",
+      maxContentItems: undefined,
+      keys: {
+        slug: {
+          name: "qpu.dynamicContent.slug",
+          type: "text",
+          notTranslatable: true
+        },
+        image: {
+          name: "qpu.dynamicContent.image",
+          type: "image",
+          notTranslatable: true
+        },
+        text: {
+          name: "qpu.dynamicContent.text",
+          type: "text"
+        },
+        description: {
+          name: "qpu.dynamicContent.description",
+          type: "richtext"
+        },
+        date: {
+          name: "qpu.dynamicContent.date",
+          type: "date"
         }
       }
     },
@@ -524,9 +557,48 @@ const StudentLifeType = {
   }
 }
 
+const SocialMediaAndCommunicationType = {
+  name: "qpu.dynamicContent.socialMediaAndCommunication",
+  value: "social_media_and_communication",
+  sections: {
+    social_media: {
+      name: "qpu.dynamicContent.socialMedia",
+      value: "social_media",
+      maxContentItems: 1,
+      keys: {
+        facebook: {
+          name: "qpu.dynamicContent.facebook",
+          type: "text"
+        },
+        twitter: {
+          name: "qpu.dynamicContent.twitter",
+          type: "text"
+        },
+        instagram: {
+          name: "qpu.dynamicContent.instagram",
+          type: "text"
+        },
+        youtube: {
+          name: "qpu.dynamicContent.youtube",
+          type: "text"
+        },
+        linkedin: {
+          name: "qpu.dynamicContent.linkedin",
+          type: "text"
+        },
+        portal: {
+          name: "qpu.dynamicContent.portal",
+          type: "text"
+        }
+      }
+    }
+  }
+}
+
 export const ReferenceTypes = {
   faculties: FacultiesType,
   faculty: FacultyType,
+  social_media_and_communication: SocialMediaAndCommunicationType,
   home: HomeType,
   lab: LabType,
   about: AboutType,

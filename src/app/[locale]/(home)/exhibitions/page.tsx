@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import { getAllNews } from "@/lib/services/news.service";
+import { getAllExhibitions } from "@/lib/services/exhibition.service";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
-import News from "@/lib/classes/news";
+import Exhibition from "@/lib/classes/exhibition";
 import BreadcrumbTwo from "@/components/breadcrumb/breadcrumb-two";
 
 export const dynamic = "force-dynamic";
@@ -16,22 +16,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Metadata" });
   return {
-    title: t("newsTitle") || "News - Qasyoun Private University",
+    title: t("exhibitionsTitle") || "Exhibitions - Qasyoun Private University",
   };
 }
 
-export default async function NewsListPage({ params }: Props) {
+export default async function ExhibitionsListPage({ params }: Props) {
   const { locale } = await params;
-  const newsItems = await getAllNews(locale);
-  const t = await getTranslations({ locale, namespace: "NewsBanner" });
+  const exhibitionsItems = await getAllExhibitions(locale);
+  const t = await getTranslations({ locale, namespace: "ExhibitionsBanner" });
   const tNav = await getTranslations({ locale, namespace: "Nav" });
 
   return (
     <main>
       <BreadcrumbTwo
-        title={tNav("news")}
-        subtitle={tNav("news")}
-      // bgImg={newsItems[0].breadcrumbImage}
+        title={tNav("exhibitions")}
+        subtitle={tNav("exhibitions")}
       />
 
       <section className="tp-news-list-area pt-120 pb-120">
@@ -39,9 +38,9 @@ export default async function NewsListPage({ params }: Props) {
           <div className="row justify-content-center">
             <div className="col-lg-10">
               <div className="tp-news-list-wrapper">
-                {newsItems.length > 0 ? (
-                  newsItems.map((news) => (
-                    <NewsItem key={news.id} news={news} readMoreLabel={t("readMore")} locale={locale} />
+                {exhibitionsItems.length > 0 ? (
+                  exhibitionsItems.map((exhibition) => (
+                    <ExhibitionItem key={exhibition.id} exhibition={exhibition} readMoreLabel={t("readMore")} locale={locale} />
                   ))
                 ) : (
                   <div className="text-center">
@@ -57,8 +56,8 @@ export default async function NewsListPage({ params }: Props) {
   );
 }
 
-function NewsItem({ news, readMoreLabel, locale }: { news: News, readMoreLabel: string, locale: string }) {
-  const date = news.date ? new Date(news.date) : new Date();
+function ExhibitionItem({ exhibition, readMoreLabel, locale }: { exhibition: Exhibition, readMoreLabel: string, locale: string }) {
+  const date = exhibition.date ? new Date(exhibition.date) : new Date();
   const year = date.getFullYear();
   const day = date.getDate().toString().padStart(2, '0');
   const month = date.toLocaleString(locale === 'ar' ? 'ar-EG' : 'en-US', { month: 'short' }).toUpperCase();
@@ -73,25 +72,25 @@ function NewsItem({ news, readMoreLabel, locale }: { news: News, readMoreLabel: 
 
       <div className="tp-news-list-content flex-grow-1 min-w-0 mr-30">
         <h3 className="tp-news-list-title mb-10" style={{ fontSize: '20px' }}>
-          <Link href={news.href || "#"}>{news.title}</Link>
+          <Link href={exhibition.href || "#"}>{exhibition.title}</Link>
         </h3>
         <p className="tp-news-list-excerpt mb-20 text-truncate-2" style={{ color: '#6c757d', fontSize: '15px' }}>
           {/* Strip HTML if description is rich text */}
-          {news.description ? news.description.replace(/<[^>]*>?/gm, '').slice(0, 150) + '...' : ''}
+          {exhibition.description ? exhibition.description.replace(/<[^>]*>?/gm, '').slice(0, 150) + '...' : ''}
         </p>
         <div className="tp-news-list-btn">
-          <Link href={news.href || "#"} className="tp-btn-inner" style={{ background: '#42023e', color: '#fff', padding: '8px 20px', borderRadius: '5px', fontSize: '14px', display: 'inline-block' }}>
+          <Link href={exhibition.href || "#"} className="tp-btn-inner" style={{ background: '#42023e', color: '#fff', padding: '8px 20px', borderRadius: '5px', fontSize: '14px', display: 'inline-block' }}>
             {readMoreLabel}
           </Link>
         </div>
       </div>
 
-      {news.imageUrl && (
+      {exhibition.imageUrl && (
         <div className="tp-news-list-thumb flex-shrink-0" style={{ width: '200px', height: '150px', position: 'relative' }}>
-          <Link href={news.href || "#"}>
+          <Link href={exhibition.href || "#"}>
             <Image
-              src={news.imageUrl}
-              alt={news.title || ""}
+              src={exhibition.imageUrl}
+              alt={exhibition.title || ""}
               fill
               style={{ objectFit: 'cover', borderRadius: '10px' }}
               unoptimized

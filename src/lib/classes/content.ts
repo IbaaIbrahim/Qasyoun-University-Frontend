@@ -1,6 +1,7 @@
 import { ContentMeta, ContentMetaDto } from "./content-meta";
 import Slider from "./slider";
 import News from "./news";
+import Exhibition from "./exhibition";
 import About from "./home/about";
 import Statistics from "./home/statistics";
 import IEvent from "./home/event";
@@ -100,6 +101,12 @@ export class ContentJson extends Content {
   toNews(): News {
     if (!this.contentMetasJson) return {};
     const item = News.fromContentJson(this);
+    return item ? item : {};
+  }
+
+  toExhibition(): Exhibition {
+    if (!this.contentMetasJson) return {};
+    const item = Exhibition.fromContentJson(this);
     return item ? item : {};
   }
 

@@ -212,7 +212,7 @@
     text-align: right;
   }
 
-  .tp-main-menu-content ul li.has-dropdown > a::after {
+  .tp-main-menu-content ul li.has-dropdown>a::after {
     margin-left: 0 !important;
     margin-right: 6px !important;
   }
@@ -226,20 +226,20 @@
     text-align: right !important;
     padding-left: 0 !important;
     padding-right: 30px !important;
-    
+
     &::before {
       left: auto !important;
       right: 15px !important;
     }
   }
 
-  .tp-submenu li:hover > a,
-  .tp-submenu li.active > a {
+  .tp-submenu li:hover>a,
+  .tp-submenu li.active>a {
     padding-left: 0 !important;
     padding-right: 35px !important;
   }
 
-  .tp-submenu li.has-dropdown > a::after {
+  .tp-submenu li.has-dropdown>a::after {
     right: auto !important;
     left: 25px !important;
     transform: translateY(-50%) rotate(90deg) !important;
@@ -281,7 +281,7 @@
       }
 
       @media only screen and (min-width: 768px) and (max-width: 991px),
-        only screen and (max-width: 767px) {
+      only screen and (max-width: 767px) {
         left: 0 !important;
       }
     }
@@ -296,7 +296,7 @@
       margin-right: 43px !important;
 
       @media only screen and (min-width: 768px) and (max-width: 991px),
-        only screen and (max-width: 767px) {
+      only screen and (max-width: 767px) {
         margin-right: 0 !important;
       }
 
@@ -316,8 +316,8 @@
       margin-right: 46px !important;
 
       @media only screen and (min-width: 992px) and (max-width: 1199px),
-        only screen and (min-width: 768px) and (max-width: 991px),
-        only screen and (max-width: 767px) {
+      only screen and (min-width: 768px) and (max-width: 991px),
+      only screen and (max-width: 767px) {
         margin-right: 0 !important;
       }
     }
@@ -346,7 +346,7 @@
   }
 
   // Faculty labs: mask SVG curves toward physical left in LTR — mirror in RTL
-  #labs .tp-our-mission-item-thumb > div {
+  #labs .tp-our-mission-item-thumb>div {
     transform: scaleX(-1);
   }
 
@@ -391,7 +391,7 @@
       }
 
       @media only screen and (min-width: 768px) and (max-width: 991px),
-        only screen and (max-width: 767px) {
+      only screen and (max-width: 767px) {
         margin-left: 0 !important;
         margin-right: 0 !important;
       }
@@ -489,9 +489,9 @@
       margin-right: 28px !important;
 
       @media only screen and (min-width: 992px) and (max-width: 1199px),
-        only screen and (min-width: 768px) and (max-width: 991px),
-        only screen and (min-width: 576px) and (max-width: 767px),
-        only screen and (max-width: 767px) {
+      only screen and (min-width: 768px) and (max-width: 991px),
+      only screen and (min-width: 576px) and (max-width: 767px),
+      only screen and (max-width: 767px) {
         margin-right: 0 !important;
       }
     }
@@ -527,6 +527,12 @@
     &::before {
       left: auto !important;
       right: 0 !important;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .text-md-end {
+      text-align: left !important;
     }
   }
 }

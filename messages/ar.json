@@ -11,10 +11,17 @@
     "contactTitle": "اتصل بنا - جامعة قاسيون الخاصة",
     "newsNotFoundTitle": "الخبر غير موجود",
     "newsDetailTitle": "تفاصيل الخبر",
-    "newsTitle": "الأخبار - جامعة قاسيون الخاصة"
+    "newsTitle": "الأخبار - جامعة قاسيون الخاصة",
+    "eventsTitle": "الأحداث - جامعة قاسيون الخاصة",
+    "exhibitionsNotFoundTitle": "المعرض غير موجود",
+    "exhibitionsDetailTitle": "تفاصيل المعرض",
+    "exhibitionsTitle": "المعارض - جامعة قاسيون الخاصة"
   },
   "News": {
     "newsDetails": "تفاصيل الخبر"
+  },
+  "Exhibitions": {
+    "exhibitionsDetails": "تفاصيل المعرض"
   },
   "StaticPage": {
     "empty": "لا يوجد محتوى منشور بعد. أضف النص من لوحة التحكم ضمن المحتوى الديناميكي (معرّف المرجع 0 للصفحات العامة).",
@@ -70,11 +77,18 @@
     "faculty_contact": "اتصل بنا",
     "contact": "اتصل بنا",
     "vacancies": "التوظيف",
-    "news": "الأخبار والأحداث"
+    "news": "الأخبار والأحداث",
+    "events": "الأحداث",
+    "exhibitions": "المعارض"
   },
   "NewsBanner": {
     "label": "الأخبار",
     "empty": "لا توجد إعلانات حالياً.",
+    "readMore": "المزيد"
+  },
+  "ExhibitionsBanner": {
+    "label": "المعارض",
+    "empty": "لا توجد معارض حالياً.",
     "readMore": "المزيد"
   },
   "Header": {

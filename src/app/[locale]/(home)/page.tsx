@@ -64,7 +64,7 @@ export default async function HomePage() {
       <FacultyArea />
       {
         events.length > 0 && (
-          <EventArea events={events} />
+          <EventArea events={events.reverse().slice(0, 5)} />
         )
       }
       {
