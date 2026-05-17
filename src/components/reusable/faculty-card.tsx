@@ -33,7 +33,17 @@ export default async function FacultyCard({ faculty }: Props) {
         </Link>
       </div>
       <div className="tp-program-content flex-grow-1">
-        <h3 className="tp-program-title">
+        <h3
+          className="tp-program-title"
+          style={{
+            display: "-webkit-box",
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: "vertical",
+            overflow: "hidden",
+            height: "2.8em",
+            lineHeight: "1.4",
+          }}
+        >
           <Link href={faculty.detailPath}>{name}</Link>
         </h3>
       </div>

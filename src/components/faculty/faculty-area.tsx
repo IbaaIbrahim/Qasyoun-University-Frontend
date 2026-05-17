@@ -11,7 +11,8 @@ const FACULTY_TEASER_LIMIT = 3;
 export default async function FacultyArea() {
   const faculties = await listFacultiesForPublic();
   const t = await getTranslations("FacultyArea");
-  const teaserFaculties = faculties.slice(0, FACULTY_TEASER_LIMIT);
+  // const teaserFaculties = faculties.slice(0, FACULTY_TEASER_LIMIT);
+  const teaserFaculties = faculties;
 
   return (
     <section className="program-area mb-75">

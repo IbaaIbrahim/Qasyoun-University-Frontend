@@ -68,11 +68,22 @@ export default function FacultySlider({ faculties }: Props) {
                   width={350}
                   height={198}
                   style={{ height: "auto" }}
+                  unoptimized
                 />
               </Link>
             </div>
             <div className="tp-program-content">
-              <h3 className="tp-program-title">
+              <h3
+                className="tp-program-title"
+                style={{
+                  display: "-webkit-box",
+                  WebkitLineClamp: 2,
+                  WebkitBoxOrient: "vertical",
+                  overflow: "hidden",
+                  height: "2.8em",
+                  lineHeight: "1.4",
+                }}
+              >
                 <Link href={href}>{name}</Link>
               </h3>
               <div className="tp-program-tag">

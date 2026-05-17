@@ -5,6 +5,7 @@ import { getAllNews } from "@/lib/services/news.service";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import News from "@/lib/classes/news";
+import BreadcrumbTwo from "@/components/breadcrumb/breadcrumb-two";
 
 export const dynamic = "force-dynamic";
 
@@ -28,11 +29,12 @@ export default async function NewsListPage({ params }: Props) {
 
   return (
     <main>
-      <BreadcrumbOne 
-        title={tNav("news")} 
-        subtitle={tNav("news")} 
+      <BreadcrumbTwo
+        title={tNav("news")}
+        subtitle={tNav("news")}
+      // bgImg={newsItems[0].breadcrumbImage}
       />
-      
+
       <section className="tp-news-list-area pt-120 pb-120">
         <div className="container">
           <div className="row justify-content-center">
@@ -69,14 +71,14 @@ function NewsItem({ news, readMoreLabel, locale }: { news: News, readMoreLabel: 
         <div style={{ fontSize: '28px', fontWeight: 'bold', color: '#42023e' }}>{day}</div>
         <div style={{ fontSize: '14px', fontWeight: 'bold', color: '#6c757d' }}>{month}</div>
       </div>
-      
+
       <div className="tp-news-list-content flex-grow-1 min-w-0 mr-30">
         <h3 className="tp-news-list-title mb-10" style={{ fontSize: '20px' }}>
           <Link href={news.href || "#"}>{news.title}</Link>
         </h3>
         <p className="tp-news-list-excerpt mb-20 text-truncate-2" style={{ color: '#6c757d', fontSize: '15px' }}>
-            {/* Strip HTML if description is rich text */}
-            {news.description ? news.description.replace(/<[^>]*>?/gm, '').slice(0, 150) + '...' : ''}
+          {/* Strip HTML if description is rich text */}
+          {news.description ? news.description.replace(/<[^>]*>?/gm, '').slice(0, 150) + '...' : ''}
         </p>
         <div className="tp-news-list-btn">
           <Link href={news.href || "#"} className="tp-btn-inner" style={{ background: '#42023e', color: '#fff', padding: '8px 20px', borderRadius: '5px', fontSize: '14px', display: 'inline-block' }}>
@@ -88,9 +90,9 @@ function NewsItem({ news, readMoreLabel, locale }: { news: News, readMoreLabel: 
       {news.imageUrl && (
         <div className="tp-news-list-thumb flex-shrink-0" style={{ width: '200px', height: '150px', position: 'relative' }}>
           <Link href={news.href || "#"}>
-            <Image 
-              src={news.imageUrl} 
-              alt={news.title || ""} 
+            <Image
+              src={news.imageUrl}
+              alt={news.title || ""}
               fill
               style={{ objectFit: 'cover', borderRadius: '10px' }}
               unoptimized

@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import BreadcrumbOne from "@/components/breadcrumb/breadcrumb-one";
 import { getNewsBySlug } from "@/lib/services/news.service";
+import BreadcrumbTwo from "@/components/breadcrumb/breadcrumb-two";
 
 export const dynamic = "force-dynamic";
 
@@ -33,11 +34,10 @@ export default async function NewsDetailPage({ params }: Props) {
 
   return (
     <main>
-      <BreadcrumbOne
+      <BreadcrumbTwo
         title={news.title || ""}
         subtitle={t("newsDetails")}
       />
-
       <section className="tp-blog-details-area pt-120 pb-120">
         <div className="container">
           <div className="row justify-content-center">
