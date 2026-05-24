@@ -12,7 +12,7 @@ const SHORTCUTS = [
   { id: 1, icon: ser_icon_1, href: "/admission/why-qpu" as const, titleKey: "card1Title" as const, textKey: "card1Text" as const },
   { id: 2, icon: ser_icon_2, href: "/about/vision-mission" as const, titleKey: "card2Title" as const, textKey: "card2Text" as const },
   { id: 3, icon: ser_icon_3, href: "/admission/admission-requirements" as const, titleKey: "card3Title" as const, textKey: "card3Text" as const },
-  { id: 4, icon: ser_icon_4, href: "/admission/tuition-fees-2022-2023" as const, titleKey: "card4Title" as const, textKey: "card4Text" as const },
+  { id: 4, icon: ser_icon_4, href: "/admission/tuition-fees" as const, titleKey: "card4Title" as const, textKey: "card4Text" as const },
 ];
 
 export default async function ServiceOne() {

@@ -4,6 +4,7 @@ import { getAllAlbums, getAllGalleryPhotos } from "@/lib/services/gallery.servic
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import BreadcrumbTwo from "@/components/breadcrumb/breadcrumb-two";
+import { getBreadcrumbPageContent } from "@/lib/services/breadcrumb-page.service";
 
 export const dynamic = "force-dynamic";
 
@@ -37,12 +38,14 @@ export default async function GalleryListPage({ params }: Props) {
       coverUrl: coverPhoto ? coverPhoto.imageUrl : null,
     };
   });
+  const breadcrumbContent = await getBreadcrumbPageContent(locale);
 
   return (
     <main>
       <BreadcrumbTwo
         title={t("title")}
         subtitle={tNav("gallery")}
+        bgImg={breadcrumbContent?.galleryBreadcrumbImage}
       />
 
       <section className="tp-gallery-list-area pt-120 pb-120 bg-light">
@@ -52,7 +55,7 @@ export default async function GalleryListPage({ params }: Props) {
               {albumsWithCovers.map((album) => (
                 <div key={album.id} className="col-xl-4 col-lg-6 col-md-6 col-sm-12 mb-40">
                   <Link href={`/gallery/${album.id}`}>
-                    <div 
+                    <div
                       className="tp-gallery-album-card p-relative overflow-hidden cursor-pointer"
                       style={{
                         borderRadius: "15px",
@@ -65,7 +68,7 @@ export default async function GalleryListPage({ params }: Props) {
                       }}
                     >
                       {/* Cover Image Container */}
-                      <div 
+                      <div
                         className="tp-gallery-album-img-wrap p-relative overflow-hidden"
                         style={{
                           flex: "1",
@@ -86,14 +89,14 @@ export default async function GalleryListPage({ params }: Props) {
                             unoptimized
                           />
                         ) : (
-                          <div 
+                          <div
                             className="w-100 h-100 d-flex align-items-center justify-content-center"
                             style={{ background: "#42023e", opacity: 0.15 }}
                           >
                             <i className="fa-regular fa-image" style={{ fontSize: "40px", color: "#42023e" }}></i>
                           </div>
                         )}
-                        <div 
+                        <div
                           className="album-hover-overlay"
                           style={{
                             position: "absolute",
@@ -109,7 +112,7 @@ export default async function GalleryListPage({ params }: Props) {
                       </div>
 
                       {/* Info Bar */}
-                      <div 
+                      <div
                         className="tp-gallery-album-info p-25"
                         style={{
                           background: "#f8f9fa",
@@ -117,7 +120,7 @@ export default async function GalleryListPage({ params }: Props) {
                           transition: "all 0.4s ease"
                         }}
                       >
-                        <h4 
+                        <h4
                           className="album-card-title m-0 text-truncate-2 text-center"
                           style={{
                             fontSize: "18px",
@@ -137,7 +140,7 @@ export default async function GalleryListPage({ params }: Props) {
             </div>
           ) : (
             <div className="text-center py-5">
-              <div 
+              <div
                 className="d-inline-flex align-items-center justify-content-center mb-20"
                 style={{
                   width: "80px",

@@ -1,6 +1,6 @@
 "use client";
 
-import { EffectFade, Navigation } from "swiper/modules";
+import { Autoplay, EffectFade, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { SwiperOptions } from "swiper/types";
 import { NextArrow, PrevArrow, RightArrow } from "../svg";
@@ -16,6 +16,7 @@ const sliderOptions: SwiperOptions = {
   },
   autoplay: {
     delay: 3500,
+    disableOnInteraction: false,
   },
   pagination: {
     el: ".tp-program-dot",
@@ -37,7 +38,7 @@ export default function HeroAreaOneSlider({ slides }: Props) {
     <section className="tp-hero-area p-relative">
       <Swiper
         {...swiperOptions}
-        modules={[EffectFade, Navigation]}
+        modules={[Autoplay, EffectFade, Navigation]}
         className="swiper tp-slider-active"
       >
         {slides.map((item) => (

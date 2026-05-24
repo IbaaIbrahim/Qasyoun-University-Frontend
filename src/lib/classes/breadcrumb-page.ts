@@ -11,6 +11,11 @@ export default class BreadcrumbPage {
   admissionBreadcrumbImage?: string;
   contactUsBreadcrumbImage?: string;
   studentLifeBreadcrumbImage?: string;
+  universityDirectoratesBreadcrumbImage?: string;
+  higherEducationDecisionsBreadcrumbImage?: string;
+  exhibitionsAndConferencesBreadcrumbImage?: string;
+  galleryBreadcrumbImage?: string;
+  vacanciesBreadcrumbImage?: string;
 
   static fromContentJson(contentJson: ContentJson): BreadcrumbPage | null {
     const metas = contentJson.contentMetasJson;
@@ -26,6 +31,11 @@ export default class BreadcrumbPage {
       admissionBreadcrumbImage: resolveUploadSrc(metas["admission_breadcrumb_image"], ""),
       contactUsBreadcrumbImage: resolveUploadSrc(metas["contact_us_breadcrumb_image"], ""),
       studentLifeBreadcrumbImage: resolveUploadSrc(metas["student_life_breadcrumb_image"], ""),
+      universityDirectoratesBreadcrumbImage: resolveUploadSrc(metas["university_directorates_breadcrumb_image"], ""),
+      higherEducationDecisionsBreadcrumbImage: resolveUploadSrc(metas["higher_education_decisions_breadcrumb_image"], ""),
+      exhibitionsAndConferencesBreadcrumbImage: resolveUploadSrc(metas["exhibitions_and_conferences_breadcrumb_image"], ""),
+      galleryBreadcrumbImage: resolveUploadSrc(metas["gallery_breadcrumb_image"], ""),
+      vacanciesBreadcrumbImage: resolveUploadSrc(metas["vacancies_breadcrumb_image"], ""),
     } as BreadcrumbPage;
   }
 }

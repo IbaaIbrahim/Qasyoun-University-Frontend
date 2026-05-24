@@ -44,7 +44,7 @@ export const STATIC_PAGE_NAV_KEYS: Record<
     admission_requirements: "admissionRequirements",
     why_qpu: "whyQpu",
     study_system: "studySystem",
-    tuition_fees_2022_2023: "tuitionFees2022",
+    tuition_fees: "tuitionFees",
     discounts_scholarships: "discountsScholarships",
     registration_documents: "registrationDocuments",
   },

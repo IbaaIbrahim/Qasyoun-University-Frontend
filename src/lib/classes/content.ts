@@ -87,10 +87,11 @@ export class ContentJson extends Content {
   constructor(content: Content, locale: string) {
     super(content.id, content.referenceId, content.referenceType, content.section, content.title, content.displayOrder, content.isActive, content.contentMetas, content.createdAt, content.updatedAt)
     this.contentMetasJson = content.contentMetas?.reduce((acc, meta) => {
+      console.log(meta);
       if (meta.type === "image" || meta.type === "file" || meta.type === "video") {
-        acc[meta.keyName] = meta.filemanager.url;
+        acc[meta.keyName] = locale === "ar" ? (meta.filemanagerAr?.url || meta.filemanager?.url) : (meta.filemanager?.url || meta.filemanagerAr?.url);
       } else {
-        acc[meta.keyName] = locale === "ar" ? meta.valueAr ?? meta.value : meta.value;
+        acc[meta.keyName] = locale === "ar" ? (meta.valueAr || meta.value) : (meta.value || meta.valueAr);
       }
       acc[`${meta.keyName}--id`] = String(meta.id);
       return acc;

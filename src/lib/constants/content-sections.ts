@@ -482,9 +482,9 @@ const AdmissionType = {
       maxContentItems: 1,
       keys: staticPageKeys
     },
-    admission: {
-      name: "qpu.dynamicContent.admission",
-      value: "admission",
+    tuition_fees: {
+      name: "qpu.dynamicContent.tuitionFees",
+      value: "tuition_fees",
       maxContentItems: 1,
       keys: staticPageKeys
     },
@@ -699,6 +699,31 @@ const BreadcrumbPageType = {
         },
         student_life_breadcrumb_image: {
           name: "qpu.dynamicContent.studentLifeBreadcrumbImage",
+          type: "image",
+          notTranslatable: true
+        },
+        university_directorates_breadcrumb_image: {
+          name: "qpu.dynamicContent.universityDirectoratesBreadcrumbImage",
+          type: "image",
+          notTranslatable: true
+        },
+        higher_education_decisions_breadcrumb_image: {
+          name: "qpu.dynamicContent.higherEducationDecisionsBreadcrumbImage",
+          type: "image",
+          notTranslatable: true
+        },
+        exhibitions_and_conferences_breadcrumb_image: {
+          name: "qpu.dynamicContent.exhibitionsAndConferencesBreadcrumbImage",
+          type: "image",
+          notTranslatable: true
+        },
+        gallery_breadcrumb_image: {
+          name: "qpu.dynamicContent.galleryBreadcrumbImage",
+          type: "image",
+          notTranslatable: true
+        },
+        vacancies_breadcrumb_image: {
+          name: "qpu.dynamicContent.vacanciesBreadcrumbImage",
           type: "image",
           notTranslatable: true
         }

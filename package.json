@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "clean": "rm -rf node_modules package-lock.json yarn.lock",
-    "deploy": "rm -rf .next .firebase && npm run build && firebase deploy",
+    "deploy": "rm -rf .next .firebase && yarn build && firebase deploy",
     "lint": "eslint ."
   },
   "dependencies": {

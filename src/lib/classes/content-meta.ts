@@ -8,6 +8,9 @@ export type ContentMetaDto = {
   filemanager: {
     url: string;
   };
+  filemanager_AR: {
+    url: string;
+  };
   displayOrder: number | string;
   isActive: boolean;
   createdAt?: string;
@@ -23,6 +26,9 @@ export class ContentMeta {
     public readonly value: string | null,
     public readonly valueAr: string | null,
     public readonly filemanager: {
+      url: string;
+    },
+    public readonly filemanagerAr: {
       url: string;
     },
     public readonly displayOrder: number,
@@ -42,6 +48,9 @@ export class ContentMeta {
       dto.filemanager ?? {
         url: "",
       },
+      dto.filemanager_AR ?? {
+        url: "",
+      },
       Number(dto.displayOrder),
       Boolean(dto.isActive),
       dto.createdAt,
@@ -58,6 +67,7 @@ export class ContentMeta {
       value: this.value,
       value_AR: this.valueAr, // Map to DTO value_AR
       filemanager: this.filemanager,
+      filemanager_AR: this.filemanagerAr,
       displayOrder: this.displayOrder,
       isActive: this.isActive,
       createdAt: this.createdAt,

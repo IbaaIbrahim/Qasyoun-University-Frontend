@@ -128,6 +128,7 @@
       "upcomingEvents": "Upcoming Events",
       "video": "Video Link / Embed URL",
       "whyQpu": "Why QPU?",
+      "tuitionFees": "Tuition & Fees",
       "yearsOfExperience": "Years of Experience",
       "youtube": "YouTube"
     }
@@ -151,7 +152,7 @@
     "admissionRequirements": "Admission requirements",
     "whyQpu": "Why QPU?",
     "studySystem": "Study system",
-    "tuitionFees2022": "Tuition and fees (2022–2023)",
+    "tuitionFees": "Tuition & Fees",
     "discountsScholarships": "Discounts and scholarships",
     "registrationDocuments": "Registration documents",
     "academicGuidance": "Academic guidance",

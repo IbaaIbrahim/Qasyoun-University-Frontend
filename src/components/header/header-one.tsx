@@ -88,7 +88,12 @@ export default async function HeaderOne({
                     <Link href="/faculties">{t("faculties")}</Link>
                   </div>
                   <div className="tp-header-bar d-xl-none ml-30">
-                    <OffcanvasButton />
+                    <OffcanvasButton
+                      menuData={menu_data}
+                      brandLogoSrc={brandLogoSrc}
+                      brandLogoAlt={brandLogoAlt}
+                      logoHref={logoHref}
+                    />
                   </div>
                 </div>
               </div>

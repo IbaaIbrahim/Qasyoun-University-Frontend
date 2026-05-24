@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 import BreadcrumbTwo from "@/components/breadcrumb/breadcrumb-two";
 import { resolveUploadSrc } from "@/lib/api/client";
 import type { LoadedSitePageItem } from "@/lib/services/static-page.service";
+import { getBreadcrumbPageContent } from "@/lib/services/breadcrumb-page.service";
 
 type Props = {
   locale: string;
@@ -66,10 +67,11 @@ export default async function CmsCouncilDecisionsPage({ locale, items }: Props) 
     color: "#fff",
     verticalAlign: "middle",
   };
+  const breadcrumbContent = await getBreadcrumbPageContent(locale);
 
   return (
     <main>
-      <BreadcrumbTwo title={pageLabel} subtitle={breadcrumbTrail} />
+      <BreadcrumbTwo title={pageLabel} subtitle={breadcrumbTrail} bgImg={breadcrumbContent?.higherEducationDecisionsBreadcrumbImage} />
 
       <section className="tp-blog-details-p p-relative pt-60 pb-120 bg-light-soft">
         <div className="container">
@@ -143,12 +145,12 @@ export default async function CmsCouncilDecisionsPage({ locale, items }: Props) 
                         {items.map((item, index) => {
                           const body =
                             typeof item.meta?.body === "string" &&
-                            item.meta.body.trim().length > 0
+                              item.meta.body.trim().length > 0
                               ? item.meta.body
                               : "";
                           const pdfRaw =
                             typeof item.meta?.pdf_file === "string" &&
-                            item.meta.pdf_file.length > 0
+                              item.meta.pdf_file.length > 0
                               ? item.meta.pdf_file
                               : "";
                           const pdfHref = resolveUploadSrc(pdfRaw, "");

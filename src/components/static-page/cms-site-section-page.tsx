@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 import BreadcrumbTwo from "@/components/breadcrumb/breadcrumb-two";
 import { resolveUploadSrc } from "@/lib/api/client";
 import type { ContentMetaJson } from "@/lib/classes/content";
+import { getBreadcrumbPageContent } from "@/lib/services/breadcrumb-page.service";
 
 type PageNavKey = "universityDirectorates" | "higherEducationDecisions";
 
@@ -39,10 +40,11 @@ export default async function CmsSiteSectionPage({
       ? meta.hero_image
       : "";
   const heroSrc = resolveUploadSrc(heroRaw, "");
+  const breadcrumbContent = await getBreadcrumbPageContent(locale);
 
   return (
     <main>
-      <BreadcrumbTwo title={pageLabel} subtitle={breadcrumbTrail} />
+      <BreadcrumbTwo title={pageLabel} subtitle={breadcrumbTrail} bgImg={breadcrumbContent?.universityDirectoratesBreadcrumbImage} />
 
       <section className="tp-blog-details-p p-relative pt-60 pb-120 bg-light-soft">
         <div className="container">
