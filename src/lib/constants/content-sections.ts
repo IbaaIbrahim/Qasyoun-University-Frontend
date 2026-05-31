@@ -1,4 +1,4 @@
-// import { _readAllFaculties, _readAllLabs, _readAlbums } from "../../redux/actions"
+// import { _readAllFaculties, _readAllLabs, _readAlbums, _readAllStudyYears } from "../../redux/actions"
 
 const HomeType = {
   name: "qpu.dynamicContent.home",
@@ -436,17 +436,17 @@ const AboutType = {
   }
 }
 
-const AdmissionType = {
-  name: "qpu.dynamicContent.admission",
-  value: "admission",
+const AdmissionRequirementsType = {
+  name: "qpu.dynamicContent.admissionRequirements",
+  value: "admission_requirements",
+  // referenceIdsAPI: _readAllStudyYears,
   sections: {
-    admission_requirements: {
-      name: "qpu.dynamicContent.admissionRequirements",
-      value: "admission_requirements",
+    syrian_students_admission_requirements: {
+      name: "qpu.dynamicContent.syrianStudentsAdmissionRequirements",
+      value: "syrian_students_admission_requirements",
       maxContentItems: 1,
       keys: {
-        ...staticPageKeys,
-        table: {
+        syrian_students_table: {
           name: "qpu.dynamicContent.table",
           type: "table",
           columns: {
@@ -464,12 +464,106 @@ const AdmissionType = {
             }
           }
         },
-        file: {
+        syrian_students_file: {
           name: "qpu.dynamicContent.pdfFile",
           type: "file"
         }
       }
     },
+    syrian_students_foreign_certificates_admission_requirements: {
+      name: "qpu.dynamicContent.syrianStudentsForeignCertificatesAdmissionRequirements",
+      value: "syrian_students_foreign_certificates_admission_requirements",
+      maxContentItems: 1,
+      keys: {
+        syrian_students_foreign_certificates_table: {
+          name: "qpu.dynamicContent.table",
+          type: "table",
+          columns: {
+            certificate_type: {
+              name: "qpu.dynamicContent.certificateType",
+              type: "text"
+            },
+            min_marks: {
+              name: "qpu.dynamicContent.minMarks",
+              type: "text"
+            },
+            max_marks: {
+              name: "qpu.dynamicContent.maxMarks",
+              type: "text"
+            }
+          }
+        },
+        syrian_students_foreign_certificates_file: {
+          name: "qpu.dynamicContent.pdfFile",
+          type: "file"
+        }
+      }
+    },
+    foreign_and_arab_students_admission_requirements: {
+      name: "qpu.dynamicContent.foreignAndArabStudentsAdmissionRequirements",
+      value: "foreign_and_arab_students_admission_requirements",
+      maxContentItems: 1,
+      keys: {
+        foreign_and_arab_students_table: {
+          name: "qpu.dynamicContent.table",
+          type: "table",
+          columns: {
+            certificate_type: {
+              name: "qpu.dynamicContent.certificateType",
+              type: "text"
+            },
+            min_marks: {
+              name: "qpu.dynamicContent.minMarks",
+              type: "text"
+            },
+            max_marks: {
+              name: "qpu.dynamicContent.maxMarks",
+              type: "text"
+            }
+          }
+        },
+        foreign_and_arab_students_file: {
+          name: "qpu.dynamicContent.pdfFile",
+          type: "file"
+        }
+      }
+    },
+    similar_transfer_prioritization_admission_requirements: {
+      name: "qpu.dynamicContent.similarTransferPrioritizationAdmissionRequirements",
+      value: "similar_transfer_prioritization_admission_requirements",
+      maxContentItems: 1,
+      keys: {
+        similar_transfer_prioritization_table: {
+          name: "qpu.dynamicContent.table",
+          type: "table",
+          columns: {
+            certificate_type: {
+              name: "qpu.dynamicContent.certificateType",
+              type: "text"
+            },
+            min_marks: {
+              name: "qpu.dynamicContent.minMarks",
+              type: "text"
+            },
+            max_marks: {
+              name: "qpu.dynamicContent.maxMarks",
+              type: "text"
+            }
+          }
+        },
+        similar_transfer_prioritization_file: {
+          name: "qpu.dynamicContent.pdfFile",
+          type: "file"
+        }
+      }
+    }
+  }
+}
+
+const AdmissionType = {
+  name: "qpu.dynamicContent.admission",
+  value: "admission",
+  sections: {
     why_qpu: {
       name: "qpu.dynamicContent.whyQpu",
       value: "why_qpu",
@@ -740,6 +834,7 @@ export const ReferenceTypes = {
   lab: LabType,
   about: AboutType,
   admission: AdmissionType,
+  admission_requirements: AdmissionRequirementsType,
   student_life: StudentLifeType,
   site_pages: SitePagesType,
   albums: AlbumsType,

@@ -398,7 +398,7 @@
 }
 
 /* Main nav: hide dropdown chevron when only one submenu block */
-.main-menu nav ul li.has-dropdown.menu-no-dropdown-chevron > a::after {
+.main-menu nav ul li.has-dropdown.menu-no-dropdown-chevron>a::after {
   content: none !important;
   display: none !important;
 }
@@ -451,13 +451,13 @@
 // Custom Breadcrumb List Styling for Laboratory Details
 .tp-breadcrumb__list--custom {
   gap: 0 !important; // Controlled by padding/margin on spans
-  
+
   span {
     display: inline-flex !important;
     align-items: center !important;
     color: rgba(255, 255, 255, 0.9);
     font-size: 14px;
-    
+
     // Hide existing template separators
     &::after {
       display: none !important;
@@ -478,10 +478,16 @@
       display: inline-flex;
       align-items: center;
       color: inherit;
-      
+
       svg {
         transform: translateY(-1px); // Fine-tune icon position
       }
     }
   }
+}
+
+table td {
+  border: 2px solid #d1cfcf !important;
+  vertical-align: middle !important;
+  text-align: center;
 }
