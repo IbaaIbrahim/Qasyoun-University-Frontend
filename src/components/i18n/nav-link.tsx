@@ -11,9 +11,14 @@ type Props = {
 
 /** Internal paths use locale-aware `Link`; `#` stays a plain anchor for dropdown parents. */
 export default function NavLink({ href, className, children }: Props) {
-  if (href === "#") {
+  if (href === "#" || href.startsWith("http://") || href.startsWith("https://")) {
     return (
-      <a href="#" className={className}>
+      <a
+        href={href}
+        className={className}
+        target={href.startsWith("http") ? "_blank" : undefined}
+        rel="noopener noreferrer"
+      >
         {children}
       </a>
     );

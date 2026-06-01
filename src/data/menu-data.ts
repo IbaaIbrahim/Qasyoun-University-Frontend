@@ -49,6 +49,11 @@ const menu_data: IMenu[] = [
 		title: 'contact',
 		link: '/contact'
 	},
+	{
+		id: 6,
+		title: 'studentsGate',
+		link: 'http://my.qpu.edu.sy/'
+	},
 ];
 
 export default menu_data;
