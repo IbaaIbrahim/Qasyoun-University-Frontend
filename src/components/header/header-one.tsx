@@ -74,12 +74,12 @@ export default async function HeaderOne({
                   </Link>
                 </div>
               </div>
-              <div className="col-xxl-8 col-xl-7 d-none d-xl-block">
+              <div className="col-xxl-8 col-xl-8 d-none d-xl-block">
                 <div className="main-menu text-end">
                   <NavMenus menu_data={menu_data} />
                 </div>
               </div>
-              <div className="col-xxl-2 col-xl-3 col-lg-6 col-md-6 col-6">
+              <div className="col-xxl-2 col-xl-2 col-lg-6 col-md-6 col-6">
                 <div className="tp-header-contact d-flex align-items-center justify-content-end">
                   <div className="tp-header-serach">
                     <SearchButton icon={<SearchSvg />} />
