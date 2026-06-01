@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+import { useLocale } from "next-intl";
 import { Autoplay, EffectFade, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { SwiperOptions } from "swiper/types";
@@ -10,17 +12,9 @@ import Slider from "@/lib/classes/slider";
 const sliderOptions: SwiperOptions = {
   slidesPerView: 1,
   effect: "fade",
-  navigation: {
-    nextEl: ".tp-hero-next",
-    prevEl: ".tp-hero-prev",
-  },
   autoplay: {
     delay: 3500,
     disableOnInteraction: false,
-  },
-  pagination: {
-    el: ".tp-program-dot",
-    clickable: true,
   },
 };
 
@@ -29,15 +23,25 @@ type Props = {
 };
 
 export default function HeroAreaOneSlider({ slides }: Props) {
+  const locale = useLocale();
+  const [prevEl, setPrevEl] = useState<HTMLButtonElement | null>(null);
+  const [nextEl, setNextEl] = useState<HTMLButtonElement | null>(null);
+
   const swiperOptions: SwiperOptions = {
     ...sliderOptions,
     loop: slides.length > 1,
+    navigation: {
+      prevEl,
+      nextEl,
+    },
   };
 
   return (
     <section className="tp-hero-area p-relative">
       <Swiper
         {...swiperOptions}
+        key={locale}
+        dir={locale === "ar" ? "rtl" : "ltr"}
         modules={[Autoplay, EffectFade, Navigation]}
         className="swiper tp-slider-active"
       >
@@ -84,6 +88,7 @@ export default function HeroAreaOneSlider({ slides }: Props) {
       {slides.length > 1 ? (
         <>
           <button
+            ref={setPrevEl}
             type="button"
             className="tp-hero-prev tp-hero-nav-btn pointer"
             aria-label="Previous slide"
@@ -93,6 +98,7 @@ export default function HeroAreaOneSlider({ slides }: Props) {
             </span>
           </button>
           <button
+            ref={setNextEl}
             type="button"
             className="tp-hero-next tp-hero-nav-btn pointer"
             aria-label="Next slide"

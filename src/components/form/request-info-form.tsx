@@ -7,10 +7,10 @@ import DatePicker from "../ui/date-picker";
 export default function RequestInfoForm() {
    const [date, setDate] = useState(new Date());
    function handleCountry(item: { value: string; label: string }) {
-      console.log(item);
+      // console.log(item);
    }
    function handleDegree(item: { value: string; label: string }) {
-      console.log(item);
+      // console.log(item);
    }
    return (
       <form id="contact-form">
@@ -91,7 +91,7 @@ export default function RequestInfoForm() {
                      <label> Academic Level </label>
                      <div className="tp-application-select">
                         <NiceSelect
-                          cls="wide"
+                           cls="wide"
                            options={[
                               { value: "bachelor", label: "Bachelor’s Degrees" },
                               { value: "master", label: "Master’s Degrees" },
@@ -118,7 +118,7 @@ export default function RequestInfoForm() {
                </div>
                <div className="tp-schedule-btn">
                   <button className="tp-btn">
-                     Submit Request <span> <RightArrowSeven/></span>
+                     Submit Request <span> <RightArrowSeven /></span>
                   </button>
                </div>
             </div>

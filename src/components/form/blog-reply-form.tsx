@@ -13,7 +13,7 @@ type Inputs = {
 export default function BlogReplyForm() {
   const { register, handleSubmit, formState: { errors }, reset } = useForm<Inputs>()
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    console.log(data)
+    // console.log(data)
     reset();
   }
   return (
@@ -43,7 +43,7 @@ export default function BlogReplyForm() {
           </div>
           <div className="col-xl-12">
             <div className="tp-contact-input-remeber">
-              <input id="remember" type="checkbox" {...register("remember",{required:false})} />
+              <input id="remember" type="checkbox" {...register("remember", { required: false })} />
               <label htmlFor="remember">
                 Save my name, email, and website in this browser for the next
                 time I comment.

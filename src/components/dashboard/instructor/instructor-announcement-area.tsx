@@ -11,7 +11,7 @@ import useClickOutside from "@/hooks/use-click-outside";
 
 const announcementData = [
    {
-      id:1,
+      id: 1,
       date: "August 27, 2024",
       time: "6:01 am",
       announcement: "Web Design System in Figma",
@@ -19,7 +19,7 @@ const announcementData = [
       courseTitle: "Design Masterclass",
    },
    {
-      id:2,
+      id: 2,
       date: "August 27, 2024",
       time: "6:01 am",
       announcement: "Web Design System in Figma",
@@ -27,7 +27,7 @@ const announcementData = [
       courseTitle: "Design Masterclass",
    },
    {
-      id:3,
+      id: 3,
       date: "August 27, 2024",
       time: "6:01 am",
       announcement: "Web Design System in Figma",
@@ -35,7 +35,7 @@ const announcementData = [
       courseTitle: "Design Masterclass",
    },
    {
-      id:4,
+      id: 4,
       date: "August 27, 2024",
       time: "6:01 am",
       announcement: "Web Design System in Figma",
@@ -43,7 +43,7 @@ const announcementData = [
       courseTitle: "Design Masterclass",
    },
    {
-      id:5,
+      id: 5,
       date: "August 27, 2024",
       time: "6:01 am",
       announcement: "Web Design System in Figma",
@@ -55,7 +55,7 @@ const announcementData = [
 
 export default function InstructorAnnouncementArea() {
    const [date, setDate] = useState(new Date());
-   const {handleAnnounceAddEditModal,handleAnnounceDetailsModal} = useGlobalContext();
+   const { handleAnnounceAddEditModal, handleAnnounceDetailsModal } = useGlobalContext();
    const [openActionId, setOpenActionId] = useState<number | null>(null);
    const actionButtonRef = useClickOutside(setOpenActionId);
    function toggleAction(id: number) {
@@ -66,10 +66,10 @@ export default function InstructorAnnouncementArea() {
       }
    }
    function handleCourseFilter(item: { value: string, label: string }) {
-      console.log(item);
+      // console.log(item);
    }
    function handleCourseSorting(item: { value: string, label: string }) {
-      console.log(item);
+      // console.log(item);
    }
    return (
       <>
@@ -94,7 +94,7 @@ export default function InstructorAnnouncementArea() {
                         </div>
                      </div>
                      <div className="text-lg-end">
-                        <button className="tpd-border-btn active" onClick={()=>handleAnnounceAddEditModal()}>Add New Announcement</button>
+                        <button className="tpd-border-btn active" onClick={() => handleAnnounceAddEditModal()}>Add New Announcement</button>
                      </div>
                   </div>
                </div>
@@ -189,7 +189,7 @@ export default function InstructorAnnouncementArea() {
                                           <DotsTwoSvg />
                                        </button>
                                        <div className="tpd-action-click-tooltip bundle">
-                                          <button onClick={()=> handleAnnounceAddEditModal(item)}>
+                                          <button onClick={() => handleAnnounceAddEditModal(item)}>
                                              <span>
                                                 <PenTwoSvg />
                                              </span>
@@ -213,7 +213,7 @@ export default function InstructorAnnouncementArea() {
             </div>
          </section>
 
-        
+
       </>
    )
 }

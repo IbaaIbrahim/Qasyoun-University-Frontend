@@ -60,7 +60,7 @@ const statementData = [
 export default function InstructorAnalyticsStatementArea() {
    const [date, setDate] = useState(new Date());
    function handleCourseFilter(item: { value: string, label: string }) {
-      console.log(item);
+      // console.log(item);
    }
    return (
       <>
@@ -136,7 +136,7 @@ export default function InstructorAnalyticsStatementArea() {
                                  <h4 className="tpd-common-text">{statement.date}</h4>
                               </div>
                               <div className="tpd-order-price">
-                                 <h4 className="tpd-common-text">{formatPrice(statement.price,true)}</h4>
+                                 <h4 className="tpd-common-text">{formatPrice(statement.price, true)}</h4>
                               </div>
                               <div className="tpd-order-status">
                                  <div className="tpd-badge-item">

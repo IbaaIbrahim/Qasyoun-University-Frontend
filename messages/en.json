@@ -406,5 +406,22 @@
     "submit": "Submit Application",
     "success": "Your application has been submitted successfully.",
     "error": "Failed to submit application. Please try again."
+  },
+  "Search": {
+    "placeholder": "What are you looking for?",
+    "title": "Search Results",
+    "noResults": "No results found for \"{query}\"",
+    "searching": "Searching...",
+    "faculties": "Faculties & Institutes",
+    "labs": "Laboratories",
+    "teachers": "Teachers & Staff",
+    "courses": "Courses",
+    "scientificResearches": "Scientific Researches",
+    "graduatedStudents": "Graduated Students",
+    "vacancies": "Open Vacancies",
+    "contents": "University Pages & Info",
+    "totalCount": "{count} results found",
+    "minChars": "Please type at least 2 characters to search.",
+    "clear": "Clear search"
   }
 }

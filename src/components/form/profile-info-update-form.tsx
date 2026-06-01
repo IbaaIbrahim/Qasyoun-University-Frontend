@@ -4,8 +4,8 @@ import NiceSelect from "../ui/nice-select";
 
 
 export default function ProfileInfoUpdateForm() {
-    function handleGender (item: { value: string; label: string }) {
-        console.log(item);
+    function handleGender(item: { value: string; label: string }) {
+        // console.log(item);
     }
     return (
         <form action="#">
@@ -15,7 +15,7 @@ export default function ProfileInfoUpdateForm() {
                         <div className="profile__input">
                             <input type="text" placeholder="Enter your username" defaultValue="Pranta" />
                             <span>
-                                <UserSvgFive/>
+                                <UserSvgFive />
                             </span>
                         </div>
                     </div>
@@ -26,7 +26,7 @@ export default function ProfileInfoUpdateForm() {
                         <div className="profile__input">
                             <input type="email" placeholder="Enter your email" defaultValue="example@mail.com" />
                             <span>
-                                <Email/>
+                                <Email />
                             </span>
                         </div>
                     </div>
@@ -54,7 +54,7 @@ export default function ProfileInfoUpdateForm() {
                         <div className="profile__input">
                             <input type="text" placeholder="Enter your number" defaultValue="0123 456 7889" />
                             <span>
-                                <TelSvgThree/>
+                                <TelSvgThree />
                             </span>
                         </div>
                     </div>
@@ -81,7 +81,7 @@ export default function ProfileInfoUpdateForm() {
                         <div className="profile__input">
                             <input type="text" placeholder="Enter your address" defaultValue="3304 Randall Drive" />
                             <span>
-                                <LocationFive/>
+                                <LocationFive />
                             </span>
                         </div>
                     </div>

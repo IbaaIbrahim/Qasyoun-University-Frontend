@@ -1,5 +1,5 @@
 'use client';
-import {RefreshSvg, SearchSvg } from "@/components/svg";
+import { RefreshSvg, SearchSvg } from "@/components/svg";
 import NiceSelect from "@/components/ui/nice-select";
 import usePagination from "@/hooks/use-pagination";
 import Pagination from "@/components/ui/pagination";
@@ -114,7 +114,7 @@ const analyticsCourseData = [
 export default function InstructorAnalyticsCourseArea() {
    const { currentItems, handlePageClick, pageCount } = usePagination(analyticsCourseData, 7);
    function handleCourseFilter(item: { value: string, label: string }) {
-      console.log(item);
+      // console.log(item);
    }
    return (
       <div className="tpd-course-area">
@@ -122,9 +122,9 @@ export default function InstructorAnalyticsCourseArea() {
             <div className="tpd-dashboard-search">
                <div className="tp-header-2-search">
                   <form action="#">
-                     <input type="text" placeholder="Search for Courses..."/>
+                     <input type="text" placeholder="Search for Courses..." />
                      <button className="tp-header-2-search-btn" type="submit">
-                        <SearchSvg/>
+                        <SearchSvg />
                      </button>
                   </form>
                </div>
