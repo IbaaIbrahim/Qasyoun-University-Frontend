@@ -8,6 +8,7 @@ export type StudentCategoryData = {
   section: string;
   table: Record<string, string>[];
   file: string;
+  currencyType?: string;
 };
 
 export type YearAdmissionData = {
@@ -87,9 +88,8 @@ export default function AdmissionRequirementsArea({ yearsData, locale }: Props) 
                       <li key={y.yearId} className="border-bottom last-child-0">
                         <button
                           onClick={() => setActiveYearId(y.yearId)}
-                          className={`w-100 text-start px-4 py-3 transition-all d-flex align-items-center justify-content-between gap-2 ${
-                            activeYearId === y.yearId ? "active-year-btn" : "inactive-year-btn"
-                          }`}
+                          className={`w-100 text-start px-4 py-3 transition-all d-flex align-items-center justify-content-between gap-2 ${activeYearId === y.yearId ? "active-year-btn" : "inactive-year-btn"
+                            }`}
                           style={{
                             border: "none",
                             backgroundColor: activeYearId === y.yearId ? "rgba(66, 2, 62, 0.05)" : "transparent",
@@ -153,9 +153,8 @@ export default function AdmissionRequirementsArea({ yearsData, locale }: Props) 
                       <button
                         key={sec.key}
                         onClick={() => setActiveSection(sec.key)}
-                        className={`btn-tab transition-all d-flex align-items-center justify-content-center gap-2 ${
-                          isActive ? "active" : ""
-                        }`}
+                        className={`btn-tab transition-all d-flex align-items-center justify-content-center gap-2 ${isActive ? "active" : ""
+                          }`}
                       >
                         <i className={`fa-solid ${iconClass} tab-icon`} />
                         <span>{tQpu(sec.translationKey as never)}</span>
@@ -176,6 +175,18 @@ export default function AdmissionRequirementsArea({ yearsData, locale }: Props) 
                     </div>
                   ) : (
                     <div>
+                      {/* Currency Type Display */}
+                      {/* {activeCategory?.currencyType && (
+                        <div className="mb-3 d-flex align-items-center gap-2">
+                          <span className="fw-semibold text-muted" style={{ fontSize: "0.95rem" }}>
+                            {tQpu("currencyType")}:
+                          </span>
+                          <span className="badge px-3 py-2" style={{ backgroundColor: "rgba(66, 2, 62, 0.08)", color: "#42023e", fontSize: "0.9rem", fontWeight: 600 }}>
+                            {activeCategory.currencyType}
+                          </span>
+                        </div>
+                      )} */}
+
                       {/* Render Requirements Table */}
                       {tableData.length > 0 && (
                         <div className="table-responsive mb-4">
@@ -204,6 +215,15 @@ export default function AdmissionRequirementsArea({ yearsData, locale }: Props) 
                                     color: "inherit",
                                   }}
                                 >
+                                  {tQpu("faculty")}
+                                </th>
+                                <th
+                                  scope="col"
+                                  style={{
+                                    backgroundColor: "inherit",
+                                    color: "inherit",
+                                  }}
+                                >
                                   {tQpu("certificateType")}
                                 </th>
                                 <th
@@ -222,7 +242,7 @@ export default function AdmissionRequirementsArea({ yearsData, locale }: Props) 
                                     color: "inherit",
                                   }}
                                 >
-                                  {tQpu("maxMarks")}
+                                  {tQpu("currencyType")}
                                 </th>
                               </tr>
                             </thead>
@@ -230,9 +250,10 @@ export default function AdmissionRequirementsArea({ yearsData, locale }: Props) 
                               {tableData.map((row, idx) => (
                                 <tr key={idx}>
                                   <td className="text-muted fw-bold">{idx + 1}</td>
+                                  <td>{row.faculty || "—"}</td>
                                   <td>{row.certificate_type || "—"}</td>
                                   <td>{row.min_marks || "—"}</td>
-                                  <td>{row.max_marks || "—"}</td>
+                                  <td>{activeCategory?.currencyType || "—"}</td>
                                 </tr>
                               ))}
                             </tbody>

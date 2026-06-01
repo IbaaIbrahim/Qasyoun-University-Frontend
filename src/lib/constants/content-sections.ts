@@ -196,7 +196,7 @@ const HomeType = {
       keys: {
         video: {
           name: "qpu.dynamicContent.video",
-          type: "text"
+          type: "video"
         }
       }
     }
@@ -446,20 +446,24 @@ const AdmissionRequirementsType = {
       value: "syrian_students_admission_requirements",
       maxContentItems: 1,
       keys: {
+        currency_type: {
+          name: "qpu.dynamicContent.currencyType",
+          type: "text"
+        },
         syrian_students_table: {
           name: "qpu.dynamicContent.table",
           type: "table",
           columns: {
+            faculty: {
+              name: "qpu.dynamicContent.faculty",
+              type: "text"
+            },
             certificate_type: {
               name: "qpu.dynamicContent.certificateType",
               type: "text"
             },
             min_marks: {
               name: "qpu.dynamicContent.minMarks",
-              type: "text"
-            },
-            max_marks: {
-              name: "qpu.dynamicContent.maxMarks",
               type: "text"
             }
           }
@@ -475,20 +479,24 @@ const AdmissionRequirementsType = {
       value: "syrian_students_foreign_certificates_admission_requirements",
       maxContentItems: 1,
       keys: {
+        currency_type: {
+          name: "qpu.dynamicContent.currencyType",
+          type: "text"
+        },
         syrian_students_foreign_certificates_table: {
           name: "qpu.dynamicContent.table",
           type: "table",
           columns: {
+            faculty: {
+              name: "qpu.dynamicContent.faculty",
+              type: "text"
+            },
             certificate_type: {
               name: "qpu.dynamicContent.certificateType",
               type: "text"
             },
             min_marks: {
               name: "qpu.dynamicContent.minMarks",
-              type: "text"
-            },
-            max_marks: {
-              name: "qpu.dynamicContent.maxMarks",
               type: "text"
             }
           }
@@ -504,20 +512,24 @@ const AdmissionRequirementsType = {
       value: "foreign_and_arab_students_admission_requirements",
       maxContentItems: 1,
       keys: {
+        currency_type: {
+          name: "qpu.dynamicContent.currencyType",
+          type: "text"
+        },
         foreign_and_arab_students_table: {
           name: "qpu.dynamicContent.table",
           type: "table",
           columns: {
+            faculty: {
+              name: "qpu.dynamicContent.faculty",
+              type: "text"
+            },
             certificate_type: {
               name: "qpu.dynamicContent.certificateType",
               type: "text"
             },
             min_marks: {
               name: "qpu.dynamicContent.minMarks",
-              type: "text"
-            },
-            max_marks: {
-              name: "qpu.dynamicContent.maxMarks",
               type: "text"
             }
           }
@@ -533,20 +545,24 @@ const AdmissionRequirementsType = {
       value: "similar_transfer_prioritization_admission_requirements",
       maxContentItems: 1,
       keys: {
+        currency_type: {
+          name: "qpu.dynamicContent.currencyType",
+          type: "text"
+        },
         similar_transfer_prioritization_table: {
           name: "qpu.dynamicContent.table",
           type: "table",
           columns: {
+            faculty: {
+              name: "qpu.dynamicContent.faculty",
+              type: "text"
+            },
             certificate_type: {
               name: "qpu.dynamicContent.certificateType",
               type: "text"
             },
             min_marks: {
               name: "qpu.dynamicContent.minMarks",
-              type: "text"
-            },
-            max_marks: {
-              name: "qpu.dynamicContent.maxMarks",
               type: "text"
             }
           }

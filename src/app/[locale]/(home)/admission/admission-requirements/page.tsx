@@ -72,6 +72,7 @@ export default async function AdmissionRequirementsPage({ params }: Props) {
         const contentJson = contentList.find((c) => c.section === secKey);
         let tableData: Record<string, string>[] = [];
         let fileUrl = "";
+        let currencyType = "";
 
         if (contentJson && contentJson.contentMetasJson) {
           const prefix = secKey.replace(/_admission_requirements$/, "");
@@ -90,12 +91,14 @@ export default async function AdmissionRequirementsPage({ params }: Props) {
           }
 
           fileUrl = contentJson.contentMetasJson[fileKey] || "";
+          currencyType = contentJson.contentMetasJson.currency_type || "";
         }
 
         categories[secKey] = {
           section: secKey,
           table: tableData,
           file: fileUrl,
+          currencyType,
         };
       });
 
