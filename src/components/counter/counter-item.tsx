@@ -4,17 +4,19 @@ import { useEffect, useRef, useState } from "react";
 type CounterProps = {
   min: number;
   max: number;
-  cls?:string
-}
+  cls?: string;
+  decimals?: number;
+};
 
-export default function CounterItem({ min, max,cls='purecounter'}: CounterProps) {
+export default function CounterItem({ min, max, cls = 'purecounter', decimals = 0 }: CounterProps) {
   const [counted, setCounted] = useState<number>(min);
   const targetElement = useRef<HTMLSpanElement>(null); // Add type annotation for useRef
 
   const startCountup = () => {
+    const step = (max - min) / 20;
     const intervalId = setInterval(() => {
       setCounted((pre) => {
-        const tempCount = pre + Math.ceil(max / 20);
+        const tempCount = pre + step;
         if (tempCount >= max) {
           clearInterval(intervalId);
           return max;
@@ -57,5 +59,9 @@ export default function CounterItem({ min, max,cls='purecounter'}: CounterProps)
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return <span ref={targetElement} className={cls}>{counted}</span>;
+  return (
+    <span ref={targetElement} className={cls}>
+      {decimals > 0 ? counted.toFixed(decimals) : Math.floor(counted)}
+    </span>
+  );
 }

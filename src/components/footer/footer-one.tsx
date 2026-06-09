@@ -1,18 +1,22 @@
 import Image from "next/image";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { Email } from "../svg";
 import FooterSocial from "./footer-social";
-import logo from "@/assets/img/logo/logo.png";
-import logo_black from "@/assets/img/logo/logo-black-2.png";
-import { footerLinks } from "@/data/footer-links";
+import logo from "@/assets/img/logo/logo-wide.png";
+import logo_black from "@/assets/img/logo/logo-wide.png";
+import { footerAboutLinks, footerQuickLinks } from "@/data/footer-links";
+import { getSocialMedia } from "@/lib/services/social-media.service";
 
 type IProps = {
   style_2?: boolean;
 };
 
 export default async function FooterOne({ style_2 = false }: IProps) {
+  const locale = await getLocale();
+  const socials = await getSocialMedia(locale);
   const t = await getTranslations("Footer");
+  const tNav = await getTranslations("Nav");
   const year = new Date().getFullYear();
 
   return (
@@ -37,21 +41,18 @@ export default async function FooterOne({ style_2 = false }: IProps) {
                   </Link>
                 </div>
                 <div className="tp-footer-widget-content">
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur <br /> adipisc ing
-                    elit.
-                  </p>
+                  <p>{t("description")}</p>
                 </div>
                 <div className="tp-footer-contact">
                   <span>{t("gotQuestions")}</span>
-                  <a href="tel:012345678">+670 413 90 762</a>
+                  <a href="tel:+963999999999">+963 999 999 999</a>
                 </div>
                 <div className="tp-footer-contact-mail">
-                  <a href="mailto:acadia@gmail.com">
+                  <a href="mailto:qpu@qpu.edu.sy">
                     <span>
                       <Email />
                     </span>
-                    acadia@gmail.com
+                    qpu@qpu.edu.sy
                   </a>
                 </div>
               </div>
@@ -63,9 +64,11 @@ export default async function FooterOne({ style_2 = false }: IProps) {
                 <h4 className="tp-footer-widget-title mb-20">{t("about")}</h4>
                 <div className="tp-footer-widget-link">
                   <ul>
-                    {footerLinks.link_one.map((link) => (
+                    {footerAboutLinks.map((link) => (
                       <li key={link.id}>
-                        <Link href={link.link}>{link.title}</Link>
+                        <Link href={link.link}>
+                          {tNav(link.titleKey as never)}
+                        </Link>
                       </li>
                     ))}
                   </ul>
@@ -81,9 +84,11 @@ export default async function FooterOne({ style_2 = false }: IProps) {
                 </h4>
                 <div className="tp-footer-widget-link">
                   <ul>
-                    {footerLinks.link_two.map((link) => (
+                    {footerQuickLinks.map((link) => (
                       <li key={link.id}>
-                        <Link href={link.link}>{link.title}</Link>
+                        <Link href={link.link}>
+                          {tNav(link.titleKey as never)}
+                        </Link>
                       </li>
                     ))}
                   </ul>
@@ -127,7 +132,7 @@ export default async function FooterOne({ style_2 = false }: IProps) {
                     </div>
                   </form>
                   <div className="tp-footer-newsletter-social">
-                    <FooterSocial />
+                    <FooterSocial socials={socials} />
                   </div>
                 </div>
               </div>

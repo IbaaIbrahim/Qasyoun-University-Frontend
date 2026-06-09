@@ -20,17 +20,17 @@ type Inputs = {
 
 export default function ApplicationForm() {
     const [date, setDate] = useState(new Date());
-    const {register,handleSubmit,formState: { errors },reset} = useForm<Inputs>();
+    const { register, handleSubmit, formState: { errors }, reset } = useForm<Inputs>();
 
     const onSubmit: SubmitHandler<Inputs> = (data) => {
-        console.log(data)
+        // console.log(data)
         reset();
     }
     function handleStatus(item: { value: string; label: string }) {
-        console.log(item);
+        // console.log(item);
     }
     function handleDegree(item: { value: string; label: string }) {
-        console.log(item);
+        // console.log(item);
     }
     return (
         <form id="contact-form" onSubmit={handleSubmit(onSubmit)}>
@@ -150,17 +150,17 @@ export default function ApplicationForm() {
                         <div className="tp-contact-input schedule p-relative">
                             <label>Select area of study</label>
                             <div className="tp-application-select">
-                                  <NiceSelect
-                                        cls="wide"
-                                        options={[
-                                            { value: "new", label: "New" },
-                                            { value: "old", label: "Old" },
-                                            { value: "new", label: "Newst" },
-                                        ]}
-                                        defaultCurrent={0}
-                                        onChange={(item) => handleStatus(item)}
-                                        name="Status"
-                                    />
+                                <NiceSelect
+                                    cls="wide"
+                                    options={[
+                                        { value: "new", label: "New" },
+                                        { value: "old", label: "Old" },
+                                        { value: "new", label: "Newst" },
+                                    ]}
+                                    defaultCurrent={0}
+                                    onChange={(item) => handleStatus(item)}
+                                    name="Status"
+                                />
                             </div>
                         </div>
                     </div>

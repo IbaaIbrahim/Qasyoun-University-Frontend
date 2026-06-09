@@ -1,0 +1,257 @@
+2026-05-25T15:52:54.219103Z ? ssrqpuuniversity2026: bV {
+  id: 173,
+  contentId: 94,
+  type: 'richtext',
+  keyName: 'description',
+  value: "<p>Qasioun University Graduate Continues to Excel: Ahmed Jamal Al-Zoubi Accepted into Master's Program in Laboratory Diagnostics at Damascus University<br><br>May 20, 2026<br><br>Qasioun University for Science and Technology congratulates its alumnus, Ahmed Jamal Al-Zoubi, a graduate of the Faculty of Pharmacy, on his acceptance into the Master's program in Laboratory Diagnostics at Damascus University. This acceptance follows a distinguished academic journey that reflects his diligence and scientific excellence.<br><br>The university takes pride in the academic and scientific achievements of its graduates and is proud of its students who continue their path of excellence and success in various medical and research fields, contributing to community service and raising scientific and professional standards.<br><br>We wish him continued success in his academic and professional career, and further brilliance and distinction in his postgraduate studies and future career.<br><br>Congratulations on this achievement, with best wishes for a future filled with success and contributions.</p>",
+  valueAr: '<div class="entry-meta media no-bg no-border mt-15" style="box-sizing: border-box; margin-top: 0px; overflow: hidden; zoom: 1; border-width: medium !important; border-style: none !important; border-color: currentcolor !important; border-image: initial !important; background-image: none !important; background-position: initial !important; background-size: initial !important; background-repeat: initial !important; background-attachment: initial !important; background-origin: initial !important; background-clip: initial !important; background-color: rgb(255, 255, 255); color: rgb(119, 119, 119); font-family: &quot;Droid Arabic Kufi Regular&quot;, &quot;Open Sans&quot;, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"><div class="media-body" style="box-sizing: border-box; overflow: hidden; zoom: 1; width: 10000px; display: table-cell; vertical-align: top;"><div class="event-content" style="box-sizing: border-box;"><h3 class="entry-title text-uppercase pt-0 mt-0" style="box-sizing: border-box; font-family: &quot;Droid Arabic Kufi Regular&quot;, &quot;Open Sans&quot;, sans-serif; font-weight: 700; line-height: 1.42857; color: rgb(17, 17, 17); margin-top: 0px !important; margin-bottom: 10px; font-size: 18px; text-transform: uppercase; padding: 15px 0px 0px;">خريج من جامعة قاسيون يواصل التميز.. أحمد جمال الزعبي يُقبل في ماجستير التشخيص المخبري بجامعة دمشق</h3></div></div></div><p style="box-sizing: border-box; margin: 0px 0px 10px; color: rgb(119, 119, 119); font-family: &quot;Droid Arabic Kufi Regular&quot;, &quot;Open Sans&quot;, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"><i class="fa fa-calendar" style="box-sizing: border-box; display: inline-block; font-style: normal; font-variant: normal; font-size-adjust: none; font-language-override: normal; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-weight: normal; font-stretch: normal; line-height: 1; font-family: FontAwesome; font-size: inherit; text-rendering: auto; -webkit-font-smoothing: antialiased;"></i><span>&nbsp;</span>May 20, 2026</p><p class="mb-15" style="box-sizing: border-box; margin-top: 0px; margin-right: 0px; margin-bottom: 15px !important; margin-left: 0px; color: rgb(119, 119, 119); font-family: &quot;Droid Arabic Kufi Regular&quot;, &quot;Open Sans&quot;, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"></p><p style="box-sizing: border-box; margin: 0px 0px 10px; color: rgb(119, 119, 119); font-family: &quot;Droid Arabic Kufi Regular&quot;, &quot;Open Sans&quot;, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;">تبارك جامعة قاسيون للعلوم والتكنولوجيا لابنها الطالب أحمد جمال الزعبي،خريج كلية الصيدلة في الجامعة، بمناسبة قبوله في اختصاص التشخيص المخبري ضمن برامج الدراسات العليا (الماجستير) في جامعة دمشق، بعد مسيرة أكاديمية متميزة عكست اجتهاده وتفوقه العلمي.<br style="box-sizing: border-box;"><br style="box-sizing: border-box;">وإذ تعتز الجامعة بما يحققه خريجوها من إنجازات أكاديمية وعلمية، فإنها تفخر بأبنائها الذين يواصلون طريق التميز والنجاح في مختلف المجالات الطبية والبحثية، ويسهمون في خدمة المجتمع والارتقاء بالمستوى العلمي والمهني.<br style="box-sizing: border-box;"><br style="box-sizing: border-box;">متمنين له دوام التوفيق والنجاح في مسيرته العلمية والعملية، ومزيداً من التألق والتميز في دراسته العليا ومستقبله المهني.<br style="box-sizing: border-box;"><br style="box-sizing: border-box;">ألف مبارك هذا الإنجاز، مع أطيب الأمنيات بمستقبل حافل بالنجاح والعطاء.</p>',
+  filemanager: { url: '' },
+  filemanagerAr: { url: '' },
+  displayOrder: 1,
+  isActive: true,
+  createdAt: '2026-05-20T17:02:29.4043024',
+  updatedAt: '2026-05-20T17:06:04.6273454'
+}
+
+2026-05-25T15:52:54.219130Z ? ssrqpuuniversity2026: bV {
+  id: 174,
+  contentId: 94,
+  type: 'date',
+  keyName: 'date',
+  value: '2026-05-20',
+  valueAr: '2026-05-20',
+  filemanager: { url: '' },
+  filemanagerAr: { url: '' },
+  displayOrder: 1,
+  isActive: true,
+  createdAt: '2026-05-20T17:02:29.6169234',
+  updatedAt: '2026-05-20T17:06:04.8276125'
+}
+
+2026-05-25T15:52:54.219218Z ? ssrqpuuniversity2026: bV {
+  id: 175,
+  contentId: 95,
+  type: 'text',
+  keyName: 'slug',
+  value: 'news-4',
+  valueAr: 'news-4',
+  filemanager: { url: '' },
+  filemanagerAr: { url: '' },
+  displayOrder: 1,
+  isActive: true,
+  createdAt: '2026-05-20T17:10:00.9465526',
+  updatedAt: '2026-05-20T17:13:56.5948649'
+}
+
+2026-05-25T15:52:54.219300Z ? ssrqpuuniversity2026: bV {
+  id: 176,
+  contentId: 95,
+  type: 'text',
+  keyName: 'text',
+  value: 'Announcement regarding tuition payments for the summer semester of 2025-2026',
+  valueAr: 'إعلان خاص بتسديد الأقساط للفصل الصيفي 2025-2026',
+  filemanager: { url: '' },
+  filemanagerAr: { url: '' },
+  displayOrder: 1,
+  isActive: true,
+  createdAt: '2026-05-20T17:10:01.0984016',
+  updatedAt: '2026-05-20T17:13:56.8139267'
+}
+
+2026-05-25T15:52:54.219740Z ? ssrqpuuniversity2026: bV {
+  id: 177,
+  contentId: 95,
+  type: 'richtext',
+  keyName: 'description',
+  value: "<p>Announcement<br>Regarding Tuition Payments<br>Summer Semester<br>2025-2026<br>Qasyoun Private University<br>Building the Future with Science and Knowledge<br>The Qasyoun Private University family wishes all its students continued success and excellence in their current second semester exams.<br><br>To ensure the smooth start of the summer semester, the university emphasizes the importance of promptly paying the outstanding tuition fees according to each student's financial statement, taking into account any previous outstanding balances, starting from the date of this announcement.<br><br>We would like to point out that students who pay early will be able to register for summer semester courses and choose sections and classes at times that suit them. The university has committed to offering as many courses as possible this semester to serve our students.<br><br>We urge students who have not yet paid their tuition fees to do so promptly before legal and administrative measures are taken against those who fail to pay, as stipulated in the applicable regulations. For inquiries and follow-up:<br><br>• Damascus Office – Al-Ghazali Street<br><br>• University Main Campus – Daraa Highway<br><br>Wishing you continued success.<br><br>Qasioun Private University Administration</p>",
+  valueAr: '<blockquote style="text-align: right; line-height: 1.4;"><strong><span style="font-family: Verdana, Geneva, sans-serif; font-size: 18px;"><sup><sub style="font-size: 18px;"><span style="color: rgb(119, 119, 119); font-family: &quot;Droid Arabic Kufi Regular&quot;, &quot;Open Sans&quot;, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;">إعلان</span><br style="box-sizing: border-box; color: rgb(119, 119, 119); font-family: &quot;Droid Arabic Kufi Regular&quot;, &quot;Open Sans&quot;, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; font-size: 14px;"><span style="color: rgb(119, 119, 119); font-family: &quot;Droid Arabic Kufi Regular&quot;, &quot;Open Sans&quot;, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;">خاص بتسديد الأقساط</span><br style="box-sizing: border-box; color: rgb(119, 119, 119); font-family: &quot;Droid Arabic Kufi Regular&quot;, &quot;Open Sans&quot;, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; font-size: 14px;"><span style="color: rgb(119, 119, 119); font-family: &quot;Droid Arabic Kufi Regular&quot;, &quot;Open Sans&quot;, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;">للفصل الصيفي</span><br style="box-sizing: border-box; color: rgb(119, 119, 119); font-family: &quot;Droid Arabic Kufi Regular&quot;, &quot;Open Sans&quot;, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; font-size: 14px;"><span style="color: rgb(119, 119, 119); font-family: &quot;Droid Arabic Kufi Regular&quot;, &quot;Open Sans&quot;, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;">2025-2026</span><br style="box-sizing: border-box; color: rgb(119, 119, 119); font-family: &quot;Droid Arabic Kufi Regular&quot;, &quot;Open Sans&quot;, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; font-size: 14px;"><span style="color: rgb(119, 119, 119); font-family: &quot;Droid Arabic Kufi Regular&quot;, &quot;Open Sans&quot;, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;">جامعة قاسيون الخاصة</span><br style="box-sizing: border-box; color: rgb(119, 119, 119); font-family: &quot;Droid Arabic Kufi Regular&quot;, &quot;Open Sans&quot;, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; font-size: 14px;"><span style="color: rgb(119, 119, 119); font-family: &quot;Droid Arabic Kufi Regular&quot;, &quot;Open Sans&quot;, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;">QASYOUN PRIVATE UNIVERSITY</span><br style="box-sizing: border-box; color: rgb(119, 119, 119); font-family: &quot;Droid Arabic Kufi Regular&quot;, &quot;Open Sans&quot;, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; font-size: 14px;"><span style="color: rgb(119, 119, 119); font-family: &quot;Droid Arabic Kufi Regular&quot;, &quot;Open Sans&quot;, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;">صناعة المستقبل بالعلم والمعرفة</span><br style="box-sizing: border-box; color: rgb(119, 119, 119); font-family: &quot;Droid Arabic Kufi Regular&quot;, &quot;Open Sans&quot;, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; font-size: 14px;"><span style="color: rgb(119, 119, 119); font-family: &quot;Droid Arabic Kufi Regular&quot;, &quot;Open Sans&quot;, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;">تتمنى أسرة جامعة قاسيون الخاصة لجميع طلابها دوام النجاح والتفوق في امتحانات الفصل الثاني الحالي.</span><br style="box-sizing: border-box; color: rgb(119, 119, 119); font-family: &quot;Droid Arabic Kufi Regular&quot;, &quot;Open Sans&quot;, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; font-size: 14px;"><span style="color: rgb(119, 119, 119); font-family: &quot;Droid Arabic Kufi Regular&quot;, &quot;Open Sans&quot;, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;">و'... 8772 more characters,
+  filemanager: { url: '' },
+  filemanagerAr: { url: '' },
+  displayOrder: 1,
+  isActive: true,
+  createdAt: '2026-05-20T17:10:01.6659458',
+  updatedAt: '2026-05-20T17:13:57.5303485'
+}
+
+2026-05-25T15:52:54.219748Z ? ssrqpuuniversity2026: bV {
+  id: 178,
+  contentId: 95,
+  type: 'date',
+  keyName: 'date',
+  value: '2026-05-20',
+  valueAr: '2026-05-20',
+  filemanager: { url: '' },
+  filemanagerAr: { url: '' },
+  displayOrder: 1,
+  isActive: true,
+  createdAt: '2026-05-20T17:10:02.0591802',
+  updatedAt: '2026-05-20T17:13:57.999562'
+}
+
+2026-05-25T15:52:54.219805Z ? ssrqpuuniversity2026: bV {
+  id: 179,
+  contentId: 96,
+  type: 'text',
+  keyName: 'slug',
+  value: 'news-5',
+  valueAr: 'news-5',
+  filemanager: { url: '' },
+  filemanagerAr: { url: '' },
+  displayOrder: 1,
+  isActive: true,
+  createdAt: '2026-05-20T17:17:29.3353236',
+  updatedAt: '2026-05-20T17:29:57.8795735'
+}
+
+2026-05-25T15:52:54.219903Z ? ssrqpuuniversity2026: bV {
+  id: 180,
+  contentId: 96,
+  type: 'image',
+  keyName: 'image',
+  value: '648a4fe1-94cf-4634-91c5-ea54e38de0c9',
+  valueAr: '648a4fe1-94cf-4634-91c5-ea54e38de0c9',
+  filemanager: {
+    id: '648a4fe1-94cf-4634-91c5-ea54e38de0c9',
+    name: 'news_593.jpg',
+    name_AR: 'news_593.jpg',
+    url: 'https://api.v2202503187605326384.powersrv.de/uploads/3f57e05b-2e11-4061-b2a4-24ad70e95f02.jpg',
+    thumbnail: 'https://api.v2202503187605326384.powersrv.de/uploads/3f57e05b-2e11-4061-b2a4-24ad70e95f02.jpg',
+    isFile: true,
+    fileType: 1
+  },
+  filemanagerAr: {
+    id: '648a4fe1-94cf-4634-91c5-ea54e38de0c9',
+    name: 'news_593.jpg',
+    name_AR: 'news_593.jpg',
+    url: 'https://api.v2202503187605326384.powersrv.de/uploads/3f57e05b-2e11-4061-b2a4-24ad70e95f02.jpg',
+    thumbnail: 'https://api.v2202503187605326384.powersrv.de/uploads/3f57e05b-2e11-4061-b2a4-24ad70e95f02.jpg',
+    isFile: true,
+    fileType: 1
+  },
+  displayOrder: 1,
+  isActive: true,
+  createdAt: '2026-05-20T17:17:29.4949843',
+  updatedAt: '2026-05-20T17:29:58.0714213'
+}
+
+2026-05-25T15:52:54.219991Z ? ssrqpuuniversity2026: bV {
+  id: 181,
+  contentId: 96,
+  type: 'text',
+  keyName: 'text',
+  value: 'Final practical exams for students of the Dental Prosthetics Institute at Qasioun University have begun amidst a distinguished academic atmosphere.',
+  valueAr: 'انطلاق امتحانات الفاينل العملي لطلاب معهد التعويضات السنية في جامعة قاسيون وسط أجواء أكاديمية مميزة',
+  filemanager: { url: '' },
+  filemanagerAr: { url: '' },
+  displayOrder: 1,
+  isActive: true,
+  createdAt: '2026-05-20T17:17:29.6393803',
+  updatedAt: '2026-05-20T17:29:58.2614942'
+}
+
+2026-05-25T15:52:54.220311Z ? ssrqpuuniversity2026: bV {
+  id: 182,
+  contentId: 96,
+  type: 'richtext',
+  keyName: 'description',
+  value: '<p>In a distinguished academic and organizational atmosphere, the final practical exams for students of the Dental Prosthetics Technical Institute at Qasyoun Private University for Science and Technology commenced, under the supervision of the teaching staff and specialized examination committees.<br><br>The exams showcased a number of practical and skill-based applications, reflecting the level of scientific qualification and practical training students acquire throughout their studies. This contributes to enhancing their professional readiness and enabling them to enter the job market with high competence.<br><br>The university administration affirmed its ongoing commitment to providing an advanced educational environment that combines theoretical and practical aspects, in line with academic and professional standards in the fields of medical and technological sciences.<br><br>Qasyoun Private University for Science and Technology wishes all its students continued success in their exams and future academic endeavors.</p>',
+  valueAr: '<h3 style="text-align: right;"><span style="font-size: 24px;"><strong><span style="color: rgb(119, 119, 119); font-family: &quot;Droid Arabic Kufi Regular&quot;, &quot;Open Sans&quot;, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;">ضمن أجواء أكاديمية وتنظيمية مميزة، انطلقت امتحانات الفاينل العملي لطلاب المعهد التقاني للتعويضات السنية في جامعة قاسيون الخاصة للعلوم والتكنولوجيا، وسط متابعة وإشراف من الكوادر التدريسية واللجان الامتحانية المختصة.</span><br style="box-sizing: border-box; color: rgb(119, 119, 119); font-family: &quot;Droid Arabic Kufi Regular&quot;, &quot;Open Sans&quot;, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; font-size: 14px;"><br style="box-sizing: border-box; color: rgb(119, 119, 119); font-family: &quot;Droid Arabic Kufi Regular&quot;, &quot;Open Sans&quot;, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; font-size: 14px;"><span style="color: rgb(119, 119, 119); font-family: &quot;Droid Arabic Kufi Regular&quot;, &quot;Open Sans&quot;, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;">وشهدت الامتحانات تقديم الطلاب لعدد من التطبيقات العملية والمهارية التي تعكس مستوى التأهيل العلمي والتدريب العملي الذي يكتسبه الطلبة خلال مسيرتهم الدراسية، بما يسهم في تعزيز جاهزيتهم المهنية ودخولهم سوق العمل بكفاءة عالية.</span><br style="box-sizing: border-box; color: rgb(119, 119, 119); font-family: &quot;Droid Arabic Kufi Regular&quot;, &quot;Open Sans&quot;, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; font-size: 14px;"><br style="box-sizing: border-box; color: rgb(119, 119, 119); font-family: &quot;Droid Arabic Kufi Regular&quot;, &quot;Open Sans&quot;, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; font-size: 14px;"><span style="color: rgb(119, 119, 119); font-family: &quot;Droid Arabic Kufi Regular&quot;, &quot;Open Sans&quot;, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;">وأكدت إدارة الجامعة حرصها المستمر على توفير بيئة تعليمية متطورة تجمع بين الجانب النظري والتطبيقي، بما يواكب المعايير الأكاديمية والمهنية في اختصاصات العلوم الطبية والتقانية.</span><br style="box-sizing: border-box; color: rgb(119, 119, 119); font-family: &quot;Droid Arabic Kufi Regular&quot;, &quot;Open Sans&quot;, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; font-size: 14px;"><br style="box-sizing: border-box; color: rgb(119, 119, 119); font-family: &quot;Droid Arabic Kufi Regular&quot;, &quot;Open Sans&quot;, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; font-size: 14px;"><span style="color: rgb(119, 119, 119); font-family: &quot;Droid Arabic Kufi Regular&quot;, &quot;Open Sans&quot;, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;">وتتمنى جامعة قاسيون الخاصة للعلوم والتكنولوجيا دوام النجاح والتوفيق لجميع طلابها في امتحاناتهم ومسيرتهم العلمية المقبلة.</span></strong></span></h3>',
+  filemanager: { url: '' },
+  filemanagerAr: { url: '' },
+  displayOrder: 1,
+  isActive: true,
+  createdAt: '2026-05-20T17:17:29.9324475',
+  updatedAt: '2026-05-20T17:29:58.8209432'
+}
+
+2026-05-25T15:52:54.220335Z ? ssrqpuuniversity2026: bV {
+  id: 183,
+  contentId: 96,
+  type: 'date',
+  keyName: 'date',
+  value: '2026-05-18',
+  valueAr: '2026-05-18',
+  filemanager: { url: '' },
+  filemanagerAr: { url: '' },
+  displayOrder: 1,
+  isActive: true,
+  createdAt: '2026-05-20T17:17:30.1317343',
+  updatedAt: '2026-05-20T17:29:59.0170447'
+}
+
+2026-05-25T15:52:54.220408Z ? ssrqpuuniversity2026: bV {
+  id: 184,
+  contentId: 97,
+  type: 'text',
+  keyName: 'slug',
+  value: 'news-6',
+  valueAr: 'news-6',
+  filemanager: { url: '' },
+  filemanagerAr: { url: '' },
+  displayOrder: 1,
+  isActive: true,
+  createdAt: '2026-05-20T17:32:19.7269108',
+  updatedAt: '2026-05-20T17:33:09.9998736'
+}
+
+2026-05-25T15:52:54.220511Z ? ssrqpuuniversity2026: bV {
+  id: 185,
+  contentId: 97,
+  type: 'image',
+  keyName: 'image',
+  value: 'fc9f9122-275c-42bb-9c36-59d917f8116c',
+  valueAr: 'fc9f9122-275c-42bb-9c36-59d917f8116c',
+  filemanager: {
+    id: 'fc9f9122-275c-42bb-9c36-59d917f8116c',
+    name: 'news_587.jpg',
+    name_AR: 'news_587.jpg',
+    url: 'https://api.v2202503187605326384.powersrv.de/uploads/af9e877b-4c4e-42e7-a734-5582e8cf76b8.jpg',
+    thumbnail: 'https://api.v2202503187605326384.powersrv.de/uploads/af9e877b-4c4e-42e7-a734-5582e8cf76b8.jpg',
+    isFile: true,
+    fileType: 1
+  },
+  filemanagerAr: {
+    id: 'fc9f9122-275c-42bb-9c36-59d917f8116c',
+    name: 'news_587.jpg',
+    name_AR: 'news_587.jpg',
+    url: 'https://api.v2202503187605326384.powersrv.de/uploads/af9e877b-4c4e-42e7-a734-5582e8cf76b8.jpg',
+    thumbnail: 'https://api.v2202503187605326384.powersrv.de/uploads/af9e877b-4c4e-42e7-a734-5582e8cf76b8.jpg',
+    isFile: true,
+    fileType: 1
+  },
+  displayOrder: 1,
+  isActive: true,
+  createdAt: '2026-05-20T17:32:20.0715298',
+  updatedAt: '2026-05-20T17:33:10.1354372'
+}
+
+2026-05-25T15:52:54.220589Z ? ssrqpuuniversity2026: bV {
+  id: 186,
+  contentId: 97,
+  type: 'text',
+  keyName: 'text',
+  value: 'The Minister of Culture makes another visit to the Qasioun Private University pavilion at the Damascus International Book Fair',
+  valueAr: 'زيارة جديدة لوزير الثقافة إلى جناح جامعة قاسيون الخاصة في معرض دمشق الدولي للكتاب',
+  filemanager: { url: '' },
+  filemanagerAr: { url: '' },
+  displayOrder: 1,
+  isActive: true,
+  createdAt: '2026-05-20T17:32:20.3278074',
+  updatedAt: '2026-05-20T17:33:10.2982145'
+}
+
+2026-05-25T15:52:54.221055Z ? ssrqpuuniversity2026: bV {
+  id: 187,
+  contentId: 97,
+  type: 'richtext',
+  keyName: 'description',
+  value: "<p>The pavilion of Qasioun Private University at the Damascus International Book Fair received another official visit from the Minister of Culture, Mr. Muhammad Yassin Al-Saleh, accompanied by his deputy and the Director of the Damascus International Book Fair, Mr. Saad Naasan, as part of their tour of the participating entities' pavilions.<br><br>During the visit, the Minister reviewed the most prominent academic and research publications offered by the university, in addition to the cultural and scientific activities through which it contributes to supporting the cultural movement and enhancing the role of scientific research in serving society. He also listened to a detailed explanation from the pavilion's staff about the academic programs offered by the university and its development plans aimed at keeping pace with scientific advancements and meeting the needs of the labor market.<br><br>The Minister of Culture emphasized the important role played by private universities in enriching the national cultural landscape with distinguished scientific and intellectual output. He praised Qasioun University's active participation in the fair and its commitment to providing high-quality academic content that contributes to promoting a culture of reading and research among young people.<br><br>The Qasioun Private University pavilion also received a visit from Dr. Wael Habib, Dean of the Faculty of Communications and Information Engineering, who reviewed the university's most prominent scientific and research contributions to the exhibition. Dr. Habib emphasized the importance of engineering faculties and technical disciplines participating in cultural events, given their role in bridging the gap between academia and the community, and in promoting the presence of applied sciences within the cultural landscape. He also commended the organizational efforts and the high-quality content, which reflects the university's advanced academic standing, noting the significance of such participation in showcasing student talent and encouraging their engagement in scientific and cultural activities.</p>",
+  valueAr: '<p style="box-sizing: border-box; margin: 0px 0px 10px; color: rgb(119, 119, 119); font-family: &quot;Droid Arabic Kufi Regular&quot;, &quot;Open Sans&quot;, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; orphans: 2; text-align: right; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; font-size: 14px;"><span style="font-size: 24px;"><strong>شهد جناح&nbsp; جامعة قاسيون الخاصة في معرض دمشق الدولي للكتاب زيارة رسمية جديدة لوزير الثقافة السيد محمد ياسين الصالح، برفقة نائبه ومدير معرض دمشق الدولي للكتاب الأستاذ سعد نعسان، ، وذلك في إطار جولاتهما التفقدية على أجنحة الجهات المشاركة في المعرض.</strong></span></p><p style="box-sizing: border-box; margin: 0px 0px 10px; color: rgb(119, 119, 119); font-family: &quot;Droid Arabic Kufi Regular&quot;, &quot;Open Sans&quot;, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; orphans: 2; text-align: right; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; font-size: 14px;"><span style="font-size: 24px;"><strong>واطّلع السيد الوزير خلال الزيارة على أبرز الإصدارات الأكاديمية والبحثية التي تقدمها الجامعة، إضافة إلى الأنشطة الثقافية والعلمية التي تسهم من خلالها في دعم الحراك الثقافي وتعزيز دور البحث العلمي في خدمة المجتمع. كما استمع إلى شرح مفصل من القائمين على الجناح حول البرامج الأكاديمية التي تطرحها الجامعة، وخططها التطويرية الرامية إلى مواكبة المستجدات العلمية وتلبية احتياجات سوق العمل.</strong></span></p><p style="box-sizing: border-box; margin: 0px 0px 10px; color: rgb(119, 119, 119); font-family: &quot;Droid Arabic Kufi Regular&quot;, &quot;Open Sans&quot;, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; orphans: 2; text-align: right; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; font-size: 14px;"><span style="font-size: 24px;"><strong>وأكد وزير الثقافة أهمية الدور الذي تضطلع به الجامعات الخاصة في رفد المشهد الثقافي الوطني بإنتاج علمي ومعرفي متميز، مشيداً بمستوى المشاركة الفاعلة لجامعة قاسيون في المعرض، وحرصها على تقديم محتوى أكاديمي نوعي يسهم في تعزيز ثقافة القراءة والبحث بين فئة الشباب.</strong></span></p><p style="box-sizing: border-box; margin: 0px 0px 10px; color: rgb(119, 119, 119); font-family: &quot;Droid Arabic Kufi Regular&quot;, &quot;Open Sans&quot;, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; orphans: 2; text-align: right; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; font-size: 14px;"><span style="font-size: 24px;"><strong>كما شهد جناح جامعة قاسيون الخاصة زيارة عميد كلية هندسة الاتصالات والمعلوماتية الدكتور وائل حبيب، الذي اطّلع على أبرز المشاركات العلمية والبحثية التي تقدمها الجامعة ضمن فعاليات المعرض. وأكد الدكتور حبيب أهمية مشاركة الكليات الهندسية والتخصصات التقنية في الفعاليات الثقافية، لما لها من دور في ربط الجانب الأكاديمي بالبيئة المجتمعية وتعزيز حضور العلوم التطبيقية في المشهد الثقافي. كما أثنى على الجهود التنظيمية والمحتوى المعرفي الذي يعكس المستوى الأكاديمي المتقدم للجامعة، مشيراً إلى أهمية هذه المشاركات في إبراز الطاقات الطلابية وتشجيعهم على الانخراط في الأنشطة العلمية والثقافية.</strong></span></p>',
+  filemanager: { url: '' },
+  filemanagerAr: { url: '' },
+  displayOrder: 1,
+  isActive: true,
+  createdAt: '2026-05-20T17:32:21.0817638',
+  updatedAt: '2026-05-20T17:33:10.7447068'
+}
+

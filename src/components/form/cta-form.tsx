@@ -11,9 +11,9 @@ type Inputs = {
   message: string;
 }
 export default function CtaForm() {
-  const { register, handleSubmit, formState: { errors },reset } = useForm<Inputs>()
+  const { register, handleSubmit, formState: { errors }, reset } = useForm<Inputs>()
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    console.log(data);
+    // console.log(data);
     reset();
   }
   return (

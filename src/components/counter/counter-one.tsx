@@ -1,12 +1,29 @@
-import React from "react";
+'use client';
+import { useTranslations } from "next-intl";
 import CounterItem from "./counter-item";
+import HomeStatistics from "@/lib/classes/home/statistics";
 
-const counterData = [
-  {id:1,count: 10, suffix: "k", duration: 1, title: "Students" },
-  {id:2,count: 300, suffix: "", duration: 1, title: "Professors" },
-  {id:3,count: 48, suffix: "k", duration: 1, title: "Programs" },
-  {id:4,count: 2, suffix: "k", duration: 1, title: "Research" },
-];
+
+const parseCount = (value?: string) => {
+  if (!value) return { count: 0, suffix: "", decimals: 0 };
+  const num = parseFloat(value.replace(/,/g, ""));
+  if (isNaN(num)) return { count: 0, suffix: "", decimals: 0 };
+
+  if (num > 999999) {
+    return {
+      count: num / 1000000,
+      suffix: "m",
+      decimals: 3,
+    };
+  } else if (num > 999) {
+    return {
+      count: num / 1000,
+      suffix: "k",
+      decimals: 3,
+    };
+  }
+  return { count: num, suffix: "", decimals: 0 };
+};
 
 /** Vector recreation of the counter strip: dark field + two soft organic shapes, all driven by `--tp-theme-primary`. */
 function CounterThemedBackdrop() {
@@ -41,7 +58,21 @@ function CounterThemedBackdrop() {
   );
 }
 
-export default function CounterOne() {
+export default function CounterOne({ data }: { data?: HomeStatistics }) {
+  const t = useTranslations("Counter");
+
+  const students = parseCount(data?.studentsCount);
+  const professors = parseCount(data?.professorsCount);
+  const programs = parseCount(data?.programsCount);
+  const research = parseCount(data?.researchsCount);
+
+  const counterItems = [
+    { id: 1, count: students.count, suffix: students.suffix, title: t("students"), decimals: students.decimals },
+    { id: 2, count: professors.count, suffix: professors.suffix, title: t("professors"), decimals: professors.decimals },
+    { id: 3, count: programs.count, suffix: programs.suffix, title: t("programs"), decimals: programs.decimals },
+    { id: 4, count: research.count, suffix: research.suffix, title: t("research"), decimals: research.decimals },
+  ];
+
   return (
     <section className="counter-area tp-counter-wrap mb-90">
       <div className="container">
@@ -52,16 +83,16 @@ export default function CounterOne() {
           <CounterThemedBackdrop />
           <div className="tp-counter-bg__content position-relative">
             <div className="row">
-              {counterData.map((item) => (
-              <div key={item.id} className="col-lg-3 col-md-6">
-                <div className="tp-counter-item text-center">
-                  <h3 className="tp-counter-count mb-10">
-                    <CounterItem min={0} max={item.count}/>
-                    {item.suffix}
-                  </h3>
-                  <p>{item.title}</p>
+              {counterItems.map((item) => (
+                <div key={item.id} className="col-lg-3 col-md-6">
+                  <div className="tp-counter-item text-center">
+                    <h3 className="tp-counter-count mb-10">
+                      <CounterItem min={0} max={item.count} decimals={item.decimals} />
+                      {item.suffix}
+                    </h3>
+                    <p>{item.title}</p>
+                  </div>
                 </div>
-              </div>
               ))}
             </div>
           </div>

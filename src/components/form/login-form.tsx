@@ -11,10 +11,10 @@ type Inputs = {
 }
 export default function LoginForm() {
   const [showPass, setShowPass] = useState(false);
-  const {register,handleSubmit,formState: { errors },reset} = useForm<Inputs>()
-      const onSubmit: SubmitHandler<Inputs> = (data) => {
-       console.log(data)
-       reset();
+  const { register, handleSubmit, formState: { errors }, reset } = useForm<Inputs>()
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    //  console.log(data)
+    reset();
   }
   return (
     <form className="tp-login-input-form" onSubmit={handleSubmit(onSubmit)}>

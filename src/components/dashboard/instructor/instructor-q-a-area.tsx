@@ -140,7 +140,7 @@ export default function InstructorQuestionAnswerArea() {
 
 
    function handleFilter(item: { value: string, label: string }) {
-      console.log(item);
+      // console.log(item);
    }
 
 
@@ -224,18 +224,18 @@ export default function InstructorQuestionAnswerArea() {
 
 
 type Props = {
-   item:{
+   item: {
       id: number;
       student: {
-          name: string;
-          date: string;
-          profileImg: string;
+         name: string;
+         date: string;
+         profileImg: string;
       };
       question: string;
       course: string;
       replies: number;
       status: string;
-  }
+   }
 }
 export function QuestionAnswerItem({ item }: Props) {
    const [openActionId, setOpenActionId] = useState<number | null>(null);

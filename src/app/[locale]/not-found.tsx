@@ -20,7 +20,7 @@ export default async function NotFound() {
 
   return (
     <>
-      <HeaderTwo inner={true} />
+      {/* <HeaderTwo inner={true} /> */}
       <main>
         <div className="tp-error-area pt-120 pb-120">
           <div className="container">
@@ -48,7 +48,7 @@ export default async function NotFound() {
           </div>
         </div>
       </main>
-      <FooterSeven />
+      {/* <FooterSeven /> */}
     </>
   );
 }

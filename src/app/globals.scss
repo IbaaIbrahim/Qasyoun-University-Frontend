@@ -156,21 +156,11 @@
     position: relative;
     // Remove overflow: hidden to allow language dropdown to be visible
 
-    // Glassmorphism effect for the whole bar
-    background: linear-gradient(135deg,
-        rgba(28, 43, 54, 0.95),
-        rgba(20, 30, 40, 0.98));
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: #ffffff;
+    border-bottom: 1.5px solid #42023e;
 
     &::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 20% 50%,
-          rgba(255, 215, 0, 0.05),
-          transparent 40%);
-      pointer-events: none;
+      display: none;
     }
   }
 
@@ -189,7 +179,7 @@
   }
 
   .tp-news-banner__lang {
-    border-inline-end: 1px solid rgba(255, 255, 255, 0.15);
+    border-inline-end: 1px solid rgba(66, 2, 62, 0.15);
     padding-inline-end: 1.25rem;
     margin-inline-end: 0.5rem;
     display: flex;
@@ -201,17 +191,17 @@
     .header-bottom__lang>ul>li>a {
       font-size: 0.85rem;
       font-weight: 600;
-      color: rgba(255, 255, 255, 0.85);
+      color: rgba(66, 2, 62, 0.85);
       transition: color 0.25s ease;
 
       &:hover {
-        color: #fff;
+        color: #42023e;
       }
     }
   }
 
   .tp-news-banner-empty {
-    color: rgba(255, 255, 255, 0.6);
+    color: #777777;
     font-style: italic;
   }
 
@@ -243,17 +233,16 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: #42023e;
+    border: 1px solid #42023e;
     border-radius: 50px;
-    padding: 0.25rem 0.85rem;
-    font-size: 0.7rem;
+    padding: 0.35rem 1rem;
+    font-size: 0.8rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     color: #fff;
     white-space: nowrap;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 
     .tp-news-banner-badge-dot {
       width: 6px;
@@ -293,8 +282,8 @@
     overflow: hidden;
     width: 36px;
     height: 36px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(66, 2, 62, 0.2);
+    box-shadow: 0 4px 12px rgba(66, 2, 62, 0.1);
 
     .tp-news-banner-thumb {
       width: 100%;
@@ -304,14 +293,14 @@
   }
 
   .tp-news-banner-title {
-    font-size: 0.9rem;
-    color: #fff;
+    font-size: 1.05rem;
+    color: #444444;
     letter-spacing: -0.01em;
   }
 
   .tp-news-banner-excerpt {
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.15rem;
+    color: #282828;
     font-weight: 400;
     max-width: 400px;
   }
@@ -320,14 +309,14 @@
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     font-weight: 700;
-    color: #ffd700;
+    color: #42023e;
     /* Action color */
     padding: 0.35rem 0.75rem;
     border-radius: 6px;
-    background: rgba(255, 215, 0, 0.05);
-    border: 1px solid rgba(255, 215, 0, 0.2);
+    background: rgba(66, 2, 62, 0.05);
+    border: 1px solid rgba(66, 2, 62, 0.2);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     svg {
@@ -335,10 +324,10 @@
     }
 
     &:hover {
-      background: rgba(255, 215, 0, 0.15);
-      border-color: rgba(255, 215, 0, 0.4);
+      background: #42023e;
+      border-color: #42023e;
       transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(255, 215, 0, 0.1);
+      box-shadow: 0 4px 12px rgba(66, 2, 62, 0.15);
       color: #fff;
 
       svg {
@@ -377,6 +366,140 @@
   }
 }
 
+.tp-our-mission-item-content p {
+  margin-bottom: 5px;
+}
+
+.tp-about-year-bg {
+  background: linear-gradient(#42023e, #65055f);
+}
+
+.tp-contact-form-status {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 0 20px;
+  padding: 12px 16px;
+  border: 1px solid rgba(66, 2, 62, 0.16);
+  border-radius: 10px;
+  background: rgba(66, 2, 62, 0.06);
+  color: #42023e;
+  font-weight: 600;
+}
+
+/* Main nav: hide dropdown chevron when only one submenu block */
+.main-menu nav ul li.has-dropdown.menu-no-dropdown-chevron>a::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Breadcrumb: separator on the inline-end edge so RTL keeps the bar beside the correct segment */
+.tp-breadcrumb__list span:not(:last-child) {
+  padding-right: unset;
+  margin-right: unset;
+  padding-inline-end: 12px;
+  margin-inline-end: 5px;
+
+  &::after {
+    right: unset !important;
+    inset-inline-end: 0 !important;
+  }
+}
+
+/* Contact cards: equal height */
+.tp-contact-info-area .tp-contact-info-cards {
+  align-items: stretch;
+}
+
+.tp-contact-info-area .tp-contact-info-item.tp-contact-info-item--stretch {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+
+  &:hover {
+    border-color: rgba(66, 2, 62, 0.22);
+    box-shadow:
+      0px 4px 18px rgba(48, 54, 81, 0.08),
+      0px 1px 4px 0px rgba(48, 54, 81, 0.06) inset;
+  }
+
+  p {
+    flex: 1 1 auto;
+    margin-bottom: 12px;
+  }
+
+  a {
+    margin-top: auto;
+    align-self: center;
+  }
+}
 
 @include meta.load-css('globals.override');
 @include meta.load-css('rtl');
+
+// Custom Breadcrumb List Styling for Laboratory Details
+.tp-breadcrumb__list--custom {
+  gap: 0 !important; // Controlled by padding/margin on spans
+
+  span {
+    display: inline-flex !important;
+    align-items: center !important;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+
+    // Hide existing template separators
+    &::after {
+      display: none !important;
+    }
+
+    // Add white vertical separator
+    &:not(:last-child) {
+      margin-inline-end: 12px;
+      padding-inline-end: 12px;
+      border-inline-end: 1px solid rgba(255, 255, 255, 0.4) !important;
+      line-height: 1;
+      height: 14px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      color: inherit;
+
+      svg {
+        transform: translateY(-1px); // Fine-tune icon position
+      }
+    }
+  }
+}
+
+table td {
+  border: 2px solid #d1cfcf !important;
+  vertical-align: middle !important;
+  text-align: center;
+}
+
+/* Main navbar style to prevent wrapping to two lines */
+.main-menu > nav > ul {
+  white-space: nowrap !important;
+}
+
+@media only screen and (min-width: 1200px) {
+  .main-menu > nav > ul > li {
+    margin: 0px 8px !important;
+  }
+}
+
+@media only screen and (min-width: 1300px) {
+  .main-menu > nav > ul > li {
+    margin: 0px 12px !important;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .main-menu > nav > ul > li {
+    margin: 0px 16px !important;
+  }
+}

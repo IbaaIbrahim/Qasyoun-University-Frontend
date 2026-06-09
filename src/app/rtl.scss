@@ -148,6 +148,17 @@
     display: inline-block;
   }
 
+  // Faculty teaser + program area “view all” link: arrow points toward inline-start (left in RTL)
+  .tp-program-all a span svg {
+    transform: scaleX(-1);
+    display: inline-block;
+  }
+
+  .tp-program-all a span {
+    margin-left: 0 !important;
+    margin-right: 4px !important;
+  }
+
   // Punctuation fix for mixed English/Arabic text
   .tp-hero-title,
   .tp-hero-subtitle,
@@ -201,7 +212,7 @@
     text-align: right;
   }
 
-  .tp-main-menu-content ul li.has-dropdown > a::after {
+  .tp-main-menu-content ul li.has-dropdown>a::after {
     margin-left: 0 !important;
     margin-right: 6px !important;
   }
@@ -215,22 +226,313 @@
     text-align: right !important;
     padding-left: 0 !important;
     padding-right: 30px !important;
-    
+
     &::before {
       left: auto !important;
       right: 15px !important;
     }
   }
 
-  .tp-submenu li:hover > a,
-  .tp-submenu li.active > a {
+  .tp-submenu li:hover>a,
+  .tp-submenu li.active>a {
     padding-left: 0 !important;
     padding-right: 35px !important;
   }
 
-  .tp-submenu li.has-dropdown > a::after {
+  .tp-submenu li.has-dropdown>a::after {
     right: auto !important;
     left: 25px !important;
     transform: translateY(-50%) rotate(90deg) !important;
+  }
+
+  // About section: mirror image overlap, decorative shapes, content offsets,
+  // experience badge, list icon spacing, and the lead paragraph's accent line.
+  .about-area {
+    .tp-about-thumb-2 {
+      margin-left: 0 !important;
+      margin-right: -82px !important;
+    }
+
+    .tp-about-shape-1 {
+      left: auto !important;
+      right: -55px !important;
+
+      @media only screen and (min-width: 768px) and (max-width: 991px) {
+        right: -30px !important;
+      }
+    }
+
+    .tp-about-shape-2 {
+      left: auto !important;
+      right: -33px !important;
+
+      @media only screen and (min-width: 768px) and (max-width: 991px) {
+        right: -25px !important;
+      }
+    }
+
+    .tp-about-exprience {
+      right: auto !important;
+      left: -40px !important;
+      padding: 7px 24px 20px 36px !important;
+
+      @media only screen and (min-width: 992px) and (max-width: 1199px) {
+        left: 0 !important;
+      }
+
+      @media only screen and (min-width: 768px) and (max-width: 991px),
+      only screen and (max-width: 767px) {
+        left: 0 !important;
+      }
+    }
+
+    .tp-about-exprience-text p {
+      margin-left: 0 !important;
+      margin-right: 6px !important;
+    }
+
+    .tp-about-wrapper {
+      margin-left: 0 !important;
+      margin-right: 43px !important;
+
+      @media only screen and (min-width: 768px) and (max-width: 991px),
+      only screen and (max-width: 767px) {
+        margin-right: 0 !important;
+      }
+
+      .tp-section p {
+        padding-left: 0 !important;
+        padding-right: 22px !important;
+
+        &::before {
+          left: auto !important;
+          right: 0 !important;
+        }
+      }
+    }
+
+    .tp-about-list {
+      margin-left: 0 !important;
+      margin-right: 46px !important;
+
+      @media only screen and (min-width: 992px) and (max-width: 1199px),
+      only screen and (min-width: 768px) and (max-width: 991px),
+      only screen and (max-width: 767px) {
+        margin-right: 0 !important;
+      }
+    }
+
+    .tp-about-list-icon {
+      margin-right: 0 !important;
+      margin-left: 20px !important;
+    }
+  }
+
+  // Labs (our-mission layout): theme uses padding-left / margin-right; mirror for RTL
+  .tp-our-mission-item-content {
+    padding-left: 0 !important;
+    padding-inline-start: 40px;
+
+    @media only screen and (max-width: 575.98px) {
+      padding-inline-start: 20px;
+    }
+  }
+
+  .tp-our-mission-item-thumb {
+    @media only screen and (min-width: 992px) {
+      margin-right: 0 !important;
+      margin-left: -60px !important;
+    }
+  }
+
+  // Faculty labs: mask SVG curves toward physical left in LTR — mirror in RTL
+  #labs .tp-our-mission-item-thumb>div {
+    transform: scaleX(-1);
+  }
+
+  .tp-our-mission-item-btn .tp-btn-3 i {
+    margin-left: 0 !important;
+    margin-right: 8px !important;
+  }
+
+  .tp-our-mission-item-btn .tp-btn-3 i svg {
+    transform: scaleX(-1);
+    display: inline-block;
+  }
+
+  // Testimonial section: mirror the white card offset, decorative shapes,
+  // navigation alignment, and arrow spacing for Arabic pages.
+  .testimonial-area {
+    .tp-testimonial-themebg-shape {
+      right: auto !important;
+      left: 0 !important;
+      transform: scaleX(-1);
+    }
+
+    .tp-testimonial-wrapper {
+      margin-left: -88px !important;
+      margin-right: -24px !important;
+      padding: 73px 58px 30px 88px !important;
+
+      @media only screen and (min-width: 1400px) and (max-width: 1599px) {
+        margin-left: 20px !important;
+        margin-right: -100px !important;
+      }
+
+      @media only screen and (min-width: 1200px) and (max-width: 1399px) {
+        margin-left: 0 !important;
+        margin-right: -150px !important;
+      }
+
+      @media only screen and (min-width: 992px) and (max-width: 1199px) {
+        margin-left: 0 !important;
+        margin-right: -80px !important;
+        padding: 50px 30px 20px 30px !important;
+      }
+
+      @media only screen and (min-width: 768px) and (max-width: 991px),
+      only screen and (max-width: 767px) {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+      }
+    }
+
+    .tp-testimonial-shape-1 {
+      right: auto !important;
+      left: 70px !important;
+
+      @media only screen and (max-width: 767px) {
+        left: 30px !important;
+      }
+    }
+
+    .tp-testimonial-shape-2 {
+      right: auto !important;
+      left: -60px !important;
+
+      @media only screen and (min-width: 992px) and (max-width: 1399px) {
+        left: -40px !important;
+      }
+
+      @media only screen and (min-width: 768px) and (max-width: 991px) {
+        left: -38px !important;
+      }
+    }
+
+    .tp-testimonial-shape-3 {
+      right: auto !important;
+      left: -190px !important;
+
+      @media only screen and (min-width: 1600px) and (max-width: 1799px) {
+        left: -165px !important;
+      }
+
+      @media only screen and (min-width: 1400px) and (max-width: 1599px) {
+        left: -80px !important;
+      }
+
+      @media only screen and (min-width: 992px) and (max-width: 1399px) {
+        left: -40px !important;
+      }
+
+      @media only screen and (min-width: 768px) and (max-width: 991px) {
+        left: -30px !important;
+      }
+    }
+
+    .tp-testimonial-arrow {
+      text-align: left !important;
+    }
+
+    .tp-testimonial-next {
+      margin-left: 0 !important;
+      margin-right: 4px !important;
+    }
+  }
+
+  .testimonial-area.tp-testimonial-bg {
+    background-position: right !important;
+  }
+
+  // Footer: mirror the newsletter input/button and inline contact/icon spacing.
+  .tp-footer-main {
+    text-align: right;
+
+    .tp-footer-contact-mail a span {
+      margin-right: 0 !important;
+      margin-left: 3px !important;
+    }
+
+    .tp-footer-newsletter-input input {
+      padding: 0 24px 0 130px !important;
+    }
+
+    .tp-footer-newsletter-submit {
+      right: auto !important;
+      left: 8px !important;
+    }
+
+    .tp-footer-newsletter-social a:not(:last-of-type) {
+      margin-right: 0 !important;
+      margin-left: 3px !important;
+    }
+
+    .tp-footer-col-3 {
+      @media only screen and (min-width: 992px) and (max-width: 1199px) {
+        margin-left: 0 !important;
+        margin-right: -30px !important;
+      }
+    }
+
+    .tp-footer-col-4 {
+      margin-left: 0 !important;
+      margin-right: 28px !important;
+
+      @media only screen and (min-width: 992px) and (max-width: 1199px),
+      only screen and (min-width: 768px) and (max-width: 991px),
+      only screen and (min-width: 576px) and (max-width: 767px),
+      only screen and (max-width: 767px) {
+        margin-right: 0 !important;
+      }
+    }
+  }
+
+  // Contact page: mirror decorative elements and checkbox affordances.
+  .tp-contact-area,
+  .tp-contact-info-area {
+    text-align: right;
+  }
+
+  .tp-contact-shape {
+    left: auto !important;
+    right: 0 !important;
+    transform: scaleX(-1);
+  }
+
+  .tp-contact-shape-2 {
+    right: auto !important;
+    left: 410px !important;
+  }
+
+  .tp-contact-input-form .tp-contact-input .icon {
+    right: auto !important;
+    left: 18px !important;
+  }
+
+  .tp-contact-input-remeber label {
+    padding-left: 0 !important;
+    padding-right: 26px !important;
+
+    &::after,
+    &::before {
+      left: auto !important;
+      right: 0 !important;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .text-md-end {
+      text-align: left !important;
+    }
   }
 }

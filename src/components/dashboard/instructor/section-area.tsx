@@ -7,13 +7,13 @@ import { CalenderThreeSvg } from "@/components/svg";
 type IProps = {
     title?: string;
 }
-export default function SectionArea({title='Quiz Attempts'}: IProps) {
+export default function SectionArea({ title = 'Quiz Attempts' }: IProps) {
     const [date, setDate] = useState(new Date());
     function handleCourseFilter(item: { value: string, label: string }) {
-        console.log(item);
+        // console.log(item);
     }
     function handleCourseSorting(item: { value: string, label: string }) {
-        console.log(item);
+        // console.log(item);
     }
     return (
         <div className="section-area">

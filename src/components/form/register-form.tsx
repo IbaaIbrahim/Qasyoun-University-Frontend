@@ -16,9 +16,9 @@ type Inputs = {
 export default function RegisterForm() {
   const [showPass, setShowPass] = useState(false);
   const [showConformPass, setShowConformPass] = useState(false);
-  const { register, handleSubmit, formState: { errors }, watch,reset } = useForm<Inputs>()
+  const { register, handleSubmit, formState: { errors }, watch, reset } = useForm<Inputs>()
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    console.log(data);
+    // console.log(data);
     reset();
   }
   return (
@@ -71,7 +71,7 @@ export default function RegisterForm() {
             <div className="row">
               <div className="col-12">
                 <div className="tp-contact-input-remeber login">
-                  <input id="remember" type="checkbox" {...register("remember",{ required: false})} />
+                  <input id="remember" type="checkbox" {...register("remember", { required: false })} />
                   <label htmlFor="remember">Save account</label>
                 </div>
               </div>

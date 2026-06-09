@@ -1,48 +1,53 @@
+import { getTranslations } from "next-intl/server";
 import { EmailThree, LocationFour, TelSvgTwo } from "../svg";
 
-const contactInfoData = [
+const CONTACT_INFO_ITEMS = [
     {
         icon: <EmailThree />,
-        title: 'Feedbacks',
-        description: 'Speak to our Friendly team.',
-        linkText: 'Support@gmail.com',
-        href: 'mailto:Support@gmail.com'
+        titleKey: "emailTitle",
+        descriptionKey: "emailDescription",
+        linkText: "qpu@qpu.edu.sy",
+        href: "mailto:qpu@qpu.edu.sy"
     },
     {
         icon: <TelSvgTwo />,
-        title: 'Call Us',
-        description: 'Mon-Fri from 8am to 5pm',
-        linkText: '+1(555) 000-0000',
-        href: 'tel:+15550000000'
+        titleKey: "phoneTitle",
+        descriptionKey: "phoneDescription",
+        linkText: "+963 999 999 999",
+        href: "tel:+963999999999"
     },
     {
         icon: <LocationFour />,
-        title: 'Visit Us',
-        description: 'Visit our office HQ.',
-        linkText: '77 Robinson Road #33-01',
-        href: '#'
+        titleKey: "locationTitle",
+        descriptionKey: "locationDescription",
+        linkTextKey: "locationText",
+        href: "https://maps.google.com/?q=Damascus%20Mezzeh%20Eastern%20Villas"
     }
 ];
 
-export default function ContactInfoArea() {
+export default async function ContactInfoArea() {
+    const t = await getTranslations("Contact");
+
     return (
         <section className="tp-contact-info-area tp-contact-p pb-90">
             <div className="container">
                 <div className="row justify-content-center">
                     <div className="col-lg-10">
                         <div className="tp-contact-info-wrapper text-center">
-                            <h3 className="tp-contact-main-title">Let us know how we can help</h3>
+                            <h3 className="tp-contact-main-title mt-4">{t("infoTitle")}</h3>
                         </div>
-                        <div className="row">
-                            {contactInfoData.map((item, index) => (
-                                <div key={index} className="col-lg-4 col-md-6">
-                                    <div className="tp-contact-info-item mb-30">
+                        <div className="row g-4 justify-content-center tp-contact-info-cards">
+                            {CONTACT_INFO_ITEMS.map((item, index) => (
+                                <div key={index} className="col-lg-4 col-md-6 d-flex tp-contact-info-col">
+                                    <div className="tp-contact-info-item tp-contact-info-item--stretch mb-0 w-100">
                                         <div className="tp-contact-info-icon">
                                             <span>{item.icon}</span>
                                         </div>
-                                        <h4 className="tp-contact-info-title">{item.title}</h4>
-                                        <p>{item.description}</p>
-                                        <a href={item.href}>{item.linkText}</a>
+                                        <h4 className="tp-contact-info-title">{t(item.titleKey as never)}</h4>
+                                        <p>{t(item.descriptionKey as never)}</p>
+                                        <a href={item.href}>
+                                            {"linkTextKey" in item ? t(item.linkTextKey as never) : item.linkText}
+                                        </a>
                                     </div>
                                 </div>
                             ))}

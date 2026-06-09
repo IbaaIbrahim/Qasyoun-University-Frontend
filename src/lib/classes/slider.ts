@@ -1,4 +1,5 @@
-import { Content, ContentJson, ContentMetaJson } from "./content";
+import { ContentJson } from "./content";
+import { resolveUploadSrc } from "../api/client";
 
 export default class Slider {
   id?: string;
@@ -8,10 +9,11 @@ export default class Slider {
   btnText?: string;
   btnLink?: string;
 
-  static fromContentMetaJson(contentJson: ContentJson): Slider {
+  static fromContentJson(contentJson: ContentJson): Slider {
+    const rawImg = contentJson.contentMetasJson?.src || contentJson.contentMetasJson?.image || "";
     return {
       id: `${contentJson.id}`,
-      bgImg: contentJson.contentMetasJson?.src ?? "",
+      bgImg: resolveUploadSrc(rawImg, ""),
       title: contentJson.contentMetasJson?.title ?? "",
       subTitle: contentJson.contentMetasJson?.subTitle ?? "",
       btnText: contentJson.contentMetasJson?.btnText ?? "",

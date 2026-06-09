@@ -6,9 +6,13 @@ import { RightSmArrowThree } from "@/components/svg";
 import { listFacultiesForPublic } from "@/lib/services/faculty.service";
 import FacultySlider from "./faculty-slider";
 
+const FACULTY_TEASER_LIMIT = 3;
+
 export default async function FacultyArea() {
   const faculties = await listFacultiesForPublic();
   const t = await getTranslations("FacultyArea");
+  // const teaserFaculties = faculties.slice(0, FACULTY_TEASER_LIMIT);
+  const teaserFaculties = faculties;
 
   return (
     <section className="program-area mb-75">
@@ -39,7 +43,7 @@ export default async function FacultyArea() {
         <div className="row">
           <div className="col-lg-12">
             <FacultySlider
-              faculties={faculties.map((f) => f.toPlain())}
+              faculties={teaserFaculties.map((f) => f.toPlain())}
             />
           </div>
           <div className="col-12">
@@ -48,15 +52,6 @@ export default async function FacultyArea() {
           <div className="col-12">
             <div className="tp-program-all text-center">
               <p>
-                {t("moreIntro")}{" "}
-                <a
-                  href="https://qpu.edu.sy/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  qpu.edu.sy
-                </a>
-                .
                 <Link href="/faculties">
                   {t("viewAll")}{" "}
                   <span>

@@ -42,3 +42,4 @@ export async function getFacultyById(id: number) {
     return null;
   }
 }
+

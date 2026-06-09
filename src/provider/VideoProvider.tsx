@@ -4,7 +4,7 @@ import { createContext, useContext, useState, ReactNode, useCallback } from "rea
 interface VideoContextType {
   isVideoOpen: boolean;
   videoUrl: string;
-  playVideo: (videoId: string, platform?: "youtube" | "vimeo") => void;
+  playVideo: (videoIdOrUrl: string, platform?: "youtube" | "vimeo") => void;
   closeVideo: () => void;
 }
 
@@ -19,8 +19,29 @@ export const VideoProvider = ({ children }: { children: ReactNode }) => {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
   const [videoUrl, setVideoUrl] = useState("");
 
-  const playVideo = useCallback((videoId: string, platform: "youtube" | "vimeo" = "youtube") => {
-    const url = platform === "youtube"
+  const playVideo = useCallback((videoIdOrUrl: string, platform: "youtube" | "vimeo" = "youtube") => {
+    let resolvedPlatform = platform;
+    let videoId = videoIdOrUrl;
+
+    if (videoIdOrUrl.includes("vimeo.com") || videoIdOrUrl.includes("player.vimeo.com")) {
+      resolvedPlatform = "vimeo";
+    } else if (videoIdOrUrl.includes("youtube.com") || videoIdOrUrl.includes("youtu.be")) {
+      resolvedPlatform = "youtube";
+    }
+
+    if (resolvedPlatform === "youtube") {
+      const match = videoIdOrUrl.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|shorts\/|watch\?v=|watch\?.+&v=))([^?&\s]+)/);
+      if (match && match[1]) {
+        videoId = match[1];
+      }
+    } else if (resolvedPlatform === "vimeo") {
+      const match = videoIdOrUrl.match(/(?:vimeo\.com\/|player\.vimeo\.com\/video\/)([^?&\s]+)/);
+      if (match && match[1]) {
+        videoId = match[1];
+      }
+    }
+
+    const url = resolvedPlatform === "youtube"
       ? `https://www.youtube.com/embed/${videoId}?autoplay=1`
       : `https://player.vimeo.com/video/${videoId}?autoplay=1`;
     setVideoUrl(url);

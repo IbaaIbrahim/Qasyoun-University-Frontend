@@ -55,7 +55,7 @@ export default function HeaderTwo({ inner = false, transparent }: IProps) {
                   <ProfileDropdown/>
                   {/* profile dropdown */}
                   <div className="offcanvas-btn d-xxl-none ml-30">
-                    <OffcanvasButton offcanvas_cls="offcanvas__2" offcanvas_menu_2={true}/>
+                    <OffcanvasButton offcanvas_cls="offcanvas__2" />
                   </div>
                 </div>
               </div>

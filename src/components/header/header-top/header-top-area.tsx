@@ -19,8 +19,9 @@ export default async function HeaderTopArea({ newsItems }: { newsItems: News[] }
     <div
       className="tp-header-top tp-news-banner d-flex align-items-center"
       style={{
-        background: `linear-gradient(135deg, #42023e 0%, #65055f 50%, #42023e 100%)`,
-        boxShadow: "0 2px 10px rgba(66, 2, 62, 0.2)",
+        background: "#ffffff",
+        borderBottom: "1.5px solid #42023e",
+        boxShadow: "0 2px 10px rgba(0, 0, 0, 0.05)",
         position: "relative"
       }}
     >

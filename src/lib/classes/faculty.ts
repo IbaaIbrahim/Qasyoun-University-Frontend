@@ -1,10 +1,22 @@
+export type FacultyFileDto = {
+  id: string;
+  name: string;
+  name_AR: string | null;
+  url: string;
+  thumbnail: string;
+  isFile: boolean;
+  fileType: number;
+};
+
 export type FacultyDto = {
   id: number | string;
   slug: string;
   name: string;
   name_AR: string | null;
   pictureId: string | null;
+  picture: FacultyFileDto | null;
   logoId: string | null;
+  logo: FacultyFileDto | null;
   slider: boolean;
   isPublished: boolean;
   primaryColor: string | null;
@@ -22,7 +34,9 @@ export class Faculty {
     public readonly name: string,
     public readonly nameAr: string | null,
     public readonly pictureId: string | null,
+    public readonly pictureUrl: string | null,
     public readonly logoId: string | null,
+    public readonly logoUrl: string | null,
     public readonly slider: boolean,
     public readonly isPublished: boolean,
     public readonly primaryColor: string | null,
@@ -38,9 +52,11 @@ export class Faculty {
       Number(dto.id),
       dto.slug ?? "",
       dto.name ?? "",
-      dto.name_AR ?? null, // Map from DTO name_AR
+      dto.name_AR ?? null,
       dto.pictureId ?? null,
+      dto.picture?.url ?? null,
       dto.logoId ?? null,
+      dto.logo?.url ?? null,
       Boolean(dto.slider),
       Boolean(dto.isPublished),
       dto.primaryColor ?? null,
@@ -61,9 +77,31 @@ export class Faculty {
       id: this.id,
       slug: this.slug,
       name: this.name,
-      name_AR: this.nameAr, // Map to DTO name_AR
+      name_AR: this.nameAr,
       pictureId: this.pictureId,
+      picture: this.pictureUrl
+        ? {
+            id: this.pictureId ?? "",
+            name: "",
+            name_AR: null,
+            url: this.pictureUrl,
+            thumbnail: this.pictureUrl,
+            isFile: true,
+            fileType: 1,
+          }
+        : null,
       logoId: this.logoId,
+      logo: this.logoUrl
+        ? {
+            id: this.logoId ?? "",
+            name: "",
+            name_AR: null,
+            url: this.logoUrl,
+            thumbnail: this.logoUrl,
+            isFile: true,
+            fileType: 1,
+          }
+        : null,
       slider: this.slider,
       isPublished: this.isPublished,
       primaryColor: this.primaryColor,
