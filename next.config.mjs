@@ -9,7 +9,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'api.v2202503187605326384.powersrv.de',
+        hostname: 'api.qpu.buzz',
         pathname: '/uploads/**',
       },
     ],
