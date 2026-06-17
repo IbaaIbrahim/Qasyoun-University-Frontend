@@ -3,6 +3,24 @@
 @forward '../../public/assets/scss/main.scss';
 @use 'sass:meta';
 
+@font-face {
+  font-family: 'Droid Arabic Kufi';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/assets/fonts/DroidKufi-Regular.woff2') format('woff2'),
+       url('/assets/fonts/DroidKufi-Regular.woff') format('woff'),
+       url('/assets/fonts/DroidKufi-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Droid Arabic Kufi';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/assets/fonts/DroidKufi-Bold.woff2') format('woff2'),
+       url('/assets/fonts/DroidKufi-Bold.woff') format('woff'),
+       url('/assets/fonts/DroidKufi-Bold.ttf') format('truetype');
+}
+
 // Video modal style 
 .video-modal-overlay {
   position: fixed;

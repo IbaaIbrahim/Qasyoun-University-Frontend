@@ -1,7 +1,14 @@
 /* RTL UI Fixes */
 [dir="rtl"] {
-  body {
-    font-family: var(--tp-ff-arabic), var(--tp-ff-body), sans-serif;
+  body,
+  h1, h2, h3, h4, h5, h6,
+  p, a, span, button, input, select, textarea,
+  .tp-hero-title,
+  .tp-section-title,
+  .tp-course-title,
+  .tp-blog-title,
+  .offcanvas-title {
+    font-family: 'Droid Arabic Kufi', var(--tp-ff-body), sans-serif !important;
   }
 
   // Mobile menu dropdown toggle button position fix (move to left)
