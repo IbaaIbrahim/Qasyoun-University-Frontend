@@ -12,7 +12,7 @@
 1. **`GET /api/Content/Read`** — `filters=referenceType~eq~home,type~eq~hero-slider` (plus `page` / `pageSize`). Collect ordered content **`id`** values.
 2. **`GET /api/ContentMeta/Read`** — **singular** param **`filter`** (not `filters`), e.g.  
    `filter=(contentId~eq~'{id1}'~or~contentId~eq~'{id2}'~or~...)`  
-   Single-id example: [ContentMeta Read](https://api.v2202503187605326384.powersrv.de/api/ContentMeta/Read?filter=contentId~eq~'2'&page=1&pageSize=100).
+   Single-id example: [ContentMeta Read](https://api.qpu.buzz/api/ContentMeta/Read?filter=contentId~eq~'2'&page=1&pageSize=100).
 
 ## Files
 

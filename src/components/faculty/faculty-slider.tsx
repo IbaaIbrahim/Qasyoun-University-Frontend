@@ -63,7 +63,7 @@ export default function FacultySlider({ faculties }: Props) {
             <div className="tp-program-thumb fix">
               <Link href={href}>
                 <Image
-                  src={item.picture?.url ? (item.picture.url.toLowerCase().startsWith("http") ? item.picture.url : `https://api.v2202503187605326384.powersrv.de${item.picture.url}`) : "/assets/img/program/program-thumb-1.jpg"}
+                  src={item.picture?.url ? (item.picture.url.toLowerCase().startsWith("http") ? item.picture.url : `${process.env.NEXT_PUBLIC_API_BASE_URL}${item.picture.url}`) : "/assets/img/program/program-thumb-1.jpg"}
                   alt={name}
                   width={350}
                   height={198}

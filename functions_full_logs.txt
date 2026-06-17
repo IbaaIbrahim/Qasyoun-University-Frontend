@@ -114,8 +114,8 @@
     id: '648a4fe1-94cf-4634-91c5-ea54e38de0c9',
     name: 'news_593.jpg',
     name_AR: 'news_593.jpg',
-    url: 'https://api.v2202503187605326384.powersrv.de/uploads/3f57e05b-2e11-4061-b2a4-24ad70e95f02.jpg',
-    thumbnail: 'https://api.v2202503187605326384.powersrv.de/uploads/3f57e05b-2e11-4061-b2a4-24ad70e95f02.jpg',
+    url: 'https://api.qpu.buzz/uploads/3f57e05b-2e11-4061-b2a4-24ad70e95f02.jpg',
+    thumbnail: 'https://api.qpu.buzz/uploads/3f57e05b-2e11-4061-b2a4-24ad70e95f02.jpg',
     isFile: true,
     fileType: 1
   },
@@ -123,8 +123,8 @@
     id: '648a4fe1-94cf-4634-91c5-ea54e38de0c9',
     name: 'news_593.jpg',
     name_AR: 'news_593.jpg',
-    url: 'https://api.v2202503187605326384.powersrv.de/uploads/3f57e05b-2e11-4061-b2a4-24ad70e95f02.jpg',
-    thumbnail: 'https://api.v2202503187605326384.powersrv.de/uploads/3f57e05b-2e11-4061-b2a4-24ad70e95f02.jpg',
+    url: 'https://api.qpu.buzz/uploads/3f57e05b-2e11-4061-b2a4-24ad70e95f02.jpg',
+    thumbnail: 'https://api.qpu.buzz/uploads/3f57e05b-2e11-4061-b2a4-24ad70e95f02.jpg',
     isFile: true,
     fileType: 1
   },
@@ -205,8 +205,8 @@
     id: 'fc9f9122-275c-42bb-9c36-59d917f8116c',
     name: 'news_587.jpg',
     name_AR: 'news_587.jpg',
-    url: 'https://api.v2202503187605326384.powersrv.de/uploads/af9e877b-4c4e-42e7-a734-5582e8cf76b8.jpg',
-    thumbnail: 'https://api.v2202503187605326384.powersrv.de/uploads/af9e877b-4c4e-42e7-a734-5582e8cf76b8.jpg',
+    url: 'https://api.qpu.buzz/uploads/af9e877b-4c4e-42e7-a734-5582e8cf76b8.jpg',
+    thumbnail: 'https://api.qpu.buzz/uploads/af9e877b-4c4e-42e7-a734-5582e8cf76b8.jpg',
     isFile: true,
     fileType: 1
   },
@@ -214,8 +214,8 @@
     id: 'fc9f9122-275c-42bb-9c36-59d917f8116c',
     name: 'news_587.jpg',
     name_AR: 'news_587.jpg',
-    url: 'https://api.v2202503187605326384.powersrv.de/uploads/af9e877b-4c4e-42e7-a734-5582e8cf76b8.jpg',
-    thumbnail: 'https://api.v2202503187605326384.powersrv.de/uploads/af9e877b-4c4e-42e7-a734-5582e8cf76b8.jpg',
+    url: 'https://api.qpu.buzz/uploads/af9e877b-4c4e-42e7-a734-5582e8cf76b8.jpg',
+    thumbnail: 'https://api.qpu.buzz/uploads/af9e877b-4c4e-42e7-a734-5582e8cf76b8.jpg',
     isFile: true,
     fileType: 1
   },

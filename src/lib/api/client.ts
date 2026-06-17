@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const API_BASE_URL =
   process.env.NEXT_PUBLIC_API_BASE_URL?.replace(/\/$/, "") ??
-  "https://api.v2202503187605326384.powersrv.de";
+  "https://api.qpu.buzz";
 
 /** Absolute URL for API-hosted uploads (paths like `/uploads/...`). */
 export function resolveUploadSrc(
