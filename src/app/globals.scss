@@ -223,16 +223,53 @@
     font-style: italic;
   }
 
-  .tp-news-banner-swiper-outer {
+  .tp-news-marquee-container {
     width: 100%;
-    overflow: hidden; // Move overflow: hidden here
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
 
-    .swiper-wrapper {
-      transition-timing-function: linear !important;
+  .tp-news-marquee-track {
+    display: flex;
+    width: max-content;
+    animation-name: marquee-ltr;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    &:hover {
+      animation-play-state: paused !important;
     }
+  }
 
-    .swiper-slide {
-      width: auto !important;
+  .tp-news-marquee-content {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .tp-news-marquee-container.rtl {
+    .tp-news-marquee-track {
+      animation-name: marquee-rtl;
+    }
+  }
+
+  @keyframes marquee-ltr {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+
+  @keyframes marquee-rtl {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      transform: translate3d(50%, 0, 0);
     }
   }
 
@@ -354,14 +391,7 @@
     }
   }
 
-  // RTL mirroring logic
-  .tp-news-banner-swiper-outer--motion-rtl {
-    transform: scaleX(-1);
-
-    .tp-news-banner-slide__inner {
-      transform: scaleX(-1);
-    }
-  }
+  // Removed RTL scale-mirroring as marquee-rtl animation handles RTL naturally
 }
 
 

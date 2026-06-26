@@ -1,7 +1,6 @@
 "use client";
 
-import { Autoplay, FreeMode } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
+// Removed Swiper imports as we are using native CSS marquee
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
@@ -114,7 +113,8 @@ function NewsBannerSlideRow({
 }
 
 /**
- * News Banner Slider using Swiper Autoplay with linear timing for a continuous marquee effect.
+ * News Banner Slider using high-performance CSS animation marquee.
+ * Ensures a perfectly constant scrolling speed and reliable pause-on-hover.
  */
 export default function HeaderNewsBannerSlider({ items, label }: Props) {
   const t = useTranslations("NewsBanner");
@@ -124,57 +124,53 @@ export default function HeaderNewsBannerSlider({ items, label }: Props) {
 
   if (!items.length) return null;
 
-  // Significant duplication to ensure smooth infinite marquee regardless of base item count.
-  const displayItems =
-    items.length < 10
-      ? [...items, ...items, ...items, ...items, ...items, ...items, ...items, ...items].map(
-        (it, i) => ({
-          ...it,
-          id: `${it.id}-${i}`,
-        }),
-      )
-      : items;
+  // Duplicate items if count is small to make sure we span the screen width comfortably.
+  let baseItems = items;
+  if (items.length < 8) {
+    const repeats = Math.ceil(8 / items.length);
+    baseItems = [];
+    for (let i = 0; i < repeats; i++) {
+      baseItems.push(...items);
+    }
+  }
+
+  // Create unique keys for the duplicated items.
+  const trackItems = baseItems.map((item, idx) => ({
+    ...item,
+    uniqueId: `${item.id}-${idx}`,
+  }));
+
+  // Linear speed calculation: 6 seconds per item for a natural reading pace.
+  const duration = trackItems.length * 6;
 
   return (
-    <div
-      className={`tp-news-banner-swiper-outer${isRtl ? " tp-news-banner-swiper-outer--motion-rtl" : ""}`}
-    >
-      <Swiper
-        modules={[Autoplay, FreeMode]}
-        direction="horizontal"
-        slidesPerView="auto"
-        spaceBetween={0} // Padding handled by slide row
-        speed={8000} // Slightly faster duration for visibility
-        loop={true}
-        freeMode={{
-          enabled: true,
-          momentum: false, // Prevents "throwing" the scroll, keep it linear
-        }}
-        autoplay={{
-          delay: 0, // Continuous
-          disableOnInteraction: false,
-          pauseOnMouseEnter: true,
-        }}
-        allowTouchMove={true}
-        grabCursor={true}
-        observer={true}
-        observeParents={true}
-        watchOverflow={true}
-        key={items.length}
-        className="tp-news-banner-swiper swiper"
-        aria-label={label}
-        dir="ltr"
+    <div className={`tp-news-marquee-container ${isRtl ? "rtl" : "ltr"}`} aria-label={label}>
+      <div
+        className="tp-news-marquee-track"
+        style={{ animationDuration: `${duration}s` }}
       >
-        {displayItems.map((item) => (
-          <SwiperSlide key={item.id} className="tp-news-banner-slide">
+        <div className="tp-news-marquee-content">
+          {trackItems.map((item) => (
             <NewsBannerSlideRow
+              key={item.uniqueId}
               item={item}
               label={label}
               readMoreLabel={readMoreLabel}
             />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+          ))}
+        </div>
+        {/* Duplicate content to ensure a seamless infinite loop */}
+        <div className="tp-news-marquee-content" aria-hidden="true">
+          {trackItems.map((item) => (
+            <NewsBannerSlideRow
+              key={`${item.uniqueId}-dup`}
+              item={item}
+              label={label}
+              readMoreLabel={readMoreLabel}
+            />
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
