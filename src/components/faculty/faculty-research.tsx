@@ -6,6 +6,7 @@ import { Teacher, TeacherDto } from "@/lib/classes/teacher";
 import { ScientificResearchDto } from "@/lib/api/scientific-research.api";
 import { useTranslations } from "next-intl";
 import { resolveUploadSrc } from "@/lib/api/client";
+import { Modal } from "react-bootstrap";
 
 type Props = {
   researches: ScientificResearchDto[];
@@ -18,6 +19,7 @@ export default function FacultyResearch({ researches, teachers, locale }: Props)
   const isRtl = locale === "ar";
   
   const [searchTerm, setSearchTerm] = useState("");
+  const [activeResearch, setActiveResearch] = useState<ScientificResearchDto | null>(null);
 
   const teacherMap = new Map(teachers.map(t => [t.id, t]));
 
@@ -107,7 +109,7 @@ export default function FacultyResearch({ researches, teachers, locale }: Props)
                                   className="btn btn-sm btn-outline-primary rounded-pill px-3"
                                   style={{ borderColor: "#42023e", color: "#42023e" }}
                                   title={t("viewDetails")}
-                                  onClick={() => alert(details.replace(/<[^>]*>?/gm, ""))}
+                                  onClick={() => setActiveResearch(research)}
                                 >
                                   <i className="fa-solid fa-circle-info"></i>
                                 </button>
@@ -131,6 +133,67 @@ export default function FacultyResearch({ researches, teachers, locale }: Props)
           </div>
         </div>
       </div>
+
+      {activeResearch && (
+        <Modal 
+          show={!!activeResearch} 
+          onHide={() => setActiveResearch(null)} 
+          centered={true}
+          size="lg"
+        >
+          <div className="modal-header border-0 pb-0" style={{ direction: isRtl ? "rtl" : "ltr" }}>
+            <h5 className="modal-title fw-bold" style={{ color: "#42023e" }}>
+              {ScientificResearch.getTitle(activeResearch, locale)}
+            </h5>
+            <button 
+              type="button" 
+              className="btn-close m-0" 
+              onClick={() => setActiveResearch(null)}
+              aria-label="Close"
+              style={{ marginLeft: isRtl ? "0" : "auto", marginRight: isRtl ? "auto" : "0" }}
+            ></button>
+          </div>
+          <div className="modal-body py-4" style={{ direction: isRtl ? "rtl" : "ltr" }}>
+            <div className="mb-3 d-flex align-items-center gap-2 text-muted">
+              <i className="fa-solid fa-user-tie"></i>
+              <span className="fw-semibold">
+                {(() => {
+                  const teacherDto = teacherMap.get(activeResearch.teacherId);
+                  return teacherDto ? Teacher.getName(teacherDto, locale) : "—";
+                })()}
+              </span>
+            </div>
+            <hr className="my-3 opacity-10" />
+            <div 
+              className="research-details-content"
+              style={{ lineHeight: "1.7", color: "#4a4a4a" }}
+              dangerouslySetInnerHTML={{ __html: ScientificResearch.getDetails(activeResearch, locale) || "" }}
+            />
+          </div>
+          <div className="modal-footer border-0 pt-0" style={{ direction: isRtl ? "rtl" : "ltr" }}>
+            <button 
+              type="button" 
+              className="btn btn-secondary rounded-pill px-4" 
+              onClick={() => setActiveResearch(null)}
+              style={{ backgroundColor: "#6c757d", borderColor: "#6c757d" }}
+            >
+              {t("close")}
+            </button>
+            {activeResearch.downloadFile?.url && (
+              <a 
+                href={resolveUploadSrc(activeResearch.downloadFile.url, "")} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="btn btn-primary rounded-pill px-4 d-flex align-items-center gap-2"
+                style={{ backgroundColor: "#42023e", borderColor: "#42023e" }}
+              >
+                <i className="fa-solid fa-download"></i>
+                {t("download")}
+              </a>
+            )}
+          </div>
+        </Modal>
+      )}
     </section>
   );
 }
