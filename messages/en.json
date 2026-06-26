@@ -317,6 +317,7 @@
     "lectureCount": "Lectures",
     "preview": "Preview",
     "download": "Download",
+    "downloading": "Downloading...",
     "noLectures": "No lectures found for this course.",
     "selectCoursePrompt": "Please select a course to view lectures"
   },

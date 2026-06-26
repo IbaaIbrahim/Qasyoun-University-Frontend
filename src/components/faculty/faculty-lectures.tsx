@@ -25,6 +25,36 @@ export default function FacultyLectures({ facultyId, initialStudyYears, locale }
   const [lectures, setLectures] = useState<LectureDto[]>([]);
   const [loadingCourses, setLoadingCourses] = useState(false);
   const [loadingLectures, setLoadingLectures] = useState(false);
+  const [downloadingIds, setDownloadingIds] = useState<Record<number, boolean>>({});
+
+  const handleDownload = async (lectureId: number, url: string, filename: string) => {
+    setDownloadingIds((prev) => ({ ...prev, [lectureId]: true }));
+    try {
+      const response = await fetch(url);
+      if (!response.ok) throw new Error("Download failed");
+      const blob = await response.blob();
+      const blobUrl = window.URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = blobUrl;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(blobUrl);
+    } catch (error) {
+      console.error("Download failed:", error);
+      // Fallback: trigger a normal link click in a new tab if fetch/CORS fails
+      const link = document.createElement("a");
+      link.href = url;
+      link.target = "_blank";
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } finally {
+      setDownloadingIds((prev) => ({ ...prev, [lectureId]: false }));
+    }
+  };
 
   // Load courses when year or faculty changes
   useEffect(() => {
@@ -215,7 +245,7 @@ export default function FacultyLectures({ facultyId, initialStudyYears, locale }
                             {lecture.file?.url && (
                               <>
                                 <a
-                                  href={resolveUploadSrc(lecture.file.url, "")}
+                                  href={resolveUploadSrc(lecture.file?.url, "")}
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   className="btn btn-sm btn-outline-primary rounded-pill px-3 d-inline-flex align-items-center gap-1"
@@ -224,15 +254,36 @@ export default function FacultyLectures({ facultyId, initialStudyYears, locale }
                                   <i className="fa-solid fa-eye" aria-hidden />
                                   {t("preview")}
                                 </a>
-                                <a
-                                  href={resolveUploadSrc(lecture.file.url, "")}
-                                  download={lecture.file.name || "lecture"}
+                                <button
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    handleDownload(
+                                      lecture.id,
+                                      resolveUploadSrc(lecture.file?.url, ""),
+                                      lecture.file?.name || "lecture"
+                                    );
+                                  }}
+                                  disabled={downloadingIds[lecture.id]}
                                   className="btn btn-sm btn-primary rounded-pill px-3 d-inline-flex align-items-center gap-1"
-                                  style={{ backgroundColor: "#42023e", borderColor: "#42023e" }}
+                                  style={{ 
+                                    backgroundColor: "#42023e", 
+                                    borderColor: "#42023e",
+                                    opacity: downloadingIds[lecture.id] ? 0.7 : 1,
+                                    cursor: downloadingIds[lecture.id] ? "not-allowed" : "pointer"
+                                  }}
                                 >
-                                  <i className="fa-solid fa-download" aria-hidden />
-                                  {t("download")}
-                                </a>
+                                  {downloadingIds[lecture.id] ? (
+                                    <>
+                                      <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                      {t("downloading")}
+                                    </>
+                                  ) : (
+                                    <>
+                                      <i className="fa-solid fa-download" aria-hidden />
+                                      {t("download")}
+                                    </>
+                                  )}
+                                </button>
                               </>
                             )}
                           </div>

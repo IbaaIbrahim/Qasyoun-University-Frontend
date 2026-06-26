@@ -317,6 +317,7 @@
     "lectureCount": "محاضرة",
     "preview": "عرض",
     "download": "تحميل",
+    "downloading": "جاري التحميل...",
     "noLectures": "لا يوجد محاضرات لهذا المقرر.",
     "selectCoursePrompt": "يرجى اختيار مقرر لعرض المحاضرات"
   },
