@@ -15,6 +15,7 @@ import Album from "./album";
 import Photo from "./photo";
 import BreadcrumbPage from "./breadcrumb-page";
 import TourVideo from "./home/tour";
+import StudyPlan from "./faculty/study-plan";
 
 export type ContentDto = {
   id: number | string;
@@ -189,5 +190,11 @@ export class ContentJson extends Content {
   toBreadcrumbPage(): BreadcrumbPage | null {
     if (!this.contentMetasJson) return null;
     return BreadcrumbPage.fromContentJson(this);
+  }
+
+  toStudyPlan(): StudyPlan {
+    if (!this.contentMetasJson) return {};
+    const studyPlan = StudyPlan.fromContentJson(this);
+    return studyPlan ? studyPlan : {};
   }
 }

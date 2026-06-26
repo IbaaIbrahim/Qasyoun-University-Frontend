@@ -426,5 +426,10 @@
     "totalCount": "{count} results found",
     "minChars": "Please type at least 2 characters to search.",
     "clear": "Clear search"
+  },
+  "StudyPlan": {
+    "noPlan": "No study plan is currently available for this faculty.",
+    "noPlanFile": "No study plan file has been attached yet.",
+    "viewPlanNotice": "To view the study plan for {name}, please download the attached file."
   }
 }

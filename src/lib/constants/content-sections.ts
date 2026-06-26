@@ -286,6 +286,21 @@ const FacultyType = {
           type: "image"
         }
       }
+    },
+    study_plan: {
+      name: "qpu.dynamicContent.studyPlan",
+      value: "study_plan",
+      maxContentItems: 1,
+      keys: {
+        text: {
+          name: "qpu.dynamicContent.text",
+          type: "richtext"
+        },
+        file: {
+          name: "qpu.dynamicContent.pdfFile",
+          type: "file"
+        }
+      }
     }
   }
 }
