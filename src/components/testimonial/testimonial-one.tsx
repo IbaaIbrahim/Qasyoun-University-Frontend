@@ -9,6 +9,7 @@ import { useVideoModal } from "@/provider/VideoProvider";
 import { useTranslations } from "next-intl";
 import Review from "@/lib/classes/home/review";
 import TourVideo from "@/lib/classes/home/tour";
+import { resolveUploadSrc } from "@/lib/api/client";
 
 interface TestimonialOneProps {
   reviews: Review[];
@@ -36,7 +37,7 @@ export default function TestimonialOne({ reviews, tourVideo }: TestimonialOnePro
             <div className="tp-video-wrap d-flex">
               <div className="tp-video-icon text-center">
                 {/* Video area */}
-                <button onClick={() => playVideo(tourVideo?.video || "https://www.youtube.com/watch?v=Su0l_RWcV-Y&t=4s")} className="video-border-animation popup-video">
+                <button onClick={() => playVideo(resolveUploadSrc(tourVideo?.video, "https://www.youtube.com/watch?v=Su0l_RWcV-Y&t=4s"))} className="video-border-animation popup-video">
                   <span>
                     <svg
                       width="16"
