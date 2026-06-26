@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import { ShapeLine } from "../svg";
 
 import { BestEmployeeDto } from "@/lib/api/best-employee.api";
+import { resolveUploadSrc } from "@/lib/api/client";
 
 type Props = {
   employees: BestEmployeeDto[]; // Plain objects
@@ -12,7 +13,7 @@ type Props = {
 
 export default function BestEmployeeArea({ employees, locale }: Props) {
   const t = useTranslations("Faculties");
-  
+
   if (!employees || employees.length === 0) return null;
 
   return (
@@ -23,7 +24,7 @@ export default function BestEmployeeArea({ employees, locale }: Props) {
             <div className="tp-section-3-wrapper text-center mb-60">
               <span className="tp-section-3-subtitle">{t("bestEmployeeSubtitle")}</span>
               <h2 className="tp-section-3-title">
-                {t("bestEmployeeTitle")} <span><ShapeLine/></span>
+                {t("bestEmployeeTitle")} <span><ShapeLine /></span>
               </h2>
             </div>
           </div>
@@ -34,7 +35,7 @@ export default function BestEmployeeArea({ employees, locale }: Props) {
             const teacher = employee.teacher;
             const teacherName = (locale === 'ar' ? (teacher?.name_AR || teacher?.name) : teacher?.name) || "";
             const teacherPosition = (locale === 'ar' ? (teacher?.position_AR || teacher?.position) : teacher?.position) || "";
-            const teacherImage = teacher?.picture?.url || "/assets/img/team/about-team/about-team-1.jpg";
+            const teacherImage = resolveUploadSrc(teacher?.picture?.url, "") || "/assets/img/team/about-team/about-team-1.jpg";
 
             return (
               <div key={employee.id} className="col-lg-10 mb-30">
@@ -42,15 +43,15 @@ export default function BestEmployeeArea({ employees, locale }: Props) {
                   <div className="row align-items-center">
                     <div className="col-lg-4">
                       <div className="best-employee-thumb text-center">
-                         <Image 
-                            src={teacherImage} 
-                            alt={teacherName} 
-                            width={300} 
-                            height={400} 
-                            className="rounded-4 shadow-lg"
-                            style={{ objectFit: 'cover', width: '100%', height: 'auto' }}
-                            unoptimized
-                         />
+                        <Image
+                          src={teacherImage}
+                          alt={teacherName}
+                          width={300}
+                          height={400}
+                          className="rounded-4 shadow-lg"
+                          style={{ objectFit: 'cover', width: '100%', height: 'auto' }}
+                          unoptimized
+                        />
                       </div>
                     </div>
                     <div className="col-lg-8">
