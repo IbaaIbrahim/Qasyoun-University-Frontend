@@ -16,13 +16,19 @@
     "exhibitionsNotFoundTitle": "المعرض غير موجود",
     "exhibitionsDetailTitle": "تفاصيل المعرض",
     "exhibitionsTitle": "المعارض - جامعة قاسيون الخاصة",
-    "galleryTitle": "ألبوم الصور - جامعة قاسيون الخاصة"
+    "galleryTitle": "ألبوم الصور - جامعة قاسيون الخاصة",
+    "eventNotFoundTitle": "الحدث غير موجود",
+    "eventDetailTitle": "تفاصيل الحدث"
   },
   "News": {
     "newsDetails": "تفاصيل الخبر"
   },
   "Exhibitions": {
     "exhibitionsDetails": "تفاصيل المعرض"
+  },
+  "EventDetail": {
+    "eventDetails": "تفاصيل الحدث",
+    "empty": "لا تتوفر تفاصيل للحدث."
   },
   "StaticPage": {
     "empty": "لا يوجد محتوى منشور بعد. أضف النص من لوحة التحكم ضمن المحتوى الديناميكي (معرّف المرجع 0 للصفحات العامة).",
@@ -410,6 +416,27 @@
     "submit": "إرسال الطلب",
     "success": "تم إرسال طلبك بنجاح.",
     "error": "فشل إرسال الطلب. يرجى المحاولة مرة أخرى."
+  },
+  "FacultyBoardForm": {
+    "tabTitle": "طلب انضمام للهيئة التدريسية",
+    "sectionPersonal": "المعلومات الشخصية",
+    "sectionContract": "تفاصيل الكلية والعقد",
+    "sectionFiles": "المرفقات",
+    "faculty": "الكلية",
+    "scientificDegree": "الدرجة العلمية",
+    "specialist": "التخصص",
+    "contractJob": "المنصب / المسمى الوظيفي",
+    "currentPlace": "جهة العمل الحالية",
+    "languages": "اللغات",
+    "languagesPlaceholder": "مثال: العربية، الإنجليزية، الفرنسية",
+    "degreeApproved": "هل الدرجة العلمية معتمدة؟",
+    "fulltimeJob": "نوع التوظيف",
+    "hasAnotherJob": "هل لديك وظيفة أخرى؟",
+    "hasExperience": "هل لديك خبرة عملية؟",
+    "experiences": "تفاصيل الخبرات",
+    "experiencesPlaceholder": "اذكر خبراتك باختصار",
+    "degreeFile": "شهادة الدرجة العلمية (PDF / صورة)",
+    "applyAgain": "تقديم طلب آخر"
   },
   "Search": {
     "placeholder": "عن ماذا تبحث؟",

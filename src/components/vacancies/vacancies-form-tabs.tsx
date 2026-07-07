@@ -2,41 +2,27 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import ContactForm from "../form/contact-form";
 import JobRequestForm from "../form/job-request-form";
 import FacultyBoardForm from "../form/faculty-board-form";
 
-export default function ContactCareersTabs() {
-  const [activeTab, setActiveTab] = useState<'contact' | 'careers' | 'faculty-board'>('contact');
-  const t = useTranslations("Contact");
+export default function VacanciesFormTabs() {
+  const [activeTab, setActiveTab] = useState<'vacancy' | 'faculty-board'>('vacancy');
   const vt = useTranslations("Vacancies");
   const ft = useTranslations("FacultyBoardForm");
 
   return (
-    <div className="contact-careers-tabs">
+    <div className="vacancies-form-tabs">
+      {/* Tab header */}
       <div className="tabs-header d-flex justify-content-center mb-50">
         <button
-          className={`tab-btn ${activeTab === 'contact' ? 'active' : ''}`}
-          onClick={() => setActiveTab('contact')}
+          className={`tab-btn ${activeTab === 'vacancy' ? 'active' : ''}`}
+          onClick={() => setActiveTab('vacancy')}
         >
           <span className="icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-              <polyline points="22,6 12,13 2,6"></polyline>
-            </svg>
-          </span>
-          {t("formTitle")}
-        </button>
-
-        <button
-          className={`tab-btn ${activeTab === 'careers' ? 'active' : ''}`}
-          onClick={() => setActiveTab('careers')}
-        >
-          <span className="icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-              <circle cx="8.5" cy="7" r="4"></circle>
-              <polyline points="17 11 19 13 23 9"></polyline>
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
             </svg>
           </span>
           {vt("breadcrumbTitle")}
@@ -56,13 +42,9 @@ export default function ContactCareersTabs() {
         </button>
       </div>
 
+      {/* Tab content */}
       <div className="tabs-content">
-        {activeTab === 'contact' && (
-          <div className="tab-pane fade show active">
-            <ContactForm />
-          </div>
-        )}
-        {activeTab === 'careers' && (
+        {activeTab === 'vacancy' && (
           <div className="tab-pane fade show active">
             <JobRequestForm />
           </div>
@@ -75,15 +57,14 @@ export default function ContactCareersTabs() {
       </div>
 
       <style jsx>{`
-        .contact-careers-tabs {
-          background: #fff;
-          padding: 40px;
+        .vacancies-form-tabs {
+          background: #f8f8f8;
+          padding: 50px;
           border-radius: 20px;
-          box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
         .tabs-header {
           gap: 20px;
-          border-bottom: 1px solid #eee;
+          border-bottom: 1px solid #ddd;
           padding-bottom: 20px;
           flex-wrap: wrap;
         }
@@ -99,6 +80,7 @@ export default function ContactCareersTabs() {
           align-items: center;
           gap: 10px;
           position: relative;
+          cursor: pointer;
         }
         .tab-btn:after {
           content: '';
@@ -122,7 +104,7 @@ export default function ContactCareersTabs() {
           justify-content: center;
           width: 35px;
           height: 35px;
-          background: #f8f8f8;
+          background: #eee;
           border-radius: 50%;
           transition: all 0.3s ease;
         }
@@ -135,7 +117,7 @@ export default function ContactCareersTabs() {
             font-size: 14px;
             padding: 10px;
           }
-          .contact-careers-tabs {
+          .vacancies-form-tabs {
             padding: 20px;
           }
         }
@@ -143,4 +125,3 @@ export default function ContactCareersTabs() {
     </div>
   );
 }
-

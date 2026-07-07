@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import BreadcrumbTwo from "@/components/breadcrumb/breadcrumb-two";
-import JobRequestForm from "@/components/form/job-request-form";
+import VacanciesFormTabs from "@/components/vacancies/vacancies-form-tabs";
 import { getBreadcrumbPageContent } from "@/lib/services/breadcrumb-page.service";
 
 type Props = {
@@ -35,9 +35,7 @@ export default async function VacanciesPage({ params }: Props) {
                 <span className="tp-section-subtitle">{t("breadcrumbSubtitle")}</span>
                 <h2 className="tp-section-title">{t("title")}</h2>
               </div>
-              <div className="tp-job-form-wrapper p-relative" style={{ background: '#f8f8f8', padding: '50px', borderRadius: '20px' }}>
-                <JobRequestForm />
-              </div>
+              <VacanciesFormTabs />
             </div>
           </div>
         </div>
@@ -45,3 +43,4 @@ export default async function VacanciesPage({ params }: Props) {
     </main>
   );
 }
+

@@ -16,13 +16,19 @@
     "exhibitionsNotFoundTitle": "Exhibition not found",
     "exhibitionsDetailTitle": "Exhibition Details",
     "exhibitionsTitle": "Exhibitions - Qasyoun Private University",
-    "galleryTitle": "Photo Gallery - Qasyoun Private University"
+    "galleryTitle": "Photo Gallery - Qasyoun Private University",
+    "eventNotFoundTitle": "Event not found",
+    "eventDetailTitle": "Event Details"
   },
   "News": {
     "newsDetails": "News Details"
   },
   "Exhibitions": {
     "exhibitionsDetails": "Exhibition Details"
+  },
+  "EventDetail": {
+    "eventDetails": "Event Details",
+    "empty": "No event details available."
   },
   "StaticPage": {
     "empty": "No published content yet. Add the body in the dashboard under Dynamic content (reference ID 0 for site-wide pages).",
@@ -410,6 +416,27 @@
     "submit": "Submit Application",
     "success": "Your application has been submitted successfully.",
     "error": "Failed to submit application. Please try again."
+  },
+  "FacultyBoardForm": {
+    "tabTitle": "Faculty Board Application",
+    "sectionPersonal": "Personal Information",
+    "sectionContract": "Faculty & Contract Details",
+    "sectionFiles": "Attachments",
+    "faculty": "Faculty",
+    "scientificDegree": "Scientific Degree",
+    "specialist": "Specialization",
+    "contractJob": "Position / Job Title",
+    "currentPlace": "Current Workplace",
+    "languages": "Languages",
+    "languagesPlaceholder": "e.g. Arabic, English, French",
+    "degreeApproved": "Scientific Degree Approved?",
+    "fulltimeJob": "Employment Type",
+    "hasAnotherJob": "Do you have another job?",
+    "hasExperience": "Do you have experience?",
+    "experiences": "Experience Details",
+    "experiencesPlaceholder": "Briefly describe your experience",
+    "degreeFile": "Degree Certificate (PDF / image)",
+    "applyAgain": "Submit Another Application"
   },
   "Search": {
     "placeholder": "What are you looking for?",
