@@ -66,36 +66,35 @@ function ExhibitionItem({ exhibition, readMoreLabel, locale }: { exhibition: Exh
   const month = date.toLocaleString(locale === 'ar' ? 'ar-EG' : 'en-US', { month: 'short' }).toUpperCase();
 
   return (
-    <div className="tp-news-list-item d-flex align-items-center mb-40 p-relative" style={{ background: '#f8f9fa', borderRadius: '15px', overflow: 'hidden', padding: '20px' }}>
-      <div className="tp-news-list-date-box flex-shrink-0 mr-30 text-center" style={{ minWidth: '80px' }}>
-        <div style={{ fontSize: '14px', color: '#6c757d' }}>{year}</div>
-        <div style={{ fontSize: '28px', fontWeight: 'bold', color: '#42023e' }}>{day}</div>
-        <div style={{ fontSize: '14px', fontWeight: 'bold', color: '#6c757d' }}>{month}</div>
+    <div className="tp-news-list-item">
+      <div className="tp-news-list-date-box">
+        <span className="year">{year}</span>
+        <span className="day">{day}</span>
+        <span className="month">{month}</span>
       </div>
 
-      <div className="tp-news-list-content flex-grow-1 min-w-0 mr-30">
-        <h3 className="tp-news-list-title mb-10" style={{ fontSize: '20px' }}>
+      <div className="tp-news-list-content">
+        <h3 className="tp-news-list-title">
           <Link href={exhibition.href || "#"}>{exhibition.title}</Link>
         </h3>
-        <p className="tp-news-list-excerpt mb-20 text-truncate-2" style={{ color: '#6c757d', fontSize: '15px' }}>
+        <p className="tp-news-list-excerpt text-truncate-2">
           {/* Strip HTML if description is rich text */}
           {exhibition.description ? exhibition.description.replace(/<[^>]*>?/gm, '').slice(0, 150) + '...' : ''}
         </p>
         <div className="tp-news-list-btn">
-          <Link href={exhibition.href || "#"} className="tp-btn-inner" style={{ background: '#42023e', color: '#fff', padding: '8px 20px', borderRadius: '5px', fontSize: '14px', display: 'inline-block' }}>
+          <Link href={exhibition.href || "#"} className="tp-btn-inner">
             {readMoreLabel}
           </Link>
         </div>
       </div>
 
       {exhibition.imageUrl && (
-        <div className="tp-news-list-thumb flex-shrink-0" style={{ width: '200px', height: '150px', position: 'relative' }}>
+        <div className="tp-news-list-thumb">
           <Link href={exhibition.href || "#"}>
             <Image
               src={exhibition.imageUrl}
               alt={exhibition.title || ""}
               fill
-              style={{ objectFit: 'cover', borderRadius: '10px' }}
               unoptimized
             />
           </Link>
