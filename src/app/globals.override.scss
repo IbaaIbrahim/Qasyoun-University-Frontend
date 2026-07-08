@@ -34,6 +34,36 @@
     align-items: stretch;
     padding: 15px;
   }
+
+  &.no-image {
+    .tp-news-list-date-box {
+      @media (max-width: 767px) {
+        position: static;
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+        gap: 8px;
+        margin-bottom: 12px;
+        text-align: start;
+        background: none;
+        padding: 0;
+        box-shadow: none;
+        backdrop-filter: none;
+        min-width: auto;
+
+        .year, .day, .month {
+          display: inline;
+          font-size: 14px;
+          font-weight: 600;
+          color: #6c757d;
+        }
+        .day {
+          font-size: 18px;
+          color: #42023e;
+        }
+      }
+    }
+  }
 }
 
 .tp-news-list-date-box {

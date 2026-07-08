@@ -66,7 +66,7 @@ function NewsItem({ news, readMoreLabel, locale }: { news: News, readMoreLabel: 
   const month = date.toLocaleString(locale === 'ar' ? 'ar-EG' : 'en-US', { month: 'short' }).toUpperCase();
 
   return (
-    <div className="tp-news-list-item">
+    <div className={`tp-news-list-item${news.imageUrl ? " has-image" : " no-image"}`}>
       <div className="tp-news-list-date-box">
         <span className="year">{year}</span>
         <span className="day">{day}</span>
