@@ -10,9 +10,17 @@ import { getSocialMedia } from "@/lib/services/social-media.service";
 
 type IProps = {
   style_2?: boolean;
+  logoSrc?: string;
+  email?: string;
+  phoneNumber?: string;
 };
 
-export default async function FooterOne({ style_2 = false }: IProps) {
+export default async function FooterOne({
+  style_2 = false,
+  logoSrc,
+  email,
+  phoneNumber,
+}: IProps) {
   const locale = await getLocale();
   const socials = await getSocialMedia(locale);
   const t = await getTranslations("Footer");
@@ -33,10 +41,13 @@ export default async function FooterOne({ style_2 = false }: IProps) {
                 <div className="tp-footer-widget-logo mb-20 tp-header-logo">
                   <Link href="/">
                     <Image
-                      src={style_2 ? logo_black : logo}
+                      src={logoSrc || (style_2 ? logo_black : logo)}
                       alt="logo"
                       priority
-                      style={{ height: "auto" }}
+                      style={{ height: "auto", maxHeight: 50, objectFit: "contain" }}
+                      width={125}
+                      height={48}
+                      unoptimized={!!logoSrc}
                     />
                   </Link>
                 </div>
@@ -45,14 +56,16 @@ export default async function FooterOne({ style_2 = false }: IProps) {
                 </div>
                 <div className="tp-footer-contact">
                   <span>{t("gotQuestions")}</span>
-                  <a href="tel:+963999999999">+963 999 999 999</a>
+                  <a href={`tel:${phoneNumber || "+963999999999"}`}>
+                    {phoneNumber || "+963 999 999 999"}
+                  </a>
                 </div>
                 <div className="tp-footer-contact-mail">
-                  <a href="mailto:qpu@qpu.edu.sy">
+                  <a href={`mailto:${email || "qpu@qpu.edu.sy"}`}>
                     <span>
                       <Email />
                     </span>
-                    qpu@qpu.edu.sy
+                    {email || "qpu@qpu.edu.sy"}
                   </a>
                 </div>
               </div>

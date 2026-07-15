@@ -199,6 +199,28 @@ const HomeType = {
           type: "video"
         }
       }
+    },
+    website_settings: {
+      name: "qpu.dynamicContent.websiteSettings",
+      value: "website_settings",
+      maxContentItems: 1,
+      keys: {
+        email: {
+          name: "qpu.dynamicContent.email",
+          type: "text",
+          notTranslatable: true
+        },
+        phone_number: {
+          name: "qpu.dynamicContent.phoneNumber",
+          type: "text",
+          notTranslatable: true
+        },
+        logo: {
+          name: "qpu.dynamicContent.logo",
+          type: "image",
+          notTranslatable: true
+        }
+      }
     }
   }
 }
