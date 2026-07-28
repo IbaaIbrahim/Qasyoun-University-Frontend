@@ -8,6 +8,7 @@ import { getLocale } from "next-intl/server";
 import { readContentAsJsonByFilter } from "@/lib/services/content.service";
 import { ReferenceTypes } from "@/lib/constants";
 import { getWebsiteSettings } from "@/lib/services/website-settings.service";
+import { sortNewsByNewest } from "@/lib/services/news.service";
 
 export default async function Layout({ children }: { children: React.ReactNode }) {
   const locale = await getLocale();
@@ -17,12 +18,13 @@ export default async function Layout({ children }: { children: React.ReactNode }
   ]);
 
   const items = newsContent.map((r) => r.toNews());
+  const sortedNews = sortNewsByNewest(items.filter((item) => item.title));
 
   return (
     <MainProvider>
       {/* header area start */}
       <HeaderOne
-        newsItems={items.filter((item) => item.title)}
+        newsItems={sortedNews}
         menu_data={menu_data}
         brandLogoSrc={websiteSettings?.logo}
       />

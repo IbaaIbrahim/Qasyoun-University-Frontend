@@ -4,6 +4,7 @@ import { getLocale } from "next-intl/server";
 import { resolveUploadSrc } from "@/lib/api/client";
 import { readContentAsJsonByFilter } from "@/lib/services/content.service";
 import { getFacultyBySlug } from "@/lib/services/faculty.service";
+import { sortNewsByNewest } from "@/lib/services/news.service";
 import { IMenu } from "@/types/menu-d-t";
 
 export default async function Layout({ children, params }: { children: React.ReactNode, params: Promise<{ slug: string }> }) {
@@ -21,6 +22,7 @@ export default async function Layout({ children, params }: { children: React.Rea
   const brandLogoAlt = faculty ? faculty.getName(locale) : undefined;
 
   const items = newsContent.map((r) => r.toNews());
+  const sortedNews = sortNewsByNewest(items.filter((item) => item.title));
 
   const faculty_menu_data: IMenu[] = [
     { id: 1, title: "faculty_home", link: `/faculties/${slug}` },
@@ -35,7 +37,7 @@ export default async function Layout({ children, params }: { children: React.Rea
     <>
       {/* header area start */}
       <HeaderOne
-        newsItems={items.filter((item) => item.title)}
+        newsItems={sortedNews}
         menu_data={faculty_menu_data}
         brandLogoSrc={brandLogoSrc}
         brandLogoAlt={brandLogoAlt}
