@@ -7,15 +7,17 @@ type Props = {
   href: string;
   className?: string;
   children: ReactNode;
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
 };
 
 /** Internal paths use locale-aware `Link`; `#` stays a plain anchor for dropdown parents. */
-export default function NavLink({ href, className, children }: Props) {
+export default function NavLink({ href, className, children, onClick }: Props) {
   if (href === "#" || href.startsWith("http://") || href.startsWith("https://")) {
     return (
       <a
         href={href}
         className={className}
+        onClick={onClick}
         target={href.startsWith("http") ? "_blank" : undefined}
         rel="noopener noreferrer"
       >
@@ -24,7 +26,7 @@ export default function NavLink({ href, className, children }: Props) {
     );
   }
   return (
-    <Link href={href} className={className}>
+    <Link href={href} className={className} onClick={onClick}>
       {children}
     </Link>
   );

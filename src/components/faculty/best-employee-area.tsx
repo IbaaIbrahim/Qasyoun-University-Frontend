@@ -35,7 +35,7 @@ export default function BestEmployeeArea({ employees, locale }: Props) {
             const teacher = employee.teacher;
             const teacherName = (locale === 'ar' ? (teacher?.name_AR || teacher?.name) : teacher?.name) || "";
             const teacherPosition = (locale === 'ar' ? (teacher?.position_AR || teacher?.position) : teacher?.position) || "";
-            const teacherImage = resolveUploadSrc(teacher?.picture?.url, "") || "/assets/img/team/about-team/about-team-1.jpg";
+            const teacherImage = resolveUploadSrc(teacher?.picture?.url, "") || "/assets/img/teacher/image.png";
 
             return (
               <div key={employee.id} className="col-lg-10 mb-30">

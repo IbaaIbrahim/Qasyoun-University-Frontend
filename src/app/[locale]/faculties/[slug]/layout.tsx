@@ -7,6 +7,8 @@ import { getFacultyBySlug } from "@/lib/services/faculty.service";
 import { sortNewsByNewest } from "@/lib/services/news.service";
 import { IMenu } from "@/types/menu-d-t";
 
+import { listLabsByFacultyId } from "@/lib/services/lab.service";
+
 export default async function Layout({ children, params }: { children: React.ReactNode, params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const locale = await getLocale();
@@ -14,6 +16,8 @@ export default async function Layout({ children, params }: { children: React.Rea
     readContentAsJsonByFilter({ referenceId: "0", referenceType: "faculty", section: "news" }, locale),
     getFacultyBySlug(slug),
   ]);
+
+  const labs = faculty?.id ? await listLabsByFacultyId(faculty.id) : [];
 
   const brandLogoSrc =
     faculty?.logoUrl?.trim()
@@ -28,7 +32,7 @@ export default async function Layout({ children, params }: { children: React.Rea
     { id: 1, title: "faculty_home", link: `/faculties/${slug}` },
     { id: 3, title: "faculty_staff", link: `/faculties/${slug}#team` },
     { id: 4, title: "faculty_lectures", link: `/faculties/${slug}/lectures#lectures` },
-    { id: 5, title: "faculty_labs", link: `/faculties/${slug}#labs` },
+    ...(labs.length > 0 ? [{ id: 5, title: "faculty_labs", link: `/faculties/${slug}#labs` }] : []),
     { id: 6, title: "faculty_plan", link: `/faculties/${slug}/plan#plan` },
     { id: 7, title: "faculty_research", link: `/faculties/${slug}/research#research` }
   ];

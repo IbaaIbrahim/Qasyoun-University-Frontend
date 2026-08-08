@@ -7,6 +7,7 @@ import logo from "@/assets/img/logo/logo-wide.png";
 import logo_black from "@/assets/img/logo/logo-wide.png";
 import { footerAboutLinks, footerQuickLinks } from "@/data/footer-links";
 import { getSocialMedia } from "@/lib/services/social-media.service";
+import FooterNewsletterForm from "./footer-newsletter-form";
 
 type IProps = {
   style_2?: boolean;
@@ -14,6 +15,8 @@ type IProps = {
   email?: string;
   phoneNumber?: string;
 };
+
+import VisitorCounterWidget from "../common/visitor-counter-widget";
 
 export default async function FooterOne({
   style_2 = false,
@@ -120,30 +123,7 @@ export default async function FooterOne({
                   suppressHydrationWarning
                 >
                   <p>{t("newsletterLead")}</p>
-                  <form action="#" suppressHydrationWarning>
-                    <div className="tp-footer-newsletter-wrapper mb-30">
-                      <div
-                        className={`tp-footer-newsletter-input ${style_2 ? "tp-footer-5-newsletter-input" : ""}`}
-                      >
-                        <input
-                          type="email"
-                          placeholder={t("emailPlaceholder")}
-                          suppressHydrationWarning
-                        />
-                      </div>
-                      <div
-                        className={`${style_2 ? "tp-footer-5-newsletter-submit" : "tp-footer-newsletter-submit"}`}
-                      >
-                        <button
-                          type="submit"
-                          className={`${style_2 ? "tp-btn-4" : "tp-btn"}`}
-                          suppressHydrationWarning
-                        >
-                          {t("subscribe")}
-                        </button>
-                      </div>
-                    </div>
-                  </form>
+                  <FooterNewsletterForm style_2={style_2} />
                   <div className="tp-footer-newsletter-social">
                     <FooterSocial socials={socials} />
                   </div>
@@ -157,10 +137,11 @@ export default async function FooterOne({
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
-              <div className="tp-footer-copyright text-center">
+              <div className="tp-footer-copyright text-center d-flex flex-column align-items-center gap-2 py-3">
                 <span suppressHydrationWarning>
                   {t("copyright", { year })}
                 </span>
+                <VisitorCounterWidget />
               </div>
             </div>
           </div>

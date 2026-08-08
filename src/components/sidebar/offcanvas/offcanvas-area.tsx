@@ -57,7 +57,7 @@ export default function OffcanvasArea({
               </div>
             </div>
             <div className="offcanvas-main">
-              <OffcanvasMenu menuData={menuData} />
+              <OffcanvasMenu menuData={menuData} onHandleOffCanvas={onHandleOffCanvas} />
             </div>
           </div>
         </div>

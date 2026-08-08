@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import { getNewsBySlug } from "@/lib/services/news.service";
 import BreadcrumbTwo from "@/components/breadcrumb/breadcrumb-two";
+import { getBreadcrumbPageContent } from "@/lib/services/breadcrumb-page.service";
 
 export const dynamic = "force-dynamic";
 
@@ -25,7 +26,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function NewsDetailPage({ params }: Props) {
   const { slug, locale } = await params;
-  const news = await getNewsBySlug(slug, locale);
+  const [news, breadcrumbContent] = await Promise.all([
+    getNewsBySlug(slug, locale),
+    getBreadcrumbPageContent(locale),
+  ]);
 
   if (!news) notFound();
 
@@ -45,6 +49,7 @@ export default async function NewsDetailPage({ params }: Props) {
       <BreadcrumbTwo
         title={news.title || ""}
         subtitle={t("newsDetails")}
+        bgImg={breadcrumbContent?.newsBreadcrumbImage || undefined}
       />
       <section className="tp-blog-details-area pt-120 pb-120">
         <div className="container">

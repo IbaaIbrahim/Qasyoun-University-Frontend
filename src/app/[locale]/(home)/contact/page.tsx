@@ -19,10 +19,15 @@ export async function generateMetadata({
   };
 }
 
+import { getWebsiteSettings } from "@/lib/services/website-settings.service";
+
 export default async function ContactPage({ params }: PageProps) {
   const { locale } = await params;
   const t = await getTranslations("Contact");
-  const breadcrumbContent = await getBreadcrumbPageContent(locale);
+  const [breadcrumbContent, websiteSettings] = await Promise.all([
+    getBreadcrumbPageContent(locale),
+    getWebsiteSettings(locale),
+  ]);
 
   return (
     <main>
@@ -31,7 +36,10 @@ export default async function ContactPage({ params }: PageProps) {
         subtitle={t("breadcrumbSubtitle")}
         bgImg={breadcrumbContent?.contactUsBreadcrumbImage || undefined}
       />
-      <ContactInfoArea />
+      <ContactInfoArea
+        email={websiteSettings?.email}
+        phoneNumber={websiteSettings?.phoneNumber}
+      />
       <ContactArea />
     </main>
   );

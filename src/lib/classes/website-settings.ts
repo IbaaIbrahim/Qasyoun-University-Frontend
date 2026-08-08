@@ -11,8 +11,8 @@ export default class WebsiteSettings {
     if (!metas) return null;
 
     return {
-      email: metas["email"] || "",
-      phoneNumber: metas["phone_number"] || "",
+      email: metas["email"]?.trim() || undefined,
+      phoneNumber: metas["phone_number"]?.trim() || undefined,
       logo: resolveUploadSrc(metas["logo"], ""),
     } as WebsiteSettings;
   }

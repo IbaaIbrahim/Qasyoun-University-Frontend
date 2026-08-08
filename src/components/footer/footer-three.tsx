@@ -1,4 +1,6 @@
 import FooterSocial from './footer-social';
+import FooterNewsletterForm from './footer-newsletter-form';
+import VisitorCounterWidget from '../common/visitor-counter-widget';
 import { footerLinks } from '@/data/footer-links';
 import Link from 'next/link';
 import { Email } from '../svg';
@@ -73,16 +75,7 @@ export default function FooterThree() {
                   <h4 className="tp-footer-widget-title mb-15">Our Newsletter</h4>
                   <div className="tp-footer-newsletter-wrap">
                     <p>Enter your email and we will send you <br /> more information</p>
-                    <form action="#">
-                      <div className="tp-footer-newsletter-wrapper mb-30">
-                        <div className="tp-footer-newsletter-input">
-                          <input type="email" placeholder="Your email" />
-                        </div>
-                        <div className="tp-footer-newsletter-submit">
-                          <button className="tp-btn">Subscribe</button>
-                        </div>
-                      </div>
-                    </form>
+                    <FooterNewsletterForm style_2={true} />
                     <div className="tp-footer-newsletter-social">
                       <FooterSocial />
                     </div>
@@ -93,8 +86,9 @@ export default function FooterThree() {
           </div>
           <div className="row">
             <div className="col-12">
-              <div className="tp-footer-copyright text-center">
-                <span>© {new Date().getFullYear()} <a href="#">Acadia</a>. All rights reserved.</span>
+              <div className="tp-footer-copyright text-center d-flex flex-column align-items-center gap-2 py-3">
+                <span>© {new Date().getFullYear()} <a href="#">QPU</a>. All rights reserved.</span>
+                <VisitorCounterWidget />
               </div>
             </div>
           </div>

@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { Email } from '../svg';
 import FooterSocial from './footer-social';
+import FooterNewsletterForm from './footer-newsletter-form';
+import VisitorCounterWidget from '../common/visitor-counter-widget';
 import { footerLinks } from '@/data/footer-links';
 import Image from 'next/image';
 import logo from '@/assets/img/logo/logo-black.png';
@@ -68,16 +70,7 @@ export default function FooterSix() {
                         <h4 className="tp-footer-widget-title mb-15">Our Newsletter</h4>
                         <div className="tp-footer-newsletter-wrap">
                            <p>Enter your email and we will send you <br /> more information</p>
-                           <form action="#">
-                              <div className="tp-footer-newsletter-wrapper tp-footer-shop-input mb-30">
-                                 <div className="tp-footer-newsletter-input">
-                                    <input type="email" placeholder="Your email" />
-                                 </div>
-                                 <div className="tp-footer-5-newsletter-submit">
-                                    <button className="tp-btn-inner">Subscribe</button>
-                                 </div>
-                              </div>
-                           </form>
+                           <FooterNewsletterForm style_2={true} />
                            <div className="tp-footer-newsletter-social tp-footer-inner-social">
                               <FooterSocial />
                            </div>
@@ -91,8 +84,9 @@ export default function FooterSix() {
             <div className="container">
                <div className="row align-items-center">
                   <div className="col-md-6">
-                     <div className="tp-footer-copyright ">
-                        <span>© {new Date().getFullYear()} <a href="#">Acadia</a>. All rights reserved.</span>
+                     <div className="tp-footer-copyright d-flex flex-column align-items-start gap-2">
+                        <span>© {new Date().getFullYear()} <a href="#">QPU</a>. All rights reserved.</span>
+                        <VisitorCounterWidget />
                      </div>
                   </div>
                   <div className="col-md-6">

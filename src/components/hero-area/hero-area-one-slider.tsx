@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useLocale } from "next-intl";
-import { Autoplay, EffectFade, Navigation } from "swiper/modules";
+import { Autoplay, EffectFade, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { SwiperOptions } from "swiper/types";
 import { NextArrow, PrevArrow, RightArrow } from "../svg";
@@ -12,8 +12,12 @@ import Slider from "@/lib/classes/slider";
 const sliderOptions: SwiperOptions = {
   slidesPerView: 1,
   effect: "fade",
+  fadeEffect: {
+    crossFade: true,
+  },
+  speed: 1000,
   autoplay: {
-    delay: 3500,
+    delay: 5000,
     disableOnInteraction: false,
   },
 };
@@ -34,15 +38,16 @@ export default function HeroAreaOneSlider({ slides }: Props) {
       prevEl,
       nextEl,
     },
+    pagination: slides.length > 1 ? { clickable: true, el: ".tp-hero-pagination" } : false,
   };
 
   return (
-    <section className="tp-hero-area p-relative">
+    <section className="tp-hero-area p-relative overflow-hidden">
       <Swiper
         {...swiperOptions}
         key={locale}
         dir={locale === "ar" ? "rtl" : "ltr"}
-        modules={[Autoplay, EffectFade, Navigation]}
+        modules={[Autoplay, EffectFade, Navigation, Pagination]}
         className="swiper tp-slider-active"
       >
         {slides.map((item) => (
@@ -107,6 +112,7 @@ export default function HeroAreaOneSlider({ slides }: Props) {
               <NextArrow />
             </span>
           </button>
+          <div className="tp-hero-pagination" />
         </>
       ) : null}
     </section>

@@ -14,7 +14,7 @@ type IProps = {
   onHide: () => void;
 };
 
-const TEAM_FALLBACK_IMAGE = "/assets/img/team/about-team/about-team-1.jpg";
+const TEAM_FALLBACK_IMAGE = "/assets/img/teacher/image.png";
 const FACULTY_FALLBACK_IMAGE = "/assets/img/icon/faculty-icon.png";
 
 export default function SearchPopup({ isSearchOpen, onHide }: IProps) {

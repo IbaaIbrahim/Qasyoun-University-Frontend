@@ -40,7 +40,7 @@ export type TeacherDto = {
   updatedAt: string;
 };
 
-const TEAM_FALLBACK_IMAGE = "/assets/img/team/about-team/about-team-1.jpg";
+const TEAM_FALLBACK_IMAGE = "/assets/img/teacher/image.png";
 
 export type TeacherMemberCard = {
   id: number;
@@ -136,7 +136,9 @@ export class Teacher {
   toMemberCard(locale: string): TeacherMemberCard {
     const thumb = this.picture?.thumbnail ?? this.picture?.url ?? null;
     const title =
-      this.getPosition(locale) || this.getSpecialist(locale);
+      this.getPosition(locale) ||
+      this.getSpecialist(locale) ||
+      (locale === "ar" ? "عضو هيئة تدريسية" : "Faculty Member");
     return {
       id: this.id,
       name: this.getName(locale),

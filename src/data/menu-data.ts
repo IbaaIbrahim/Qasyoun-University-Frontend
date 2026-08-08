@@ -18,6 +18,7 @@ const menu_data: IMenu[] = [
 			{ id: 5, title: "universityCouncil", link: "/about/university-council" },
 			{ id: 6, title: "organizationalStructure", link: "/about/organizational-structure" },
 			{ id: 7, title: "locationInfrastructure", link: "/about/location-infrastructure" },
+			{ id: 8, title: "universityDirectorates", link: "/directorates" },
 		]
 	},
 	{
@@ -42,6 +43,7 @@ const menu_data: IMenu[] = [
 			{ id: 2, title: "exams", link: "/student-life/exams" },
 			{ id: 3, title: "academicCalendar", link: "/student-life/academic-calendar" },
 			{ id: 4, title: "studentGuide", link: "/student-life/student-guide" },
+			{ id: 5, title: "higherEducationDecisions", link: "/decisions" },
 		]
 	},
 	{

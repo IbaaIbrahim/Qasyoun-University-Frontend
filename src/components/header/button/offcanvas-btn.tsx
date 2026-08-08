@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
+import { usePathname } from "@/i18n/navigation";
 import OffcanvasArea from "@/components/sidebar/offcanvas/offcanvas-area";
 import type { IMenu } from "@/types/menu-d-t";
 
@@ -23,15 +24,18 @@ export default function OffcanvasButton({
   logoHref,
 }: Props) {
   const [isOpenOffcanvas, setIsOpenOffcanvas] = useState(false);
-  const [mounted, setMounted] = useState(false);
-  const modalRef = useRef<HTMLElement | null>(null);
+  const [portalContainer, setPortalContainer] = useState<HTMLElement | null>(null);
+  const pathname = usePathname();
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      modalRef.current = document.getElementById("offcanvas-sidebar");
-      setMounted(true);
+      setPortalContainer(document.getElementById("offcanvas-sidebar"));
     }
   }, []);
+
+  useEffect(() => {
+    setIsOpenOffcanvas(false);
+  }, [pathname]);
 
   const handleOffcanvasToggle = () => {
     setIsOpenOffcanvas(!isOpenOffcanvas);
@@ -49,7 +53,7 @@ export default function OffcanvasButton({
         {children ? children : <i className="fa-solid fa-bars"></i>}
       </button>
 
-      {mounted && modalRef.current
+      {portalContainer
         ? createPortal(
             <OffcanvasArea
               openOffCanvas={isOpenOffcanvas}
@@ -60,7 +64,7 @@ export default function OffcanvasButton({
               brandLogoAlt={brandLogoAlt}
               logoHref={logoHref}
             />,
-            modalRef.current,
+            portalContainer,
           )
         : null}
     </>

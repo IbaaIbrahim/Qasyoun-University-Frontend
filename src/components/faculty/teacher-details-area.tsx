@@ -15,7 +15,7 @@ export default function TeacherDetailsArea({ teacher, locale }: Props) {
   const t = useTranslations("TeacherDetails");
   const isRtl = locale === "ar";
 
-  const fallbackImage = "/assets/img/team/about-team/about-team-1.jpg";
+  const fallbackImage = "/assets/img/teacher/image.png";
   const avatarSrc = resolveUploadSrc(teacher.picture?.url, fallbackImage);
 
   const sections = [
