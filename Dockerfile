@@ -8,8 +8,7 @@ COPY package.json yarn.lock ./
 # Step 3: Install dependencies
 RUN --mount=type=cache,target=/usr/local/share/.cache/yarn \
     yarn config set registry https://registry.npmjs.org/ && \
-    yarn install --ignore-optional --network-timeout 1000000 && \
-    yarn add @next/swc-linux-x64-gnu @img/sharp-linux-x64 --ignore-optional || true
+    yarn install --network-timeout 1000000
 
 # Stage 2: Development (Next.js development server)
 FROM base AS development
