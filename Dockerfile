@@ -6,7 +6,8 @@ WORKDIR /app
 COPY package.json yarn.lock ./
 
 # Step 3: Install dependencies
-RUN yarn install
+RUN yarn config set registry https://registry.npmjs.org/ && \
+    yarn install --network-timeout 600000
 
 # Stage 2: Development (Next.js development server)
 FROM base AS development
