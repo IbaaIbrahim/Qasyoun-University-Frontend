@@ -137,11 +137,6 @@ export default async function EventDetailPage({ params }: Props) {
                     </div>
                   )}
 
-                  {/* Title */}
-                  <h2 className="tp-blog-details-title mb-20" style={{ color: "#42023e" }}>
-                    {event.title}
-                  </h2>
-
                   {/* No additional description field exists in the current CMS section schema.
                       If a description key is added later, render it here. */}
 

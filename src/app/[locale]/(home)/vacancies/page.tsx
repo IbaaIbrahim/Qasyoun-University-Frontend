@@ -32,7 +32,6 @@ export default async function VacanciesPage({ params }: Props) {
           <div className="row justify-content-center">
             <div className="col-lg-10">
               <div className="tp-section-title-wrapper text-center mb-50">
-                <span className="tp-section-subtitle">{t("breadcrumbSubtitle")}</span>
                 <h2 className="tp-section-title">{t("title")}</h2>
               </div>
               <VacanciesFormTabs />

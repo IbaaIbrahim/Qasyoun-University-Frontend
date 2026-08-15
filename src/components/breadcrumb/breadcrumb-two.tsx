@@ -14,8 +14,10 @@ export default function BreadcrumbTwo({
   admission,
   bgImg = "/assets/img/breadcrumb/campus-breadcrumb.jpg"
 }: IProps) {
+  const isDifferentTrail = subtitle && subtitle.trim().toLowerCase() !== title.trim().toLowerCase();
+
   return (
-    <section className="tp-breadcrumb__area pt-160 pb-150 p-relative z-index-1 fix">
+    <section className="tp-breadcrumb__area p-relative z-index-1 fix">
       <div
         className="tp-breadcrumb__bg overlay"
         style={{
@@ -36,7 +38,8 @@ export default function BreadcrumbTwo({
                   </Link>
                 </span>
                 {admission && <span className="white">Admission</span>}
-                <span className="white">{subtitle}</span>
+                {isDifferentTrail && <span className="white">{subtitle}</span>}
+                <span className="white">{title}</span>
               </div>
               <h3 className="tp-breadcrumb__title color">
                 {title}

@@ -15,7 +15,7 @@ type IProps = {
 
 export default function DetailsBreadcrumb({ title, faculty, translations }: IProps) {
   return (
-    <div className="tp-breadcrumb__area pt-60 pb-60 p-relative z-index-1 fix">
+    <div className="tp-breadcrumb__area p-relative z-index-1 fix">
       <div
         className="tp-breadcrumb__bg"
         style={{

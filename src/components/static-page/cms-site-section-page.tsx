@@ -50,30 +50,6 @@ export default async function CmsSiteSectionPage({
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-lg-10">
-              <div className="tp-blog-details-wrap mb-40 wow fadeInUp">
-                <h3
-                  className="tp-blog-details-title"
-                  style={{
-                    fontSize: "2.4rem",
-                    fontWeight: 800,
-                    color: "#1c2b36",
-                    letterSpacing: "-0.5px",
-                    marginBottom: "20px",
-                  }}
-                >
-                  {pageLabel}
-                </h3>
-                <div
-                  className="title-line"
-                  style={{
-                    width: "80px",
-                    height: "4px",
-                    backgroundColor: "#42023e",
-                    borderRadius: "2px",
-                  }}
-                />
-              </div>
-
               <div className="tp-postbox-wrapper mb-80 wow fadeInUp">
                 <div
                   className="tp-postbox-details-text shadow-sm bg-white p-4 p-md-5"
