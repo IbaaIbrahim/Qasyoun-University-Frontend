@@ -24,6 +24,7 @@ services:
       context: .
       dockerfile: Dockerfile
       target: production
+      network: host
       args:
         - NEXT_PUBLIC_API_BASE_URL=${NEXT_PUBLIC_API_BASE_URL:-https://api.qpu.buzz}
     container_name: qpu-frontend-prod
