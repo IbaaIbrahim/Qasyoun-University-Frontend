@@ -6,8 +6,10 @@ WORKDIR /app
 COPY package.json yarn.lock ./
 
 # Step 3: Install dependencies
-RUN yarn config set registry https://registry.npmjs.org/ && \
-    yarn install --network-timeout 1000000 --network-concurrency 2
+RUN --mount=type=cache,target=/usr/local/share/.cache/yarn \
+    yarn config set registry https://registry.npmjs.org/ && \
+    yarn install --ignore-optional --network-timeout 1000000 && \
+    yarn add @next/swc-linux-x64-gnu @img/sharp-linux-x64 --ignore-optional || true
 
 # Stage 2: Development (Next.js development server)
 FROM base AS development
@@ -21,7 +23,8 @@ FROM base AS builder
 ARG NEXT_PUBLIC_API_BASE_URL
 ENV NEXT_PUBLIC_API_BASE_URL=$NEXT_PUBLIC_API_BASE_URL
 COPY . .
-RUN yarn build
+RUN --mount=type=cache,target=/app/.next/cache \
+    yarn build
 
 # Stage 4: Production runner
 FROM node:22-slim AS production
