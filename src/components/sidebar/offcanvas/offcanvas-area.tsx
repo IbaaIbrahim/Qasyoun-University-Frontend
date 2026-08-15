@@ -3,6 +3,7 @@ import Image from "next/image";
 import logo from "@/assets/img/logo/logo-wide.png";
 import { CloseThreeSvg } from "@/components/svg";
 import OffcanvasMenu from "./offcanvas-menu";
+import HeaderLanguage from "@/components/header/header-top/header-language";
 import type { IMenu } from "@/types/menu-d-t";
 
 type IProps = {
@@ -48,12 +49,17 @@ export default function OffcanvasArea({
                   <Image
                     src={logoSrc}
                     alt={brandLogoAlt ?? "logo"}
-                    width={180}
-                    height={48}
+                    width={160}
+                    height={44}
                     style={{ height: "auto", objectFit: "contain" }}
                     unoptimized={Boolean(brandLogoSrc)}
                   />
                 </Link>
+              </div>
+              <div className="header-bottom__lang">
+                <ul className="list-unstyled mb-0 d-flex align-items-center">
+                  <HeaderLanguage />
+                </ul>
               </div>
             </div>
             <div className="offcanvas-main">

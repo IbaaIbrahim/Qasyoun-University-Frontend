@@ -1,20 +1,15 @@
 "use client";
 
-// Removed Swiper imports as we are using native CSS marquee
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import type News from "@/lib/classes/news";
-
-// Import Swiper styles if needed, but they should be in globals.scss or layout.tsx
-// import "swiper/css/free-mode"; 
 
 type Props = {
   items: News[];
   label: string;
 };
 
-// ... ReadMoreLink and NewsBannerSlideRow remain same if didn't change ...
 function ReadMoreLink({
   href,
   children,
@@ -24,10 +19,19 @@ function ReadMoreLink({
 }) {
   const isInternal = href.startsWith("/") && !href.startsWith("//");
   if (isInternal) {
-    return <Link href={href}>{children}</Link>;
+    return (
+      <Link href={href} className="tp-news-banner-link-wrapper">
+        {children}
+      </Link>
+    );
   }
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer">
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="tp-news-banner-link-wrapper"
+    >
       {children}
     </a>
   );
@@ -35,81 +39,47 @@ function ReadMoreLink({
 
 function NewsBannerSlideRow({
   item,
-  label,
-  readMoreLabel,
   ariaHidden,
 }: {
   item: News;
-  label: string;
-  readMoreLabel: string;
   ariaHidden?: boolean;
 }) {
-  return (
+  const content = (
     <div
-      className="tp-news-banner-slide__inner d-flex align-items-center gap-3"
+      className="tp-news-banner-slide__inner d-flex align-items-center"
       aria-hidden={ariaHidden || undefined}
     >
-      <div className="tp-news-banner-tag-wrapper flex-shrink-0">
-        <span className="tp-news-banner-badge">
-          <span className="tp-news-banner-badge-dot"></span>
-          {label}
-        </span>
-      </div>
-
       {item.imageUrl ? (
         <div className="tp-news-banner-thumb-wrapper flex-shrink-0">
           <Image
             className="tp-news-banner-thumb"
             src={item.imageUrl}
             alt=""
-            width={40}
-            height={40}
+            width={28}
+            height={28}
             loading="lazy"
             unoptimized
           />
         </div>
       ) : null}
 
-      <div className="tp-news-banner-copy min-w-0 flex-grow-1">
-        <div className="tp-news-banner-text-group d-flex align-items-center gap-4">
-          {item.title ? (
-            item.href ? (
-              <ReadMoreLink href={item.href}>
-                <span className="tp-news-banner-excerpt text-truncate opacity-75">
-                  {item.title}
-                </span>
-              </ReadMoreLink>
-            ) : (
-              <span className="tp-news-banner-excerpt text-truncate opacity-75">
-                {item.title}
-              </span>
-            )
-          ) : null}
-        </div>
+      <div className="tp-news-banner-copy">
+        <span className="tp-news-banner-title">
+          {item.title}
+        </span>
       </div>
 
-      {item.href ? (
-        <ReadMoreLink href={item.href}>
-          <span className="tp-news-banner-link flex-shrink-0">
-            <span className="d-none d-sm-inline">{readMoreLabel}</span>
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M5 12h14"></path>
-              <path d="m12 5 7 7-7 7"></path>
-            </svg>
-          </span>
-        </ReadMoreLink>
-      ) : null}
+      <span className="tp-news-banner-separator flex-shrink-0" aria-hidden="true">
+        ✦
+      </span>
     </div>
   );
+
+  if (item.href) {
+    return <ReadMoreLink href={item.href}>{content}</ReadMoreLink>;
+  }
+
+  return content;
 }
 
 /**
@@ -117,9 +87,7 @@ function NewsBannerSlideRow({
  * Ensures a perfectly constant scrolling speed and reliable pause-on-hover.
  */
 export default function HeaderNewsBannerSlider({ items, label }: Props) {
-  const t = useTranslations("NewsBanner");
   const locale = useLocale();
-  const readMoreLabel = t("readMore");
   const isRtl = locale === "ar";
 
   if (!items.length) return null;
@@ -154,8 +122,6 @@ export default function HeaderNewsBannerSlider({ items, label }: Props) {
             <NewsBannerSlideRow
               key={item.uniqueId}
               item={item}
-              label={label}
-              readMoreLabel={readMoreLabel}
             />
           ))}
         </div>
@@ -165,8 +131,7 @@ export default function HeaderNewsBannerSlider({ items, label }: Props) {
             <NewsBannerSlideRow
               key={`${item.uniqueId}-dup`}
               item={item}
-              label={label}
-              readMoreLabel={readMoreLabel}
+              ariaHidden
             />
           ))}
         </div>
@@ -174,6 +139,3 @@ export default function HeaderNewsBannerSlider({ items, label }: Props) {
     </div>
   );
 }
-
-
-

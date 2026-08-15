@@ -29,7 +29,7 @@ export default function DetailsBreadcrumb({ title, faculty, translations }: IPro
         <div className="row align-items-center">
           <div className="col-sm-12">
             <div className="tp-breadcrumb__content text-center">
-              <h3 className="tp-breadcrumb__title text-white mb-10" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.3)', letterSpacing: '1px' }}>
+              <h3 className="tp-breadcrumb__title text-white mb-10" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.3)', letterSpacing: 'normal' }}>
                 {translations.laboratories}
               </h3>
               <h4 className="text-white-50 mb-30" style={{ fontSize: '1.2rem', fontWeight: 400, opacity: 0.9 }}>

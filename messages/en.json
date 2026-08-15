@@ -21,10 +21,12 @@
     "eventDetailTitle": "Event Details"
   },
   "News": {
-    "newsDetails": "News Details"
+    "newsDetails": "News Details",
+    "downloadPdf": "Download PDF File"
   },
   "Exhibitions": {
-    "exhibitionsDetails": "Exhibition Details"
+    "exhibitionsDetails": "Exhibition Details",
+    "downloadPdf": "Download PDF File"
   },
   "EventDetail": {
     "eventDetails": "Event Details",

@@ -4,6 +4,7 @@ import { getAllAlbums, getPhotosByAlbumId } from "@/lib/services/gallery.service
 import BreadcrumbTwo from "@/components/breadcrumb/breadcrumb-two";
 import AlbumPhotosClient from "./_components/album-photos-client";
 import { notFound } from "next/navigation";
+import { getBreadcrumbPageContent } from "@/lib/services/breadcrumb-page.service";
 
 export const dynamic = "force-dynamic";
 
@@ -33,9 +34,10 @@ export default async function AlbumDetailsPage({ params }: Props) {
     notFound();
   }
 
-  const [albums, photos] = await Promise.all([
+  const [albums, photos, breadcrumbContent] = await Promise.all([
     getAllAlbums(locale),
     getPhotosByAlbumId(albumId, locale),
+    getBreadcrumbPageContent(locale),
   ]);
 
   const currentAlbum = albums.find((a) => Number(a.id) === albumId);
@@ -59,6 +61,7 @@ export default async function AlbumDetailsPage({ params }: Props) {
       <BreadcrumbTwo
         title={currentAlbum.name}
         subtitle={tNav("gallery")}
+        bgImg={breadcrumbContent?.galleryBreadcrumbImage}
       />
 
       <section className="tp-gallery-detail-area pt-120 pb-120 bg-light">

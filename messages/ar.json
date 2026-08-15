@@ -21,10 +21,12 @@
     "eventDetailTitle": "تفاصيل الحدث"
   },
   "News": {
-    "newsDetails": "تفاصيل الخبر"
+    "newsDetails": "تفاصيل الخبر",
+    "downloadPdf": "تحميل ملف PDF"
   },
   "Exhibitions": {
-    "exhibitionsDetails": "تفاصيل المعرض"
+    "exhibitionsDetails": "تفاصيل المعرض",
+    "downloadPdf": "تحميل ملف PDF"
   },
   "EventDetail": {
     "eventDetails": "تفاصيل الحدث",

@@ -29,26 +29,26 @@ High-level map of this repository:
 
 ## Shipped pages and routes (current)
 
-All user-facing app routes live under the **`[locale]`** segment (`src/app/[locale]/`). Locales: **`en`** (default) and **`ar`**.
+All user-facing app routes live under the **`[locale]`** segment (`src/app/[locale]/`). Locales: **`ar`** (default) and **`en`**.
 
-| User-facing URL (EN default) | Arabic prefix            | What it is                                                                                                                                                                                                 |
+| User-facing URL (AR default) | English prefix           | What it is                                                                                                                                                                                                 |
 | ---------------------------- | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `/`                        | `/ar`                  | **Home** — main landing; includes the **faculties teaser** block (`FacultyArea`) backed by `listFacultiesForPublic()`.                                                                    |
-| `/faculties`               | `/ar/faculties`        | **Faculties list** — grid of faculty cards from the API.                                                                                                                                            |
-| `/faculties/[slug]`        | `/ar/faculties/[slug]` | **Faculty detail** — hero, content, labs/mission, and **faculty team** (`FacultyTeacher` + `Teacher` via `listTeachersByFacultyId()`); other blocks may still be template placeholders. |
-| `/about/[slug]` | `/ar/about/[slug]` | **About (CMS)** — `Content` + `ContentMeta` with `referenceType: about`, `referenceId: 0`, section per page (e.g. `vision_mission`). |
-| `/admission/[slug]` | `/ar/admission/[slug]` | **Admission (CMS)** — `referenceType: admission`, `referenceId: 0`. |
-| `/student-life/[slug]` | `/ar/student-life/[slug]` | **Student life (CMS)** — `referenceType: student_life`, `referenceId: 0`. |
-| `/directorates` | `/ar/directorates` | **University directorates (CMS)** — `referenceType: site_pages`, section `directorates`, `referenceId: 0`. |
-| `/decisions` | `/ar/decisions` | **Higher Education Council decisions (CMS)** — `referenceType: site_pages`, section `higher_education_decisions`, `referenceId: 0`; **multiple** Content rows (one per decision), ordered by `displayOrder`. |
-| `/contact` | `/ar/contact` | **Contact** — localized contact information plus reusable `ContactForm` component. |
-| `/events` | `/ar/events` | **Events list** — list of all university events. |
-| `/exhibitions` | `/ar/exhibitions` | **Exhibitions list** — list of exhibitions, styled identically to news. |
-| `/exhibitions/[slug]` | `/ar/exhibitions/[slug]` | **Exhibition detail** — detail view for a specific exhibition. |
-| `/gallery` | `/ar/gallery` | **Photo gallery list** — list of photo albums. |
-| `/gallery/[id]` | `/ar/gallery/[id]` | **Album detail** — grid of photos for a specific album with filter tabs and dynamic lightbox. |
+| `/`                        | `/en`                  | **Home** — main landing; includes the **faculties teaser** block (`FacultyArea`) backed by `listFacultiesForPublic()`.                                                                    |
+| `/faculties`               | `/en/faculties`        | **Faculties list** — grid of faculty cards from the API.                                                                                                                                            |
+| `/faculties/[slug]`        | `/en/faculties/[slug]` | **Faculty detail** — hero, content, labs/mission, and **faculty team** (`FacultyTeacher` + `Teacher` via `listTeachersByFacultyId()`); other blocks may still be template placeholders. |
+| `/about/[slug]` | `/en/about/[slug]` | **About (CMS)** — `Content` + `ContentMeta` with `referenceType: about`, `referenceId: 0`, section per page (e.g. `vision_mission`). |
+| `/admission/[slug]` | `/en/admission/[slug]` | **Admission (CMS)** — `referenceType: admission`, `referenceId: 0`. |
+| `/student-life/[slug]` | `/en/student-life/[slug]` | **Student life (CMS)** — `referenceType: student_life`, `referenceId: 0`. |
+| `/directorates` | `/en/directorates` | **University directorates (CMS)** — `referenceType: site_pages`, section `directorates`, `referenceId: 0`. |
+| `/decisions` | `/en/decisions` | **Higher Education Council decisions (CMS)** — `referenceType: site_pages`, section `higher_education_decisions`, `referenceId: 0`; **multiple** Content rows (one per decision), ordered by `displayOrder`. |
+| `/contact` | `/en/contact` | **Contact** — localized contact information plus reusable `ContactForm` component. |
+| `/events` | `/en/events` | **Events list** — list of all university events. |
+| `/exhibitions` | `/en/exhibitions` | **Exhibitions list** — list of exhibitions, styled identically to news. |
+| `/exhibitions/[slug]` | `/en/exhibitions/[slug]` | **Exhibition detail** — detail view for a specific exhibition. |
+| `/gallery` | `/en/gallery` | **Photo gallery list** — list of photo albums. |
+| `/gallery/[id]` | `/en/gallery/[id]` | **Album detail** — grid of photos for a specific album with filter tabs and dynamic lightbox. |
 
-Default locale uses **`localePrefix: 'as-needed'`** (no `/en` in the path). Template-only links in `menu_data_2` and some footer paths may still point at demo routes that are **not** implemented here.
+Default locale uses **`localePrefix: 'as-needed'`** (no `/ar` in the path; `/en` for English). Template-only links in `menu_data_2` and some footer paths may still point at demo routes that are **not** implemented here.
 
 **Home hero** (API wiring, image-only decision, file map): `src/components/hero-area/README.md`.
 
@@ -58,10 +58,10 @@ We use **[next-intl](https://next-intl.dev)** with the App Router pattern:
 
 | Piece                                      | Role                                                                                                                                                                                                                      |
 | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `src/i18n/routing.ts`                    | `defineRouting`: locales `en` / `ar`, `defaultLocale: 'en'`, `localePrefix: 'as-needed'`.                                                                                                                       |
+| `src/i18n/routing.ts`                    | `defineRouting`: locales `ar` / `en`, `defaultLocale: 'ar'`, `localePrefix: 'as-needed'`.                                                                                                                       |
 | `src/i18n/navigation.ts`                 | `createNavigation(routing)` → **`Link`**, **`redirect`**, **`useRouter`**, **`usePathname`**, **`getPathname`** (use these for in-app URLs so the active locale is preserved). |
 | `src/i18n/request.ts`                    | `getRequestConfig`: resolves locale and loads `messages/{locale}.json`.                                                                                                                                               |
-| `src/middleware.ts`                      | `createMiddleware(routing)` — locale detection and prefix handling.                                                                                                                                                    |
+| `src/middleware.ts`                      | `createMiddleware(routing)` — locale detection (reads `NEXT_LOCALE` cookie, strips `accept-language` to fallback to Arabic by default) and prefix handling.                                                              |
 | `next.config.mjs`                        | `createNextIntlPlugin('./src/i18n/request.ts')`.                                                                                                                                                                        |
 | `messages/en.json`, `messages/ar.json` | Copy and namespaces (e.g.`Metadata`, `Nav`, `Header`, `Footer`, `Faculties`, `FacultyArea`, …). All dynamic CMS content keys defined in `src/lib/constants/content-sections.ts` are fully localized under the `qpu.dynamicContent` namespace. |
 | `src/app/[locale]/layout.tsx`            | Sets `<html lang>` and **`dir="rtl"`** for Arabic; wraps with `NextIntlClientProvider`; loads fonts (including **Noto Sans Arabic**).                                                                   |

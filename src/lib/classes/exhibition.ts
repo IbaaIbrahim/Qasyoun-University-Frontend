@@ -8,6 +8,7 @@ export default class Exhibition {
   date?: string;
   href?: string | null;
   imageUrl?: string | null;
+  file?: string | null;
 
   static fromContentJson(contentJson: ContentJson): Exhibition | null {
     const title = contentJson.contentMetasJson?.["text"] || contentJson.contentMetasJson?.["title"] || "";
@@ -15,6 +16,7 @@ export default class Exhibition {
     const description = contentJson.contentMetasJson?.["description"] || "";
     const imageUrl = contentJson.contentMetasJson?.["image"] || contentJson.contentMetasJson?.["src"] || null;
     const date = contentJson.contentMetasJson?.["date"] || contentJson.createdAt;
+    const file = contentJson.contentMetasJson?.["file"] || null;
 
     if (!title && !slug) return null;
 
@@ -26,6 +28,7 @@ export default class Exhibition {
       date,
       href: slug ? `/exhibitions/${slug}` : (contentJson.contentMetasJson?.["href"] || null),
       imageUrl,
+      file,
     } as Exhibition;
   }
 }

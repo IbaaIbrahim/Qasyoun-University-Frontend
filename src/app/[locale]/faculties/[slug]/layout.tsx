@@ -1,20 +1,26 @@
 import React from "react";
 import HeaderOne from "@/components/header/header-one";
+import FooterOne from "@/components/footer/footer-one";
+import BackToTop from "@/components/back-to-top";
+import MainProvider from "@/components/provider/main-provider";
 import { getLocale } from "next-intl/server";
 import { resolveUploadSrc } from "@/lib/api/client";
 import { readContentAsJsonByFilter } from "@/lib/services/content.service";
 import { getFacultyBySlug } from "@/lib/services/faculty.service";
+import { getWebsiteSettings } from "@/lib/services/website-settings.service";
 import { sortNewsByNewest } from "@/lib/services/news.service";
 import { IMenu } from "@/types/menu-d-t";
 
 import { listLabsByFacultyId } from "@/lib/services/lab.service";
+import { ReferenceTypes } from "@/lib/constants";
 
 export default async function Layout({ children, params }: { children: React.ReactNode, params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const locale = await getLocale();
-  const [newsContent, faculty] = await Promise.all([
-    readContentAsJsonByFilter({ referenceId: "0", referenceType: "faculty", section: "news" }, locale),
+  const [newsContent, faculty, websiteSettings] = await Promise.all([
+    readContentAsJsonByFilter({ referenceId: "0", referenceType: ReferenceTypes.home.value, section: ReferenceTypes.home.sections.news.value }, locale),
     getFacultyBySlug(slug),
+    getWebsiteSettings(locale),
   ]);
 
   const labs = faculty?.id ? await listLabsByFacultyId(faculty.id) : [];
@@ -38,7 +44,7 @@ export default async function Layout({ children, params }: { children: React.Rea
   ];
 
   return (
-    <>
+    <MainProvider>
       {/* header area start */}
       <HeaderOne
         newsItems={sortedNews}
@@ -51,6 +57,18 @@ export default async function Layout({ children, params }: { children: React.Rea
 
       {/* main content */}
       {children}
-    </>
+      {/* main content */}
+
+      {/* footer area start */}
+      <FooterOne
+        logoSrc={websiteSettings?.logo}
+        email={websiteSettings?.email}
+        phoneNumber={websiteSettings?.phoneNumber}
+      />
+      {/* footer area end */}
+
+      {/* back to top */}
+      <BackToTop />
+    </MainProvider>
   );
 }

@@ -1,6 +1,5 @@
 import React from "react";
-import { getLocale, getTranslations } from "next-intl/server";
-import { readContentAsJsonByFilter } from "@/lib/services/content.service";
+import { getTranslations } from "next-intl/server";
 import HeaderLanguage from "./header-language";
 import HeaderNewsBannerSlider from "./header-news-banner-slider";
 import News from "@/lib/classes/news";
@@ -31,6 +30,13 @@ export default async function HeaderTopArea({ newsItems }: { newsItems: News[] }
             <ul className="list-unstyled mb-0 d-flex align-items-center">
               <HeaderLanguage />
             </ul>
+          </div>
+
+          <div className="tp-news-banner-tag-wrapper flex-shrink-0">
+            <span className="tp-news-banner-badge">
+              <span className="tp-news-banner-badge-dot"></span>
+              {t("label")}
+            </span>
           </div>
 
           <div className="tp-news-banner__track flex-grow-1 min-w-0">

@@ -13,6 +13,7 @@ import "../globals.scss";
 import { routing } from "@/i18n/routing";
 import { isRtlLocale } from "@/lib/i18n/locale";
 import { VideoProvider } from "@/provider/VideoProvider";
+import LocaleSync from "@/components/i18n/locale-sync";
 
 const outfitBody = Outfit({
   subsets: ["latin"],
@@ -90,6 +91,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
     <html lang={locale} dir={dir} suppressHydrationWarning>
       <body className={fontVars}>
         <NextIntlClientProvider messages={messages}>
+          <LocaleSync />
           <VideoProvider>{children}</VideoProvider>
         </NextIntlClientProvider>
       </body>

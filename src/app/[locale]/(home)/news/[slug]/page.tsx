@@ -5,6 +5,7 @@ import Image from "next/image";
 import { getNewsBySlug } from "@/lib/services/news.service";
 import BreadcrumbTwo from "@/components/breadcrumb/breadcrumb-two";
 import { getBreadcrumbPageContent } from "@/lib/services/breadcrumb-page.service";
+import { resolveUploadSrc } from "@/lib/api/client";
 
 export const dynamic = "force-dynamic";
 
@@ -43,6 +44,8 @@ export default async function NewsDetailPage({ params }: Props) {
         day: 'numeric'
       })
     : null;
+
+  const pdfHref = news.file ? resolveUploadSrc(news.file, "") : "";
 
   return (
     <main>
@@ -83,6 +86,42 @@ export default async function NewsDetailPage({ params }: Props) {
                     className="tp-blog-details-text"
                     dangerouslySetInnerHTML={{ __html: news.description || "" }}
                   />
+                  {pdfHref && (
+                    <div className="mt-40 text-center text-md-start">
+                      <a
+                        href={pdfHref}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="tp-btn"
+                        style={{
+                          backgroundColor: "#42023e",
+                          color: "#fff",
+                          padding: "12px 25px",
+                          borderRadius: "10px",
+                          display: "inline-flex",
+                          alignItems: "center",
+                          gap: "10px",
+                          fontSize: "1rem",
+                        }}
+                      >
+                        <svg
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4" />
+                          <polyline points="7 10 12 15 17 10" />
+                          <line x1="12" y1="15" x2="12" y2="3" />
+                        </svg>
+                        {t("downloadPdf")}
+                      </a>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

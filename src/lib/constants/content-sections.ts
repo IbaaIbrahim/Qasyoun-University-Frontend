@@ -27,6 +27,10 @@ const HomeType = {
           name: "qpu.dynamicContent.description",
           type: "richtext"
         },
+        file: {
+          name: "qpu.dynamicContent.pdfFile",
+          type: "file"
+        },
         date: {
           name: "qpu.dynamicContent.date",
           type: "date"
@@ -55,6 +59,10 @@ const HomeType = {
         description: {
           name: "qpu.dynamicContent.description",
           type: "richtext"
+        },
+        file: {
+          name: "qpu.dynamicContent.pdfFile",
+          type: "file"
         },
         date: {
           name: "qpu.dynamicContent.date",
