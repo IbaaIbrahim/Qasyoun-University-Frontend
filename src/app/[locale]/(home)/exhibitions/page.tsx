@@ -77,10 +77,12 @@ function ExhibitionItem({ exhibition, readMoreLabel, locale }: { exhibition: Exh
         <h3 className="tp-news-list-title">
           <Link href={exhibition.href || "#"}>{exhibition.title}</Link>
         </h3>
-        <p className="tp-news-list-excerpt text-truncate-2">
-          {/* Strip HTML if description is rich text */}
-          {exhibition.description ? exhibition.description.replace(/<[^>]*>?/gm, '').slice(0, 150) + '...' : ''}
-        </p>
+        <div
+          className="tp-news-list-excerpt text-truncate-2"
+          dangerouslySetInnerHTML={{
+            __html: (exhibition.description || "").replace(/background(-color)?\s*:\s*[^;"]+;?/gi, "")
+          }}
+        />
         <div className="tp-news-list-btn">
           <Link href={exhibition.href || "#"} className="tp-btn-inner">
             {readMoreLabel}

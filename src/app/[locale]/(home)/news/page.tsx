@@ -77,10 +77,12 @@ function NewsItem({ news, readMoreLabel, locale }: { news: News, readMoreLabel: 
         <h3 className="tp-news-list-title">
           <Link href={news.href || "#"}>{news.title}</Link>
         </h3>
-        <p className="tp-news-list-excerpt text-truncate-2">
-          {/* Strip HTML if description is rich text */}
-          {news.description ? news.description.replace(/<[^>]*>?/gm, '').slice(0, 150) + '...' : ''}
-        </p>
+        <div
+          className="tp-news-list-excerpt text-truncate-2"
+          dangerouslySetInnerHTML={{
+            __html: (news.description || "").replace(/background(-color)?\s*:\s*[^;"]+;?/gi, "")
+          }}
+        />
         <div className="tp-news-list-btn">
           <Link href={news.href || "#"} className="tp-btn-inner">
             {readMoreLabel}

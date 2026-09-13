@@ -44,19 +44,60 @@ export default async function FacultyDetailPage({ params }: Props) {
 
   if (!faculty) notFound();
 
-  const meta = await readContentAsJsonByFilter({ referenceId: slug, referenceType: ReferenceTypes.faculty.value }, locale)
+  const canonicalSlug = faculty.slug || slug;
+  let meta = await readContentAsJsonByFilter(
+    { referenceId: canonicalSlug, referenceType: ReferenceTypes.faculty.value },
+    locale
+  );
+
+  // If no meta or missing main_text, check common slug variations (e.g. Informatics vs Informatics-Engineering)
+  if (meta.length === 0 || !meta.some((m) => m.section === ReferenceTypes.faculty.sections.main_text.value)) {
+    const candidateSlugs = [
+      slug,
+      `${canonicalSlug}-Engineering`,
+      canonicalSlug.replace(/-Engineering$/i, ""),
+    ].filter((s) => s && s !== canonicalSlug);
+
+    for (const altSlug of candidateSlugs) {
+      const altMeta = await readContentAsJsonByFilter(
+        { referenceId: altSlug, referenceType: ReferenceTypes.faculty.value },
+        locale
+      );
+      if (altMeta.length > 0) {
+        const existingSections = new Set(meta.map((m) => m.section));
+        for (const item of altMeta) {
+          if (!existingSections.has(item.section)) {
+            meta.push(item);
+          }
+        }
+      }
+    }
+  }
 
   const sliderContents = meta.filter((item) => item.section === ReferenceTypes.faculty.sections.hero_slider.value);
   const slides = sliderContents.map((item) => item.toSlider());
 
-  const mainTextContents = meta.filter((item) => item.section === ReferenceTypes.faculty.sections.main_text.value);
+  // Sort single-item sections by updatedAt / id descending so the latest edit always takes precedence
+  const sortByLatest = (a: any, b: any) => {
+    const timeA = a.updatedAt ? new Date(a.updatedAt).getTime() : 0;
+    const timeB = b.updatedAt ? new Date(b.updatedAt).getTime() : 0;
+    if (timeA !== timeB) return timeB - timeA;
+    return (b.id || 0) - (a.id || 0);
+  };
+
+  const mainTextContents = meta
+    .filter((item) => item.section === ReferenceTypes.faculty.sections.main_text.value)
+    .sort(sortByLatest);
   const mainText = mainTextContents.map((item) => item.toMainText())?.[0]?.text ?? "";
 
   const galleryContents = meta.filter((item) => item.section === ReferenceTypes.faculty.sections.gallery.value);
   const gallery = galleryContents.map((item) => item.toGallery());
 
-  const facultyStatisticsContent = meta.find((item) => item.section === ReferenceTypes.faculty.sections.faculty_statistics.value);
-  const facultyStatistics = facultyStatisticsContent ? FacultyStatistics.fromContentJson(facultyStatisticsContent) : {}
+  const facultyStatisticsContents = meta
+    .filter((item) => item.section === ReferenceTypes.faculty.sections.faculty_statistics.value)
+    .sort(sortByLatest);
+  const facultyStatisticsContent = facultyStatisticsContents[0];
+  const facultyStatistics = facultyStatisticsContent ? FacultyStatistics.fromContentJson(facultyStatisticsContent) : {};
 
   const timelineContents = meta.filter((item) => item.section === ReferenceTypes.faculty.sections.timeline.value);
   const timelines = timelineContents.map((item) => item.toTimeline());

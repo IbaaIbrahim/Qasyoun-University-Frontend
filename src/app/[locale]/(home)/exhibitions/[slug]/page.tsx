@@ -5,6 +5,7 @@ import Image from "next/image";
 import BreadcrumbTwo from "@/components/breadcrumb/breadcrumb-two";
 import { getExhibitionBySlug } from "@/lib/services/exhibition.service";
 import { resolveUploadSrc } from "@/lib/api/client";
+import { getBreadcrumbPageContent } from "@/lib/services/breadcrumb-page.service";
 
 export const dynamic = "force-dynamic";
 
@@ -26,7 +27,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ExhibitionDetailPage({ params }: Props) {
   const { slug, locale } = await params;
-  const exhibition = await getExhibitionBySlug(slug, locale);
+  const [exhibition, breadcrumbContent] = await Promise.all([
+    getExhibitionBySlug(slug, locale),
+    getBreadcrumbPageContent(locale),
+  ]);
 
   if (!exhibition) notFound();
 
@@ -48,6 +52,7 @@ export default async function ExhibitionDetailPage({ params }: Props) {
       <BreadcrumbTwo
         title={exhibition.title || ""}
         subtitle={t("exhibitionsDetails")}
+        bgImg={breadcrumbContent?.exhibitionsAndConferencesBreadcrumbImage || undefined}
       />
       <section className="tp-blog-details-area pt-120 pb-120">
         <div className="container">

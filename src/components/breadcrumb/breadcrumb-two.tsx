@@ -15,13 +15,14 @@ export default function BreadcrumbTwo({
   bgImg = "/assets/img/breadcrumb/campus-breadcrumb.jpg"
 }: IProps) {
   const isDifferentTrail = subtitle && subtitle.trim().toLowerCase() !== title.trim().toLowerCase();
+  const effectiveBgImg = bgImg && bgImg.trim() ? bgImg : "/assets/img/breadcrumb/campus-breadcrumb.jpg";
 
   return (
     <section className="tp-breadcrumb__area p-relative z-index-1 fix">
       <div
         className="tp-breadcrumb__bg overlay"
         style={{
-          backgroundImage: `url(${bgImg})`,
+          backgroundImage: `url(${effectiveBgImg})`,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center"

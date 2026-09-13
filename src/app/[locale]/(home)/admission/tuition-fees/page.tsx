@@ -4,10 +4,10 @@ import BreadcrumbTwo from "@/components/breadcrumb/breadcrumb-two";
 import { getBreadcrumbPageContent } from "@/lib/services/breadcrumb-page.service";
 import { listStudyYears } from "@/lib/services/study-year.service";
 import { readContentAsJsonByFilter } from "@/lib/services/content.service";
-import AdmissionRequirementsArea, {
-  YearAdmissionData,
-  StudentCategoryData,
-} from "@/components/admission/admission-requirements-area";
+import TuitionFeesArea, {
+  YearTuitionData,
+  TuitionCategoryData,
+} from "@/components/admission/tuition-fees-area";
 
 export const dynamic = "force-dynamic";
 
@@ -18,7 +18,7 @@ type Props = {
 async function getPageTitle(locale: string) {
   const tMeta = await getTranslations({ locale, namespace: "Metadata" });
   const tNav = await getTranslations({ locale, namespace: "Nav" });
-  const label = tNav("admissionRequirements");
+  const label = tNav("tuitionFees");
   return {
     fullTitle: tMeta("staticPageTitle", { page: label }),
     title: label,
@@ -32,13 +32,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 const SECTIONS_KEYS = [
-  "syrian_students_admission_requirements",
-  "syrian_students_foreign_certificates_admission_requirements",
-  "foreign_and_arab_students_admission_requirements",
-  "similar_transfer_prioritization_admission_requirements",
+  "syrian_students_tuition_fees",
+  "syrian_students_foreign_certificates_tuition_fees",
+  "foreign_and_arab_students_tuition_fees",
+  "general_tuition_fees",
 ];
 
-export default async function AdmissionRequirementsPage({ params }: Props) {
+export default async function TuitionFeesPage({ params }: Props) {
   const { locale } = await params;
   const { title } = await getPageTitle(locale);
 
@@ -58,33 +58,37 @@ export default async function AdmissionRequirementsPage({ params }: Props) {
     return a.displayOrder - b.displayOrder || b.id - a.id;
   });
 
-  // Fetch admission requirements data for all sorted years
-  const yearsData: YearAdmissionData[] = await Promise.all(
+  // Fetch tuition fees data for all sorted years
+  const yearsData: YearTuitionData[] = await Promise.all(
     sortedYears.map(async (year) => {
       const contentList = await readContentAsJsonByFilter(
-        { referenceType: "admission_requirements", referenceId: String(year.id) },
+        { referenceType: "tuition_fees", referenceId: String(year.id) },
         locale
       );
 
-      const categories: Record<string, StudentCategoryData> = {};
+      const categories: Record<string, TuitionCategoryData> = {};
 
       SECTIONS_KEYS.forEach((secKey) => {
         const contentJson = contentList.find((c) => c.section === secKey);
         let tableData: Record<string, string>[] = [];
         let columns: { key: string; label: string }[] | undefined = undefined;
         let fileUrl = "";
-        let currencyType = "";
+        let notes = "";
 
         if (contentJson && contentJson.contentMetasJson) {
-          const prefix = secKey.replace(/_admission_requirements$/, "");
-          const tableKey = `${prefix}_table`;
-          const fileKey = `${prefix}_file`;
+          const tableKey = `${secKey}_table`;
+          const fileKey = `${secKey}_file`;
 
           const rawTable = contentJson.contentMetasJson[tableKey];
           if (typeof rawTable === "string" && rawTable.trim().length > 0) {
             try {
               const parsed = JSON.parse(rawTable);
-              if (parsed && typeof parsed === "object" && !Array.isArray(parsed) && Array.isArray(parsed.rows)) {
+              if (
+                parsed &&
+                typeof parsed === "object" &&
+                !Array.isArray(parsed) &&
+                Array.isArray(parsed.rows)
+              ) {
                 tableData = parsed.rows;
                 if (Array.isArray(parsed.columns) && parsed.columns.length > 0) {
                   columns = parsed.columns;
@@ -100,7 +104,7 @@ export default async function AdmissionRequirementsPage({ params }: Props) {
           }
 
           fileUrl = contentJson.contentMetasJson[fileKey] || "";
-          currencyType = contentJson.contentMetasJson.currency_type || contentJson.contentMetasJson.notes || "";
+          notes = contentJson.contentMetasJson.notes || "";
         }
 
         categories[secKey] = {
@@ -109,7 +113,7 @@ export default async function AdmissionRequirementsPage({ params }: Props) {
           table: tableData,
           columns,
           file: fileUrl,
-          currencyType,
+          notes,
         };
       });
 
@@ -125,7 +129,7 @@ export default async function AdmissionRequirementsPage({ params }: Props) {
   return (
     <main>
       <BreadcrumbTwo title={title} subtitle={subtitle} bgImg={bgImg} />
-      <AdmissionRequirementsArea yearsData={yearsData} locale={locale} />
+      <TuitionFeesArea yearsData={yearsData} locale={locale} />
     </main>
   );
 }

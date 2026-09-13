@@ -35,7 +35,7 @@ export type ContentDto = {
 export class Content {
   constructor(
     public readonly id: number,
-    public readonly referenceId: number,
+    public readonly referenceId: number | string,
     public readonly referenceType: string,
     public readonly section: string,
     public readonly title: string | null,
@@ -47,9 +47,13 @@ export class Content {
   ) { }
 
   static fromDto(dto: ContentDto): Content {
+    const rawRef = dto.referenceId;
+    const numRef = Number(rawRef);
+    const parsedRef = isNaN(numRef) ? (rawRef ?? "") : numRef;
+
     return new Content(
       Number(dto.id),
-      Number(dto.referenceId),
+      parsedRef,
       dto.referenceType ?? "",
       dto.section ?? "",
       dto.title ?? null,

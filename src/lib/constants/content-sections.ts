@@ -492,8 +492,8 @@ const AdmissionRequirementsType = {
       maxContentItems: 1,
       keys: {
         currency_type: {
-          name: "qpu.dynamicContent.currencyType",
-          type: "text"
+          name: "qpu.dynamicContent.notes",
+          type: "textarea"
         },
         syrian_students_table: {
           name: "qpu.dynamicContent.table",
@@ -525,8 +525,8 @@ const AdmissionRequirementsType = {
       maxContentItems: 1,
       keys: {
         currency_type: {
-          name: "qpu.dynamicContent.currencyType",
-          type: "text"
+          name: "qpu.dynamicContent.notes",
+          type: "textarea"
         },
         syrian_students_foreign_certificates_table: {
           name: "qpu.dynamicContent.table",
@@ -558,8 +558,8 @@ const AdmissionRequirementsType = {
       maxContentItems: 1,
       keys: {
         currency_type: {
-          name: "qpu.dynamicContent.currencyType",
-          type: "text"
+          name: "qpu.dynamicContent.notes",
+          type: "textarea"
         },
         foreign_and_arab_students_table: {
           name: "qpu.dynamicContent.table",
@@ -591,8 +591,8 @@ const AdmissionRequirementsType = {
       maxContentItems: 1,
       keys: {
         currency_type: {
-          name: "qpu.dynamicContent.currencyType",
-          type: "text"
+          name: "qpu.dynamicContent.notes",
+          type: "textarea"
         },
         similar_transfer_prioritization_table: {
           name: "qpu.dynamicContent.table",
@@ -621,6 +621,145 @@ const AdmissionRequirementsType = {
   }
 }
 
+const TuitionFeesType = {
+  name: "qpu.dynamicContent.tuitionFees",
+  value: "tuition_fees",
+  sections: {
+    syrian_students_tuition_fees: {
+      name: "qpu.dynamicContent.syrianStudentsTuitionFees",
+      value: "syrian_students_tuition_fees",
+      maxContentItems: 1,
+      keys: {
+        notes: {
+          name: "qpu.dynamicContent.notes",
+          type: "textarea"
+        },
+        syrian_students_tuition_fees_table: {
+          name: "qpu.dynamicContent.table",
+          type: "table",
+          columns: {
+            faculty: {
+              name: "qpu.dynamicContent.faculty",
+              type: "text"
+            },
+            credit_hour_fee: {
+              name: "qpu.dynamicContent.creditHourFee",
+              type: "text"
+            },
+            notes: {
+              name: "qpu.dynamicContent.notes",
+              type: "text"
+            }
+          }
+        },
+        syrian_students_tuition_fees_file: {
+          name: "qpu.dynamicContent.pdfFile",
+          type: "file"
+        }
+      }
+    },
+    syrian_students_foreign_certificates_tuition_fees: {
+      name: "qpu.dynamicContent.syrianStudentsForeignCertificatesTuitionFees",
+      value: "syrian_students_foreign_certificates_tuition_fees",
+      maxContentItems: 1,
+      keys: {
+        notes: {
+          name: "qpu.dynamicContent.notes",
+          type: "textarea"
+        },
+        syrian_students_foreign_certificates_tuition_fees_table: {
+          name: "qpu.dynamicContent.table",
+          type: "table",
+          columns: {
+            faculty: {
+              name: "qpu.dynamicContent.faculty",
+              type: "text"
+            },
+            credit_hour_fee: {
+              name: "qpu.dynamicContent.creditHourFee",
+              type: "text"
+            },
+            notes: {
+              name: "qpu.dynamicContent.notes",
+              type: "text"
+            }
+          }
+        },
+        syrian_students_foreign_certificates_tuition_fees_file: {
+          name: "qpu.dynamicContent.pdfFile",
+          type: "file"
+        }
+      }
+    },
+    foreign_and_arab_students_tuition_fees: {
+      name: "qpu.dynamicContent.foreignAndArabStudentsTuitionFees",
+      value: "foreign_and_arab_students_tuition_fees",
+      maxContentItems: 1,
+      keys: {
+        notes: {
+          name: "qpu.dynamicContent.notes",
+          type: "textarea"
+        },
+        foreign_and_arab_students_tuition_fees_table: {
+          name: "qpu.dynamicContent.table",
+          type: "table",
+          columns: {
+            faculty: {
+              name: "qpu.dynamicContent.faculty",
+              type: "text"
+            },
+            credit_hour_fee: {
+              name: "qpu.dynamicContent.creditHourFee",
+              type: "text"
+            },
+            notes: {
+              name: "qpu.dynamicContent.notes",
+              type: "text"
+            }
+          }
+        },
+        foreign_and_arab_students_tuition_fees_file: {
+          name: "qpu.dynamicContent.pdfFile",
+          type: "file"
+        }
+      }
+    },
+    general_tuition_fees: {
+      name: "qpu.dynamicContent.generalTuitionFees",
+      value: "general_tuition_fees",
+      maxContentItems: 1,
+      keys: {
+        notes: {
+          name: "qpu.dynamicContent.notes",
+          type: "textarea"
+        },
+        general_tuition_fees_table: {
+          name: "qpu.dynamicContent.table",
+          type: "table",
+          columns: {
+            faculty: {
+              name: "qpu.dynamicContent.faculty",
+              type: "text"
+            },
+            credit_hour_fee: {
+              name: "qpu.dynamicContent.creditHourFee",
+              type: "text"
+            },
+            notes: {
+              name: "qpu.dynamicContent.notes",
+              type: "text"
+            }
+          }
+        },
+        general_tuition_fees_file: {
+          name: "qpu.dynamicContent.pdfFile",
+          type: "file"
+        }
+      }
+    }
+  }
+}
+
 const AdmissionType = {
   name: "qpu.dynamicContent.admission",
   value: "admission",
@@ -634,12 +773,6 @@ const AdmissionType = {
     study_system: {
       name: "qpu.dynamicContent.studySystem",
       value: "study_system",
-      maxContentItems: 1,
-      keys: staticPageKeys
-    },
-    tuition_fees: {
-      name: "qpu.dynamicContent.tuitionFees",
-      value: "tuition_fees",
       maxContentItems: 1,
       keys: staticPageKeys
     },
@@ -896,6 +1029,7 @@ export const ReferenceTypes = {
   about: AboutType,
   admission: AdmissionType,
   admission_requirements: AdmissionRequirementsType,
+  tuition_fees: TuitionFeesType,
   student_life: StudentLifeType,
   site_pages: SitePagesType,
   albums: AlbumsType,

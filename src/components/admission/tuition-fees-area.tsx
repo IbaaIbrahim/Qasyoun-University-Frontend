@@ -9,47 +9,51 @@ export type ColumnDef = {
   label: string;
 };
 
-export type StudentCategoryData = {
+export type TuitionCategoryData = {
   section: string;
   title?: string;
   table: Record<string, string>[];
   columns?: ColumnDef[];
   file: string;
-  currencyType?: string;
+  notes?: string;
 };
 
-export type YearAdmissionData = {
+export type YearTuitionData = {
   yearId: number;
   yearName: string;
   isCurrent: boolean;
-  categories: Record<string, StudentCategoryData>;
+  categories: Record<string, TuitionCategoryData>;
 };
 
 type Props = {
-  yearsData: YearAdmissionData[];
+  yearsData: YearTuitionData[];
   locale: string;
 };
 
 const SECTIONS = [
   {
-    key: "syrian_students_admission_requirements",
-    translationKey: "syrianStudentsAdmissionRequirements",
+    key: "syrian_students_tuition_fees",
+    translationKey: "syrianStudentsTuitionFees",
+    icon: "fa-graduation-cap",
   },
   {
-    key: "syrian_students_foreign_certificates_admission_requirements",
-    translationKey: "syrianStudentsForeignCertificatesAdmissionRequirements",
+    key: "syrian_students_foreign_certificates_tuition_fees",
+    translationKey: "syrianStudentsForeignCertificatesTuitionFees",
+    icon: "fa-passport",
   },
   {
-    key: "foreign_and_arab_students_admission_requirements",
-    translationKey: "foreignAndArabStudentsAdmissionRequirements",
+    key: "foreign_and_arab_students_tuition_fees",
+    translationKey: "foreignAndArabStudentsTuitionFees",
+    icon: "fa-globe",
   },
   {
-    key: "similar_transfer_prioritization_admission_requirements",
-    translationKey: "similarTransferPrioritizationAdmissionRequirements",
+    key: "general_tuition_fees",
+    translationKey: "generalTuitionFees",
+    icon: "fa-money-bill-wave",
   },
 ];
 
-export default function AdmissionRequirementsArea({ yearsData, locale }: Props) {
+export default function TuitionFeesArea({ yearsData, locale }: Props) {
   const tNav = useTranslations("Nav");
   const tStatic = useTranslations("StaticPage");
   const tQpu = useTranslations("qpu.dynamicContent");
@@ -68,7 +72,7 @@ export default function AdmissionRequirementsArea({ yearsData, locale }: Props) 
   const isRtl = locale === "ar";
 
   return (
-    <section className="admission-requirements-area pt-60 pb-120 bg-light-soft">
+    <section className="tuition-fees-area pt-60 pb-120 bg-light-soft">
       <div className="container">
         {yearsData.length === 0 ? (
           <div className="text-center p-5 bg-white shadow-sm rounded-3">
@@ -95,15 +99,24 @@ export default function AdmissionRequirementsArea({ yearsData, locale }: Props) 
                       <li key={y.yearId} className="border-bottom last-child-0">
                         <button
                           onClick={() => setActiveYearId(y.yearId)}
-                          className={`w-100 text-start px-4 py-3 transition-all d-flex align-items-center justify-content-between gap-2 ${activeYearId === y.yearId ? "active-year-btn" : "inactive-year-btn"
-                            }`}
+                          className={`w-100 text-start px-4 py-3 transition-all d-flex align-items-center justify-content-between gap-2 ${
+                            activeYearId === y.yearId ? "active-year-btn" : "inactive-year-btn"
+                          }`}
                           style={{
                             border: "none",
                             backgroundColor: activeYearId === y.yearId ? "rgba(66, 2, 62, 0.05)" : "transparent",
                             color: activeYearId === y.yearId ? "#42023e" : "#555",
                             fontWeight: activeYearId === y.yearId ? 700 : 500,
-                            borderLeft: isRtl ? "none" : (activeYearId === y.yearId ? "4px solid #42023e" : "4px solid transparent"),
-                            borderRight: isRtl ? (activeYearId === y.yearId ? "4px solid #42023e" : "4px solid transparent") : "none",
+                            borderLeft: isRtl
+                              ? "none"
+                              : activeYearId === y.yearId
+                              ? "4px solid #42023e"
+                              : "4px solid transparent",
+                            borderRight: isRtl
+                              ? activeYearId === y.yearId
+                                ? "4px solid #42023e"
+                                : "4px solid transparent"
+                              : "none",
                           }}
                         >
                           <span className="d-flex align-items-center gap-2">
@@ -133,7 +146,7 @@ export default function AdmissionRequirementsArea({ yearsData, locale }: Props) 
             {/* Main Content Area */}
             <div className="col-lg-9 col-md-8">
               <div
-                className="requirements-content-wrapper bg-white shadow-sm p-4 p-md-5"
+                className="tuition-content-wrapper bg-white shadow-sm p-4 p-md-5"
                 style={{ borderRadius: "20px", border: "1px solid rgba(0,0,0,0.03)", minHeight: "450px" }}
               >
                 {/* Active Year Title */}
@@ -149,23 +162,16 @@ export default function AdmissionRequirementsArea({ yearsData, locale }: Props) 
                     const isActive = activeSection === sec.key;
                     const catData = activeYearData?.categories[sec.key];
                     const tabTitle = catData?.title?.trim() ? catData.title : tQpu(sec.translationKey as never);
-                    let iconClass = "fa-graduation-cap";
-                    if (sec.key === "syrian_students_foreign_certificates_admission_requirements") {
-                      iconClass = "fa-passport";
-                    } else if (sec.key === "foreign_and_arab_students_admission_requirements") {
-                      iconClass = "fa-globe";
-                    } else if (sec.key === "similar_transfer_prioritization_admission_requirements") {
-                      iconClass = "fa-right-left";
-                    }
 
                     return (
                       <button
                         key={sec.key}
                         onClick={() => setActiveSection(sec.key)}
-                        className={`btn-tab transition-all d-flex align-items-center justify-content-center gap-2 ${isActive ? "active" : ""
-                          }`}
+                        className={`btn-tab transition-all d-flex align-items-center justify-content-center gap-2 ${
+                          isActive ? "active" : ""
+                        }`}
                       >
-                        <i className={`fa-solid ${iconClass} tab-icon`} />
+                        <i className={`fa-solid ${sec.icon} tab-icon`} />
                         <span>{tabTitle}</span>
                       </button>
                     );
@@ -174,7 +180,7 @@ export default function AdmissionRequirementsArea({ yearsData, locale }: Props) 
 
                 {/* Tab content */}
                 <div className="tab-content-area">
-                  {tableData.length === 0 && !pdfHref ? (
+                  {tableData.length === 0 && !pdfHref && !activeCategory?.notes ? (
                     <div className="text-center py-5 text-muted">
                       <i
                         className="fa-solid fa-file-circle-exclamation mb-3 d-block"
@@ -184,7 +190,7 @@ export default function AdmissionRequirementsArea({ yearsData, locale }: Props) 
                     </div>
                   ) : (
                     <div>
-                      {/* Render Requirements Table */}
+                      {/* Render Tuition Fees Table */}
                       {tableData.length > 0 && (
                         <div className="table-responsive mb-4">
                           <table className="table table-hover align-middle mb-0">
@@ -247,7 +253,7 @@ export default function AdmissionRequirementsArea({ yearsData, locale }: Props) 
                                       color: "inherit",
                                     }}
                                   >
-                                    {tQpu("certificateType")}
+                                    {tQpu("creditHourFee")}
                                   </th>
                                   <th
                                     scope="col"
@@ -256,16 +262,7 @@ export default function AdmissionRequirementsArea({ yearsData, locale }: Props) 
                                       color: "inherit",
                                     }}
                                   >
-                                    {tQpu("minMarks")}
-                                  </th>
-                                  <th
-                                    scope="col"
-                                    style={{
-                                      backgroundColor: "inherit",
-                                      color: "inherit",
-                                    }}
-                                  >
-                                    {tQpu("notes") || tQpu("currencyType")}
+                                    {tQpu("notes")}
                                   </th>
                                 </tr>
                               )}
@@ -285,14 +282,30 @@ export default function AdmissionRequirementsArea({ yearsData, locale }: Props) 
                                   <tr key={idx}>
                                     <td className="text-muted fw-bold">{idx + 1}</td>
                                     <td>{row.faculty || "—"}</td>
-                                    <td>{row.certificate_type || "—"}</td>
-                                    <td>{row.min_marks || "—"}</td>
-                                    <td>{row.notes || row.currency_type || activeCategory?.currencyType || "—"}</td>
+                                    <td>{row.credit_hour_fee || row.creditHourFee || "—"}</td>
+                                    <td>{row.notes || "—"}</td>
                                   </tr>
                                 ))
                               )}
                             </tbody>
                           </table>
+                        </div>
+                      )}
+
+                      {/* Notes / Remarks section if available */}
+                      {activeCategory?.notes && (
+                        <div
+                          className="tuition-notes-box p-3 mb-4 rounded-3 d-flex align-items-start gap-3"
+                          style={{
+                            backgroundColor: "rgba(66, 2, 62, 0.04)",
+                            border: "1px solid rgba(66, 2, 62, 0.12)",
+                            color: "#42023e",
+                          }}
+                        >
+                          <i className="fa-solid fa-circle-info mt-1 fs-5" style={{ color: "#42023e" }}></i>
+                          <div style={{ whiteSpace: "pre-wrap", lineHeight: 1.7, fontSize: "0.95rem" }}>
+                            {activeCategory.notes}
+                          </div>
                         </div>
                       )}
 
@@ -386,7 +399,7 @@ export default function AdmissionRequirementsArea({ yearsData, locale }: Props) 
           background-color: #f8f9fa !important;
           color: #555 !important;
           text-align: center;
-          box-shadow: 0 2px 4px rgba(0,0,0,0.01);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.01);
           cursor: pointer;
           outline: none;
         }
