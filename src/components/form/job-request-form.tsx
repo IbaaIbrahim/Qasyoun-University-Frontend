@@ -7,6 +7,7 @@ import ErrMsg from "../err-msg";
 import { vacancyService } from "@/lib/services/vacancy.service";
 import { siteRequestService, EmploymentRequestData } from "@/lib/services/site-request.service";
 import { Vacancy } from "@/lib/classes/vacancy";
+import { trackCareerApplication } from "@/lib/analytics";
 
 export default function JobRequestForm() {
   const t = useTranslations("EmploymentForm");
@@ -46,6 +47,8 @@ export default function JobRequestForm() {
       };
 
       await siteRequestService.submitJobApplication(payload);
+      const matchedVacancy = vacancies.find((v) => v.id === parseInt(data.vacancyId));
+      trackCareerApplication(matchedVacancy?.title || `Vacancy #${data.vacancyId}`);
       setSubmitted(true);
       reset();
     } catch (err) {

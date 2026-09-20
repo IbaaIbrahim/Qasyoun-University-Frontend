@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import { useState } from "react";
 import ErrMsg from "../err-msg";
 import { siteRequestService } from "@/lib/services/site-request.service";
+import { trackContactSubmit } from "@/lib/analytics";
 
 export type ContactFormValues = {
   name: string;
@@ -68,10 +69,12 @@ export default function ContactForm({
           message: data.message,
         });
       }
+      trackContactSubmit(data.subject, true);
       setSubmitted(true);
       reset();
     } catch (err) {
       console.error(err);
+      trackContactSubmit(data.subject, false);
       setError(t("error") || "Failed to send message. Please try again later.");
     } finally {
       setIsLoading(false);

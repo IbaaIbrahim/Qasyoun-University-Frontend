@@ -4,6 +4,7 @@ import { useLocale } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
 import { isRtlLocale } from "@/lib/i18n/locale";
+import { trackLanguageSwitch } from "@/lib/analytics";
 
 export const LOCALE_STORAGE_KEY = "NEXT_LOCALE";
 
@@ -45,6 +46,7 @@ export function useLocaleSwitch() {
 
   function switchLocale(next: AppLocale) {
     if (next === locale) return;
+    trackLanguageSwitch(locale, next);
     setStoredLocale(next);
     if (typeof window !== "undefined") {
       const search = window.location.search;

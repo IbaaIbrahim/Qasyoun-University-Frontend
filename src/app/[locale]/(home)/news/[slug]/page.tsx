@@ -9,6 +9,8 @@ import { resolveUploadSrc } from "@/lib/api/client";
 
 export const dynamic = "force-dynamic";
 
+import { ArticleJsonLd } from "@/components/seo/json-ld";
+
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
 };
@@ -20,8 +22,27 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!news) {
     return { title: tMeta("newsNotFoundTitle") };
   }
+
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://qpu.edu.sy";
+  const canonicalPath = `${baseUrl}${locale === "ar" ? "" : `/${locale}`}/news/${encodeURIComponent(slug)}`;
+
   return {
     title: news.title || tMeta("newsDetailTitle"),
+    description: news.summary || news.title,
+    openGraph: {
+      title: news.title || tMeta("newsDetailTitle"),
+      description: news.summary || news.title,
+      url: canonicalPath,
+      type: "article",
+      publishedTime: news.date ? new Date(news.date).toISOString() : undefined,
+      images: news.imageUrl ? [{ url: news.imageUrl }] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: news.title || tMeta("newsDetailTitle"),
+      description: news.summary || news.title,
+      images: news.imageUrl ? [news.imageUrl] : undefined,
+    },
   };
 }
 
@@ -47,8 +68,18 @@ export default async function NewsDetailPage({ params }: Props) {
 
   const pdfHref = news.file ? resolveUploadSrc(news.file, "") : "";
 
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://qpu.edu.sy";
+  const canonicalUrl = `${baseUrl}${locale === "ar" ? "" : `/${locale}`}/news/${encodeURIComponent(slug)}`;
+
   return (
     <main>
+      <ArticleJsonLd
+        title={news.title || ""}
+        description={news.summary || news.title || ""}
+        url={canonicalUrl}
+        imageUrl={news.imageUrl}
+        datePublished={news.date ? new Date(news.date).toISOString() : undefined}
+      />
       <BreadcrumbTwo
         title={news.title || ""}
         subtitle={t("newsDetails")}
