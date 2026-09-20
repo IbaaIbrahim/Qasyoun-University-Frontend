@@ -95,7 +95,7 @@ interface ArticleJsonLdProps {
   title: string;
   description?: string;
   url: string;
-  imageUrl?: string;
+  imageUrl?: string | null;
   datePublished?: string;
   dateModified?: string;
   locale?: string;
@@ -149,7 +149,7 @@ interface EventJsonLdProps {
   startDate?: string;
   endDate?: string;
   location?: string;
-  imageUrl?: string;
+  imageUrl?: string | null;
   url: string;
 }
 

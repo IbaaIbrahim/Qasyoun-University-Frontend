@@ -28,10 +28,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: news.title || tMeta("newsDetailTitle"),
-    description: news.summary || news.title,
+    description: news.description || news.title,
     openGraph: {
       title: news.title || tMeta("newsDetailTitle"),
-      description: news.summary || news.title,
+      description: news.description || news.title,
       url: canonicalPath,
       type: "article",
       publishedTime: news.date ? new Date(news.date).toISOString() : undefined,
@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     twitter: {
       card: "summary_large_image",
       title: news.title || tMeta("newsDetailTitle"),
-      description: news.summary || news.title,
+      description: news.description || news.title,
       images: news.imageUrl ? [news.imageUrl] : undefined,
     },
   };
@@ -75,7 +75,7 @@ export default async function NewsDetailPage({ params }: Props) {
     <main>
       <ArticleJsonLd
         title={news.title || ""}
-        description={news.summary || news.title || ""}
+        description={news.description || news.title || ""}
         url={canonicalUrl}
         imageUrl={news.imageUrl}
         datePublished={news.date ? new Date(news.date).toISOString() : undefined}
