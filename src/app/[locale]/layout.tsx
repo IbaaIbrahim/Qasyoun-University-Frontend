@@ -137,7 +137,7 @@ export async function generateMetadata({
       icon: "/favicon.ico",
     },
     verification: {
-      google: "Nxwehe0W99G6R6O6tesn6avcjdq093QWH0Lj",
+      google: "Nxwehe0W99G6R6O6tesn6avcjdq093QWH0LjMrcKeB0",
     },
   };
 }
