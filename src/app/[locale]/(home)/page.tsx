@@ -45,6 +45,7 @@ export default async function HomePage() {
 
   const tourVideo = meta.find((content) => content.section === ReferenceTypes.home.sections.tour_video.value)?.toTourVideo();
 
+
   return (
     <main>
       {
