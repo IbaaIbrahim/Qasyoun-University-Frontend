@@ -28,7 +28,10 @@ services:
       args:
         - NEXT_PUBLIC_API_BASE_URL=${NEXT_PUBLIC_API_BASE_URL:-https://api.qpu.buzz}
         - NEXT_PUBLIC_GA_MEASUREMENT_ID=${NEXT_PUBLIC_GA_MEASUREMENT_ID}
+        - NEXT_PUBLIC_SITE_URL=${NEXT_PUBLIC_SITE_URL:-https://qpu.edu.sy}
     container_name: qpu-frontend-prod
     ports:
       - "8002:3000"
+    env_file:
+      - .env
     restart: always
