@@ -39,3 +39,5 @@ next-env.d.ts
 
 .firebase/*
 deploy_output.log
+
+.tmp

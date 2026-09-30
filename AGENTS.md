@@ -47,6 +47,7 @@ All user-facing app routes live under the **`[locale]`** segment (`src/app/[loca
 | `/exhibitions/[slug]` | `/en/exhibitions/[slug]` | **Exhibition detail** — detail view for a specific exhibition. |
 | `/gallery` | `/en/gallery` | **Photo gallery list** — list of photo albums. |
 | `/gallery/[id]` | `/en/gallery/[id]` | **Album detail** — grid of photos for a specific album with filter tabs and dynamic lightbox. |
+| `/student-registration` | `/en/student-registration` | **Student Registration** — 3-step online registration form with student personal data, high school certificate details, faculty admission and fee payment; submits to `POST /api/StudentRegistration/Create`. (Also aliased at `/admission/registration`). |
 
 Default locale uses **`localePrefix: 'as-needed'`** (no `/ar` in the path; `/en` for English). Template-only links in `menu_data_2` and some footer paths may still point at demo routes that are **not** implemented here.
 

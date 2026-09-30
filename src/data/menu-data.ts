@@ -32,6 +32,7 @@ const menu_data: IMenu[] = [
 			{ id: 4, title: "tuitionFees", link: "/admission/tuition-fees" },
 			{ id: 5, title: "discountsScholarships", link: "/admission/discounts-scholarships" },
 			{ id: 6, title: "registrationDocuments", link: "/admission/registration-documents" },
+			{ id: 7, title: "studentRegistration", link: "/student-registration" },
 		]
 	},
 	{
