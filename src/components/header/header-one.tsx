@@ -47,8 +47,8 @@ export default async function HeaderOne({
 
         <HeaderStickyWrapper>
           <div className="container">
-            <div className="row align-items-center">
-              <div className="col-xxl-2 col-xl-2 col-lg-6 col-md-6 col-6">
+            <div className="row align-items-center justify-content-between">
+              <div className="col-auto col-lg-6 col-md-6 col-6 col-xl-auto">
                 <div className="tp-header-logo-1 tp-header-logo">
                   <Link href={logoHref}>
                     <Image
@@ -74,20 +74,20 @@ export default async function HeaderOne({
                   </Link>
                 </div>
               </div>
-              <div className="col-xxl-8 col-xl-8 d-none d-xl-block">
+              <div className="col d-none d-xl-block">
                 <div className="main-menu text-end">
                   <NavMenus menu_data={menu_data} />
                 </div>
               </div>
-              <div className="col-xxl-2 col-xl-2 col-lg-6 col-md-6 col-6">
+              <div className="col-auto col-lg-6 col-md-6 col-6 col-xl-auto">
                 <div className="tp-header-contact d-flex align-items-center justify-content-end">
                   <div className="tp-header-serach">
                     <SearchButton icon={<SearchSvg />} />
                   </div>
-                  <div className="tp-header-btn d-none d-md-block ml-30">
+                  <div className="tp-header-btn d-none d-md-block ml-20">
                     <Link href="/faculties">{t("faculties")}</Link>
                   </div>
-                  <div className="tp-header-bar d-xl-none ml-30">
+                  <div className="tp-header-bar d-xl-none ml-20">
                     <OffcanvasButton
                       menuData={menu_data}
                       brandLogoSrc={brandLogoSrc}

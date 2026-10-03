@@ -174,7 +174,7 @@ export default function AdmissionRequirementsArea({ yearsData, locale }: Props) 
 
                 {/* Tab content */}
                 <div className="tab-content-area">
-                  {tableData.length === 0 && !pdfHref ? (
+                  {tableData.length === 0 && !pdfHref && !activeCategory?.currencyType ? (
                     <div className="text-center py-5 text-muted">
                       <i
                         className="fa-solid fa-file-circle-exclamation mb-3 d-block"
@@ -293,6 +293,48 @@ export default function AdmissionRequirementsArea({ yearsData, locale }: Props) 
                               )}
                             </tbody>
                           </table>
+                        </div>
+                      )}
+
+                      {/* Section Notes / Remarks if present */}
+                      {activeCategory?.currencyType && (
+                        <div
+                          className="admission-notes-box my-4 p-4"
+                          style={{
+                            backgroundColor: "rgba(66, 2, 62, 0.04)",
+                            border: "1px solid rgba(66, 2, 62, 0.12)",
+                            borderInlineStart: "4px solid #42023e",
+                            borderRadius: "12px",
+                          }}
+                        >
+                          <div className="d-flex align-items-start gap-3">
+                            <div
+                              className="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0"
+                              style={{
+                                width: "36px",
+                                height: "36px",
+                                backgroundColor: "#42023e",
+                                color: "#fff",
+                              }}
+                            >
+                              <i className="fa-solid fa-circle-info" />
+                            </div>
+                            <div>
+                              <h6 className="fw-bold mb-2" style={{ color: "#42023e" }}>
+                                {tQpu("notes") || (isRtl ? "ملاحظات هامة" : "Important Notes")}
+                              </h6>
+                              <div
+                                className="text-secondary mb-0"
+                                style={{
+                                  whiteSpace: "pre-line",
+                                  lineHeight: "1.8",
+                                  fontSize: "0.95rem",
+                                }}
+                              >
+                                {activeCategory.currencyType}
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       )}
 

@@ -18,11 +18,15 @@ const menu_data: IMenu[] = [
 			{ id: 5, title: "universityCouncil", link: "/about/university-council" },
 			{ id: 6, title: "organizationalStructure", link: "/about/organizational-structure" },
 			{ id: 7, title: "locationInfrastructure", link: "/about/location-infrastructure" },
-			{ id: 8, title: "universityDirectorates", link: "/directorates" },
 		]
 	},
 	{
 		id: 3,
+		title: 'universityDirectorates',
+		link: '/directorates'
+	},
+	{
+		id: 4,
 		title: 'admissionNav',
 		link: '#',
 		dropdown_menus: [
@@ -30,13 +34,17 @@ const menu_data: IMenu[] = [
 			{ id: 2, title: "whyQpu", link: "/admission/why-qpu" },
 			{ id: 3, title: "studySystem", link: "/admission/study-system" },
 			{ id: 4, title: "tuitionFees", link: "/admission/tuition-fees" },
-			{ id: 5, title: "discountsScholarships", link: "/admission/discounts-scholarships" },
-			{ id: 6, title: "registrationDocuments", link: "/admission/registration-documents" },
-			{ id: 7, title: "studentRegistration", link: "/student-registration" },
+			{ id: 5, title: "registrationDocuments", link: "/admission/registration-documents" },
+			{ id: 6, title: "studentRegistration", link: "/student-registration" },
 		]
 	},
 	{
-		id: 4,
+		id: 5,
+		title: 'discountsScholarships',
+		link: '/admission/discounts-scholarships'
+	},
+	{
+		id: 6,
 		title: 'studentLifeNav',
 		link: '#',
 		dropdown_menus: [
@@ -48,12 +56,12 @@ const menu_data: IMenu[] = [
 		]
 	},
 	{
-		id: 5,
+		id: 7,
 		title: 'contact',
 		link: '/contact'
 	},
 	{
-		id: 6,
+		id: 8,
 		title: 'studentsGate',
 		link: 'http://my.qpu.edu.sy/'
 	},
