@@ -68,10 +68,22 @@ export const CERTIFICATE_SOURCES = [
 export async function submitStudentRegistration(
   payload: CreateStudentRegistrationPayload
 ): Promise<StudentRegistration> {
-  const result = await studentRegistrationApi.create(payload);
-  const createdDto = result.data?.[0];
+  const result: any = await studentRegistrationApi.create(payload);
+  const data = result?.data || result?.Data;
+  const createdDto = data?.[0];
   if (!createdDto) {
-    throw new Error("Failed to receive created registration from server.");
+    const rawErr = result?.errors || result?.Errors;
+    let errMsg = "حدث خطأ أثناء حفظ طلب التسجيل. يرجى المحاولة مرة أخرى.";
+    if (typeof rawErr === "string") {
+      errMsg = rawErr;
+    } else if (rawErr?.General?.errors?.[0]?.errorMessage) {
+      errMsg = rawErr.General.errors[0].errorMessage;
+    } else if (typeof rawErr === "object") {
+      const firstKey = Object.keys(rawErr)[0];
+      const nestedErr = rawErr[firstKey]?.errors?.[0]?.errorMessage || rawErr[firstKey];
+      if (typeof nestedErr === "string") errMsg = nestedErr;
+    }
+    throw new Error(errMsg);
   }
   return StudentRegistration.fromDto(createdDto);
 }

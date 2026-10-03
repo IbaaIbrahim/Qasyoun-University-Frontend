@@ -39,6 +39,8 @@ export default function StudentRegistrationArea({
 
   // Field validation errors: field name -> error message
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [pledgeAccepted, setPledgeAccepted] = useState<boolean>(false);
+  const [copiedAppNum, setCopiedAppNum] = useState<boolean>(false);
 
   // Form State
   const [form, setForm] = useState({
@@ -146,6 +148,8 @@ export default function StudentRegistrationArea({
     if (!form.officeId) newErrors.officeId = t("fieldRequired");
     if (form.amountPaid === "" || isNaN(Number(form.amountPaid)))
       newErrors.amountPaid = t("invalidNumber");
+    if (!pledgeAccepted)
+      newErrors.pledgeAccepted = t("pledgeRequired");
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -233,6 +237,8 @@ export default function StudentRegistrationArea({
     setCurrentStep(1);
     setErrors({});
     setErrorMessage(null);
+    setPledgeAccepted(false);
+    setCopiedAppNum(false);
     setForm({
       fullName: "",
       motherName: "",
@@ -326,14 +332,31 @@ export default function StudentRegistrationArea({
               <h2>{t("successTitle")}</h2>
               <p className="sr-success-desc">{t("successDesc")}</p>
 
+              <div className="sr-success-alert mb-4">
+                <span>{t("successAlert")}</span>
+              </div>
+
               <div className="sr-success-meta">
                 <div className="sr-meta-row">
                   <span className="sr-meta-label">
                     {t("applicationNumber")}:
                   </span>
-                  <span className="sr-meta-value highlight">
-                    {submittedData.applicationNumber}
-                  </span>
+                  <div className="d-flex align-items-center gap-2 flex-wrap">
+                    <span className="sr-meta-value highlight">
+                      {submittedData.applicationNumber}
+                    </span>
+                    <button
+                      type="button"
+                      className="sr-copy-badge-btn"
+                      onClick={() => {
+                        navigator.clipboard.writeText(submittedData.applicationNumber);
+                        setCopiedAppNum(true);
+                        setTimeout(() => setCopiedAppNum(false), 2000);
+                      }}
+                    >
+                      {copiedAppNum ? t("copied") : t("copyApplicationNumber")}
+                    </button>
+                  </div>
                 </div>
                 {submittedData.registrationNumber && (
                   <div className="sr-meta-row">
@@ -360,7 +383,7 @@ export default function StudentRegistrationArea({
                 <div className="sr-meta-row">
                   <span className="sr-meta-label">{t("amountPaid")}:</span>
                   <span className="sr-meta-value">
-                    {submittedData.amountPaid.toLocaleString()} ل.س
+                    {submittedData.amountPaid.toLocaleString()} {t("currencyNewSYP")}
                   </span>
                 </div>
               </div>
@@ -457,6 +480,7 @@ export default function StudentRegistrationArea({
                         value={form.birthDate}
                         onChange={handleChange}
                         className={errors.birthDate ? "is-invalid" : ""}
+                        dir="ltr"
                         required
                       />
                       {errors.birthDate && (
@@ -532,6 +556,7 @@ export default function StudentRegistrationArea({
                         name="registrationDate"
                         value={form.registrationDate}
                         onChange={handleChange}
+                        dir="ltr"
                       />
                     </div>
 
@@ -698,6 +723,7 @@ export default function StudentRegistrationArea({
                         value={form.certificateDate}
                         onChange={handleChange}
                         className={errors.certificateDate ? "is-invalid" : ""}
+                        dir="ltr"
                         required
                       />
                       {errors.certificateDate && (
@@ -971,11 +997,39 @@ export default function StudentRegistrationArea({
                     </div>
                   </div>
 
+                  <div className="sr-pledge-box">
+                    <label className="sr-checkbox-container">
+                      <input
+                        type="checkbox"
+                        id="pledgeCheckbox"
+                        checked={pledgeAccepted}
+                        onChange={(e) => {
+                          setPledgeAccepted(e.target.checked);
+                          if (errors.pledgeAccepted) {
+                            setErrors((prev) => {
+                              const next = { ...prev };
+                              delete next.pledgeAccepted;
+                              return next;
+                            });
+                          }
+                        }}
+                      />
+                      <span className="sr-checkbox-text">
+                        {t("pledgeText")} <span className="sr-req">*</span>
+                      </span>
+                    </label>
+                    {errors.pledgeAccepted && (
+                      <span className="sr-error-text sr-pledge-error">
+                        {errors.pledgeAccepted}
+                      </span>
+                    )}
+                  </div>
+
                   <div className="sr-actions">
                     <button
                       type="submit"
                       className="sr-btn-primary"
-                      disabled={submitting}
+                      disabled={submitting || !pledgeAccepted}
                     >
                       {submitting ? t("submitting") : t("submit")}
                     </button>

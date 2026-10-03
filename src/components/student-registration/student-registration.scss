@@ -188,6 +188,24 @@
       }
     }
 
+    input[type="date"] {
+      direction: ltr !important;
+      text-align: right;
+      font-family: inherit;
+
+      &::-webkit-date-and-time-value {
+        text-align: right;
+      }
+
+      &::-webkit-calendar-picker-indicator {
+        cursor: pointer;
+        opacity: 0.7;
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+
     textarea {
       height: 90px;
       padding: 12px 14px;
@@ -226,6 +244,48 @@
       color: #555d69;
       font-size: 13px;
       line-height: 1.8;
+    }
+  }
+
+  .sr-pledge-box {
+    margin-top: 20px;
+    padding: 16px 20px;
+    background: #fbf9fb;
+    border: 1.5px solid #dfc6df;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      border-color: var(--sr-primary);
+    }
+
+    .sr-checkbox-container {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      cursor: pointer;
+      margin-bottom: 0;
+
+      input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        margin-top: 3px;
+        cursor: pointer;
+        accent-color: var(--sr-primary);
+        flex-shrink: 0;
+      }
+
+      .sr-checkbox-text {
+        font-size: 14px;
+        font-weight: 600;
+        color: #2b303a;
+        line-height: 1.6;
+        user-select: none;
+      }
+    }
+
+    .sr-pledge-error {
+      margin-inline-start: 32px;
     }
   }
 
@@ -313,7 +373,38 @@
     .sr-success-desc {
       color: var(--sr-muted);
       font-size: 15px;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
+    }
+
+    .sr-success-alert {
+      max-width: 520px;
+      margin: 0 auto 24px;
+      background: #edf7ed;
+      border: 1px solid #c8e6c9;
+      color: #1e4620;
+      border-radius: 10px;
+      padding: 12px 18px;
+      font-size: 14px;
+      font-weight: 600;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    .sr-copy-badge-btn {
+      border: 1px solid var(--sr-primary);
+      background: #fff;
+      color: var(--sr-primary);
+      padding: 3px 10px;
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+
+      &:hover {
+        background: var(--sr-primary);
+        color: #fff;
+      }
     }
 
     .sr-success-meta {
