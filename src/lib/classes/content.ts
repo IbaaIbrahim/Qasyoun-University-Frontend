@@ -17,6 +17,7 @@ import BreadcrumbPage from "./breadcrumb-page";
 import TourVideo from "./home/tour";
 import StudyPlan from "./faculty/study-plan";
 import WebsiteSettings from "./website-settings";
+import { Department } from "./faculty/department";
 
 export type ContentDto = {
   id: number | string;
@@ -206,5 +207,10 @@ export class ContentJson extends Content {
   toWebsiteSettings(): WebsiteSettings | null {
     if (!this.contentMetasJson) return null;
     return WebsiteSettings.fromContentJson(this);
+  }
+
+  toDepartment(): Department | null {
+    if (!this.contentMetasJson) return null;
+    return Department.fromContentJson(this);
   }
 }

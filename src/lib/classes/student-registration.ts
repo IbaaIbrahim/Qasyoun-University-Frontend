@@ -25,6 +25,21 @@ export class StudentRegistration {
   readonly status: number;
   readonly note: string;
   readonly createdAt: string;
+  readonly highSchoolCertificate: {
+    id?: number;
+    studentRegistrationId?: number;
+    certificateTypeId: number;
+    certificateTypeName?: string;
+    certificateSource?: string | null;
+    certificatePlace?: string | null;
+    certificateDate?: string | null;
+    certificateOrSubscriptionNumber?: string | null;
+    examSessionId?: number | null;
+    examSessionName?: string | null;
+    generalTotal?: number | null;
+    average?: number | null;
+    admissionAverageAfterLanguageExclusion?: number | null;
+  } | null;
 
   constructor(dto: StudentRegistrationCreatedDto) {
     this.id = dto.id;
@@ -52,6 +67,30 @@ export class StudentRegistration {
     this.status = dto.status;
     this.note = dto.note ?? "";
     this.createdAt = dto.createdAt ?? "";
+
+    if (dto.highSchoolCertificate) {
+      const cert = dto.highSchoolCertificate;
+      this.highSchoolCertificate = {
+        id: cert.id,
+        studentRegistrationId: cert.studentRegistrationId,
+        certificateTypeId: cert.certificateTypeId,
+        certificateTypeName:
+          cert.certificateType?.name_AR || cert.certificateType?.name || "",
+        certificateSource: cert.certificateSource,
+        certificatePlace: cert.certificatePlace,
+        certificateDate: cert.certificateDate,
+        certificateOrSubscriptionNumber: cert.certificateOrSubscriptionNumber,
+        examSessionId: cert.examSessionId,
+        examSessionName:
+          cert.examSession?.name_AR || cert.examSession?.name || "",
+        generalTotal: cert.generalTotal,
+        average: cert.average,
+        admissionAverageAfterLanguageExclusion:
+          cert.admissionAverageAfterLanguageExclusion,
+      };
+    } else {
+      this.highSchoolCertificate = null;
+    }
   }
 
   static fromDto(dto: StudentRegistrationCreatedDto): StudentRegistration {
@@ -84,6 +123,7 @@ export class StudentRegistration {
       status: this.status,
       note: this.note,
       createdAt: this.createdAt,
+      highSchoolCertificate: this.highSchoolCertificate,
     };
   }
 }

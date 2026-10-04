@@ -238,6 +238,29 @@ const FacultyType = {
   value: "faculty",
   // referenceIdsAPI: _readAllFaculties,
   sections: {
+    departments: {
+      name: "qpu.dynamicContent.facultyDepartments",
+      value: "departments",
+      maxContentItems: undefined,
+      keys: {
+        title: {
+          name: "qpu.dynamicContent.departmentName",
+          type: "text"
+        },
+        description: {
+          name: "qpu.dynamicContent.departmentDescription",
+          type: "richtext"
+        },
+        icon: {
+          name: "qpu.dynamicContent.departmentIcon",
+          type: "image"
+        },
+        image: {
+          name: "qpu.dynamicContent.departmentImage",
+          type: "image"
+        }
+      }
+    },
     hero_slider: {
       name: "qpu.dynamicContent.heroSlider",
       value: "hero_slider",

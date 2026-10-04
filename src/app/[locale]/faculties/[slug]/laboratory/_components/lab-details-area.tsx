@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import { useTranslations } from 'next-intl';
 import SocialMedia from '@/lib/classes/social-media';
+import { copyToClipboard } from '@/lib/clipboard';
 
 type IProps = {
     lab: LabDto;
@@ -22,10 +23,10 @@ export default function LabDetailsArea({ lab, locale, slides, socials }: IProps)
     const content = locale === 'ar' ? lab.content_AR || lab.content : lab.content;
     const mainImage = resolveUploadSrc(lab.picture?.url, '');
 
-    const handleCopyLink = (e: React.MouseEvent) => {
+    const handleCopyLink = async (e: React.MouseEvent) => {
         e.preventDefault();
         if (typeof window !== 'undefined') {
-            navigator.clipboard.writeText(window.location.href);
+            await copyToClipboard(window.location.href);
             alert(locale === 'ar' ? 'تم نسخ الرابط بنجاح!' : 'Link copied successfully!');
         }
     };

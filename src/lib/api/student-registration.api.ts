@@ -95,7 +95,7 @@ export interface StudentRegistrationCreatedDto {
     admissionAverageAfterLanguageExclusion?: number | null;
   } | null;
   createdAt: string;
-  updatedAt: string;
+  updatedAt?: string | null;
 }
 
 export interface CreateStudentRegistrationResponse {

@@ -190,16 +190,20 @@
 
     input[type="date"] {
       direction: ltr !important;
-      text-align: right;
+      text-align: left !important;
+      unicode-bidi: isolate !important;
       font-family: inherit;
+      min-height: 48px;
 
       &::-webkit-date-and-time-value {
-        text-align: right;
+        text-align: left !important;
+        direction: ltr !important;
       }
 
       &::-webkit-calendar-picker-indicator {
         cursor: pointer;
         opacity: 0.7;
+        margin-inline-start: auto;
         &:hover {
           opacity: 1;
         }

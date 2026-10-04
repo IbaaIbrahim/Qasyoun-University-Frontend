@@ -17,6 +17,7 @@ import { listBestEmployeesByFacultyId } from "@/lib/services/best-employee.servi
 import { listGraduatedStudentsByFacultyId } from "@/lib/services/graduated-student.service";
 import BestEmployeeArea from "@/components/faculty/best-employee-area";
 import GraduatedStudentArea from "@/components/faculty/graduated-student-area";
+import DepartmentArea from "@/components/faculty/department-area";
 import { BestEmployee } from "@/lib/classes/best-employee";
 import { GraduatedStudent } from "@/lib/classes/graduated-student";
 
@@ -106,6 +107,13 @@ export default async function FacultyDetailPage({ params }: Props) {
   const teachers = await listTeachersByFacultyId(faculty.id);
   const teamMembers = teachers.map((t) => t.toMemberCard(locale));
 
+  const departmentContents = meta
+    .filter((item) => item.section === "departments")
+    .map((item) => item.toDepartment())
+    .filter((dept): dept is NonNullable<typeof dept> => dept !== null)
+    .sort((a, b) => a.displayOrder - b.displayOrder);
+  const departments = departmentContents.map((d) => d.toPlain());
+
   const bestEmployees = await listBestEmployeesByFacultyId(faculty.id, teachers);
   const graduatedStudents = await listGraduatedStudentsByFacultyId(faculty.id);
 
@@ -122,6 +130,11 @@ export default async function FacultyDetailPage({ params }: Props) {
       {
         mainText && (
           <AboutTwo gallery={gallery} mainText={mainText} spacing="pt-90 pb-90" />
+        )
+      }
+      {
+        departments.length > 0 && (
+          <DepartmentArea departments={departments} locale={locale} />
         )
       }
       {
