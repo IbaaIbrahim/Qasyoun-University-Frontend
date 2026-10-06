@@ -86,9 +86,12 @@ export default function StudentRegistrationArea({
     >
   ) => {
     const { name, value } = e.target;
+    // General total: digits only, max 4 digits
+    const nextValue =
+      name === "generalTotal" ? value.replace(/\D/g, "").slice(0, 4) : value;
     setForm((prev) => ({
       ...prev,
-      [name]: value,
+      [name]: nextValue,
     }));
     // Clear error for this field
     if (errors[name]) {
@@ -130,15 +133,24 @@ export default function StudentRegistrationArea({
     if (!form.certificateOrSubscriptionNumber.trim())
       newErrors.certificateOrSubscriptionNumber = t("fieldRequired");
     if (!form.examSessionId) newErrors.examSessionId = t("fieldRequired");
-    if (form.generalTotal === "" || isNaN(Number(form.generalTotal)))
+    if (!/^\d{1,4}$/.test(String(form.generalTotal)))
       newErrors.generalTotal = t("invalidNumber");
-    if (form.average === "" || isNaN(Number(form.average)))
-      newErrors.average = t("invalidNumber");
-    if (
-      form.admissionAverageAfterLanguageExclusion === "" ||
-      isNaN(Number(form.admissionAverageAfterLanguageExclusion))
-    )
-      newErrors.admissionAverageAfterLanguageExclusion = t("invalidNumber");
+    const validateAverage = (
+      value: number | "",
+      field: "average" | "admissionAverageAfterLanguageExclusion"
+    ) => {
+      if (value === "" || !Number.isFinite(Number(value))) {
+        newErrors[field] = t("invalidNumber");
+      } else if (Number(value) < 0 || Number(value) > 100) {
+        newErrors[field] = t("averageRange");
+      }
+    };
+
+    validateAverage(form.average, "average");
+    validateAverage(
+      form.admissionAverageAfterLanguageExclusion,
+      "admissionAverageAfterLanguageExclusion"
+    );
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -315,18 +327,16 @@ export default function StudentRegistrationArea({
         {!submittedData && (
           <div className="sr-steps">
             <div
-              className={`sr-step ${currentStep === 1 ? "active" : ""} ${
-                currentStep > 1 ? "completed" : ""
-              }`}
+              className={`sr-step ${currentStep === 1 ? "active" : ""} ${currentStep > 1 ? "completed" : ""
+                }`}
               onClick={() => setCurrentStep(1)}
             >
               <span className="sr-step-num">1</span>
               <span>{t("step1Title")}</span>
             </div>
             <div
-              className={`sr-step ${currentStep === 2 ? "active" : ""} ${
-                currentStep > 2 ? "completed" : ""
-              }`}
+              className={`sr-step ${currentStep === 2 ? "active" : ""} ${currentStep > 2 ? "completed" : ""
+                }`}
               onClick={() => {
                 if (validateStep1()) setCurrentStep(2);
               }}
@@ -819,8 +829,9 @@ export default function StudentRegistrationArea({
                         {t("generalTotal")} <span className="sr-req">*</span>
                       </label>
                       <input
-                        type="number"
-                        step="0.01"
+                        type="text"
+                        inputMode="numeric"
+                        maxLength={4}
                         name="generalTotal"
                         value={form.generalTotal}
                         onChange={handleChange}
