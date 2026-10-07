@@ -4,7 +4,7 @@ export interface CreateStudentHighSchoolCertificatePayload {
   certificateTypeId: number;
   certificateSource?: string | null;
   certificatePlace?: string | null;
-  certificateDate?: string | null;
+  certificateDate?: number | null;
   certificateOrSubscriptionNumber?: string | null;
   examSessionId?: number | null;
   generalTotal?: number | null;
@@ -20,7 +20,6 @@ export interface CreateStudentRegistrationPayload {
   nationalNumber?: string | null;
   identityNumber?: string | null;
   registrationPlace?: string | null;
-  registrationDate?: string | null;
   address?: string | null;
   phone?: string | null;
   mobile?: string | null;
@@ -43,7 +42,6 @@ export interface StudentRegistrationCreatedDto {
   nationalNumber?: string | null;
   identityNumber?: string | null;
   registrationPlace?: string | null;
-  registrationDate?: string | null;
   registrationNumber?: string | null;
   address?: string | null;
   phone?: string | null;
@@ -82,7 +80,7 @@ export interface StudentRegistrationCreatedDto {
     } | null;
     certificateSource?: string | null;
     certificatePlace?: string | null;
-    certificateDate?: string | null;
+    certificateDate?: number | null;
     certificateOrSubscriptionNumber?: string | null;
     examSessionId?: number | null;
     examSession?: {

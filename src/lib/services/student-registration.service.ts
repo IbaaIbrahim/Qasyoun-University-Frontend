@@ -116,7 +116,6 @@ export async function submitStudentRegistration(
     nationalNumber: payload.nationalNumber || null,
     identityNumber: payload.identityNumber || null,
     registrationPlace: payload.registrationPlace || null,
-    registrationDate: null,
     address: payload.address || null,
     phone: payload.phone || null,
     mobile: payload.mobile || null,
@@ -154,7 +153,9 @@ export async function submitStudentRegistration(
             payload.highSchoolCertificate.certificateSource || null,
           certificatePlace:
             payload.highSchoolCertificate.certificatePlace || null,
-          certificateDate: payload.highSchoolCertificate.certificateDate || null,
+          certificateDate: payload.highSchoolCertificate.certificateDate
+            ? Number(payload.highSchoolCertificate.certificateDate)
+            : null,
           certificateOrSubscriptionNumber:
             payload.highSchoolCertificate.certificateOrSubscriptionNumber ||
             null,

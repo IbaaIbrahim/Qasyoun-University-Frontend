@@ -10,7 +10,6 @@ export class StudentRegistration {
   readonly nationalNumber: string;
   readonly identityNumber: string;
   readonly registrationPlace: string;
-  readonly registrationDate: string;
   readonly registrationNumber: string;
   readonly address: string;
   readonly phone: string;
@@ -32,7 +31,7 @@ export class StudentRegistration {
     certificateTypeName?: string;
     certificateSource?: string | null;
     certificatePlace?: string | null;
-    certificateDate?: string | null;
+    certificateDate?: number | null;
     certificateOrSubscriptionNumber?: string | null;
     examSessionId?: number | null;
     examSessionName?: string | null;
@@ -51,7 +50,6 @@ export class StudentRegistration {
     this.nationalNumber = dto.nationalNumber ?? "";
     this.identityNumber = dto.identityNumber ?? "";
     this.registrationPlace = dto.registrationPlace ?? "";
-    this.registrationDate = dto.registrationDate ?? "";
     this.registrationNumber = dto.registrationNumber ?? "";
     this.address = dto.address ?? "";
     this.phone = dto.phone ?? "";
@@ -78,7 +76,10 @@ export class StudentRegistration {
           cert.certificateType?.name_AR || cert.certificateType?.name || "",
         certificateSource: cert.certificateSource,
         certificatePlace: cert.certificatePlace,
-        certificateDate: cert.certificateDate,
+        certificateDate:
+          cert.certificateDate !== null && cert.certificateDate !== undefined
+            ? Number(cert.certificateDate)
+            : null,
         certificateOrSubscriptionNumber: cert.certificateOrSubscriptionNumber,
         examSessionId: cert.examSessionId,
         examSessionName:
@@ -108,7 +109,6 @@ export class StudentRegistration {
       nationalNumber: this.nationalNumber,
       identityNumber: this.identityNumber,
       registrationPlace: this.registrationPlace,
-      registrationDate: this.registrationDate,
       registrationNumber: this.registrationNumber,
       address: this.address,
       phone: this.phone,

@@ -207,7 +207,6 @@ export default function StudentRegistrationArea({
         nationalNumber: form.nationalNumber.trim() || null,
         identityNumber: form.identityNumber.trim() || null,
         registrationPlace: regPlaceCombined || null,
-        registrationDate: null,
         address: form.address.trim() || null,
         phone: form.phone.trim() || null,
         mobile: form.mobile.trim() || null,
@@ -222,7 +221,7 @@ export default function StudentRegistrationArea({
           certificateSource: form.certificateSource.trim() || null,
           certificatePlace: form.certificatePlace.trim() || null,
           certificateDate: form.certificateYear
-            ? `${form.certificateYear}-01-01`
+            ? Number(form.certificateYear)
             : null,
           certificateOrSubscriptionNumber:
             form.certificateOrSubscriptionNumber.trim() || null,
@@ -253,7 +252,6 @@ export default function StudentRegistrationArea({
         nationalNumber: form.nationalNumber.trim() || null,
         identityNumber: form.identityNumber.trim() || null,
         registrationPlace: form.registrationPlace.trim() || null,
-        registrationDate: null,
         address: form.address.trim() || null,
         phone: form.phone.trim() || null,
         mobile: form.mobile.trim() || null,
@@ -264,6 +262,23 @@ export default function StudentRegistrationArea({
         amountPaid: Number(form.amountPaid) || 0,
         status: 1,
         note: form.note.trim() || null,
+        highSchoolCertificate: {
+          id: Date.now() + 1,
+          studentRegistrationId: Date.now(),
+          certificateTypeId: Number(form.certificateTypeId),
+          certificateSource: form.certificateSource.trim() || null,
+          certificatePlace: form.certificatePlace.trim() || null,
+          certificateDate: form.certificateYear
+            ? Number(form.certificateYear)
+            : null,
+          certificateOrSubscriptionNumber:
+            form.certificateOrSubscriptionNumber.trim() || null,
+          examSessionId: Number(form.examSessionId) || null,
+          generalTotal: Number(form.generalTotal) || null,
+          average: Number(form.average) || null,
+          admissionAverageAfterLanguageExclusion:
+            Number(form.admissionAverageAfterLanguageExclusion) || null,
+        },
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString(),
       });
